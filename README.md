@@ -47,6 +47,10 @@ Mūsu digitālā klātbūtne ir optimizēta Latvijas tirgum, izmantojot viedos a
 ---
 © 2026 Shurp SIA. Brauc ar savējiem. Dali ceļu, dali bāku.
 
+---
+* **Atruna:** Shurp nav saistīts ar Bolt, CityBee vai Facebook. Tā ir neatkarīga kopbraukšanas platforma, kas piedāvā alternatīvu pārvietošanās veidu privātpersonām, braucot kopā un dalot ceļa izmaksas.
+---
+
 
 --ENGLISH--
 
@@ -99,4 +103,9 @@ Terms of Service: shurp.lv/terms
 
 Company: Shurp SIA (Reg. No: 40203709369)
 
+
 © 2026 Shurp SIA. Ride with your own. Share the road, share the tank.
+
+---
+* **Disclaimer:** Shurp is not affiliated with Bolt, CityBee, or Facebook. It is an independent carpooling platform offering an alternative way for individuals to travel together and share commuting costs.
+---
