@@ -1,0 +1,15 @@
+User-agent: *
+Content-Signal: search=yes,ai-train=no
+Allow: /
+Disallow: /assets/data/
+Disallow: /assets/config/
+
+# Block AI Scrapers specifically
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://www.shurp.lv/sitemap.xml

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="application/ld:json">
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Shurp",
+              "operatingSystem": "iOS, Android",
+              "applicationCategory": "TravelApplication",
+              "description": "Shurp ir digitāla kopbraukšanas (carpooling) lietotne Latvijā. Brauc ar savējiem bez komisijas maksas.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+              },
+              "author": {
+                "@type": "Organization",
+                "name": "Shurp SIA",
+                "url": "https://www.shurp.lv",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "LV"
+                },
+                "identifier": "40203709369"
+              },
+              "url": "https://www.shurp.lv",
+              "image": "https://www.shurp.lv/assets/logo.png",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "ratingCount": "1"
+              }
+            }
+            </script>
+
+    <title>Shurp | Brauc ar savējiem – Kopbraukšana Rīgā un Latvijā</title>
+    <meta name="description"
+        content="Shurp ir digitāla kopbraukšanas (carpooling) lietotne Latvijā. Ērta mobilitātes alternatīva taksometram un carsharing pakalpojumiem Rīgā un reģionos bez komisijas maksas.">
+    <meta name="keywords"
+        content="kopbraukšana, carpooling Latvija, Shurp, lēti braucieni, Rīga, carsharing alternatīva, bez komisijas, dali ceļu">
+    <meta name="author" content="Shurp SIA">
+
+    <meta property="og:title" content="Shurp | Brauc ar savējiem">
+    <meta property="og:description"
+        content="Dali ceļu, dali bāku. Kopbraukšana Rīgā un visā Latvijā bez komisijas maksas.">
+    <meta property="og:url" content="https://shurp.lv">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.jpg">
+
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+
+    <!-- SVG (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <!-- Safari pinned tab (optional but premium) -->
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#FA7E61">
+
+    <!-- Windows tile (optional) -->
+    <meta name="msapplication-TileColor" content="#125E8A">
+    <meta name="theme-color" content="#125E8A">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF9F5;
+            color: #1F2933;
+            scroll-behavior: smooth;
+        }
+
+        .nav-bar {
+            background-color: rgba(18, 94, 138, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card {
+            background-color: #FFF9F5;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .shurp-coral-bg {
+            background-color: #FA7E61;
+        }
+
+        .shurp-coral-bg:hover {
+            background-color: #e8705a;
+        }
+
+        .shurp-blue-text {
+            color: #125E8A;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+
+        .cta-pop {
+            box-shadow: 0 6px 16px rgba(18, 94, 138, 0.22);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .cta-pop:hover {
+            box-shadow: 0 10px 22px rgba(18, 94, 138, 0.28);
+        }
+
+        .hero-section {
+            background-color: #125E8A;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            position: relative;
+        }
+
+        .soft-blue-bg {
+            background-color: #E6F1F7;
+            position: relative;
+        }
+
+        .organic-blob {
+            position: absolute;
+            top: -120px;
+            left: -10%;
+            width: 130%;
+            height: 400px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .organic-blob {
+                top: -80px;
+                height: 280px;
+                left: -15%;
+                width: 140%;
+            }
+        }
+
+        .warm-white-bg {
+            background-color: #FFF9F5;
+        }
+
+        @keyframes natural-snap {
+
+            0%,
+            20% {
+                transform: translateX(0);
+            }
+
+            25%,
+            45% {
+                transform: translateX(-100%);
+            }
+
+            50%,
+            70% {
+                transform: translateX(-200%);
+            }
+
+            75%,
+            95% {
+                transform: translateX(-300%);
+            }
+
+            100% {
+                transform: translateX(-400%);
+            }
+        }
+
+        .animate-slide {
+            display: flex;
+            width: 100%;
+            animation: natural-snap 12s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .animate-slide img {
+            width: 100%;
+            height: 100%;
+            flex: 0 0 100%;
+            object-fit: cover;
+        }
+
+        .phone-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 3rem;
+            isolation: isolate;
+            mask-image: radial-gradient(white, black);
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+
+        #cta-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+
+        #cta-modal.active {
+            display: flex;
+        }
+
+        .hero-illustration {
+            position: absolute;
+            right: -12vw;
+            bottom: -8vh;
+            width: clamp(650px, 60vw, 1000px);
+            height: auto;
+            pointer-events: none;
+            opacity: 0.95;
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-illustration {
+                right: -35vw;
+                bottom: -10vh;
+                width: 140vw;
+                opacity: 0.95;
+            }
+        }
+
+        .card-illustration {
+            position: absolute;
+            top: clamp(1rem, 2vw, 2rem);
+            right: clamp(1rem, 2vw, 2rem);
+            width: clamp(60px, 8vw, 140px);
+            height: auto;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .phone-shadow {
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <div id="cta-modal" onclick="closeModal(event)">
+        <div class="bg-[#FFF9F5] p-10 rounded-[2.5rem] max-w-sm w-full mx-4 text-center border border-[#E2E8F0] shadow-2xl"
+            onclick="event.stopPropagation()">
+            <h3 class="text-3xl font-bold mb-3 text-[#1F2933]">Jau drīz!</h3>
+            <p class="text-[#1F2933]/70 mb-8 text-sm leading-relaxed">Shurp būs pieejams App Store un Play Store jau
+                tuvākajā laikā. Pieraksties, lai nepalaistu garām!</p>
+
+            <form id="waitlist-form">
+                <input type="email" id="email-input" placeholder="Tavs e-pasts" required
+                    class="w-full bg-[#E6F1F7] border border-[#E2E8F0] rounded-full px-6 py-3 mb-4 focus:outline-none focus:border-[#125E8A] transition text-[#1F2933] placeholder-[#1F2933]/50">
+                <div class="cf-turnstile mb-4 flex justify-center" data-sitekey="0x4AAAAAACjXgi-e6gTBacXk"
+                    data-theme="light"></div>
+                <button type="submit" id="submit-btn"
+                    class="shurp-blue-bg cta-pop w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition">
+                    Paziņo man
+                </button>
+            </form>
+
+            <button onclick="toggleModal()"
+                class="mt-6 text-xs text-[#1F2933]/40 hover:text-[#1F2933] transition tracking-widest uppercase">Aizvērt</button>
+        </div>
+    </div>
+
+    <nav class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+        <div class="flex items-center">
+            <a href="index.html"><img src="assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
+            <a href="#features" class="hover:text-white transition">Kā tas strādā</a>
+            <a href="#safety" class="hover:text-white transition">Drošība</a>
+            <a href="#legal" class="hover:text-white transition">Juridiskā info</a>
+        </div>
+        <button onclick="toggleModal()"
+            class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejuplādēt</button>
+    </nav>
+
+    <section class="hero-section min-h-screen relative overflow-hidden pt-32 pb-20 lg:pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+            <div class="hero min-h-[calc(100vh-8rem)]">
+                <div class="pt-12 lg:pt-24">
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight text-white">
+                        Brauc ar savējiem<br><span class="text-[#F4937C] font-medium italic"> Dali ceļu, dali
+                            bāku</span>
+                    </h1>
+                    <p class="max-w-xl text-lg md:text-xl text-white/70 mb-12 leading-relaxed">
+                        Bez komisijas. Kopbraukšana Rīgā un visā Latvijā
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <div onclick="toggleModal()"
+                            class="w-48 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition group">
+                            <span class="text-sm font-semibold text-white/80 group-hover:text-white transition">App
+                                Store</span>
+                        </div>
+                        <div onclick="toggleModal()"
+                            class="w-48 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition group">
+                            <span class="text-sm font-semibold text-white/80 group-hover:text-white transition">Play
+                                Store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="assets/hands.png" alt="Shurp illustration" class="hero-illustration">
+    </section>
+
+    <section id="features" class="soft-blue-bg px-6 py-24 relative overflow-hidden">
+        <svg class="organic-blob" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none">
+            <path d="M0 0H1440V180C1440 180 1320 280 1100 300C880 320 720 240 540 260C360 280 180 340 0 300V0Z"
+                fill="#125E8A" />
+        </svg>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+                <div
+                    class="lg:col-span-4 h-auto md:h-80 feature-card rounded-[3rem] p-10 relative overflow-hidden flex flex-col justify-end">
+                    <img src="assets/ill_magic.png" alt="" class="card-illustration">
+                    <h3 class="text-3xl font-bold mb-4 tracking-tight text-[#1F2933]">Vienkārši, Maģiski</h3>
+                    <p class="text-[#1F2933]/70 max-w-sm text-lg leading-relaxed">
+                        Aizmirsti par čatiem un grupām. Shurp automātiski savieno šoferus un pasažierus.
+                    </p>
+                </div>
+
+                <div id="safety"
+                    class="lg:col-span-2 h-auto md:h-80 feature-card rounded-[3rem] p-10 flex flex-col justify-end relative overflow-hidden">
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-[#1F2933] leading-tight">Zini, ar ko brauc.
+                        Kontrolē,
+                        ko rādi</h3>
+                    <p class="text-[#1F2933]/70 text-base leading-relaxed">
+                        Publiski reitingi uzticībai un pilna kontrole pār Taviem datiem. Brauc droši.
+                    </p>
+                </div>
+
+                <div
+                    class="lg:col-span-6 h-auto md:h-64 feature-card rounded-[3rem] p-10 flex flex-col md:flex-row md:items-center justify-between relative overflow-hidden">
+                    <div class="max-w-xl relative z-10">
+                        <h3 class="text-3xl font-bold mb-4 tracking-tight text-[#1F2933]">Labi videi</h3>
+                        <p class="text-[#1F2933]/70 text-lg leading-relaxed">
+                            Katrs brauciens ne tikai ļauj ietaupīt, bet arī saudzē vidi un samazina mašīnu skaitu uz
+                            ielām.
+                            Co2 mazāk, maciņā vairāk.
+                        </p>
+                    </div>
+                    <div class="mt-6 md:mt-0 flex items-center space-x-2">
+                        <div class="h-1 w-12 bg-[#125E8A]/30 rounded-full"></div>
+                        <div class="h-1 w-8 bg-[#125E8A]/30 rounded-full"></div>
+                        <div class="h-1 w-4 bg-[#125E8A]/30 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="soft-blue-bg py-32 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="md:w-1/2 text-left">
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
+                    <span class="shurp-blue-text">Viegls dizains</span><br><span class="text-[#1F2933]">Jaudīga
+                        loģika</span>
+                </h2>
+                <p class="text-xl text-[#1F2933]/60 mb-10 leading-relaxed italic">
+                    Mazāk čatu. Vairāk braukšanas
+                </p>
+                <button onclick="toggleModal()"
+                    class="shurp-coral-bg cta-pop px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition text-white">Pievienoties
+                    Shurp</button>
+            </div>
+
+            <div class="md:w-1/2 relative flex justify-center">
+                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow w-[330px] overflow-hidden">
+                    <div class="bg-black rounded-[3rem] aspect-[9/19.5] relative phone-frame">
+                        <div class="animate-slide">
+                            <img src="assets/screen1.png" alt="Ekrāns 1">
+                            <img src="assets/screen2.png" alt="Ekrāns 2">
+                            <img src="assets/screen3.png" alt="Ekrāns 3">
+                            <img src="assets/screen4.png" alt="Ekrāns 4">
+                            <img src="assets/screen1.png" alt="Loop">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="legal" class="py-24 px-8 shurp-blue-bg">
+        <div class="max-w-7xl mx-auto text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-6 text-white">Shurp SIA</h4>
+                    <p class="leading-relaxed mb-4 text-white/70">
+                        Reģ. Nr: LV40203709369<br>
+
+                        Kontaktinformācija: <span id="safe-email" class="text-white/70"></span>
+                    </p>
+                    <p class="leading-relaxed text-white/70">
+                        <strong class="text-white">Privātuma atruna:</strong> Mēs izmantojam adrešu datus tikai
+                        braucienu savienošanai.
+                        Precīza adrese un lietotāja informācija redzama tikai brauciena dalībniekiem.
+                    </p>
+                </div>
+                <div class="text-left md:text-right">
+                    <h4 class="text-lg font-bold mb-6 text-white">Par platformu</h4>
+                    <p class="leading-relaxed text-white/70 max-w-xl md:ml-auto">
+                        Shurp ir digitāla kopbraukšanas (carpooling) lietotne Latvijā, kas savieno autovadītājus un
+                        pasažierus dalītiem braucieniem bez komisijas maksas.
+                        Ērta mobilitātes alternatīva taksometram un carsharing pakalpojumiem Rīgā, Latvijas pilsētās un
+                        reģionos — visur, kur cilvēkiem ir auto un telefons.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/10 uppercase tracking-[0.2em] text-[10px] text-white/70">
+                <p>&copy; 2026 SHURP. Visas tiesības aizsargātas.</p>
+                <div class="flex space-x-8 mt-6 md:mt-0">
+                    <a href="/privacy" class="hover:text-white transition">Privātuma politika</a>
+                    <a href="/terms" class="hover:text-white transition">Lietošanas noteikumi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://ypfryryaujlvidyfzybk.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_4im9iKTgzFO_a-VLlxz-7Q_cvlQxYQf';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        function toggleModal() {
+            const modal = document.getElementById('cta-modal');
+            modal.classList.toggle('active');
+        }
+        function closeModal(e) {
+            if (e.target.id === 'cta-modal') toggleModal();
+        }
+
+        document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            const submitBtn = document.getElementById('submit-btn');
+            const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
+
+            if (!turnstileResponse) {
+                alert("Lūdzu, apstipriniet, ka neesat robots.");
+                return;
+            }
+
+            submitBtn.innerText = "Sūta...";
+            submitBtn.disabled = true;
+
+            const { error } = await _supabase.from('leads').insert([{ email: email }]);
+
+            if (error) {
+                alert("Kļūda: " + error.message);
+                submitBtn.innerText = "Mēģināt vēlreiz";
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.innerText = "Paldies! Tu esi sarakstā.";
+                setTimeout(() => {
+                    toggleModal();
+                    submitBtn.innerText = "Paziņo man";
+                    submitBtn.disabled = false;
+                    e.target.reset();
+                }, 2000);
+            }
+        });
+
+        document.getElementById("safe-email").textContent = "info" + "@" + "shurp.lv";
+    </script>
+</body>
+
+</html>
