@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shurp | Privacy Policy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E6F1F7;
+            color: #1F2933;
+            line-height: 1.6;
+        }
+
+        .nav-bar {
+            background-color: rgba(18, 94, 138, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shurp-blue-text {
+            color: #125E8A;
+        }
+
+        .legal-card {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 40px;
+            border-radius: 2.5rem;
+            background-color: #FFF9F5;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #1F2933;
+            border-left: 3px solid #125E8A;
+            padding-left: 15px;
+        }
+
+        p {
+            opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+
+        .compact-list {
+            list-style: none;
+            padding-left: 0;
+            opacity: 0.7;
+        }
+
+        .compact-list li {
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .compact-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #125E8A;
+            font-weight: bold;
+        }
+
+        strong {
+            opacity: 1;
+            color: #1F2933;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: rgba(18, 94, 138, 0.08);
+            padding: 30px;
+            border-radius: 1.5rem;
+            border: 1px dashed rgba(18, 94, 138, 0.3);
+        }
+
+        .legal-footer-box {
+            background: #E6F1F7;
+            padding: 30px;
+            border-radius: 1.5rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+    </style>
+</head>
+
+<body class="px-4">
+
+    <nav class="nav-bar fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+        <div class="flex items-center">
+            <a href="./">
+                <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
+            </a>
+        </div>
+        <a href="./" class="text-sm font-medium text-white/70 hover:text-white transition">← Back</a>
+    </nav>
+
+    <div class="legal-card">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privacy Policy</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Last updated: February 2026</p>
+
+        <section>
+            <div class="highlight-box">
+                <h2 style="border-left: none; padding-left: 0; margin-bottom: 1rem;" class="text-xl">1. Our Philosophy:
+                    Privacy by Design</h2>
+                <p class="mb-0 opacity-100">Shurp is built on one principle: we collect only what’s necessary — and
+                    nothing more.</p>
+                <p class="mb-0 opacity-100">Your privacy isn’t a feature. It’s part of the architecture.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Who is the Data Controller?</h2>
+            <p>The personal data controller is:</p>
+            <p><strong>SIA Shurp</strong><br>
+                Reg. No. LV40203709369<br>
+                Address: Briežu iela 9, Lapsas, LV-2107, Latvia<br>
+                Email for privacy inquiries:
+                <span id="safe-email-p2"></span>
+                <script>
+                    (function () {
+                        var user = "legal";
+                        var domain = "shurp.lv";
+                        var email = user + "@" + domain;
+                        var container = document.getElementById("safe-email-p2");
+                        var link = document.createElement("a");
+                        link.href = "mailto:" + email;
+                        link.className = "shurp-blue-text";
+                        link.innerText = email;
+                        container.appendChild(link);
+                    })();
+                </script>
+            </p>
+            <p>We process personal data in accordance with the General Data Protection Regulation (GDPR) and Latvian
+                legislation.</p>
+        </section>
+
+        <section>
+            <h2>3. What Data Do We Process?</h2>
+
+            <p><strong>Identity Data</strong></p>
+            <ul class="compact-list">
+                <li>Name</li>
+                <li>Phone number</li>
+                <li>Profile photo (if added)</li>
+            </ul>
+            <p class="text-sm italic">Required so users know who they're riding with.</p>
+
+            <p class="mt-6"><strong>Verification Data</strong></p>
+            <p class="text-sm">If you verify your identity (e.g., as a driver through CSDD):</p>
+            <ul class="compact-list">
+                <li>we do not store your personal document numbers,</li>
+                <li>we only save an encrypted verification status.</li>
+            </ul>
+
+            <p class="mt-6"><strong>Location Data (GPS)</strong></p>
+            <p class="text-sm">To find fellow travelers on the same route, we need:</p>
+            <ul class="compact-list">
+                <li>origin and destination information</li>
+                <li>route data</li>
+            </ul>
+            <p class="text-sm">Precise coordinates are processed only as long as necessary for trip facilitation.</p>
+            <p class="text-sm">Location data is processed only upon user initiative (e.g., using the "Use my location"
+                feature for route input or sharing location via an external messaging app).
+                Shurp does not perform continuous or background location tracking.</p>
+
+            <p class="mt-6"><strong>Communication Data</strong></p>
+            <ul class="compact-list">
+                <li>Chat messages between users</li>
+                <li>Technical communication with support</li>
+            </ul>
+
+            <p class="mt-6"><strong>Technical Data</strong></p>
+            <ul class="compact-list">
+                <li>Device type</li>
+                <li>App version</li>
+                <li>Access time</li>
+            </ul>
+            <p class="text-sm italic">This data is used only for system security and stability.</p>
+        </section>
+
+        <section>
+            <h2>4. How Do We Protect Your Location?</h2>
+            <p>We've intentionally built multiple layers of protection.</p>
+            <ul class="compact-list">
+                <li><strong>Location Anonymization:</strong> We don't use your exact address in search processes.</li>
+                <li><strong>Dynamic Offset:</strong> We don't use your exact address in the general search list.
+                    Your route is processed in anonymized regions, ensuring no one can trace your exact trip starting
+                    point.</li>
+                <li><strong>Progressive Access:</strong> The exact meeting point becomes visible only after trip
+                    confirmation.</li>
+                <li><strong>Private Routes:</strong> Your regular routes ("Magic Button") are not publicly visible
+                    until you confirm a trip.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Legal Basis for Data Processing</h2>
+            <p>We process data based on:</p>
+            <ul class="compact-list">
+                <li>Contract performance (organizing trips between users)</li>
+                <li>Legal obligation compliance</li>
+                <li>Legitimate interests (platform security)</li>
+                <li>User consent (e.g., location access)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. How Long Do We Store Data?</h2>
+            <p>We don't like digital dust.</p>
+            <ul class="compact-list">
+                <li>Detailed trip coordinates are anonymized after 30 days.</li>
+                <li>Chat history is deleted 30 days after the trip ends.</li>
+                <li>Technical logs are stored for a limited time for security and system stability purposes.</li>
+                <li>If you delete your account, personal data is permanently removed from active systems, except
+                    where regulations require retention.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Data Sharing with Third Parties</h2>
+            <p>We don't sell your personal data to advertisers.</p>
+            <p>The platform may include advertising or sponsored content. Such content is served based on
+                non-identifiable criteria,
+                such as general route parameters or regional data (e.g., showing a coffee shop ad to users traveling
+                toward a specific
+                city), without disclosing your personal identity or contact details to advertisers. This processing is
+                conducted in
+                accordance with GDPR principles and our legitimate interest in maintaining a commission-free platform
+                for our users.</p>
+            <p>Data may be shared:</p>
+            <ul class="compact-list">
+                <li>between driver and passenger (only what's necessary for the trip),</li>
+                <li>with technical service providers ensuring hosting, system maintenance, and security.</li>
+                <li>Data is stored within the European Union or in accordance with Google's international data
+                    protection mechanisms. Data processing agreements (DPA) are in place with all service providers.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Security</h2>
+            <ul class="compact-list">
+                <li>Data is encrypted during transmission and storage.</li>
+                <li>Sensitive information is not stored in plain text.</li>
+                <li>Data access is restricted and auditable.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>9. Your Rights</h2>
+            <p>Under GDPR, you have the right to:</p>
+            <ul class="compact-list">
+                <li>access your data, correct inaccurate data, request data deletion,</li>
+                <li>restrict processing, object to processing,</li>
+                <li>receive a copy of your data in a portable format.</li>
+            </ul>
+            <p>Requests can be submitted through the app's profile help section, or by writing to:
+                <span id="safe-email-p9"></span>
+                <script>
+                    (function () {
+                        var user = "legal";
+                        var domain = "shurp.lv";
+                        var email = user + "@" + domain;
+                        var container = document.getElementById("safe-email-p9");
+                        var link = document.createElement("a");
+                        link.href = "mailto:" + email;
+                        link.className = "shurp-blue-text";
+                        link.innerText = email;
+                        container.appendChild(link);
+                    })();
+                </script>
+            </p>
+            <p>If you believe your data is being processed improperly, you have the right to file a complaint with the
+                Latvian Data State Inspectorate.</p>
+        </section>
+
+        <section>
+            <h2>10. Changes to This Policy</h2>
+            <p>If we make significant changes, we will notify you in the app or on the website.</p>
+        </section>
+
+        <section>
+            <div class="legal-footer-box">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Data Controller</p>
+                        <p class="font-bold">SIA Shurp</p>
+                        <p class="text-sm opacity-60">Reg. No. LV40203709369</p>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Legal Address</p>
+                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvia</p>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0]">
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">DSA Contact Point</p>
+                        <span id="safe-email-footer"></span>
+                        <script>
+                            (function () {
+                                var user = "legal";
+                                var domain = "shurp.lv";
+                                var email = user + "@" + domain;
+                                var container = document.getElementById("safe-email-footer");
+                                var link = document.createElement("a");
+                                link.href = "mailto:" + email;
+                                link.className = "shurp-blue-text font-bold hover:underline";
+                                link.innerText = email;
+                                container.appendChild(link);
+                            })();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pt-8 text-center">
+            <a href="./" class="shurp-blue-text font-bold hover:opacity-80 transition">Back to Homepage</a>
+        </div>
+    </div>
+
+    <footer class="py-12 px-8 shurp-blue-bg text-center text-xs uppercase tracking-widest">
+        <p class="text-white/70">&copy; 2026 SHURP. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

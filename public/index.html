@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Get the browser language safely
+        const navLang = (navigator.language || navigator.userLanguage || 'lv').toLowerCase();
+
+        // If it starts with 'en', go to English. Otherwise, default to Latvian.
+        if (navLang.startsWith('en')) {
+            window.location.replace('/en/');
+        } else {
+            window.location.replace('/lv/');
+        }
+    </script>
+    <title>Shurp | Ride with the pack</title>
+</head>
+
+<body style="background: #125E8A;"></body>
+
+</html>
