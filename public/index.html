@@ -2,27 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shurp | Ride with the pack</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shurp</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://shurp.lv/" />
+
+    <!-- Hreflang for SEO -->
+    <link rel="alternate" href="https://shurp.lv/en/" hreflang="en" />
+    <link rel="alternate" href="https://shurp.lv/lv/" hreflang="lv" />
+    <link rel="alternate" href="https://shurp.lv/lv/" hreflang="x-default" />
+
+    <!-- Minimal critical CSS for loader -->
     <style>
+        html,
         body {
-            /* This is the exact #125E8A brand color from your style.css */
-            background-color: #125E8A;
             margin: 0;
+            height: 100%;
+            background-color: #125E8A;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
         }
 
         .loader {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            border-top-color: white;
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            border-top-color: #fff;
             border-radius: 50%;
-            animation: spin 1s ease-in-out infinite;
+            animation: spin 0.9s linear infinite;
         }
 
         @keyframes spin {
@@ -31,22 +40,36 @@
             }
         }
     </style>
+
+    <!-- Ultra-light redirect -->
     <script>
         (function () {
-            // Get browser language safely
-            const navLang = (navigator.language || navigator.userLanguage || 'lv').toLowerCase();
+            try {
+                var lang = (navigator.languages && navigator.languages.length)
+                    ? navigator.languages[0]
+                    : (navigator.language || 'lv');
 
-            // Redirect logic
-            const target = navLang.startsWith('en') ? '/en/' : '/lv/';
+                lang = lang.toLowerCase();
 
-            // Using replace() so the user doesn't get stuck in a "Back Button" loop
-            window.location.replace(target);
+                var target = lang.startsWith('en') ? '/en/' : '/lv/';
+
+                if (location.pathname !== target) {
+                    location.replace(target);
+                }
+            } catch (e) {
+                location.replace('/lv/');
+            }
         })();
     </script>
+
+    <!-- No-JS fallback -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/lv/" />
+    </noscript>
 </head>
 
 <body>
-    <div class="loader"></div>
+    <div class="loader" aria-hidden="true"></div>
 </body>
 
 </html>

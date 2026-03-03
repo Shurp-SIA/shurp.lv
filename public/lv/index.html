@@ -71,8 +71,7 @@
 
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -289,8 +288,7 @@
             <form id="waitlist-form">
                 <input type="email" id="email-input" placeholder="Tavs e-pasts" required
                     class="w-full bg-[#E6F1F7] border border-[#E2E8F0] rounded-full px-6 py-3 mb-4 focus:outline-none focus:border-[#125E8A] transition text-[#1F2933] placeholder-[#1F2933]/50">
-                <div class="cf-turnstile mb-4 flex justify-center" data-sitekey="0x4AAAAAACjXgi-e6gTBacXk"
-                    data-theme="light"></div>
+                <div id="turnstile-container" class="mb-4 flex justify-center" style="min-height:65px;"></div>
                 <button type="submit" id="submit-btn"
                     class="shurp-blue-bg cta-pop w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition">
                     Paziņo man
@@ -310,16 +308,16 @@
             <a href="#features" class="hover:text-white transition">Kā tas strādā</a>
             <a href="#safety" class="hover:text-white transition">Drošība</a>
             <a href="#legal" class="hover:text-white transition">Juridiskā info</a>
-            <div
-                class="flex items-center mr-4 border-r border-white/20 pr-4 gap-3 text-xs font-bold tracking-widest text-white/60">
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
                 <a href="../en/" class="hover:text-white transition">EN</a>
                 <span class="text-white/20">|</span>
                 <span class="text-white">LV</span>
             </div>
-
+            <button onclick="toggleModal()"
+                class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejuplādēt</button>
         </div>
-        <button onclick="toggleModal()"
-            class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejuplādēt</button>
     </nav>
 
     <section class="hero-section min-h-screen relative overflow-hidden pt-32 pb-20 lg:pb-12">
@@ -470,16 +468,37 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const SUPABASE_URL = 'https://ypfryryaujlvidyfzybk.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_4im9iKTgzFO_a-VLlxz-7Q_cvlQxYQf';
-        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
+        let turnstileWidgetId = null;
 
+        function renderTurnstileOnce() {
+            const container = document.getElementById('turnstile-container');
+            if (!container || turnstileWidgetId !== null) return;
+
+            turnstileWidgetId = turnstile.render(container, {
+                sitekey: TURNSTILE_SITEKEY,
+                theme: 'light'
+            });
+        }
+
+        window.addEventListener('load', () => {
+            if (window.turnstile) {
+                renderTurnstileOnce();
+            } else {
+                const check = setInterval(() => {
+                    if (window.turnstile) {
+                        renderTurnstileOnce();
+                        clearInterval(check);
+                    }
+                }, 100);
+            }
+        });
         function toggleModal() {
             const modal = document.getElementById('cta-modal');
             modal.classList.toggle('active');
         }
+
         function closeModal(e) {
             if (e.target.id === 'cta-modal') toggleModal();
         }
@@ -488,34 +507,67 @@
             e.preventDefault();
             const email = document.getElementById('email-input').value;
             const submitBtn = document.getElementById('submit-btn');
-            const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
 
-            if (!turnstileResponse) {
-                alert("Lūdzu, apstipriniet, ka neesat robots.");
+            if (turnstileWidgetId === null) {
+                alert('Drošības pārbaude vēl nav ielādēta. Lūdzu, uzgaidiet.');
                 return;
             }
 
-            submitBtn.innerText = "Sūta...";
+            const token = turnstile.getResponse(turnstileWidgetId);
+
+            if (!token) {
+                alert('Lūdzu, apstipriniet, ka neesat robots.');
+                return;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Lūdzu ievadiet derīgu e-pastu.');
+                return;
+            }
+
+            submitBtn.innerText = 'Sūta...';
             submitBtn.disabled = true;
 
-            const { error } = await _supabase.from('leads').insert([{ email: email, lang: 'lv' }]);
+            try {
+                const res = await fetch(
+                    'https://ypfryryaujlvidyfzybk.supabase.co/functions/v1/waitlist',
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email: email,
+                            token: token,
+                            lang: 'lv'
+                        })
+                    }
+                );
 
-            if (error) {
-                alert("Kļūda: " + error.message);
-                submitBtn.innerText = "Mēģināt vēlreiz";
+                if (!res.ok) {
+                    const text = await res.text();
+                    throw new Error(text);
+                }
+            } catch (err) {
+                alert('Kļūda: ' + err.message);
+                submitBtn.innerText = 'Mēģināt vēlreiz';
                 submitBtn.disabled = false;
-            } else {
-                submitBtn.innerText = "Paldies! Tu esi sarakstā.";
-                setTimeout(() => {
-                    toggleModal();
-                    submitBtn.innerText = "Paziņo man";
-                    submitBtn.disabled = false;
-                    e.target.reset();
-                }, 2000);
+                if (turnstileWidgetId !== null) {
+                    turnstile.reset(turnstileWidgetId);
+                }
+                return;
             }
+
+            turnstile.reset(turnstileWidgetId);
+
+            submitBtn.innerText = 'Paldies! Tu esi sarakstā.';
+            setTimeout(() => {
+                toggleModal();
+                submitBtn.innerText = 'Paziņo man';
+                submitBtn.disabled = false;
+                e.target.reset();
+            }, 2000);
         });
 
-        document.getElementById("safe-email").textContent = "info" + "@" + "shurp.lv";
+        document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
     </script>
 </body>
 
