@@ -5,102 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shurp | Terms of Use</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #E6F1F7;
-            color: #1F2933;
-            line-height: 1.6;
-        }
-
-        .nav-bar {
-            background-color: rgba(18, 94, 138, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .shurp-blue-text {
-            color: #125E8A;
-        }
-
-        .legal-card {
-            max-width: 800px;
-            margin: 120px auto 60px;
-            padding: 40px;
-            border-radius: 2.5rem;
-            background-color: #FFF9F5;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            color: #1F2933;
-            border-left: 3px solid #125E8A;
-            padding-left: 15px;
-        }
-
-        p {
-            opacity: 0.7;
-            margin-bottom: 1rem;
-        }
-
-        .compact-list {
-            list-style: none;
-            padding-left: 0;
-            opacity: 0.7;
-        }
-
-        .compact-list li {
-            margin-bottom: 0.4rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .compact-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #125E8A;
-            font-weight: bold;
-        }
-
-        strong {
-            opacity: 1;
-            color: #1F2933;
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: rgba(18, 94, 138, 0.08);
-            padding: 30px;
-            border-radius: 1.5rem;
-            border: 1px dashed rgba(18, 94, 138, 0.3);
-        }
-
-        .legal-footer-box {
-            background: #E6F1F7;
-            padding: 30px;
-            border-radius: 1.5rem;
-            border: 1px solid #E2E8F0;
-        }
-
-        .shurp-blue-bg {
-            background-color: #125E8A;
-        }
-    </style>
 </head>
 
-<body class="px-4">
+<body class="font-['Inter'] bg-[#E6F1F7] text-[#1F2933] leading-relaxed px-4">
 
-    <nav class="nav-bar fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+    <nav class="nav-bar">
         <div class="flex items-center">
             <a href="./">
                 <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
@@ -113,9 +24,9 @@
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Terms of Use</h1>
         <p class="text-sm opacity-40 mb-10 italic">Last updated: February 2026</p>
 
-        <section>
+        <section class="legal-section">
             <div class="highlight-box">
-                <h2 style="border-left: none; padding-left: 0; margin-bottom: 1rem;" class="text-xl">Shurp Rules:
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">Shurp Rules:
                     TL;DR</h2>
                 <p class="mb-4 opacity-100">Before you hit the road, remember:</p>
                 <ul class="compact-list text-sm md:text-base opacity-100">
@@ -129,31 +40,35 @@
             </div>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>1. What is Shurp?</h2>
             <p>Shurp is a technology platform that connects private individuals (drivers and passengers) heading the
                 same way to share trip costs.</p>
-            <p>Shurp <strong>does not provide</strong> transportation services, does not manage vehicles, does not
+            <p>Shurp <strong class="opacity-100 text-[#1F2933] font-semibold">does not provide</strong> transportation
+                services, does not manage vehicles, does not
                 employ drivers, and does not offer taxi or courier services.</p>
             <p>When users agree on a trip, obligations arise directly between the driver and passenger.
                 Shurp is not a party to this agreement and only provides a technical platform for communication and
                 cost calculation.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>2. Participant Requirements</h2>
-            <p>To use the platform, you must be at least <strong>18 years old</strong>.</p>
+            <p>To use the platform, you must be at least <strong class="opacity-100 text-[#1F2933] font-semibold">18
+                    years old</strong>.</p>
             <ul class="compact-list">
-                <li><strong>Drivers:</strong> Valid driver's license, valid MTPL insurance, and vehicle in proper
+                <li><strong class="opacity-100 text-[#1F2933] font-semibold">Drivers:</strong> Valid driver's license,
+                    valid MTPL insurance, and vehicle in proper
                     technical condition.</li>
-                <li><strong>Passengers:</strong> Trips must be booked in your own name. You cannot reserve a seat
+                <li><strong class="opacity-100 text-[#1F2933] font-semibold">Passengers:</strong> Trips must be booked
+                    in your own name. You cannot reserve a seat
                     for minors without an accompanying adult.</li>
             </ul>
-            <p class="text-xs opacity-50 mt-4 italic text-sm">Shurp reserves the right to request additional
+            <p class="text-sm opacity-50 mt-4 italic">Shurp reserves the right to request additional
                 information or suspend an account if there are doubts about compliance with these terms.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>3. Cost Sharing Principle</h2>
             <p>Shurp is based on fair cost distribution.</p>
             <ul class="compact-list">
@@ -162,70 +77,62 @@
                 <li>Users agree on payments between themselves.</li>
             </ul>
             <div class="mt-4 p-4 border-l-2 border-[#125E8A]/30 bg-[#E6F1F7]">
-                <p class="text-sm"><strong>Important:</strong> Shurp does not process payments, does not maintain
+                <p class="text-sm"><strong class="opacity-100 text-[#1F2933] font-semibold">Important:</strong> Shurp
+                    does not process payments, does not maintain
                     financial accounts, and does not charge commission fees. Users are responsible for their own tax
                     and financial obligations.</p>
             </div>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>4. Safety and Liability</h2>
             <ul class="compact-list">
                 <li>Private MTPL covers passengers if the trip is non-commercial.</li>
                 <li>The driver has the right to verify the passenger's identity before the trip.</li>
                 <li>Users are responsible for their own actions, safety, and belongings.</li>
             </ul>
-            <p class="mt-6 mb-2"><strong>Liability Limitation:</strong></p>
+            <p class="mt-6 mb-2"><strong class="opacity-100 text-[#1F2933] font-semibold">Liability Limitation:</strong>
+            </p>
             <p class="text-sm">Shurp is not responsible for traffic accidents, user actions, losses during trips, or
                 disputes between users. The platform is provided "as-is".</p>
             <p class="text-sm">To the extent permitted by law, Shurp's total liability in any case does not exceed
-                <strong>0 EUR</strong>, as the platform does not charge for services.
+                <strong class="opacity-100 text-[#1F2933] font-semibold">0 EUR</strong>, as the platform does not charge
+                for services.
             </p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>5. Account Suspension</h2>
             <p>Shurp reserves the right to suspend or delete a user account at any time if these terms, regulations,
                 or other users' safety are violated.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>6. Community Guidelines</h2>
             <ul class="compact-list">
                 <li>If you're running late or can't make it — inform the other party.</li>
                 <li>Repeated no-shows (ghosting) may affect your rating or platform access.</li>
-                <li>For inappropriate behavior, use the <strong>"Report"</strong> function.</li>
+                <li>For inappropriate behavior, use the <strong
+                        class="opacity-100 text-[#1F2933] font-semibold">"Report"</strong> function.</li>
             </ul>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>7. Data Protection</h2>
             <p>Personal data processing is carried out in accordance with Shurp's Privacy Policy. You can request
                 deletion of your data by writing to <span id="safe-email-info-section"></span>.</p>
-            <script>
-                (function () {
-                    var user = "info";
-                    var domain = "shurp.lv";
-                    var email = user + "@" + domain;
-                    var container = document.getElementById("safe-email-info-section");
-                    var link = document.createElement("a");
-                    link.href = "mailto:" + email;
-                    link.className = "shurp-blue-text";
-                    link.innerText = email;
-                    container.appendChild(link);
-                })();
-            </script>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>8. Dispute Resolution</h2>
             <p>Latvian law applies. Disputes are primarily resolved through negotiation or in Latvian courts
                 according to jurisdiction.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <div class="legal-footer-box">
-                <p class="opacity-100 mb-4"><strong>9. Legal Information</strong></p>
+                <p class="opacity-100 mb-4"><strong class="opacity-100 text-[#1F2933] font-semibold">9. Legal
+                        Information</strong></p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Service Provider</p>
@@ -245,42 +152,57 @@
                         <span id="safe-email-info-footer"></span>
                     </div>
                 </div>
-                <script>
-                    (function () {
-                        // Legal email
-                        var u1 = "legal", d1 = "shurp.lv";
-                        var e1 = u1 + "@" + d1;
-                        var c1 = document.getElementById("safe-email-legal");
-                        var l1 = document.createElement("a");
-                        l1.href = "mailto:" + e1;
-                        l1.className = "shurp-blue-text font-bold hover:underline";
-                        l1.innerText = e1;
-                        c1.appendChild(l1);
-
-                        // Info email
-                        var u2 = "info", d2 = "shurp.lv";
-                        var e2 = u2 + "@" + d2;
-                        var c2 = document.getElementById("safe-email-info-footer");
-                        var l2 = document.createElement("a");
-                        l2.href = "mailto:" + e2;
-                        l2.className = "opacity-80 hover:underline";
-                        l2.innerText = e2;
-                        c2.appendChild(l2);
-                    })();
-                </script>
                 <p class="mt-6 text-xs opacity-40">Shurp platform operations are supervised by Latvian competent
                     authorities in accordance with the Digital Services Act (DSA).</p>
             </div>
         </section>
 
         <div class="pt-8 text-center">
-            <a href="./" class="shurp-blue-text font-bold hover:opacity-80 transition">Back to Homepage</a>
+            <a href="./" class="text-[#125E8A] font-bold hover:opacity-80 transition">Back to Homepage</a>
         </div>
     </div>
 
-    <footer class="py-12 px-8 shurp-blue-bg text-center text-xs uppercase tracking-widest">
+    <footer class="py-12 px-8 bg-[#125E8A] text-center text-xs uppercase tracking-widest">
         <p class="text-white/70">&copy; 2026 SHURP. All rights reserved.</p>
     </footer>
+
+    <script>
+        (function () {
+            var domain = "shurp.lv";
+
+            // Info email in Section 7
+            var infoEmail = "info@" + domain;
+            var infoSection = document.getElementById("safe-email-info-section");
+            if (infoSection) {
+                var link1 = document.createElement("a");
+                link1.href = "mailto:" + infoEmail;
+                link1.className = "text-[#125E8A]";
+                link1.innerText = infoEmail;
+                infoSection.appendChild(link1);
+            }
+
+            // Legal email in footer
+            var legalEmail = "legal@" + domain;
+            var legalContainer = document.getElementById("safe-email-legal");
+            if (legalContainer) {
+                var link2 = document.createElement("a");
+                link2.href = "mailto:" + legalEmail;
+                link2.className = "text-[#125E8A] font-bold hover:underline";
+                link2.innerText = legalEmail;
+                legalContainer.appendChild(link2);
+            }
+
+            // Info email in footer
+            var infoFooter = document.getElementById("safe-email-info-footer");
+            if (infoFooter) {
+                var link3 = document.createElement("a");
+                link3.href = "mailto:" + infoEmail;
+                link3.className = "opacity-80 hover:underline";
+                link3.innerText = infoEmail;
+                infoFooter.appendChild(link3);
+            }
+        })();
+    </script>
 
 </body>
 

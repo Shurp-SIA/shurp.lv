@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <script>
-        // Get the browser language safely
-        const navLang = (navigator.language || navigator.userLanguage || 'lv').toLowerCase();
-
-        // If it starts with 'en', go to English. Otherwise, default to Latvian.
-        if (navLang.startsWith('en')) {
-            window.location.replace('/en/');
-        } else {
-            window.location.replace('/lv/');
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shurp | Ride with the pack</title>
+    <style>
+        body {
+            /* This is the exact #125E8A brand color from your style.css */
+            background-color: #125E8A;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        (function () {
+            // Get browser language safely
+            const navLang = (navigator.language || navigator.userLanguage || 'lv').toLowerCase();
+
+            // Redirect logic
+            const target = navLang.startsWith('en') ? '/en/' : '/lv/';
+
+            // Using replace() so the user doesn't get stuck in a "Back Button" loop
+            window.location.replace(target);
+        })();
+    </script>
 </head>
 
-<body style="background: #125E8A;"></body>
+<body>
+    <div class="loader"></div>
+</body>
 
 </html>

@@ -5,102 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shurp | Privātuma politika</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="../assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #E6F1F7;
-            color: #1F2933;
-            line-height: 1.6;
-        }
-
-        .nav-bar {
-            background-color: rgba(18, 94, 138, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .shurp-blue-text {
-            color: #125E8A;
-        }
-
-        .legal-card {
-            max-width: 800px;
-            margin: 120px auto 60px;
-            padding: 40px;
-            border-radius: 2.5rem;
-            background-color: #FFF9F5;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            color: #1F2933;
-            border-left: 3px solid #125E8A;
-            padding-left: 15px;
-        }
-
-        p {
-            opacity: 0.7;
-            margin-bottom: 1rem;
-        }
-
-        .compact-list {
-            list-style: none;
-            padding-left: 0;
-            opacity: 0.7;
-        }
-
-        .compact-list li {
-            margin-bottom: 0.4rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .compact-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #125E8A;
-            font-weight: bold;
-        }
-
-        strong {
-            opacity: 1;
-            color: #1F2933;
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: rgba(18, 94, 138, 0.08);
-            padding: 30px;
-            border-radius: 1.5rem;
-            border: 1px dashed rgba(18, 94, 138, 0.3);
-        }
-
-        .legal-footer-box {
-            background: #E6F1F7;
-            padding: 30px;
-            border-radius: 1.5rem;
-            border: 1px solid #E2E8F0;
-        }
-
-        .shurp-blue-bg {
-            background-color: #125E8A;
-        }
-    </style>
 </head>
 
-<body class="px-4">
+<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-4">
 
-    <nav class="nav-bar fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+    <nav class="nav-bar">
         <div class="flex items-center">
             <a href="./">
                 <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
@@ -113,47 +25,32 @@
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privātuma politika</h1>
         <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada februārī</p>
 
-        <section>
+        <section class="legal-section">
             <div class="highlight-box">
-                <h2 style="border-left: none; padding-left: 0; margin-bottom: 1rem;" class="text-xl">1. Mūsu filozofija:
-                    Mazāk ir drošāk</h2>
-                <p class="mb-0 opacity-100">Shurp pamatā ir princips: mēs nevācam datus, kurus mums nevajag, un
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Mūsu filozofija: Mazāk ir drošāk</h2>
+                <p class="!mb-0 !opacity-100">Shurp pamatā ir princips: mēs nevācam datus, kurus mums nevajag, un
                     neuzglabājam tos ilgāk, nekā nepieciešams.</p>
-                <p class="mb-0 opacity-100">Tavs privātums mums nav tikai ķeksītis — tā ir mūsu lietotnes arhitektūra.
-                </p>
+                <p class="!mb-0 !opacity-100 font-medium">Tavs privātums mums nav tikai ķeksītis — tā ir mūsu lietotnes
+                    arhitektūra.</p>
             </div>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>2. Kas ir datu pārzinis?</h2>
             <p>Personas datu pārzinis ir:</p>
-            <p><strong>SIA Shurp</strong><br>
+            <p><strong class="text-[#1F2933] font-bold">SIA Shurp</strong><br>
                 Reģ. Nr. LV40203709369<br>
                 Adrese: Briežu iela 9, Lapsas, LV-2107, Latvija<br>
-                E-pasts privātuma jautājumiem:
-                <span id="safe-email-p2"></span>
-                <script>
-                    (function () {
-                        var user = "legal";
-                        var domain = "shurp.lv";
-                        var email = user + "@" + domain;
-                        var container = document.getElementById("safe-email-p2");
-                        var link = document.createElement("a");
-                        link.href = "mailto:" + email;
-                        link.className = "shurp-blue-text";
-                        link.innerText = email;
-                        container.appendChild(link);
-                    })();
-                </script>
+                E-pasts privātuma jautājumiem: <span id="safe-email-p2"></span>
             </p>
             <p>Mēs apstrādājam personas datus saskaņā ar Vispārīgo datu aizsardzības regulu (GDPR) un Latvijas
                 normatīvajiem aktiem.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>3. Kādus datus mēs apstrādājam?</h2>
 
-            <p><strong>Identitātes dati</strong></p>
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2">Identitātes dati</p>
             <ul class="compact-list">
                 <li>Vārds</li>
                 <li>Tālruņa numurs</li>
@@ -161,100 +58,71 @@
             </ul>
             <p class="text-sm italic">Nepieciešami, lai lietotāji zinātu, ar ko kopā brauc.</p>
 
-            <p class="mt-6"><strong>Verifikācijas dati</strong></p>
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Verifikācijas dati</p>
             <p class="text-sm">Ja Tu apstiprini savu identitāti (piemēram, kā šoferis caur CSDD):</p>
             <ul class="compact-list">
                 <li>mēs neuzglabājam Tavus personas dokumentu numurus,</li>
                 <li>mēs saglabājam tikai šifrētu apstiprinājuma statusu.</li>
             </ul>
 
-            <p class="mt-6"><strong>Atrašanās vietas dati (GPS)</strong></p>
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Atrašanās vietas dati (GPS)</p>
             <p class="text-sm">Lai atrastu savējos vienā maršrutā, mums nepieciešama:</p>
             <ul class="compact-list">
                 <li>sākuma un galamērķa informācija</li>
                 <li>maršruta dati</li>
             </ul>
             <p class="text-sm">Precīzas koordinātas tiek apstrādātas tikai tik ilgi, cik nepieciešams brauciena
-                nodrošināšanai.</p>
-            <p class="text-sm">Lokācijas dati tiek apstrādāti tikai pēc lietotāja iniciatīvas (piemēram, izmantojot “Use
-                my location” funkciju maršruta ievadei vai daloties ar atrašanās vietu caur ārēju saziņas lietotni).
-                Shurp neveic nepārtrauktu vai fonā notiekošu lietotāja atrašanās vietas izsekošanu.</p>
+                nodrošināšanai. Shurp neveic nepārtrauktu vai fonā notiekošu lietotāja atrašanās vietas izsekošanu.</p>
 
-            <p class="mt-6"><strong>Saziņas dati</strong></p>
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Saziņas dati</p>
             <ul class="compact-list">
                 <li>Čata ziņas starp lietotājiem</li>
                 <li>Tehniskā saziņa ar atbalstu</li>
             </ul>
-
-            <p class="mt-6"><strong>Tehniskie dati</strong></p>
-            <ul class="compact-list">
-                <li>Ierīces tips</li>
-                <li>Lietotnes versija</li>
-                <li>Piekļuves laiks</li>
-            </ul>
-            <p class="text-sm italic">Šie dati tiek izmantoti tikai sistēmas drošībai un stabilitātei.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>4. Kā mēs aizsargājam Tavu atrašanās vietu?</h2>
             <p>Mēs apzināti esam izveidojuši vairākus aizsardzības slāņus.</p>
             <ul class="compact-list">
                 <li><strong>Lokācijas anonimizācija:</strong> Mēs neizmantojam Tavu precīzo adresi meklēšanas procesos.
                 </li>
-                <li><strong>Dinamiskā nobīde:</strong> Mēs neizmantojam Tavu precīzo adresi kopējā meklēšanas sarakstā.
-                    Tavs maršruts tiek apstrādāts anonimizētos reģionos, nodrošinot, ka neviens nevar izsekot Tavu
-                    precīzu brauciena sākumpunktu.</li>
+                <li><strong>Dinamiskā nobīde:</strong> Tavs maršruts tiek apstrādāts anonimizētos reģionos.</li>
                 <li><strong>Pakāpeniska piekļuve:</strong> Precīza satikšanās vieta kļūst redzama tikai pēc brauciena
                     apstiprināšanas.</li>
-                <li><strong>Privātie maršruti:</strong> Tavi regulārie maršruti (“Maģiskā poga”) nav publiski redzami,
-                    kamēr Tu neapstiprini braucienu.</li>
+                <li><strong>Privātie maršruti:</strong> Tavi regulārie maršruti nav publiski redzami.</li>
             </ul>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>5. Datu apstrādes tiesiskais pamats</h2>
             <p>Mēs apstrādājam datus, pamatojoties uz:</p>
             <ul class="compact-list">
-                <li>Līguma izpildi (brauciena organizēšana starp lietotājiem)</li>
+                <li>Līguma izpildi (brauciena organizēšana)</li>
                 <li>Juridisko pienākumu izpildi</li>
                 <li>Leģitīmajām interesēm (platformas drošība)</li>
-                <li>Lietotāja piekrišanu (piemēram, lokācijas piekļuve)</li>
+                <li>Lietotāja piekrišanu</li>
             </ul>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>6. Cik ilgi mēs glabājam datus?</h2>
             <p>Mums nepatīk digitālie putekļi.</p>
             <ul class="compact-list">
-                <li>Detalizētas brauciena koordinātas tiek anonimizētas pēc 30 dienām.</li>
+                <li>Detalizētas koordinātas tiek anonimizētas pēc 30 dienām.</li>
                 <li>Čata vēsture tiek dzēsta 30 dienas pēc brauciena beigām.</li>
-                <li>Tehniskie žurnāli tiek uzglabāti ierobežotu laiku drošības un sistēmas stabilitātes nolūkiem.</li>
-                <li>Ja Tu dzēs savu kontu, personas dati tiek neatgriezeniski dzēsti no aktīvajām sistēmām, izņemot
-                    gadījumus, kad normatīvie akti nosaka pienākumu tos saglabāt.</li>
+                <li>Ja Tu dzēs savu kontu, dati tiek neatgriezeniski dzēsti.</li>
             </ul>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>7. Datu nodošana trešajām pusēm</h2>
             <p>Mēs nepārdodam Tavus personas datus reklāmdevējiem.</p>
-            <p>Platformā var tikt izvietota reklāma vai sponsorēts saturs. Šāds saturs tiek rādīts, balstoties uz
-                neatpazīstamiem kritērijiem, piemēram, vispārīgiem maršruta parametriem vai reģiona datiem (piemēram,
-                rādīt kafijas veikala reklāmu lietotājiem, kas dodas uz konkrētu pilsētu), bez Tavas personas
-                identitātes
-                vai kontaktinformācijas atklāšanas reklāmdevējiem. Šāda datu apstrāde tiek veikta saskaņā ar GDPR
-                principiem un mūsu leģitīmo interesi uzturēt platformu bez komisijas maksas mūsu lietotājiem.</p>
-            <p>Dati var tikt nodoti:</p>
-            <ul class="compact-list">
-                <li>starp šoferi un pasažieri (tikai tas, kas nepieciešams braucienam),</li>
-                <li>Dati var tikt nodoti arī tehniskajiem pakalpojumu sniedzējiem, kas nodrošina hostingu, sistēmas
-                    uzturēšanu un drošību.</li>
-                <li>Dati tiek uzglabāti Eiropas Savienības teritorijā vai saskaņā ar Google nodrošinātajiem
-                    starptautiskajiem datu aizsardzības mehānismiem. Ar visiem pakalpojumu sniedzējiem ir noslēgti datu
-                    apstrādes līgumi (DPA).</li>
-            </ul>
+            <p>Dati var tikt nodoti starp šoferi un pasažieri, tehniskajiem pakalpojumu sniedzējiem (ES teritorijā) un
+                saskaņā ar DPA līgumiem.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>8. Drošība</h2>
             <ul class="compact-list">
                 <li>Dati tiek šifrēti pārsūtīšanas un uzglabāšanas laikā.</li>
@@ -263,81 +131,59 @@
             </ul>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>9. Tavas tiesības</h2>
-            <p>Saskaņā ar GDPR Tev ir tiesības:</p>
-            <ul class="compact-list">
-                <li>piekļūt saviem datiem, labot neprecīzus datus, pieprasīt datu dzēšanu,</li>
-                <li>ierobežot apstrādi, iebilst pret apstrādi,</li>
-                <li>saņemt savu datu kopiju pārnesamā formātā.</li>
-            </ul>
-            <p>Pieprasījumus vari iesniegt aplikācijas profila palīdzības sadaļā, vai rakstot uz:
-                <span id="safe-email-p9"></span>
-                <script>
-                    (function () {
-                        var user = "legal";
-                        var domain = "shurp.lv";
-                        var email = user + "@" + domain;
-                        var container = document.getElementById("safe-email-p9");
-                        var link = document.createElement("a");
-                        link.href = "mailto:" + email;
-                        link.className = "shurp-blue-text";
-                        link.innerText = email;
-                        container.appendChild(link);
-                    })();
-                </script>
-            </p>
-            <p>Ja uzskati, ka Tavi dati tiek apstrādāti neatbilstoši, Tev ir tiesības iesniegt sūdzību Latvijas Datu
-                valsts inspekcijā.</p>
+            <p>Saskaņā ar GDPR Tev ir tiesības piekļūt saviem datiem, tos labot, dzēst vai ierobežot apstrādi.</p>
+            <p>Pieprasījumus vari iesniegt rakstot uz: <span id="safe-email-p9"></span></p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <h2>10. Izmaiņas šajā politikā</h2>
             <p>Ja mēs veiksim būtiskas izmaiņas, par to informēsim lietotnē vai mājaslapā.</p>
         </section>
 
-        <section>
+        <section class="legal-section">
             <div class="legal-footer-box">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Datu pārzinis</p>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Datu pārzinis</p>
                         <p class="font-bold">SIA Shurp</p>
                         <p class="text-sm opacity-60">Reģ. Nr. LV40203709369</p>
                     </div>
                     <div>
-                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Juridiskā adrese</p>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Juridiskā adrese</p>
                         <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvija</p>
                     </div>
-                    <div class="pt-4 border-t border-[#E2E8F0]">
-                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">DSA kontaktpunkts</p>
+                    <div class="pt-4 border-t border-[#E2E8F0] md:col-span-2">
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">DSA kontaktpunkts</p>
                         <span id="safe-email-footer"></span>
-                        <script>
-                            (function () {
-                                var user = "legal";
-                                var domain = "shurp.lv";
-                                var email = user + "@" + domain;
-                                var container = document.getElementById("safe-email-footer");
-                                var link = document.createElement("a");
-                                link.href = "mailto:" + email;
-                                link.className = "shurp-blue-text font-bold hover:underline";
-                                link.innerText = email;
-                                container.appendChild(link);
-                            })();
-                        </script>
                     </div>
                 </div>
             </div>
         </section>
 
         <div class="pt-8 text-center">
-            <a href="./" class="shurp-blue-text font-bold hover:opacity-80 transition">Atpakaļ uz sākumlapu</a>
+            <a href="./"
+                class="text-[#125E8A] font-bold hover:opacity-80 transition underline decoration-2 underline-offset-4">Atpakaļ
+                uz sākumlapu</a>
         </div>
     </div>
 
-    <footer class="py-12 px-8 shurp-blue-bg text-center text-xs uppercase tracking-widest">
+    <footer class="py-12 px-8 bg-[#125E8A] text-center text-[10px] uppercase tracking-widest">
         <p class="text-white/70">&copy; 2026 SHURP. Visas tiesības aizsargātas.</p>
     </footer>
 
+    <script>
+        const setupEmail = (id, user = "legal") => {
+            const domain = "shurp.lv";
+            const email = user + "@" + domain;
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = `<a href="mailto:${email}" class="text-[#125E8A] hover:underline font-bold">${email}</a>`;
+        };
+        setupEmail("safe-email-p2");
+        setupEmail("safe-email-p9");
+        setupEmail("safe-email-footer");
+    </script>
 </body>
 
 </html>

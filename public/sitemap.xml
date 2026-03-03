@@ -3,46 +3,61 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.shurp.lv/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/</loc>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/"/>
   </url>
 
   <url>
-    <loc>https://www.shurp.lv/en/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/en/</loc>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/"/>
   </url>
   <url>
-    <loc>https://www.shurp.lv/en/privacy</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/en/privacy</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/privacy"/>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.shurp.lv/en/terms</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/en/terms</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/terms"/>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://www.shurp.lv/lv/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/lv/</loc>
+    <lastmod>2026-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/"/>
   </url>
   <url>
-    <loc>https://www.shurp.lv/lv/privacy</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/lv/privacy</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/privacy"/>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.shurp.lv/lv/terms</loc>
-    <lastmod>2026-03-02</lastmod>
+    <loc>https://shurp.lv/lv/terms</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/terms"/>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
