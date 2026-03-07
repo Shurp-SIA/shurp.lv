@@ -4,7 +4,11 @@
 [![Status](https://img.shields.io/badge/Status-Lobby_Live-FA7E61)]()
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey)]()
 
+<<<<<<< HEAD
 **[Shurp](https://www.shurp.lv)** ir digitāla kopbraukšanas (*carpooling*) platforma, kurā mēs braucam kopā. Shurp savieno autovadītājus un pasažierus Rīgā, Latvijā un Baltijā. Mūsu mērķis ir padarīt mobilitāti lētāku, zaļāku un draudzīgāku, dalot ceļu un izmaksas bez slēptām komisijas maksām.
+=======
+**[Shurp](https://www.shurp.lv)** ir digitāla kopbraukšanas (*carpooling*) platforma, kur mēs braucam kopā. Shurp savieno autovadītājus un pasažierus Rīgā, Latvijā un Baltijā. Mūsu mērķis ir padarīt mobilitāti lētāku, zaļāku un draudzīgāku, dalot ceļu un izmaksas bez slēptām komisijas maksām.
+>>>>>>> 36be45faaf02121a9a6c4326b17ff9629a746d67
 
 Baltijas mērogs: Shurp sākotnēji startē Latvijā, bet mūsu vīzija ir savienot visu Baltiju. Shurp ir visur, kur ir cilvēki un auto. Tikpat labi var braukt uz Rīgu, Viļņu un Tallinu, padarot ceļošanu starp kaimiņvalstīm pieejamāku.
 
