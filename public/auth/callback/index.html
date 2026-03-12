@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirming...</title>
+</head>
+
+<body>
+    <h1>Confirming your identity...</h1>
+    <p>If you are on your phone, you will be redirected to Shurp automatically.</p>
+
+    <script>
+        // 1. Try to open the app (Works on iPhone/Android)
+        window.location.href = "io.supabase.shurp://login-callback/";
+
+        // 2. If the user is on a Desktop, redirect them to a "Success" landing page
+        setTimeout(() => {
+            window.location.href = "https://shurp.lv/identity-confirmed";
+        }, 1000);
+    </script>
+</body>
+
+</html>
