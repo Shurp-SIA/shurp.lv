@@ -1,0 +1,3796 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  assets/
+    css/
+      style.css
+    apple-touch-icon.png
+    favicon-16x16.png
+    favicon-32x32.png
+    favicon-48x48.png
+    favicon.svg
+    hands.png
+    ill_magic.png
+    logo.png
+    safari-pinned-tab.svg
+    screen1.png
+    screen2.png
+    screen3.png
+    screen4.png
+  auth/
+    callback/
+      index.html
+  en/
+    index.html
+    privacy.html
+    terms.html
+  lv/
+    index.html
+    privacy.html
+    terms.html
+  .htaccess
+  identity-confirmed.html
+  index.html
+  robots.txt
+  sitemap.xml
+src/
+  input.css
+.gitignore
+LICENSE
+package.json
+README.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/assets/css/style.css">
+/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-sm: 24rem;
+    --container-xl: 36rem;
+    --container-7xl: 80rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-widest: 0.1em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-2xl: 1rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --blur-md: 12px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .visible {
+    visibility: visible;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .\!mb-0 {
+    margin-bottom: calc(var(--spacing) * 0) !important;
+  }
+  .\!mb-4 {
+    margin-bottom: calc(var(--spacing) * 4) !important;
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
+  .mb-12 {
+    margin-bottom: calc(var(--spacing) * 12);
+  }
+  .mb-16 {
+    margin-bottom: calc(var(--spacing) * 16);
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .aspect-\[9\/19\.5\] {
+    aspect-ratio: 9/19.5;
+  }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-14 {
+    height: calc(var(--spacing) * 14);
+  }
+  .h-auto {
+    height: auto;
+  }
+  .min-h-\[calc\(100vh-8rem\)\] {
+    min-height: calc(100vh - 8rem);
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
+  }
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
+  .w-\[330px\] {
+    width: 330px;
+  }
+  .w-auto {
+    width: auto;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
+  }
+  .max-w-sm {
+    max-width: var(--container-sm);
+  }
+  .max-w-xl {
+    max-width: var(--container-xl);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
+  }
+  .space-x-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .space-x-8 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-\[2\.5rem\] {
+    border-radius: 2.5rem;
+  }
+  .rounded-\[3\.8rem\] {
+    border-radius: 3.8rem;
+  }
+  .rounded-\[3rem\] {
+    border-radius: 3rem;
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-r {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 1px;
+  }
+  .\!border-l-0 {
+    border-left-style: var(--tw-border-style) !important;
+    border-left-width: 0px !important;
+  }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
+  }
+  .border-\[\#125E8A\]\/30 {
+    border-color: color-mix(in oklab, #125E8A 30%, transparent);
+  }
+  .border-\[\#E2E8F0\] {
+    border-color: #E2E8F0;
+  }
+  .border-white\/10 {
+    border-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .border-white\/20 {
+    border-color: color-mix(in srgb, #fff 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .bg-\[\#125E8A\] {
+    background-color: #125E8A;
+  }
+  .bg-\[\#125E8A\]\/30 {
+    background-color: color-mix(in oklab, #125E8A 30%, transparent);
+  }
+  .bg-\[\#E6F1F7\] {
+    background-color: #E6F1F7;
+  }
+  .bg-\[\#FFF9F5\] {
+    background-color: #FFF9F5;
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-white\/10 {
+    background-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .p-3\.5 {
+    padding: calc(var(--spacing) * 3.5);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-10 {
+    padding: calc(var(--spacing) * 10);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .px-7 {
+    padding-inline: calc(var(--spacing) * 7);
+  }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
+  }
+  .py-12 {
+    padding-block: calc(var(--spacing) * 12);
+  }
+  .py-24 {
+    padding-block: calc(var(--spacing) * 24);
+  }
+  .py-32 {
+    padding-block: calc(var(--spacing) * 32);
+  }
+  .pt-4 {
+    padding-top: calc(var(--spacing) * 4);
+  }
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
+  }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
+  }
+  .pt-12 {
+    padding-top: calc(var(--spacing) * 12);
+  }
+  .pt-32 {
+    padding-top: calc(var(--spacing) * 32);
+  }
+  .pr-4 {
+    padding-right: calc(var(--spacing) * 4);
+  }
+  .pb-20 {
+    padding-bottom: calc(var(--spacing) * 20);
+  }
+  .\!pl-0 {
+    padding-left: calc(var(--spacing) * 0) !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .font-\[\'Inter\'\] {
+    font-family: 'Inter';
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-\[0\.2em\] {
+    --tw-tracking: 0.2em;
+    letter-spacing: 0.2em;
+  }
+  .tracking-tight {
+    --tw-tracking: var(--tracking-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+  .tracking-tighter {
+    --tw-tracking: var(--tracking-tighter);
+    letter-spacing: var(--tracking-tighter);
+  }
+  .tracking-widest {
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+  }
+  .text-\[\#1F2933\] {
+    color: #1F2933;
+  }
+  .text-\[\#1F2933\]\/40 {
+    color: color-mix(in oklab, #1F2933 40%, transparent);
+  }
+  .text-\[\#1F2933\]\/60 {
+    color: color-mix(in oklab, #1F2933 60%, transparent);
+  }
+  .text-\[\#1F2933\]\/70 {
+    color: color-mix(in oklab, #1F2933 70%, transparent);
+  }
+  .text-\[\#125E8A\] {
+    color: #125E8A;
+  }
+  .text-\[\#F4937C\] {
+    color: #F4937C;
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .text-white\/20 {
+    color: color-mix(in srgb, #fff 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .text-white\/60 {
+    color: color-mix(in srgb, #fff 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 60%, transparent);
+    }
+  }
+  .text-white\/70 {
+    color: color-mix(in srgb, #fff 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 70%, transparent);
+    }
+  }
+  .text-white\/80 {
+    color: color-mix(in srgb, #fff 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 80%, transparent);
+    }
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .decoration-2 {
+    text-decoration-thickness: 2px;
+  }
+  .underline-offset-4 {
+    text-underline-offset: 4px;
+  }
+  .placeholder-\[\#1F2933\]\/50 {
+    &::placeholder {
+      color: color-mix(in oklab, #1F2933 50%, transparent);
+    }
+  }
+  .\!opacity-100 {
+    opacity: 100% !important;
+  }
+  .opacity-40 {
+    opacity: 40%;
+  }
+  .opacity-50 {
+    opacity: 50%;
+  }
+  .opacity-60 {
+    opacity: 60%;
+  }
+  .opacity-80 {
+    opacity: 80%;
+  }
+  .opacity-100 {
+    opacity: 100%;
+  }
+  .shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .backdrop-filter {
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .group-hover\:text-white {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
+  .hover\:scale-105 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:bg-white\/20 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #fff 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:text-\[\#1F2933\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #1F2933;
+      }
+    }
+  }
+  .hover\:text-white {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
+  .hover\:underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline;
+      }
+    }
+  }
+  .hover\:opacity-80 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 80%;
+      }
+    }
+  }
+  .hover\:opacity-90 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 90%;
+      }
+    }
+  }
+  .focus\:border-\[\#125E8A\] {
+    &:focus {
+      border-color: #125E8A;
+    }
+  }
+  .focus\:outline-none {
+    &:focus {
+      --tw-outline-style: none;
+      outline-style: none;
+    }
+  }
+  .active\:scale-95 {
+    &:active {
+      --tw-scale-x: 95%;
+      --tw-scale-y: 95%;
+      --tw-scale-z: 95%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .sm\:flex-row {
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:col-span-2 {
+    @media (width >= 48rem) {
+      grid-column: span 2 / span 2;
+    }
+  }
+  .md\:mt-0 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:ml-auto {
+    @media (width >= 48rem) {
+      margin-left: auto;
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:h-10 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:h-64 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 64);
+    }
+  }
+  .md\:h-80 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 80);
+    }
+  }
+  .md\:w-1\/2 {
+    @media (width >= 48rem) {
+      width: calc(1 / 2 * 100%);
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:items-center {
+    @media (width >= 48rem) {
+      align-items: center;
+    }
+  }
+  .md\:px-12 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:text-right {
+    @media (width >= 48rem) {
+      text-align: right;
+    }
+  }
+  .md\:text-5xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+  }
+  .md\:text-7xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  .md\:text-base {
+    @media (width >= 48rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .md\:text-xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .lg\:col-span-2 {
+    @media (width >= 64rem) {
+      grid-column: span 2 / span 2;
+    }
+  }
+  .lg\:col-span-4 {
+    @media (width >= 64rem) {
+      grid-column: span 4 / span 4;
+    }
+  }
+  .lg\:col-span-6 {
+    @media (width >= 64rem) {
+      grid-column: span 6 / span 6;
+    }
+  }
+  .lg\:grid-cols-6 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
+  .lg\:px-16 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 16);
+    }
+  }
+  .lg\:pt-24 {
+    @media (width >= 64rem) {
+      padding-top: calc(var(--spacing) * 24);
+    }
+  }
+  .lg\:pb-12 {
+    @media (width >= 64rem) {
+      padding-bottom: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:text-8xl {
+    @media (width >= 64rem) {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
+    }
+  }
+}
+@layer components {
+  .nav-bar {
+    position: fixed;
+    top: calc(var(--spacing) * 0);
+    left: calc(var(--spacing) * 0);
+    z-index: 50;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+    border-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+    background-color: color-mix(in oklab, #125E8A 95%, transparent);
+    padding-inline: calc(var(--spacing) * 6);
+    padding-block: calc(var(--spacing) * 6);
+    --tw-backdrop-blur: blur(var(--blur-md));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 12);
+    }
+  }
+  .legal-card {
+    margin-inline: auto;
+    margin-top: 120px;
+    margin-bottom: 60px;
+    display: block;
+    max-width: 800px;
+    border-radius: 2.5rem;
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: #E2E8F0;
+    background-color: #FFF9F5;
+    padding: calc(var(--spacing) * 6);
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 10);
+    }
+  }
+  .legal-section {
+    margin-bottom: calc(var(--spacing) * 14);
+    &:last-child {
+      margin-bottom: calc(var(--spacing) * 0);
+    }
+  }
+  .legal-section h2 {
+    margin-bottom: calc(var(--spacing) * 5);
+    border-left-style: var(--tw-border-style);
+    border-left-width: 4px;
+    border-color: #125E8A;
+    padding-left: calc(var(--spacing) * 4);
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    color: #1F2933;
+  }
+  .legal-section p {
+    margin-bottom: calc(var(--spacing) * 4);
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+    opacity: 70%;
+  }
+  .legal-section strong {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    color: #1F2933;
+    opacity: 100%;
+  }
+  .compact-list {
+    margin-bottom: calc(var(--spacing) * 4);
+    list-style-type: none;
+    padding: calc(var(--spacing) * 0);
+    opacity: 70%;
+  }
+  .compact-list li {
+    position: relative;
+    margin-bottom: calc(var(--spacing) * 2);
+    padding-left: calc(var(--spacing) * 6);
+    &::before {
+      content: var(--tw-content);
+      position: absolute;
+    }
+    &::before {
+      content: var(--tw-content);
+      left: calc(var(--spacing) * 0);
+    }
+    &::before {
+      content: var(--tw-content);
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+    &::before {
+      content: var(--tw-content);
+      color: #125E8A;
+    }
+    &::before {
+      --tw-content: '•';
+      content: var(--tw-content);
+    }
+  }
+  .highlight-box {
+    margin-bottom: calc(var(--spacing) * 8);
+    border-radius: 1.5rem;
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    --tw-border-style: dashed;
+    border-style: dashed;
+    border-color: color-mix(in oklab, #125E8A 30%, transparent);
+    background-color: color-mix(in oklab, #125E8A 10%, transparent);
+    padding: calc(var(--spacing) * 6);
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 8);
+    }
+  }
+  .highlight-box p {
+    opacity: 100%;
+  }
+  .legal-footer-box {
+    border-radius: 1.5rem;
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: #E2E8F0;
+    background-color: #E6F1F7;
+    padding: calc(var(--spacing) * 6);
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 8);
+    }
+  }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-content {
+  syntax: "*";
+  initial-value: "";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+      --tw-content: "";
+    }
+  }
+}
+</file>
+
+<file path="public/assets/favicon.svg">
+<svg width="75" height="90" viewBox="0 0 75 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M37.5 47.6977C40.0781 47.6977 42.2852 46.7636 44.1211 44.8955C45.957 43.0273 46.875 40.7816 46.875 38.1582C46.875 35.5348 45.957 33.289 44.1211 31.4209C42.2852 29.5527 40.0781 28.6186 37.5 28.6186C34.9219 28.6186 32.7148 29.5527 30.8789 31.4209C29.043 33.289 28.125 35.5348 28.125 38.1582C28.125 40.7816 29.043 43.0273 30.8789 44.8955C32.7148 46.7636 34.9219 47.6977 37.5 47.6977ZM48.0436 85.7219C42.2138 91.426 32.7862 91.426 26.9564 85.7219C19.528 78.4535 13.648 71.5622 9.31639 65.0478C3.10545 55.707 0 47.0618 0 39.1121C0 27.1877 3.76954 17.6879 11.3086 10.6127C18.8477 3.53758 27.5781 0 37.5 0C47.4219 0 56.1523 3.53758 63.6914 10.6127C71.2305 17.6879 75 27.1877 75 39.1121C75 47.0618 71.8945 55.707 65.6836 65.0478C61.352 71.5622 55.472 78.4535 48.0436 85.7219Z" fill="#FA7E61"/>
+<path d="M37.5 47.6977C40.0781 47.6977 42.2852 46.7636 44.1211 44.8955C45.957 43.0273 46.875 40.7816 46.875 38.1582C46.875 35.5348 45.957 33.289 44.1211 31.4209C42.2852 29.5527 40.0781 28.6186 37.5 28.6186C34.9219 28.6186 32.7148 29.5527 30.8789 31.4209C29.043 33.289 28.125 35.5348 28.125 38.1582C28.125 40.7816 29.043 43.0273 30.8789 44.8955C32.7148 46.7636 34.9219 47.6977 37.5 47.6977ZM48.0436 85.7219C42.2138 91.426 32.7862 91.426 26.9564 85.7219C19.528 78.4535 13.648 71.5622 9.31639 65.0478C3.10545 55.707 0 47.0618 0 39.1121C0 27.1877 3.76954 17.6879 11.3086 10.6127C18.8477 3.53758 27.5781 0 37.5 0C47.4219 0 56.1523 3.53758 63.6914 10.6127C71.2305 17.6879 75 27.1877 75 39.1121C75 47.0618 71.8945 55.707 65.6836 65.0478C61.352 71.5622 55.472 78.4535 48.0436 85.7219Z" fill="#FA7E61"/>
+</svg>
+</file>
+
+<file path="public/assets/safari-pinned-tab.svg">
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M256 263.674C263.333 263.674 269.611 261.017 274.833 255.703C280.056 250.389 282.667 244.001 282.667 236.539C282.667 229.077 280.056 222.689 274.833 217.375C269.611 212.061 263.333 209.404 256 209.404C248.667 209.404 242.389 212.061 237.167 217.375C231.944 222.689 229.333 229.077 229.333 236.539C229.333 244.001 231.944 250.389 237.167 255.703C242.389 261.017 248.667 263.674 256 263.674ZM285.991 371.831C269.408 388.056 242.592 388.056 226.009 371.831C204.88 351.157 188.154 331.555 175.833 313.025C158.167 286.455 149.333 261.865 149.333 239.252C149.333 205.334 160.056 178.312 181.5 158.187C202.945 138.062 227.778 128 256 128C284.222 128 309.056 138.062 330.5 158.187C351.944 178.312 362.667 205.334 362.667 239.252C362.667 261.865 353.833 286.455 336.167 313.025C323.846 331.555 307.12 351.157 285.991 371.831Z" fill="black"/>
+<path d="M256 263.674C263.333 263.674 269.611 261.017 274.833 255.703C280.056 250.389 282.667 244.001 282.667 236.539C282.667 229.077 280.056 222.689 274.833 217.375C269.611 212.061 263.333 209.404 256 209.404C248.667 209.404 242.389 212.061 237.167 217.375C231.944 222.689 229.333 229.077 229.333 236.539C229.333 244.001 231.944 250.389 237.167 255.703C242.389 261.017 248.667 263.674 256 263.674ZM285.991 371.831C269.408 388.056 242.592 388.056 226.009 371.831C204.88 351.157 188.154 331.555 175.833 313.025C158.167 286.455 149.333 261.865 149.333 239.252C149.333 205.334 160.056 178.312 181.5 158.187C202.945 138.062 227.778 128 256 128C284.222 128 309.056 138.062 330.5 158.187C351.944 178.312 362.667 205.334 362.667 239.252C362.667 261.865 353.833 286.455 336.167 313.025C323.846 331.555 307.12 351.157 285.991 371.831Z" fill="black"/>
+</svg>
+</file>
+
+<file path="public/auth/callback/index.html">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirming...</title>
+</head>
+
+<body>
+    <h1>Confirming your identity...</h1>
+    <p>If you are on your phone, you will be redirected to Shurp automatically.</p>
+
+    <script>
+        // 1. Try to open the app (Works on iPhone/Android)
+        window.location.href = "io.supabase.shurp://login-callback/";
+
+        // 2. If the user is on a Desktop, redirect them to a "Success" landing page
+        setTimeout(() => {
+            window.location.href = "https://shurp.lv/identity-confirmed";
+        }, 1000);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/identity-confirmed.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Confirmed | Shurp</title>
+    <!-- Use your Inter font as per your index.html -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF9F5;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-6">
+
+    <div class="max-w-sm w-full bg-white p-10 rounded-[2.5rem] shadow-2xl border border-[#E2E8F0] text-center">
+        <!-- Brand Logo -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-[#125E8A]">Shurp</h1>
+        </div>
+
+        <!-- Latvian -->
+        <h2 class="text-2xl font-bold mb-4 text-[#1F2933]">Identitāte apstiprināta!</h2>
+        <p class="text-[#1F2933]/70 mb-6 leading-relaxed">
+            Jūsu e-pasts ir veiksmīgi apstiprināts. Jūs varat atgriezties lietotnē.
+        </p>
+
+        <!-- English -->
+        <h2 class="text-xl font-semibold mb-4 text-[#1F2933]">Identity confirmed!</h2>
+        <p class="text-[#1F2933]/70 mb-8 leading-relaxed">
+            Your email has been successfully verified. You can return to the app now.
+        </p>
+
+        <!-- The Smart Button -->
+        <a href="io.supabase.shurp://login-callback/"
+            class="shurp-blue-bg block w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition mb-4">
+            Atgriezties Shurp / Return to Shurp
+        </a>
+
+        <p class="text-[#1F2933]/40 text-xs mt-8">Ai Laila - Shurp AI assistant</p>
+    </div>
+
+    <script>
+        // Automatic trigger: The phone will attempt to open the app immediately
+        window.location.href = "io.supabase.shurp://login-callback/";
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/robots.txt">
+User-agent: *
+Content-Signal: search=yes,ai-train=no
+Allow: /
+Disallow: /assets/data/
+Disallow: /assets/config/
+
+# Block AI Scrapers specifically
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://www.shurp.lv/sitemap.xml
+</file>
+
+<file path="src/input.css">
+@import "tailwindcss";
+
+@layer components {
+    .nav-bar {
+        @apply fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#125E8A]/95 border-b border-white/10 backdrop-blur-md;
+    }
+
+    .legal-card {
+        /* Changed mx-auto to block to ensure centering works with Tailwind v4 layout engine */
+        @apply block max-w-[800px] mt-[120px] mb-[60px] mx-auto p-6 md:p-10 rounded-[2.5rem] bg-[#FFF9F5] border border-[#E2E8F0] shadow-xl;
+    }
+
+    .legal-section {
+        @apply mb-14 last:mb-0;
+    }
+
+    .legal-section h2 {
+        @apply text-xl font-bold mb-5 text-[#1F2933] border-l-4 border-[#125E8A] pl-4 leading-tight;
+    }
+
+    .legal-section p {
+        @apply opacity-70 mb-4 leading-relaxed;
+    }
+
+    /* Important: Ensure strong tags override the paragraph opacity */
+    .legal-section strong {
+        @apply opacity-100 text-[#1F2933] font-semibold;
+    }
+
+    .compact-list {
+        @apply list-none p-0 opacity-70 mb-4;
+    }
+
+    .compact-list li {
+        @apply mb-2 relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-[#125E8A] before:font-bold;
+    }
+
+    .highlight-box {
+        @apply bg-[#125E8A]/10 p-6 md:p-8 rounded-[1.5rem] border border-dashed border-[#125E8A]/30 mb-8;
+    }
+
+    /* Target the text inside highlight box to be more readable */
+    .highlight-box p {
+        @apply opacity-100;
+    }
+
+    .legal-footer-box {
+        @apply bg-[#E6F1F7] p-6 md:p-8 rounded-[1.5rem] border border-[#E2E8F0];
+    }
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "shurp-web",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./public/assets/css/style.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./public/assets/css/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/cli": "^4.0.0"
+  }
+}
+</file>
+
+<file path="public/en/privacy.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shurp | Privacy Policy</title>
+
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-4">
+
+    <nav class="nav-bar">
+        <div class="flex items-center">
+            <a href="./">
+                <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
+            </a>
+        </div>
+        <a href="./" class="text-sm font-medium text-white/70 hover:text-white transition">← Back</a>
+    </nav>
+
+    <div class="legal-card">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privacy Policy</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Last updated: February 2026</p>
+
+        <section class="legal-section">
+            <div class="highlight-box">
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Our Philosophy: Privacy by Design</h2>
+                <p class="!mb-0 !opacity-100">Shurp is built on one principle: we collect only what’s necessary — and
+                    nothing more.</p>
+                <p class="!mb-0 !opacity-100 font-medium">Your privacy isn’t a feature. It’s part of the architecture.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>2. Who is the Data Controller?</h2>
+            <p>The personal data controller is:</p>
+            <p><strong class="text-[#1F2933] font-bold">SIA Shurp</strong><br>
+                Reg. No. LV40203709369<br>
+                Address: Briežu iela 9, Lapsas, LV-2107, Latvia<br>
+                Email for privacy inquiries: <span id="safe-email-p2"></span>
+            </p>
+            <p>We process personal data in accordance with the General Data Protection Regulation (GDPR) and Latvian
+                legislation.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>3. What Data Do We Process?</h2>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2">Identity Data</p>
+            <ul class="compact-list">
+                <li>Name</li>
+                <li>Phone number</li>
+                <li>Profile photo (if added)</li>
+            </ul>
+            <p class="text-sm italic">Required so users know who they're riding with.</p>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Verification Data</p>
+            <p class="text-sm">If you verify your identity (e.g., as a driver through CSDD):</p>
+            <ul class="compact-list">
+                <li>we do not store your personal document numbers,</li>
+                <li>we only save an encrypted verification status.</li>
+            </ul>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Location Data (GPS)</p>
+            <p class="text-sm">To find fellow travelers on the same route, we need:</p>
+            <ul class="compact-list">
+                <li>origin and destination information</li>
+                <li>route data</li>
+            </ul>
+            <p class="text-sm">Precise coordinates are processed only as long as necessary for trip facilitation. Shurp
+                does not perform continuous or background location tracking.</p>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Communication Data</p>
+            <ul class="compact-list">
+                <li>Chat messages between users</li>
+                <li>Technical communication with support</li>
+            </ul>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Technical Data</p>
+            <ul class="compact-list">
+                <li>Device type</li>
+                <li>App version</li>
+                <li>Access time</li>
+            </ul>
+            <p class="text-sm italic">This data is used only for system security and stability.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>4. How Do We Protect Your Location?</h2>
+            <p>We've intentionally built multiple layers of protection.</p>
+            <ul class="compact-list">
+                <li><strong>Location Anonymization:</strong> We don't use your exact address in search processes.</li>
+                <li><strong>Dynamic Offset:</strong> Your route is processed in anonymized regions, ensuring no one can
+                    trace your exact trip starting point.</li>
+                <li><strong>Progressive Access:</strong> The exact meeting point becomes visible only after trip
+                    confirmation.</li>
+                <li><strong>Private Routes:</strong> Your regular routes ("Magic Button") are not publicly visible until
+                    you confirm a trip.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. Legal Basis for Data Processing</h2>
+            <p>We process data based on:</p>
+            <ul class="compact-list">
+                <li>Contract performance (organizing trips between users)</li>
+                <li>Legal obligation compliance</li>
+                <li>Legitimate interests (platform security)</li>
+                <li>User consent (e.g., location access)</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. How Long Do We Store Data?</h2>
+            <p>We don't like digital dust.</p>
+            <ul class="compact-list">
+                <li>Detailed trip coordinates are anonymized after 30 days.</li>
+                <li>Chat history is deleted 30 days after the trip ends.</li>
+                <li>Technical logs are stored for limited periods for security purposes.</li>
+                <li>If you delete your account, personal data is permanently removed from active systems.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. Data Sharing with Third Parties</h2>
+            <p>We don't sell your personal data to advertisers.</p>
+            <p>Advertising content is served based on non-identifiable criteria (general route or region) without
+                disclosing your identity. This is conducted in accordance with GDPR principles.</p>
+            <p>Data may be shared between driver and passenger, or with technical service providers (DPA agreements in
+                place).</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>8. Security</h2>
+            <ul class="compact-list">
+                <li>Data is encrypted during transmission and storage.</li>
+                <li>Sensitive information is not stored in plain text.</li>
+                <li>Data access is restricted and auditable.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>9. Your Rights</h2>
+            <p>Under GDPR, you have the right to access, correct, or delete your data, and to restrict or object to
+                processing.</p>
+            <p>Requests can be submitted through the app, or by writing to: <span id="safe-email-p9"></span></p>
+        </section>
+
+        <section class="legal-section">
+            <h2>10. Changes to This Policy</h2>
+            <p>If we make significant changes, we will notify you in the app or on the website.</p>
+        </section>
+
+        <section class="legal-section">
+            <div class="legal-footer-box">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Data Controller</p>
+                        <p class="font-bold">SIA Shurp</p>
+                        <p class="text-sm opacity-60">Reg. No. LV40203709369</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Legal Address</p>
+                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvia</p>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0] md:col-span-2">
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">DSA Contact Point</p>
+                        <span id="safe-email-footer"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pt-8 text-center">
+            <a href="./"
+                class="text-[#125E8A] font-bold hover:opacity-80 transition underline decoration-2 underline-offset-4">Back
+                to Homepage</a>
+        </div>
+    </div>
+
+    <footer class="py-12 px-8 bg-[#125E8A] text-center text-[10px] uppercase tracking-widest">
+        <p class="text-white/70">&copy; 2026 SHURP. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const setupEmail = (id) => {
+            const email = "legal" + "@" + "shurp.lv";
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = `<a href="mailto:${email}" class="text-[#125E8A] hover:underline font-bold">${email}</a>`;
+        };
+        setupEmail("safe-email-p2");
+        setupEmail("safe-email-p9");
+        setupEmail("safe-email-footer");
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/en/terms.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shurp | Terms of Use</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-['Inter'] bg-[#E6F1F7] text-[#1F2933] leading-relaxed px-4">
+
+    <nav class="nav-bar">
+        <div class="flex items-center">
+            <a href="./">
+                <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
+            </a>
+        </div>
+        <a href="./" class="text-sm font-medium text-white/70 hover:text-white transition">← Back</a>
+    </nav>
+
+    <div class="legal-card">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Terms of Use</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Last updated: February 2026</p>
+
+        <section class="legal-section">
+            <div class="highlight-box">
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">Shurp Rules:
+                    TL;DR</h2>
+                <p class="mb-4 opacity-100">Before you hit the road, remember:</p>
+                <ul class="compact-list text-sm md:text-base opacity-100">
+                    <li><strong>Shurp is not a taxi.</strong> It's a platform where people share available seats.
+                    </li>
+                    <li><strong>Cost sharing.</strong> Trips are not a commercial service.</li>
+                    <li><strong>No fees.</strong> Shurp doesn't charge for using the platform.</li>
+                    <li><strong>Be responsible.</strong> If plans change — let others know (no ghosting).</li>
+                    <li><strong>Your car – Your rules.</strong> Agree on pets and luggage before the trip.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>1. What is Shurp?</h2>
+            <p>Shurp is a technology platform that connects private individuals (drivers and passengers) heading the
+                same way to share trip costs.</p>
+            <p>Shurp <strong class="opacity-100 text-[#1F2933] font-semibold">does not provide</strong> transportation
+                services, does not manage vehicles, does not
+                employ drivers, and does not offer taxi or courier services.</p>
+            <p>When users agree on a trip, obligations arise directly between the driver and passenger.
+                Shurp is not a party to this agreement and only provides a technical platform for communication and
+                cost calculation.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>2. Participant Requirements</h2>
+            <p>To use the platform, you must be at least <strong class="opacity-100 text-[#1F2933] font-semibold">18
+                    years old</strong>.</p>
+            <ul class="compact-list">
+                <li><strong class="opacity-100 text-[#1F2933] font-semibold">Drivers:</strong> Valid driver's license,
+                    valid MTPL insurance, and vehicle in proper
+                    technical condition.</li>
+                <li><strong class="opacity-100 text-[#1F2933] font-semibold">Passengers:</strong> Trips must be booked
+                    in your own name. You cannot reserve a seat
+                    for minors without an accompanying adult.</li>
+            </ul>
+            <p class="text-sm opacity-50 mt-4 italic">Shurp reserves the right to request additional
+                information or suspend an account if there are doubts about compliance with these terms.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>3. Cost Sharing Principle</h2>
+            <p>Shurp is based on fair cost distribution.</p>
+            <ul class="compact-list">
+                <li>Latvian regulations state that drivers cannot profit from trips.</li>
+                <li>The platform's algorithm sets the maximum cost coverage amount.</li>
+                <li>Users agree on payments between themselves.</li>
+            </ul>
+            <div class="mt-4 p-4 border-l-2 border-[#125E8A]/30 bg-[#E6F1F7]">
+                <p class="text-sm"><strong class="opacity-100 text-[#1F2933] font-semibold">Important:</strong> Shurp
+                    does not process payments, does not maintain
+                    financial accounts, and does not charge commission fees. Users are responsible for their own tax
+                    and financial obligations.</p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>4. Safety and Liability</h2>
+            <ul class="compact-list">
+                <li>Private MTPL covers passengers if the trip is non-commercial.</li>
+                <li>The driver has the right to verify the passenger's identity before the trip.</li>
+                <li>Users are responsible for their own actions, safety, and belongings.</li>
+            </ul>
+            <p class="mt-6 mb-2"><strong class="opacity-100 text-[#1F2933] font-semibold">Liability Limitation:</strong>
+            </p>
+            <p class="text-sm">Shurp is not responsible for traffic accidents, user actions, losses during trips, or
+                disputes between users. The platform is provided "as-is".</p>
+            <p class="text-sm">To the extent permitted by law, Shurp's total liability in any case does not exceed
+                <strong class="opacity-100 text-[#1F2933] font-semibold">0 EUR</strong>, as the platform does not charge
+                for services.
+            </p>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. Account Suspension</h2>
+            <p>Shurp reserves the right to suspend or delete a user account at any time if these terms, regulations,
+                or other users' safety are violated.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. Community Guidelines</h2>
+            <ul class="compact-list">
+                <li>If you're running late or can't make it — inform the other party.</li>
+                <li>Repeated no-shows (ghosting) may affect your rating or platform access.</li>
+                <li>For inappropriate behavior, use the <strong
+                        class="opacity-100 text-[#1F2933] font-semibold">"Report"</strong> function.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. Data Protection</h2>
+            <p>Personal data processing is carried out in accordance with Shurp's Privacy Policy. You can request
+                deletion of your data by writing to <span id="safe-email-info-section"></span>.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>8. Dispute Resolution</h2>
+            <p>Latvian law applies. Disputes are primarily resolved through negotiation or in Latvian courts
+                according to jurisdiction.</p>
+        </section>
+
+        <section class="legal-section">
+            <div class="legal-footer-box">
+                <p class="opacity-100 mb-4"><strong class="opacity-100 text-[#1F2933] font-semibold">9. Legal
+                        Information</strong></p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Service Provider</p>
+                        <p class="font-bold">SIA Shurp</p>
+                        <p class="text-sm opacity-60">Reg. No. LV40203709369</p>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">Legal Address</p>
+                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvia</p>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0]">
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">DSA Contact Point</p>
+                        <span id="safe-email-legal"></span>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0]">
+                        <p class="text-xs uppercase tracking-widest opacity-40 mb-1">General Inquiries</p>
+                        <span id="safe-email-info-footer"></span>
+                    </div>
+                </div>
+                <p class="mt-6 text-xs opacity-40">Shurp platform operations are supervised by Latvian competent
+                    authorities in accordance with the Digital Services Act (DSA).</p>
+            </div>
+        </section>
+
+        <div class="pt-8 text-center">
+            <a href="./" class="text-[#125E8A] font-bold hover:opacity-80 transition">Back to Homepage</a>
+        </div>
+    </div>
+
+    <footer class="py-12 px-8 bg-[#125E8A] text-center text-xs uppercase tracking-widest">
+        <p class="text-white/70">&copy; 2026 SHURP. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var domain = "shurp.lv";
+
+            // Info email in Section 7
+            var infoEmail = "info@" + domain;
+            var infoSection = document.getElementById("safe-email-info-section");
+            if (infoSection) {
+                var link1 = document.createElement("a");
+                link1.href = "mailto:" + infoEmail;
+                link1.className = "text-[#125E8A]";
+                link1.innerText = infoEmail;
+                infoSection.appendChild(link1);
+            }
+
+            // Legal email in footer
+            var legalEmail = "legal@" + domain;
+            var legalContainer = document.getElementById("safe-email-legal");
+            if (legalContainer) {
+                var link2 = document.createElement("a");
+                link2.href = "mailto:" + legalEmail;
+                link2.className = "text-[#125E8A] font-bold hover:underline";
+                link2.innerText = legalEmail;
+                legalContainer.appendChild(link2);
+            }
+
+            // Info email in footer
+            var infoFooter = document.getElementById("safe-email-info-footer");
+            if (infoFooter) {
+                var link3 = document.createElement("a");
+                link3.href = "mailto:" + infoEmail;
+                link3.className = "opacity-80 hover:underline";
+                link3.innerText = infoEmail;
+                infoFooter.appendChild(link3);
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
+</file>
+
+<file path="public/lv/privacy.html">
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shurp | Privātuma politika</title>
+
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-4">
+
+    <nav class="nav-bar">
+        <div class="flex items-center">
+            <a href="./">
+                <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
+            </a>
+        </div>
+        <a href="./" class="text-sm font-medium text-white/70 hover:text-white transition">← Atpakaļ</a>
+    </nav>
+
+    <div class="legal-card">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privātuma politika</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada februārī</p>
+
+        <section class="legal-section">
+            <div class="highlight-box">
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Mūsu filozofija: Mazāk ir drošāk</h2>
+                <p class="!mb-0 !opacity-100">Shurp pamatā ir princips: mēs nevācam datus, kurus mums nevajag, un
+                    neuzglabājam tos ilgāk, nekā nepieciešams.</p>
+                <p class="!mb-0 !opacity-100 font-medium">Tavs privātums mums nav tikai ķeksītis — tā ir mūsu lietotnes
+                    arhitektūra.</p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>2. Kas ir datu pārzinis?</h2>
+            <p>Personas datu pārzinis ir:</p>
+            <p><strong class="text-[#1F2933] font-bold">SIA Shurp</strong><br>
+                Reģ. Nr. LV40203709369<br>
+                Adrese: Briežu iela 9, Lapsas, LV-2107, Latvija<br>
+                E-pasts privātuma jautājumiem: <span id="safe-email-p2"></span>
+            </p>
+            <p>Mēs apstrādājam personas datus saskaņā ar Vispārīgo datu aizsardzības regulu (GDPR) un Latvijas
+                normatīvajiem aktiem.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>3. Kādus datus mēs apstrādājam?</h2>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2">Identitātes dati</p>
+            <ul class="compact-list">
+                <li>Vārds</li>
+                <li>Tālruņa numurs</li>
+                <li>Profila foto (ja pievienots)</li>
+            </ul>
+            <p class="text-sm italic">Nepieciešami, lai lietotāji zinātu, ar ko kopā brauc.</p>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Verifikācijas dati</p>
+            <p class="text-sm">Ja Tu apstiprini savu identitāti (piemēram, kā šoferis caur CSDD):</p>
+            <ul class="compact-list">
+                <li>mēs neuzglabājam Tavus personas dokumentu numurus,</li>
+                <li>mēs saglabājam tikai šifrētu apstiprinājuma statusu.</li>
+            </ul>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Atrašanās vietas dati (GPS)</p>
+            <p class="text-sm">Lai atrastu savējos vienā maršrutā, mums nepieciešama:</p>
+            <ul class="compact-list">
+                <li>sākuma un galamērķa informācija</li>
+                <li>maršruta dati</li>
+            </ul>
+            <p class="text-sm">Precīzas koordinātas tiek apstrādātas tikai tik ilgi, cik nepieciešams brauciena
+                nodrošināšanai. Shurp neveic nepārtrauktu vai fonā notiekošu lietotāja atrašanās vietas izsekošanu.</p>
+
+            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Saziņas dati</p>
+            <ul class="compact-list">
+                <li>Čata ziņas starp lietotājiem</li>
+                <li>Tehniskā saziņa ar atbalstu</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>4. Kā mēs aizsargājam Tavu atrašanās vietu?</h2>
+            <p>Mēs apzināti esam izveidojuši vairākus aizsardzības slāņus.</p>
+            <ul class="compact-list">
+                <li><strong>Lokācijas anonimizācija:</strong> Mēs neizmantojam Tavu precīzo adresi meklēšanas procesos.
+                </li>
+                <li><strong>Dinamiskā nobīde:</strong> Tavs maršruts tiek apstrādāts anonimizētos reģionos.</li>
+                <li><strong>Pakāpeniska piekļuve:</strong> Precīza satikšanās vieta kļūst redzama tikai pēc brauciena
+                    apstiprināšanas.</li>
+                <li><strong>Privātie maršruti:</strong> Tavi regulārie maršruti nav publiski redzami.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. Datu apstrādes tiesiskais pamats</h2>
+            <p>Mēs apstrādājam datus, pamatojoties uz:</p>
+            <ul class="compact-list">
+                <li>Līguma izpildi (brauciena organizēšana)</li>
+                <li>Juridisko pienākumu izpildi</li>
+                <li>Leģitīmajām interesēm (platformas drošība)</li>
+                <li>Lietotāja piekrišanu</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. Cik ilgi mēs glabājam datus?</h2>
+            <p>Mums nepatīk digitālie putekļi.</p>
+            <ul class="compact-list">
+                <li>Detalizētas koordinātas tiek anonimizētas pēc 30 dienām.</li>
+                <li>Čata vēsture tiek dzēsta 30 dienas pēc brauciena beigām.</li>
+                <li>Ja Tu dzēs savu kontu, dati tiek neatgriezeniski dzēsti.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. Datu nodošana trešajām pusēm</h2>
+            <p>Mēs nepārdodam Tavus personas datus reklāmdevējiem.</p>
+            <p>Dati var tikt nodoti starp šoferi un pasažieri, tehniskajiem pakalpojumu sniedzējiem (ES teritorijā) un
+                saskaņā ar DPA līgumiem.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>8. Drošība</h2>
+            <ul class="compact-list">
+                <li>Dati tiek šifrēti pārsūtīšanas un uzglabāšanas laikā.</li>
+                <li>Sensitīva informācija netiek glabāta atklātā veidā.</li>
+                <li>Pieeja datiem ir ierobežota un auditējama.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>9. Tavas tiesības</h2>
+            <p>Saskaņā ar GDPR Tev ir tiesības piekļūt saviem datiem, tos labot, dzēst vai ierobežot apstrādi.</p>
+            <p>Pieprasījumus vari iesniegt rakstot uz: <span id="safe-email-p9"></span></p>
+        </section>
+
+        <section class="legal-section">
+            <h2>10. Izmaiņas šajā politikā</h2>
+            <p>Ja mēs veiksim būtiskas izmaiņas, par to informēsim lietotnē vai mājaslapā.</p>
+        </section>
+
+        <section class="legal-section">
+            <div class="legal-footer-box">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Datu pārzinis</p>
+                        <p class="font-bold">SIA Shurp</p>
+                        <p class="text-sm opacity-60">Reģ. Nr. LV40203709369</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Juridiskā adrese</p>
+                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvija</p>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0] md:col-span-2">
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">DSA kontaktpunkts</p>
+                        <span id="safe-email-footer"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pt-8 text-center">
+            <a href="./"
+                class="text-[#125E8A] font-bold hover:opacity-80 transition underline decoration-2 underline-offset-4">Atpakaļ
+                uz sākumlapu</a>
+        </div>
+    </div>
+
+    <footer class="py-12 px-8 bg-[#125E8A] text-center text-[10px] uppercase tracking-widest">
+        <p class="text-white/70">&copy; 2026 SHURP. Visas tiesības aizsargātas.</p>
+    </footer>
+
+    <script>
+        const setupEmail = (id, user = "legal") => {
+            const domain = "shurp.lv";
+            const email = user + "@" + domain;
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = `<a href="mailto:${email}" class="text-[#125E8A] hover:underline font-bold">${email}</a>`;
+        };
+        setupEmail("safe-email-p2");
+        setupEmail("safe-email-p9");
+        setupEmail("safe-email-footer");
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/lv/terms.html">
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shurp | Lietošanas noteikumi</title>
+
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-4">
+
+    <nav class="nav-bar">
+        <div class="flex items-center">
+            <a href="./">
+                <img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto">
+            </a>
+        </div>
+        <a href="./" class="text-sm font-medium text-white/70 hover:text-white transition">← Atpakaļ</a>
+    </nav>
+
+    <div class="legal-card">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Lietošanas noteikumi</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada februārī</p>
+
+        <section class="legal-section">
+            <div class="highlight-box">
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">Shurp Noteikumi: Īsumā (TL;DR)</h2>
+                <p class="mb-4 !opacity-100">Pirms dodies ceļā, atceries:</p>
+                <ul class="compact-list !opacity-100 text-sm md:text-base">
+                    <li><strong>Shurp nav taksis.</strong> Tā ir platforma, kur savējie dalās ar brīvajām sēdvietām.
+                    </li>
+                    <li><strong>Izmaksu dalīšana.</strong> Braucieni nav komerciāls pakalpojums.</li>
+                    <li><strong>Bez komisijām.</strong> Shurp neiekasē maksu par platformas izmantošanu.</li>
+                    <li><strong>Esi atbildīgs.</strong> Ja plāni mainās — dod ziņu. Esi savējais.</li>
+                    <li><strong>Tavs auto – Tavi noteikumi.</strong> Par mājdzīvniekiem un bagāžu vienojieties pirms
+                        brauciena.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>1. Kas ir Shurp?</h2>
+            <p>Shurp ir tehnoloģiju platforma, kas savieno privātpersonas (šoferus un pasažierus), kuriem ir pa ceļam,
+                lai kopīgi segtu brauciena izmaksas.</p>
+            <p>Shurp <strong>nenodrošina</strong> transporta pakalpojumus, nepārvalda transportlīdzekļus, nenodarbina
+                šoferus un nepiedāvā taksometru vai kurjeru pakalpojumus.</p>
+            <p>Kad lietotāji vienojas par braucienu, saistības rodas tieši starp šoferi un pasažieri. Shurp nav šī
+                līguma puse un nodrošina tikai tehnisku platformu saziņai un izmaksu aprēķinam.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>2. Dalībnieku prasības</h2>
+            <p>Lai lietotu platformu, Tev jābūt vismaz <strong>18 gadus vecam</strong>.</p>
+            <ul class="compact-list">
+                <li><strong>Šoferiem:</strong> Derīga vadītāja apliecība, spēkā esoša OCTA apdrošināšana un
+                    transportlīdzeklis atbilstošā tehniskā stāvoklī.</li>
+                <li><strong>Pasažieriem:</strong> Brauciens jāpiesaka savā vārdā. Nedrīkst rezervēt vietu
+                    nepilngadīgajiem bez pavadošās personas.</li>
+            </ul>
+            <p class="text-xs opacity-50 mt-4 italic">Shurp patur tiesības pieprasīt papildu informāciju vai apturēt
+                kontu, ja rodas šaubas par atbilstību noteikumiem.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>3. Izmaksu dalīšanas princips</h2>
+            <p>Shurp pamatā ir godīga izmaksu sadale.</p>
+            <ul class="compact-list">
+                <li>LR normatīvie akti nosaka, ka šoferis nedrīkst gūt peļņu no brauciena.</li>
+                <li>Platformas algoritms nosaka maksimālo izmaksu segšanas apmēru.</li>
+                <li>Lietotāji savā starpā vienojas par norēķiniem.</li>
+            </ul>
+            <div class="mt-4 p-4 border-l-2 border-[#125E8A]/30 bg-[#E6F1F7]">
+                <p class="text-sm !mb-0"><strong>Svarīgi:</strong> Shurp neapstrādā maksājumus, neuztur finanšu kontus
+                    un neiekasē komisijas maksas. Lietotāji paši uzņemas atbildību par nodokļu un finanšu saistību
+                    ievērošanu.</p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h2>4. Drošība un atbildība</h2>
+            <ul class="compact-list">
+                <li>Privātā OCTA sedz pasažierus, ja brauciens nav komerciāls.</li>
+                <li>Šoferim ir tiesības pirms brauciena pārbaudīt pasažiera identitāti.</li>
+                <li>Lietotāji paši atbild par savu rīcību, drošību un mantām.</li>
+            </ul>
+            <p class="mt-6 mb-2 font-bold !opacity-100">Atbildības ierobežojums:</p>
+            <p class="text-sm">Shurp nav atbildīgs par ceļu satiksmes negadījumiem, lietotāju rīcību, zaudējumiem
+                brauciena laikā vai savstarpējiem strīdiem. Platforma tiek nodrošināta “tāda, kāda tā ir” (as-is).</p>
+            <p class="text-sm">Ciktāl to pieļauj normatīvie akti, Shurp kopējā atbildība jebkurā gadījumā nepārsniedz
+                <strong>0 EUR</strong>, jo platforma neiekasē maksu par pakalpojumu.
+            </p>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. Konta apturēšana</h2>
+            <p>Shurp patur tiesības jebkurā brīdī apturēt vai dzēst lietotāja kontu, ja tiek pārkāpti šie noteikumi,
+                normatīvie akti vai apdraudēta citu lietotāju drošība.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. Kopienas noteikumi</h2>
+            <ul class="compact-list">
+                <li>Ja kavē vai nevari ierasties — informē otru pusi.</li>
+                <li>Atkārtota neierašanās ("ghosting") var ietekmēt reitingu vai piekļuvi platformai.</li>
+                <li>Par neatbilstošu uzvedību izmanto funkciju <strong>“Ziņot”</strong>.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. Datu aizsardzība</h2>
+            <p>Personas datu apstrāde notiek saskaņā ar Shurp Privātuma politiku. Lietotājs var pieprasīt savu datu
+                dzēšanu, rakstot uz <span id="safe-email-info-section"></span>.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>8. Strīdu risināšana</h2>
+            <p>Piemērojami Latvijas Republikas normatīvie akti. Strīdi primāri risināmi pārrunu ceļā vai Latvijas
+                Republikas tiesā atbilstoši piekritībai.</p>
+        </section>
+
+        <section class="legal-section">
+            <div class="legal-footer-box">
+                <p class="!opacity-100 mb-6 font-bold">9. Juridiskā informācija</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Pakalpojuma sniedzējs</p>
+                        <p class="font-bold">SIA Shurp</p>
+                        <p class="text-sm opacity-60">Reģ. Nr. LV40203709369</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Juridiskā adrese</p>
+                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvija</p>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0]">
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">DSA kontaktpunkts</p>
+                        <span id="safe-email-legal"></span>
+                    </div>
+                    <div class="pt-4 border-t border-[#E2E8F0]">
+                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Vispārējā saziņa</p>
+                        <span id="safe-email-info-footer"></span>
+                    </div>
+                </div>
+                <p class="mt-6 text-[10px] opacity-40 leading-relaxed">Shurp platformas darbību uzrauga Latvijas
+                    kompetentās iestādes saskaņā ar Digitālo pakalpojumu aktu (DSA).</p>
+            </div>
+        </section>
+
+        <div class="pt-8 text-center">
+            <a href="./"
+                class="text-[#125E8A] font-bold hover:opacity-80 transition underline decoration-2 underline-offset-4">Atpakaļ
+                uz sākumlapu</a>
+        </div>
+    </div>
+
+    <footer class="py-12 px-8 bg-[#125E8A] text-center text-[10px] uppercase tracking-widest">
+        <p class="text-white/70">&copy; 2026 SHURP. Visas tiesības aizsargātas.</p>
+    </footer>
+
+    <script>
+        const setupEmail = (id, user) => {
+            const domain = "shurp.lv";
+            const email = user + "@" + domain;
+            const el = document.getElementById(id);
+            if (el) {
+                const isLegal = user === 'legal';
+                el.innerHTML = `<a href="mailto:${email}" class="text-[#125E8A] hover:underline ${isLegal ? 'font-bold' : 'opacity-80'}">${email}</a>`;
+            }
+        };
+        setupEmail("safe-email-info-section", "info");
+        setupEmail("safe-email-legal", "legal");
+        setupEmail("safe-email-info-footer", "info");
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/.htaccess">
+RewriteEngine On
+RewriteBase /
+
+# 1. Force remove .html from URL (Browser redirect)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# 2. Map clean URLs to .html files (Internal mapping)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ /$1.html [L]
+</file>
+
+<file path="public/sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://shurp.lv/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/"/>
+  </url>
+
+  <url>
+    <loc>https://shurp.lv/en/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/"/>
+  </url>
+  <url>
+    <loc>https://shurp.lv/en/privacy</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shurp.lv/en/terms</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/terms"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://shurp.lv/lv/</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/"/>
+  </url>
+  <url>
+    <loc>https://shurp.lv/lv/privacy</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shurp.lv/lv/terms</loc>
+    <lastmod>2026-03-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/terms"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
+</file>
+
+<file path=".gitignore">
+node_modules/
+dist/
+.env
+</file>
+
+<file path="LICENSE">
+MIT License
+
+Copyright (c) 2026 hj8kws9gk7-lab
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</file>
+
+<file path="public/en/index.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="application/ld:json">
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Shurp - Carpooling Latvia",
+              "operatingSystem": "iOS, Android",
+              "applicationCategory": "TravelApplication",
+              "description": "Shurp is a digital carpooling platform in Latvia. A smarter, low-cost alternative to taxis and car-sharing for intercity travel in Riga and beyond — with zero commission fees.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+              },
+              "author": {
+                "@type": "Organization",
+                "name": "Shurp SIA",
+                "url": "https://shurp.lv",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "LV"
+                },
+                "identifier": "40203709369"
+              },
+              "url": "https://shurp.lv/en",
+              "image": "https://shurp.lv/assets/logo.png",
+              "aggregateRating": {  
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "ratingCount": "1"
+              }
+            }
+            </script>
+
+    <title>Shurp | Ride with the pack – Carpooling Latvia & Riga</title>
+    <meta name="description"
+        content="Experience Shurp, the smartest carpooling app in Latvia. Save on intercity travel with zero commission fees. A community-driven alternative to taxis and car-sharing in Riga.">
+    <meta name="keywords"
+        content="carpooling latvia, ride sharing riga, intercity travel latvia, shurp app, cheap rides latvia, car sharing riga alternative, no fee carpool">
+    <meta name="author" content="Shurp SIA">
+    <link rel="canonical" href="https://shurp.lv/en" />
+
+    <meta property="og:title" content="Shurp | Ride with the pack">
+    <meta property="og:description"
+        content="Share the ride, share the cost. The zero-commission carpooling app for Riga and all of Latvia.">
+    <meta property="og:url" content="https://shurp.lv/en">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://shurp.lv/assets/og-image.jpg">
+
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+
+    <!-- SVG (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="../assets/apple-touch-icon.png">
+
+    <!-- Safari pinned tab (optional but premium) -->
+    <link rel="mask-icon" href="../assets/safari-pinned-tab.svg" color="#FA7E61">
+
+    <!-- Windows tile (optional) -->
+    <meta name="msapplication-TileColor" content="#125E8A">
+    <meta name="theme-color" content="#125E8A">
+
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer>
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF9F5;
+            color: #1F2933;
+            scroll-behavior: smooth;
+        }
+
+        .nav-bar {
+            background-color: rgba(18, 94, 138, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card {
+            background-color: #FFF9F5;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .shurp-coral-bg {
+            background-color: #FA7E61;
+        }
+
+        .shurp-coral-bg:hover {
+            background-color: #e8705a;
+        }
+
+        .shurp-blue-text {
+            color: #125E8A;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+
+        .cta-pop {
+            box-shadow: 0 6px 16px rgba(18, 94, 138, 0.22);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .cta-pop:hover {
+            box-shadow: 0 10px 22px rgba(18, 94, 138, 0.28);
+        }
+
+        .hero-section {
+            background-color: #125E8A;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            position: relative;
+        }
+
+        .soft-blue-bg {
+            background-color: #E6F1F7;
+            position: relative;
+        }
+
+        .organic-blob {
+            position: absolute;
+            top: -120px;
+            left: -10%;
+            width: 130%;
+            height: 400px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .organic-blob {
+                top: -80px;
+                height: 280px;
+                left: -15%;
+                width: 140%;
+            }
+        }
+
+        .warm-white-bg {
+            background-color: #FFF9F5;
+        }
+
+        @keyframes natural-snap {
+
+            0%,
+            20% {
+                transform: translateX(0);
+            }
+
+            25%,
+            45% {
+                transform: translateX(-100%);
+            }
+
+            50%,
+            70% {
+                transform: translateX(-200%);
+            }
+
+            75%,
+            95% {
+                transform: translateX(-300%);
+            }
+
+            100% {
+                transform: translateX(-400%);
+            }
+        }
+
+        .animate-slide {
+            display: flex;
+            width: 100%;
+            animation: natural-snap 12s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .animate-slide img {
+            width: 100%;
+            height: 100%;
+            flex: 0 0 100%;
+            object-fit: cover;
+        }
+
+        .phone-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 3rem;
+            isolation: isolate;
+            mask-image: radial-gradient(white, black);
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+
+        #cta-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+
+        #cta-modal.active {
+            display: flex;
+        }
+
+        .hero-illustration {
+            position: absolute;
+            right: -12vw;
+            bottom: -8vh;
+            width: clamp(650px, 60vw, 1000px);
+            height: auto;
+            pointer-events: none;
+            opacity: 0.95;
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-illustration {
+                right: -35vw;
+                bottom: -10vh;
+                width: 140vw;
+                opacity: 0.95;
+            }
+        }
+
+        .card-illustration {
+            position: absolute;
+            top: clamp(1rem, 2vw, 2rem);
+            right: clamp(1rem, 2vw, 2rem);
+            width: clamp(60px, 8vw, 140px);
+            height: auto;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .phone-shadow {
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <div id="cta-modal" onclick="closeModal(event)">
+        <div class="bg-[#FFF9F5] p-10 rounded-[2.5rem] max-w-sm w-full mx-4 text-center border border-[#E2E8F0] shadow-2xl"
+            onclick="event.stopPropagation()">
+            <h3 class="text-3xl font-bold mb-3 text-[#1F2933]">Coming Soon!</h3>
+            <p class="text-[#1F2933]/70 mb-8 text-sm leading-relaxed">Shurp will be available on App Store and Play
+                Store very soon. Sign up so you don't miss out!</p>
+
+            <form id="waitlist-form">
+                <input type="email" id="email-input" placeholder="Your email" required
+                    class="w-full bg-[#E6F1F7] border border-[#E2E8F0] rounded-full px-6 py-3 mb-4 focus:outline-none focus:border-[#125E8A] transition text-[#1F2933] placeholder-[#1F2933]/50">
+                <div id="turnstile-container" class="mb-4 flex justify-center" style="min-height:65px;"></div>
+                <button type="submit" id="submit-btn"
+                    class="shurp-blue-bg cta-pop w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition">
+                    Notify Me
+                </button>
+            </form>
+
+            <button onclick="toggleModal()"
+                class="mt-6 text-xs text-[#1F2933]/40 hover:text-[#1F2933] transition tracking-widest uppercase">Close</button>
+        </div>
+    </div>
+
+    <nav class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+        <div class="flex items-center">
+            <a href="index.html"><img src="../assets/logo.png" alt="Shurp"
+                    class="h-8 md:h-10 w-auto cursor-pointer"></a>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
+            <a href="#features" class="hover:text-white transition">How It Works</a>
+            <a href="#safety" class="hover:text-white transition">Safety</a>
+            <a href="#legal" class="hover:text-white transition">Legal Info</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
+                <span class="text-white">EN</span>
+                <span class="text-white/20">|</span>
+                <a href="/lv/" class="hover:text-white transition">LV</a>
+            </div>
+            <button onclick="toggleModal()"
+                class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Download</button>
+        </div>
+    </nav>
+
+    <section class="hero-section min-h-screen relative overflow-hidden pt-32 pb-20 lg:pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+            <div class="hero min-h-[calc(100vh-8rem)]">
+                <div class="pt-12 lg:pt-24">
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight text-white">
+                        Ride with the pack<br><span class="text-[#F4937C] font-medium italic">Share the ride, share the
+                            cost</span>
+                    </h1>
+                    <p class="max-w-xl text-lg md:text-xl text-white/70 mb-12 leading-relaxed">
+                        Zero Fees. Smarter carpooling in Riga and all of Latvia
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <div onclick="toggleModal()"
+                            class="w-48 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition group">
+                            <span class="text-sm font-semibold text-white/80 group-hover:text-white transition">App
+                                Store</span>
+                        </div>
+                        <div onclick="toggleModal()"
+                            class="w-48 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition group">
+                            <span class="text-sm font-semibold text-white/80 group-hover:text-white transition">Play
+                                Store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="../assets/hands.png" alt="Shurp illustration" class="hero-illustration">
+    </section>
+
+    <section id="features" class="soft-blue-bg px-6 py-24 relative overflow-hidden">
+        <svg class="organic-blob" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none">
+            <path d="M0 0H1440V180C1440 180 1320 280 1100 300C880 320 720 240 540 260C360 280 180 340 0 300V0Z"
+                fill="#125E8A" />
+        </svg>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+                <div
+                    class="lg:col-span-4 h-auto md:h-80 feature-card rounded-[3rem] p-10 relative overflow-hidden flex flex-col justify-end">
+                    <img src="../assets/ill_magic.png" alt="" class="card-illustration">
+                    <h3 class="text-3xl font-bold mb-4 tracking-tight text-[#1F2933]">You post. Shurp connects</h3>
+                    <p class="text-[#1F2933]/70 max-w-sm text-lg leading-relaxed">
+                        Forget about chats and groups. Shurp automatically connects drivers and passengers.
+                    </p>
+                </div>
+
+                <div id="safety"
+                    class="lg:col-span-2 h-auto md:h-80 feature-card rounded-[3rem] p-10 flex flex-col justify-end relative overflow-hidden">
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-[#1F2933] leading-tight">Know your Shurper.
+                        Own your privacy</h3>
+                    <p class="text-[#1F2933]/70 text-base leading-relaxed">
+                        Verified profiles. Public ratings.
+                        You decide what’s visible.
+                    </p>
+                </div>
+
+                <div
+                    class="lg:col-span-6 h-auto md:h-64 feature-card rounded-[3rem] p-10 flex flex-col md:flex-row md:items-center justify-between relative overflow-hidden">
+                    <div class="max-w-xl relative z-10">
+                        <h3 class="text-3xl font-bold mb-4 tracking-tight text-[#1F2933]">Good for the Environment</h3>
+                        <p class="text-[#1F2933]/70 text-lg leading-relaxed">
+                            Every shared ride means fewer cars on the road.
+                            Lower CO₂. More money in your pocket.
+                        </p>
+                    </div>
+                    <div class="mt-6 md:mt-0 flex items-center space-x-2">
+                        <div class="h-1 w-12 bg-[#125E8A]/30 rounded-full"></div>
+                        <div class="h-1 w-8 bg-[#125E8A]/30 rounded-full"></div>
+                        <div class="h-1 w-4 bg-[#125E8A]/30 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="soft-blue-bg py-32 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="md:w-1/2 text-left">
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
+                    <span class="shurp-blue-text">Simple outside</span><br><span class="text-[#1F2933]">Fast on the
+                        inside</span>
+                </h2>
+                <p class="text-xl text-[#1F2933]/60 mb-10 leading-relaxed italic">
+                    Less chatting. More riding.
+                </p>
+                <button onclick="toggleModal()"
+                    class="shurp-coral-bg cta-pop px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition text-white">Join
+                    Shurp</button>
+            </div>
+
+            <div class="md:w-1/2 relative flex justify-center">
+                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow w-[330px] overflow-hidden">
+                    <div class="bg-black rounded-[3rem] aspect-[9/19.5] relative phone-frame">
+                        <div class="animate-slide">
+                            <img src="../assets/screen1.png" alt="Shurp app - find rides in Latvia">
+                            <img src="../assets/screen2.png" alt="Shurp - found rides Riga - Tukums">
+                            <img src="../assets/screen3.png" alt="Shurp app - ride details">
+                            <img src="../assets/screen4.png" alt="Shurp app - safe messaging">
+                            <img src="../assets/screen1.png" alt="Shurp app - loop">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="legal" class="py-24 px-8 shurp-blue-bg">
+        <div class="max-w-7xl mx-auto text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-6 text-white">Shurp SIA</h4>
+                    <p class="leading-relaxed mb-4 text-white/70">
+                        Reg. No: LV40203709369<br>
+
+                        Contact Information: <span id="safe-email" class="text-white/70"></span>
+                    </p>
+                    <p class="leading-relaxed text-white/70">
+                        <strong class="text-white">Privacy Notice:</strong> We use address data only for connecting
+                        rides.
+                        Exact address and user information is visible only to ride participants.
+                    </p>
+                </div>
+                <div class="text-left md:text-right">
+                    <h4 class="text-lg font-bold mb-6 text-white">About the Platform</h4>
+                    <p class="leading-relaxed text-white/70 max-w-xl md:ml-auto">
+                        Shurp connects drivers and passengers for shared rides across Latvia — without commission fees.
+                        A smarter alternative to taxis and car-sharing, wherever there’s a car and a phone.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/10 uppercase tracking-[0.2em] text-[10px] text-white/70">
+                <p>&copy; 2026 SHURP. All rights reserved.</p>
+                <div class="flex space-x-8 mt-6 md:mt-0">
+                    <a href="privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="terms" class="hover:text-white transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
+        let turnstileWidgetId = null;
+
+        function renderTurnstileOnce() {
+            const container = document.getElementById('turnstile-container');
+            if (!container || turnstileWidgetId !== null) return;
+
+            turnstileWidgetId = turnstile.render(container, {
+                sitekey: TURNSTILE_SITEKEY,
+                theme: 'light'
+            });
+        }
+
+        window.addEventListener('load', () => {
+            if (window.turnstile) {
+                renderTurnstileOnce();
+            } else {
+                const check = setInterval(() => {
+                    if (window.turnstile) {
+                        renderTurnstileOnce();
+                        clearInterval(check);
+                    }
+                }, 100);
+            }
+        });
+
+        function toggleModal() {
+            const modal = document.getElementById('cta-modal');
+            modal.classList.toggle('active');
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'cta-modal') toggleModal();
+        }
+
+        document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            const submitBtn = document.getElementById('submit-btn');
+
+            const token = turnstile.getResponse(turnstileWidgetId);
+
+            if (!token) {
+                alert('Please confirm you are not a robot.');
+                return;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+
+            try {
+                const res = await fetch(
+                    'https://ypfryryaujlvidyfzybk.supabase.co/functions/v1/waitlist',
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email: email,
+                            token: token,
+                            lang: 'en'
+                        })
+                    }
+                );
+
+                if (!res.ok) {
+                    const text = await res.text();
+                    throw new Error(text);
+                }
+            } catch (err) {
+                alert('Error: ' + err.message);
+                submitBtn.innerText = 'Try Again';
+                submitBtn.disabled = false;
+                return;
+            }
+
+            turnstile.reset(turnstileWidgetId);
+
+            submitBtn.innerText = "Thanks! You're on the list.";
+            setTimeout(() => {
+                toggleModal();
+                submitBtn.innerText = 'Notify Me';
+                submitBtn.disabled = false;
+                e.target.reset();
+            }, 2000);
+        });
+
+        document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/lv/index.html">
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="application/ld:json">
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Shurp",
+              "operatingSystem": "iOS, Android",
+              "applicationCategory": "TravelApplication",
+              "description": "Shurp ir digitāla kopbraukšanas (carpooling) lietotne Latvijā. Brauc ar savējiem bez komisijas maksas.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+              },
+              "author": {
+                "@type": "Organization",
+                "name": "Shurp SIA",
+                "url": "https://www.shurp.lv",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "LV"
+                },
+                "identifier": "40203709369"
+              },
+              "url": "https://www.shurp.lv",
+              "image": "https://www.shurp.lv/assets/logo.png",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "ratingCount": "1"
+              }
+            }
+            </script>
+
+    <title>Braucam kopā ar Shurp – Brauc ar savējiem Rīgā un Latvijā</title>
+    <meta name="description"
+        content="Braucam kopā! Shurp ir digitāla kopbraukšanas (carpooling) lietotne Latvijā. Ērta mobilitātes alternatīva taksometram un carsharing Rīgā un reģionos bez komisijas maksas.">
+    <meta name="keywords"
+        content="kopbraukšana, braucam kopā, carpooling Latvija, Shurp, lēti braucieni, Rīga, carsharing alternatīva, bez komisijas, dali ceļu">
+    <meta name="author" content="Shurp SIA">
+    <link rel="canonical" href="https://shurp.lv/lv" />
+
+    <meta property="og:title" content="Shurp | Brauc ar savējiem">
+    <meta property="og:description"
+        content="Dali ceļu, dali bāku. Kopbraukšana Rīgā un visā Latvijā bez komisijas maksas.">
+    <meta property="og:url" content="https://shurp.lv/lv">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/og-image.jpg">
+
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+
+    <!-- SVG (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="../assets/apple-touch-icon.png">
+
+    <!-- Safari pinned tab (optional but premium) -->
+    <link rel="mask-icon" href="../assets/safari-pinned-tab.svg" color="#FA7E61">
+
+    <!-- Windows tile (optional) -->
+    <meta name="msapplication-TileColor" content="#125E8A">
+    <meta name="theme-color" content="#125E8A">
+
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF9F5;
+            color: #1F2933;
+            scroll-behavior: smooth;
+        }
+
+        .nav-bar {
+            background-color: rgba(18, 94, 138, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card {
+            background-color: #FFF9F5;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .shurp-coral-bg {
+            background-color: #FA7E61;
+        }
+
+        .shurp-coral-bg:hover {
+            background-color: #e8705a;
+        }
+
+        .shurp-blue-text {
+            color: #125E8A;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+
+        .cta-pop {
+            box-shadow: 0 6px 16px rgba(18, 94, 138, 0.22);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .cta-pop:hover {
+            box-shadow: 0 10px 22px rgba(18, 94, 138, 0.28);
+        }
+
+        .hero-section {
+            background-color: #125E8A;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            position: relative;
+        }
+
+        .soft-blue-bg {
+            background-color: #E6F1F7;
+            position: relative;
+        }
+
+        .organic-blob {
+            position: absolute;
+            top: -120px;
+            left: -10%;
+            width: 130%;
+            height: 400px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .organic-blob {
+                top: -80px;
+                height: 280px;
+                left: -15%;
+                width: 140%;
+            }
+        }
+
+        .warm-white-bg {
+            background-color: #FFF9F5;
+        }
+
+        @keyframes natural-snap {
+
+            0%,
+            20% {
+                transform: translateX(0);
+            }
+
+            25%,
+            45% {
+                transform: translateX(-100%);
+            }
+
+            50%,
+            70% {
+                transform: translateX(-200%);
+            }
+
+            75%,
+            95% {
+                transform: translateX(-300%);
+            }
+
+            100% {
+                transform: translateX(-400%);
+            }
+        }
+
+        .animate-slide {
+            display: flex;
+            width: 100%;
+            animation: natural-snap 12s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .animate-slide img {
+            width: 100%;
+            height: 100%;
+            flex: 0 0 100%;
+            object-fit: cover;
+        }
+
+        .phone-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 3rem;
+            isolation: isolate;
+            mask-image: radial-gradient(white, black);
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+
+        #cta-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+
+        #cta-modal.active {
+            display: flex;
+        }
+
+        .hero-illustration {
+            position: absolute;
+            right: -12vw;
+            bottom: -8vh;
+            width: clamp(650px, 60vw, 1000px);
+            height: auto;
+            pointer-events: none;
+            opacity: 0.95;
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-illustration {
+                right: -35vw;
+                bottom: -10vh;
+                width: 140vw;
+                opacity: 0.95;
+            }
+        }
+
+        .card-illustration {
+            position: absolute;
+            top: clamp(1rem, 2vw, 2rem);
+            right: clamp(1rem, 2vw, 2rem);
+            width: clamp(60px, 8vw, 140px);
+            height: auto;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .phone-shadow {
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <div id="cta-modal" onclick="closeModal(event)">
+        <div class="bg-[#FFF9F5] p-10 rounded-[2.5rem] max-w-sm w-full mx-4 text-center border border-[#E2E8F0] shadow-2xl"
+            onclick="event.stopPropagation()">
+            <h3 class="text-3xl font-bold mb-3 text-[#1F2933]">Jau drīz!</h3>
+            <p class="text-[#1F2933]/70 mb-8 text-sm leading-relaxed">Shurp būs pieejams App Store un Play Store jau
+                tuvākajā laikā. Pieraksties, lai nepalaistu garām!</p>
+
+            <form id="waitlist-form">
+                <input type="email" id="email-input" placeholder="Tavs e-pasts" required
+                    class="w-full bg-[#E6F1F7] border border-[#E2E8F0] rounded-full px-6 py-3 mb-4 focus:outline-none focus:border-[#125E8A] transition text-[#1F2933] placeholder-[#1F2933]/50">
+                <div id="turnstile-container" class="mb-4 flex justify-center" style="min-height:65px;"></div>
+                <button type="submit" id="submit-btn"
+                    class="shurp-blue-bg cta-pop w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition">
+                    Paziņo man
+                </button>
+            </form>
+
+            <button onclick="toggleModal()"
+                class="mt-6 text-xs text-[#1F2933]/40 hover:text-[#1F2933] transition tracking-widest uppercase">Aizvērt</button>
+        </div>
+    </div>
+
+    <nav class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+        <div class="flex items-center">
+            <a href="/lv/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
+            <a href="#features" class="hover:text-white transition">Kā tas strādā</a>
+            <a href="#safety" class="hover:text-white transition">Drošība</a>
+            <a href="#legal" class="hover:text-white transition">Juridiskā info</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
+                <a href="../en/" class="hover:text-white transition">EN</a>
+                <span class="text-white/20">|</span>
+                <span class="text-white">LV</span>
+            </div>
+            <button onclick="toggleModal()"
+                class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejuplādēt</button>
+        </div>
+    </nav>
+
+    <section class="hero-section min-h-screen relative overflow-hidden pt-32 pb-20 lg:pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+            <div class="hero min-h-[calc(100vh-8rem)]">
+                <div class="pt-12 lg:pt-24">
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight text-white">
+                        Brauc ar savējiem<br><span class="text-[#F4937C] font-medium italic"> Dali ceļu, dali
+                            bāku</span>
+                    </h1>
+                    <p class="max-w-xl text-lg md:text-xl text-white/70 mb-12 leading-relaxed">
+                        Bez komisijas. Kopbraukšana Rīgā un visā Latvijā
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <div onclick="toggleModal()"
+                            class="w-48 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition group">
+                            <span class="text-sm font-semibold text-white/80 group-hover:text-white transition">App
+                                Store</span>
+                        </div>
+                        <div onclick="toggleModal()"
+                            class="w-48 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 cursor-pointer hover:bg-white/20 transition group">
+                            <span class="text-sm font-semibold text-white/80 group-hover:text-white transition">Play
+                                Store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="../assets/hands.png" alt="Shurp illustration" class="hero-illustration">
+    </section>
+
+    <section id="features" class="soft-blue-bg px-6 py-24 relative overflow-hidden">
+        <svg class="organic-blob" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none">
+            <path d="M0 0H1440V180C1440 180 1320 280 1100 300C880 320 720 240 540 260C360 280 180 340 0 300V0Z"
+                fill="#125E8A" />
+        </svg>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+                <div
+                    class="lg:col-span-4 h-auto md:h-80 feature-card rounded-[3rem] p-10 relative overflow-hidden flex flex-col justify-end">
+                    <img src="../assets/ill_magic.png" alt="" class="card-illustration">
+                    <h3 class="text-3xl font-bold mb-4 tracking-tight text-[#1F2933]">Vienkārši, Maģiski</h3>
+                    <p class="text-[#1F2933]/70 max-w-sm text-lg leading-relaxed">
+                        Aizmirsti par čatiem un grupām. Shurp automātiski savieno šoferus un pasažierus.
+                    </p>
+                </div>
+
+                <div id="safety"
+                    class="lg:col-span-2 h-auto md:h-80 feature-card rounded-[3rem] p-10 flex flex-col justify-end relative overflow-hidden">
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-[#1F2933] leading-tight">Zini, ar ko brauc.
+                        Izlem,
+                        ko rādi</h3>
+                    <p class="text-[#1F2933]/70 text-base leading-relaxed">
+                        Pārbaudīti profili, publiski reitingi uzticībai un pilna kontrole pār Taviem datiem. Brauc
+                        droši.
+                    </p>
+                </div>
+
+                <div
+                    class="lg:col-span-6 h-auto md:h-64 feature-card rounded-[3rem] p-10 flex flex-col md:flex-row md:items-center justify-between relative overflow-hidden">
+                    <div class="max-w-xl relative z-10">
+                        <h3 class="text-3xl font-bold mb-4 tracking-tight text-[#1F2933]">Labi videi</h3>
+                        <p class="text-[#1F2933]/70 text-lg leading-relaxed">
+                            Katrs brauciens ne tikai ļauj ietaupīt, bet arī saudzē vidi un samazina mašīnu skaitu uz
+                            ielām.
+                            Co2 mazāk, maciņā vairāk.
+                        </p>
+                    </div>
+                    <div class="mt-6 md:mt-0 flex items-center space-x-2">
+                        <div class="h-1 w-12 bg-[#125E8A]/30 rounded-full"></div>
+                        <div class="h-1 w-8 bg-[#125E8A]/30 rounded-full"></div>
+                        <div class="h-1 w-4 bg-[#125E8A]/30 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="soft-blue-bg py-32 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="md:w-1/2 text-left">
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
+                    <span class="shurp-blue-text">Viegls dizains</span><br><span class="text-[#1F2933]">Jaudīga
+                        loģika</span>
+                </h2>
+                <p class="text-xl text-[#1F2933]/60 mb-10 leading-relaxed italic">
+                    Mazāk čatu. Vairāk braukšanas
+                </p>
+                <button onclick="toggleModal()"
+                    class="shurp-coral-bg cta-pop px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition text-white">Pievienoties
+                    Shurp</button>
+            </div>
+
+            <div class="md:w-1/2 relative flex justify-center">
+                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow w-[330px] overflow-hidden">
+                    <div class="bg-black rounded-[3rem] aspect-[9/19.5] relative phone-frame">
+                        <div class="animate-slide">
+                            <img src="../assets/screen1.png" alt="Ekrāns 1">
+                            <img src="../assets/screen2.png" alt="Ekrāns 2">
+                            <img src="../assets/screen3.png" alt="Ekrāns 3">
+                            <img src="../assets/screen4.png" alt="Ekrāns 4">
+                            <img src="../assets/screen1.png" alt="Loop">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="legal" class="py-24 px-8 shurp-blue-bg">
+        <div class="max-w-7xl mx-auto text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-6 text-white">Shurp SIA</h4>
+                    <p class="leading-relaxed mb-4 text-white/70">
+                        Reģ. Nr: LV40203709369<br>
+
+                        Kontaktinformācija: <span id="safe-email" class="text-white/70"></span>
+                    </p>
+                    <p class="leading-relaxed text-white/70">
+                        <strong class="text-white">Privātuma atruna:</strong> Mēs izmantojam adrešu datus tikai
+                        braucienu savienošanai.
+                        Precīza adrese un lietotāja informācija redzama tikai brauciena dalībniekiem.
+                    </p>
+                </div>
+                <div class="text-left md:text-right">
+                    <h4 class="text-lg font-bold mb-6 text-white">Par platformu</h4>
+                    <p class="leading-relaxed text-white/70 max-w-xl md:ml-auto">
+                        Shurp ir digitāla kopbraukšanas (carpooling) lietotne Latvijā, kas savieno autovadītājus un
+                        pasažierus dalītiem braucieniem bez komisijas maksas.
+                        Ērta mobilitātes alternatīva taksometram un carsharing pakalpojumiem Rīgā, Latvijas pilsētās un
+                        reģionos — visur, kur cilvēkiem ir auto un telefons.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/10 uppercase tracking-[0.2em] text-[10px] text-white/70">
+                <p>&copy; 2026 SHURP. Visas tiesības aizsargātas.</p>
+                <div class="flex space-x-8 mt-6 md:mt-0">
+                    <a href="privacy" class="hover:text-white transition">Privātuma politika</a>
+                    <a href="terms" class="hover:text-white transition">Lietošanas noteikumi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
+        let turnstileWidgetId = null;
+
+        function renderTurnstileOnce() {
+            const container = document.getElementById('turnstile-container');
+            if (!container || turnstileWidgetId !== null) return;
+
+            turnstileWidgetId = turnstile.render(container, {
+                sitekey: TURNSTILE_SITEKEY,
+                theme: 'light'
+            });
+        }
+
+        window.addEventListener('load', () => {
+            if (window.turnstile) {
+                renderTurnstileOnce();
+            } else {
+                const check = setInterval(() => {
+                    if (window.turnstile) {
+                        renderTurnstileOnce();
+                        clearInterval(check);
+                    }
+                }, 100);
+            }
+        });
+        function toggleModal() {
+            const modal = document.getElementById('cta-modal');
+            modal.classList.toggle('active');
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'cta-modal') toggleModal();
+        }
+
+        document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (turnstileWidgetId === null) {
+                alert('Drošības pārbaude vēl nav ielādēta. Lūdzu, uzgaidiet.');
+                return;
+            }
+
+            const token = turnstile.getResponse(turnstileWidgetId);
+
+            if (!token) {
+                alert('Lūdzu, apstipriniet, ka neesat robots.');
+                return;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Lūdzu ievadiet derīgu e-pastu.');
+                return;
+            }
+
+            submitBtn.innerText = 'Sūta...';
+            submitBtn.disabled = true;
+
+            try {
+                const res = await fetch(
+                    'https://ypfryryaujlvidyfzybk.supabase.co/functions/v1/waitlist',
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email: email,
+                            token: token,
+                            lang: 'lv'
+                        })
+                    }
+                );
+
+                if (!res.ok) {
+                    const text = await res.text();
+                    throw new Error(text);
+                }
+            } catch (err) {
+                alert('Kļūda: ' + err.message);
+                submitBtn.innerText = 'Mēģināt vēlreiz';
+                submitBtn.disabled = false;
+                if (turnstileWidgetId !== null) {
+                    turnstile.reset(turnstileWidgetId);
+                }
+                return;
+            }
+
+            turnstile.reset(turnstileWidgetId);
+
+            submitBtn.innerText = 'Paldies! Tu esi sarakstā.';
+            setTimeout(() => {
+                toggleModal();
+                submitBtn.innerText = 'Paziņo man';
+                submitBtn.disabled = false;
+                e.target.reset();
+            }, 2000);
+        });
+
+        document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/index.html">
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shurp</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://shurp.lv/" />
+
+    <!-- Hreflang for SEO -->
+    <link rel="alternate" href="https://shurp.lv/en/" hreflang="en" />
+    <link rel="alternate" href="https://shurp.lv/lv/" hreflang="lv" />
+    <link rel="alternate" href="https://shurp.lv/lv/" hreflang="x-default" />
+
+    <!-- Minimal critical CSS for loader -->
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: #125E8A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <!-- Ultra-light redirect -->
+    <script>
+        (function () {
+            try {
+                var lang = (navigator.languages && navigator.languages.length)
+                    ? navigator.languages[0]
+                    : (navigator.language || 'lv');
+
+                lang = lang.toLowerCase();
+
+                var target = lang.startsWith('en') ? '/en/' : '/lv/';
+
+                if (location.pathname !== target) {
+                    location.replace(target);
+                }
+            } catch (e) {
+                location.replace('/lv/');
+            }
+        })();
+    </script>
+
+    <!-- No-JS fallback -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/lv/" />
+    </noscript>
+</head>
+
+<body>
+    <div class="loader" aria-hidden="true"></div>
+</body>
+
+</html>
+</file>
+
+<file path="README.md">
+# Shurp — Braucam kopā! Brauc ar savējiem 🚗💨
+
+[![Website](https://img.shields.io/badge/Website-shurp.lv-125E8A)](https://www.shurp.lv)
+[![Status](https://img.shields.io/badge/Status-Lobby_Live-FA7E61)]()
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey)]()
+
+**[Shurp](https://www.shurp.lv)** ir digitāla kopbraukšanas (*carpooling*) platforma, kurā mēs braucam kopā. Shurp savieno autovadītājus un pasažierus Rīgā, Latvijā un Baltijā. Mūsu mērķis ir padarīt mobilitāti lētāku, zaļāku un draudzīgāku, dalot ceļu un izmaksas bez slēptām komisijas maksām.
+
+Baltijas mērogs: Shurp sākotnēji startē Latvijā, bet mūsu vīzija ir savienot visu Baltiju. Shurp ir visur, kur ir cilvēki un auto. Tikpat labi var braukt uz Rīgu, Viļņu un Tallinu, padarot ceļošanu starp kaimiņvalstīm pieejamāku.
+
+---
+
+## 🌟 Par Projektu (About Shurp)
+Shurp nav taksometru serviss. Tā ir kopienas balstīta lietotne, kurā:
+* **Šoferi** sedz savas degvielas izmaksas, nevis nodarbojas ar komercpārvadājumiem.
+* **Pasažieri** ietaupa līdz pat 70%, salīdzinot ar tradicionālajiem taksometru vai carsharing pakalpojumiem (Bolt/Forus). Ietaupījumni, salīdzinot ar carsharing tālos gabalos var būt pat vēl lielāki.
+* **Visi** piedalās CO2 izmešu samazināšanā, optimizējot brīvās vietas automašīnās.
+
+## 🛠 Tehnoloģijas (Tech Stack)
+Šis repozitorijs satur Shurp oficiālo mājaslapu un informāciju par lietotnes izstrādi:
+- **Frontend:** HTML5, Tailwind CSS (Mobile-first dizains).
+- **App Logic:** Flutter & Dart (Cross-platform mobilitāte).
+- **Backend:** Supabase (Lietotāju datubāze un *Waitlist* vadība).
+- **Security:** Cloudflare Managed Bot Protection & Turnstile.
+
+📊 Maģiski viegli ar jaudīgu Loģiku (Smart Logic)
+Shurp ir radīts aizņemtiem cilvēkiem. Mēs zinām, ka šoferim, kurš katru dienu mēro ceļu uz darbu, nav laika sarežģītai plānošanai. Tāpēc esam izveidojuši "Vienas pogas" sistēmu:
+
+🪄 Maģiskais Setup: Ar vienu pogu šoferis var izveidot savu ikdienas maršrutu sēriju (katrai dienai). Nav nekādu ikdienas saistību (no commitment) vai laikietilpīgu čatu.
+
+🎣 "Uzmest makšķeri": Kad maršruti ir salikti, šoferis vienkārši brauc savās ikdienas gaitās. Lietotne darbojas fonā kā gudra makšķere – tev tikai atliek gaidīt paziņojumu, kad kāda "zivs" (pasažieris) ir pieteikusies tavam maršrutam.
+
+📈 Bezmaksas un bez riska: Braucienu izveide ir pilnīgi bez maksas. Ja neviens nepieķeras – nekas nemainās. Ja pieķeras – tavs degvielas rēķins kļūst mazāks.
+
+🧮 Tirgus cenu algoritms: Lai nebūtu jālauza galva par cipariem un Latvijas likumdevēju regulējumiem, mūsu algoritms automātiski aprēķina brauciena maksimālo pieļaujamo cenu. 
+
+## 📈 SEO & Topics
+Mūsu digitālā klātbūtne ir optimizēta Latvijas tirgum, izmantojot viedos atslēgvārdus:
+`kopbraukšana`, `carpooling latvia`, `riga transport`, `lēti braucieni`, `dali ceļu`.
+
+## 🔗 Saites un Juridiskā info
+- **Mājaslapa:** [shurp.lv](https://www.shurp.lv)
+- **Privātuma politika:** [shurp.lv/privacy](https://www.shurp.lv/privacy)
+- **Noteikumi:** [shurp.lv/terms](https://www.shurp.lv/terms)
+- **Uzņēmums:** Shurp SIA (Reģ. Nr: 40203709369)
+
+---
+© 2026 Shurp SIA. Brauc ar savējiem. Dali ceļu, dali bāku.
+
+---
+* **Atruna:** Shurp nav saistīts ar Bolt, CityBee vai Facebook. Tā ir neatkarīga kopbraukšanas platforma, kas piedāvā alternatīvu pārvietošanās veidu privātpersonām, braucot kopā un dalot ceļa izmaksas.
+---
+
+
+--ENGLISH--
+
+Shurp — Ride with the pack 🚗💨
+Shurp is a digital carpooling platform connecting drivers and passengers in Riga, all over Latvia and in Baltics. Our goal is to make mobility cheaper, greener, and friendlier by sharing the road and costs without hidden commission fees.
+
+Baltic-wide Reach: While launching in Latvia, Shurp is designed for the entire Baltic region. We are expanding to connect Riga, Vilnius, and Tallinn, making cross-border travel easier and more affordable.
+
+🌟 About the Project
+Shurp is not a taxi service. It is a community-based app where:
+
+Drivers cover their fuel costs rather than engaging in commercial transportation.
+
+Passengers save up to 70% compared to traditional taxi or carsharing services (Bolt/Forus). Savings compared to long-distance car-sharing can be even more significant.
+
+Everyone participates in reducing CO2 emissions by optimizing empty seats in cars.
+
+🛠 Tech Stack
+This repository contains the official Shurp website and information regarding the app's development:
+
+Frontend: HTML5, Tailwind CSS (Mobile-first design).
+
+App Logic: Flutter & Dart (Cross-platform mobility).
+
+Backend: Supabase (User database and Waitlist management).
+
+Security: Cloudflare Managed Bot Protection & Turnstile.
+
+📊 Magic button, 1000 horsepower logic
+Shurp is created for busy people. We know that a driver who commutes to work every day doesn't have time for complex planning. That's why we created the "One-button" system:
+
+🪄 Magical Setup: With one button, a driver can create their daily route series (for each day). There are no daily commitments or time-consuming chats.
+
+🎣 "Cast a Line": Once the routes are set, the driver simply goes about their daily business. The app works in the background like a smart fishing rod – you just wait for a notification when a "fish" (passenger) has signed up for your route.
+
+📈 Free and Risk-Free: Creating rides is completely free. If no one "bites" – nothing changes. If they do – your fuel bill gets smaller.
+
+🧮 Market Price Algorithm: To avoid worrying about numbers or Latvian legislative regulations, our algorithm automatically calculates the maximum allowable price for the ride.
+
+📈 SEO & Topics
+Our digital presence is optimized for the Latvian market using smart keywords:
+carpooling, carpooling latvia, riga transport, cheap rides, share the road.
+
+🔗 Links and Legal Info
+Website: shurp.lv
+
+Privacy Policy: shurp.lv/privacy
+
+Terms of Service: shurp.lv/terms
+
+Company: Shurp SIA (Reg. No: 40203709369)
+
+
+© 2026 Shurp SIA. Ride with your own. Share the road, share the tank.
+
+---
+* **Disclaimer:** Shurp is not affiliated with Bolt, CityBee, or Facebook. It is an independent carpooling platform offering an alternative way for individuals to travel together and share commuting costs.
+---
+</file>
+
+</files>

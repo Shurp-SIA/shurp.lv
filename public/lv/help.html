@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Shurp | Palīdzība</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c-primary: #125E8A;
+            --c-bg: #FFF9F5;
+            --c-outline: #E2E8F0;
+            --c-text: #1F2933;
+            --c-muted: #6B7280;
+            --c-surface: #E6F1F7;
+            --r-card: 16px;
+            --r-pill: 999px;
+        }
+
+        .icon-primary {
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        .icon-muted {
+            filter: invert(46%) sepia(6%) saturate(531%) hue-rotate(176deg) brightness(93%) contrast(88%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: var(--c-bg);
+        }
+
+        body {
+            color: var(--c-text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        .app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 52px;
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+            position: relative;
+        }
+
+        .app-bar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .page {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px 48px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: var(--c-muted);
+            padding: 14px 4px 20px;
+            line-height: 1.55;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        .card-group {
+            background: white;
+            border-radius: var(--r-card);
+            overflow: hidden;
+            margin-bottom: 28px;
+            border: 1px solid var(--c-outline);
+        }
+
+        .help-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 16px;
+            border-bottom: 1px solid var(--c-outline);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--c-text);
+            -webkit-tap-highlight-color: transparent;
+            transition: background .1s;
+        }
+
+        .help-row:last-child {
+            border-bottom: none;
+        }
+
+        .help-row:active {
+            background: var(--c-surface);
+        }
+
+        .row-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row-icon img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .row-label {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--c-text);
+        }
+
+        .row-chevron {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        .legal-blurb {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--c-text);
+            text-align: justify;
+            margin-bottom: 28px;
+        }
+
+        .legal-blurb a {
+            color: var(--c-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .legal-blurb a:hover {
+            text-decoration: underline;
+        }
+
+        .ask-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 14px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            resize: none;
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 10px;
+        }
+
+        .form-textarea:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-textarea::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-select-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px 40px 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-muted);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition: border-color .15s;
+        }
+
+        .form-select:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-select.filled {
+            color: var(--c-text);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--c-primary);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: var(--r-pill);
+            cursor: pointer;
+            transition: opacity .15s;
+            margin-bottom: 32px;
+            min-height: 48px;
+        }
+
+        .submit-btn:active {
+            opacity: .82;
+        }
+
+        .success-banner {
+            display: none;
+            background: #E6F7EE;
+            color: #1A7F4B;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .mil-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mil-flag {
+            display: flex;
+            gap: 3px;
+        }
+
+        .mil-flag span {
+            display: block;
+            width: 9px;
+            height: 28px;
+            border-radius: 3px;
+            background: #9E3039;
+        }
+
+        .mil-footer p {
+            font-size: 13px;
+            color: var(--c-muted);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: var(--c-bg);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .overlay.open {
+            display: block;
+        }
+
+        .overlay-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 52px;
+            padding: 0 16px;
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--c-outline);
+            background: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0;
+        }
+
+        .back-btn img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .overlay-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.2px;
+        }
+
+        .overlay-body {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px 16px 48px;
+        }
+
+        .overlay-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-primary);
+            margin: 20px 0 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .overlay-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .overlay-body p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 6px;
+        }
+
+        .overlay-body ul {
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        .overlay-body ul li {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 3px;
+        }
+
+        .overlay-body strong {
+            color: var(--c-text);
+            font-weight: 600;
+        }
+
+        .overlay-body .note {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--c-muted);
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            gap: 8px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            display: block;
+            transition: transform .2s;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        .faq-a {
+            display: none;
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            padding-bottom: 14px;
+        }
+
+        .faq-a a {
+            color: var(--c-primary);
+            text-decoration: underline;
+        }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        .lang-switch {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .lang-switch .active {
+            color: var(--c-primary);
+        }
+
+        .lang-switch .sep {
+            color: var(--c-outline);
+        }
+
+        .lang-switch a {
+            color: var(--c-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        .lang-switch a:hover {
+            color: var(--c-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-bar">
+        <span class="app-bar-title">Palīdzība</span>
+        <!-- ADD THIS -->
+        <div class="lang-switch">
+            <a href="/en/help">EN</a>
+            <span class="sep">|</span>
+            <span class="active">LV</span>
+        </div>
+    </div>
+
+    <div class="page">
+        <p class="subtitle">Problēmas ar lietotni vai kaut kas cits? Atbildes meklē zemāk vai sazinies ar mums.
+        </p>
+
+        <p class="section-title">Kā lietot Shurp</p>
+        <div class="card-group">
+            <a class="help-row" onclick="openOverlay('how'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Kas ir Shurp?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('search'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_rides.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Braucienu meklēšana</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('drive'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_drive.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Braukšana ar Shurp</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('safety'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Drošība</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+        </div>
+
+        <p class="section-title">Biežāk uzdotie jautājumi</p>
+        <div class="card-group">
+            <a class="help-row" onclick="openOverlay('faq-ver'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Verifikācija un drošība braucienā</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-priv'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_password.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Dati un privātums</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-free'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_help.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Vai Shurp ir bezmaksas?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-profile'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_profile.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Auto un profila pārvaldība</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-book'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_alert.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Rezervācija un pieprasījumi</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-rat'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Reitingi un kopiena</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+        </div>
+
+        <p class="section-title">Noteikumi</p>
+        <p class="legal-blurb">Drošība pirmajā vietā. Mēs izmantojam Didit ID verifikāciju, lai veidotu uzticamu
+            kopienu. Tavi sensitīvie dati ir šifrēti un nekad netiek kopīgoti. Interesē detaļas? Lasi mūsu <a
+                href="privacy">Privātuma politiku</a> un <a href="terms">Lietošanas noteikumus.</a></p>
+
+        <p id="ask-section" class="ask-title">Uzdod jautājumu vai ziņo par problēmu</p>
+        <div class="success-banner" id="success-banner">✓ Nosūtīts! Drīz atbildēsim.</div>
+        <textarea class="form-textarea" id="msg-text" placeholder="Tavs teksts šeit"></textarea>
+        <div class="form-select-wrapper">
+            <select class="form-select" id="msg-type" onchange="this.classList.add('filled')">
+                <option value="" disabled selected>Izvēlies veidu</option>
+                <option value="Kļūda lietotnē">Kļūda lietotnē</option>
+                <option value="Brauciena problēma">Brauciena problēma</option>
+                <option value="Konts un profils">Konts un profils</option>
+                <option value="Drošības bažas">Drošība</option>
+                <option value="Maksājums / izmaksu dalīšana">Maksājums / izmaksu dalīšana</option>
+                <option value="Cits">Cits</option>
+            </select>
+            <img src="../assets/icons/icon_left_chevron.svg" class="icon-muted"
+                style="transform:translateY(-50%) rotate(-90deg); position:absolute; right:14px; top:50%; pointer-events:none; width:16px; height:16px;"
+                alt="">
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Iesniegt</button>
+        <div class="mil-footer">
+            <div class="mil-flag"><span></span><span></span></div>
+            <p>Made in Latvia</p>
+        </div>
+    </div>
+
+    <!-- OVERLAYS -->
+    <div class="overlay" id="overlay-how">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('how')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Kā tas darbojas?</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Brauc ar savējiem</h3>
+            <p>Shurp ir kopiena, kur brīvās sēdvietas kļūst par kopīgiem braucieniem — šoferi un pasažieri sadala ceļa
+                izmaksas.</p>
+            <h3>Reāla taupīšana</h3>
+            <p>Mēs esam atteikušies no platformas maksām un komisijām, lai katrs cents paliktu Tavā kabatā.</p>
+            <h3>Tik vienkārši, kā izskatās</h3>
+            <p>Meklē maršrutu, raksti ceļabiedram un norēķinies par degvielu tikšanās reizē.</p>
+            <h3>Kāpēc mēs neapstrādājam maksājumus</h3>
+            <p>Bez komisijas maksām. Norēķinoties ar vadītāju personīgi, Shurp var palikt bezmaksas rīks ikvienam.
+                Vienkārši, godīgi un
+                bez starpniekiem.</p>
+            <p class="note">Shurp ir izmaksu dalīšanas platforma, nevis komerciāls transporta pakalpojums. Visi norēķini
+                notiek tieši starp lietotājiem.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-search">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('search')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Braucienu meklēšana</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Klasiskais brauciens</h3>
+            <p>Viens pret vienu — viens šoferis, viens maršruts, viena sēdvieta.</p>
+            <h3>Izvēlies no Savējiem</h3>
+            <p>Bieži vairāki šoferi brauc vienā maršrutā. Nosūti savu pieprasījumu visiem un izvēlies no pieejamajiem
+                braucieniem.</p>
+            <h3>Divi zaķi (vai daudz vairāk) ar vienu pogu</h3>
+            <p>Tavs pieprasījums aiziet visai grupai uzreiz. Šoferīšu pilnos profilus vari apskatīt, kad saņemsi
+                apstiprinājumu. Kas pirmais brauc, tas pirmais maļ.</p>
+            <h3>Kā atrast braucienu</h3>
+            <ul>
+                <li>No sākuma meklē meklētājā</li>
+                <li>-> Ievadi sākuma punktu un galamērķi</li>
+                <li>-> Izvēlies vēlamo izbraukšanas laiku</li>
+                <li>-> Nospied Meklēt — Shurp paveic pārējo</li>
+                <li>*</li>
+                <li>Ja atrodi Savējo braucienus (vairāki braucieni vienā maršrutā):</li>
+                <li>-> Nospied pieejamo braucienu</li>
+                <li>-> Izvēlies papildus filtrus kā cena, laiks un brauciena iespējas</li>
+                <li>-> Spied pogu un gaidi apstiprinājumu</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-drive">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('drive')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Braukšana ar Shurp</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Maģiskā poga</h3>
+            <p>"Maģiskā poga" izveido visus Tavus regulāros braucienus automātiski. Izvēlies maršrutu, dienas un laiku,
+                kad parasti brauc un ar vienu pogu pievieno. Apturi vai maini jebkurā laikā.</p>
+            <h3>Divi veidi</h3>
+            <p>Izmanto <strong>Maģisko pogu</strong> regulārajiem maršrutiem vai <strong>Pievieno braucienu</strong>
+                vienreizējam
+                braucieniem.
+            </p>
+            <h3>Pilnīgs privātums</h3>
+            <p>Tavi regulārie maršruti ir anonīmi. Tavu profilu un datus redzēs tikai pasažieris, ar ko izvēlēsies
+                braukt.</p>
+            <h3>Nulles saistības, nulle stresa</h3>
+            <p>Tu uzņemies saistības tikai tad, kad saki "jā" piedāvājumam. Tavs auto — Tavi noteikumi.</p>
+            <h3>Cenas noteikšana</h3>
+            <p>Shurp aprēķina godīgu izmaksu dalīšanas summu, pamatojoties uz degvielas cenām un maršruta garumu.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-safety">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('safety')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Drošība un uzticēšanās</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Īsti ID, īsti cilvēki</h3>
+            <p>Verificēti šoferi ir verificēti caur Didit ID vadītāja apliecības verifikāciju — zini, ar ko brauc.</p>
+            <h3>Tavi dati ir drošībā</h3>
+            <p>Tava profila sensitīvie dati ir drošībā, jo Tavs privātums nav diskutējams.</p>
+            <h3>"Esmu gandrīz klāt" saite</h3>
+            <p>Dalies ar savu atrašanās vietu, izmantojot WhatsApp. Vieglāk tikties un vieglāk dalīties ar savējiem.</p>
+            <h3>Tikai pozitīvas emocijas</h3>
+            <p>Mūsu reitingu sistēma uztur kopienu lielisku — tā mēs apbalvojam leģendas.</p>
+            <h3>No-Ghosting noteikums</h3>
+            <p>Uzticēšanās ir abpusēja. Ja reiz pieprasījums ir apstiprināts, tad abas puses ir apņēmušās nodrošināt
+                labu
+                braucienu.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-ver">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-ver')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Verifikācija un drošība</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā darbojas šoferu verifikācija?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Mēs izmantojam Didit ID, kas pārbauda šofera vadītāja apliecību un identitāti. Pēc
+                    verifikācijas šoferi saņem žetonu
+                    profilā. Mēs neglabājam dokumentu numurus, tikai šifrētu verifikācijas statusu.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai pasažieriem jāveic verifikācija?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Pasažieriem nav nepieciešama ID verifikācija, lai meklētu braucienus. Tomēr šoferu
+                    sirdsmieram un drošākai kopienai iesakām
+                    arī pasažieriem veikt brīvprātīgu ID
+                    verifikāciju.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Ko darīt, ja rodas problēmas brauciena laikā?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Ārkārtas situācijā vienmēr vērsies pie ārkārtas dienestiem. Pēc brauciena izmanto
+                    Ziņot
+                    funkciju lietotnē.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-priv">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-priv')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Datu privātums</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kādus datus Shurp vāc?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Tikai nepieciešamo: vārdu, tālruņa numuru, profila foto (pēc izvēles) un maršruta
+                    datus saskaņošanai. Mēs nekad neizsekojam atrašanās vietu fonā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai citi lietotāji var redzēt manus datus?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Publiskajā profilā redzams tikai vārds, foto, auto informācija un reitings. Uzvārds
+                    un tālrunis tiek kopīgoti tikai ar apstiprināto brauciena partneri.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā dzēst kontu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Iestatījumi → Konts → Dzēst kontu. Personas dati tiek neatgriezeniski dzēsti. Pilna
+                    informācija — <a href="privacy">Privātuma politikā</a>.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-free">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-free')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Vai Shurp ir bezmaksas?</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Bez zemūdens akmeņiem?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Tieši tā – bez komisijām un starpniekiem. 100% no brauciena maksas paliek pie
+                    vadītāja. Shurp dzīvo no "Cloud Coffee"
+                    brīvprātīgiem atbalsta maksājumiem un ceļā esošo apskates objektu atbalsta (reklāmām).
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai Shurp ņem daļu no brauciena?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Nulle. Shurp neapstrādā maksājumus — visi norēķini notiek tieši starp šoferi un
+                    pasažieri tikšanās reizē.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-profile">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-profile')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Auto un profila pārvaldība</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai varu pievienot vairākus auto?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Droši. Pievieno vairākas mašīnas un katram braucienam izvēlies
+                    vajadzīgo. Garāža ir profila iestatījumos un Braukšnas sadaļā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai varu labot braucienu pēc publicēšanas?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Jā, kamēr nav aktīvu rezervāciju. Nospied uz brauciena un rediģē jebkurā laikā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā mainīt rezervētu braucienu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Rezervēteim braucieniem mainīt vair neko nevar. Raksti pasažieriem čatā, ja kas
+                    jāmaina.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā dzēst rezervētu braucienu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Informē pasažierus, noņem tos vienu pēc otra lietotnē — pēc tam braucienu var
+                    rediģēt vai dzēst.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-book">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-book')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Rezervācija un pieprasījumi</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Ko darīt, ja jāatceļ brauciens?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Izmanto lietotnē esošo čatu, lai pēc iespējas ātrāk informētu ceļabiedru. Atcelšana
+                    nav katastrofa, bet forši, ja informē savlaicīgi.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Ko darīt, ja kāds neierodas?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Mēs to saucam par "ghosting" — nopietns kopienas pārkāpums. Biežas neierašanās
+                    pazeminās reitingu.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā norēķināties par degvielu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Visi norēķini notiek tieši starp Tevi un ceļabiedru tikšanās reizē. Skatīt <a
+                        href="terms">Lietošanas noteikumus</a> pilnai informācijai.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-rat">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-rat')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Reitingi un kopiena</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā darbojas reitingu sistēma?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Pēc katra pabeigta brauciena gan šoferis, gan pasažieris var novērtēt braucienu.
+                    Reitingi un komentāri ir redzami katam lietotājam profilā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kas notiek, ja saņemu sliktu vērtējumu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Viens slikts vērtējums neko nenogrimdinās — tie laika gaitā izlīdzinās. Pastāvīgi
+                    zemi
+                    vērtējumi var ietekmēt saskaņošanas iespējas.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā ziņot, ja kaut kas nogāja greizi?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Izmanto Ziņot pogu lietotāja profilā vai ziņu ekrānā. Visi ziņojumi tiek
+                    izskatīti.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.add('open');
+            el.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            history.pushState({ overlay: id }, '');
+        }
+        function closeOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('popstate', function () {
+            document.querySelectorAll('.overlay.open').forEach(function (el) { el.classList.remove('open'); });
+            document.body.style.overflow = '';
+        });
+        function toggleFaq(el) {
+            var item = el.closest('.faq-item');
+            var wasOpen = item.classList.contains('open');
+            item.closest('.overlay-body').querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+            if (!wasOpen) item.classList.add('open');
+        }
+        function submitForm() {
+            var msg = document.getElementById('msg-text').value.trim();
+            var type = document.getElementById('msg-type').value;
+            if (!msg) { alert('Lūdzu apraksti savu problēmu.'); return; }
+            if (!type) { alert('Lūdzu izvēlies ziņas veidu.'); return; }
+            window.location.href = 'mailto:info@shurp.lv?subject='
+                + encodeURIComponent('Shurp palīdzība: ' + type)
+                + '&body=' + encodeURIComponent('[Veids: ' + type + ']\n\n' + msg);
+            document.getElementById('success-banner').style.display = 'block';
+            document.getElementById('msg-text').value = '';
+            document.getElementById('msg-type').value = '';
+            document.getElementById('msg-type').classList.remove('filled');
+        }
+        function handleHash() {
+            if (window.location.hash === '#ask') {
+                setTimeout(function () {
+                    var el = document.getElementById('ask-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+        window.addEventListener('load', handleHash);
+        window.addEventListener('hashchange', handleHash);
+    </script>
+</body>
+
+</html>

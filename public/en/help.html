@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Shurp | Help</title>
+    <!--
+        style.css is compiled Tailwind v4 output — already includes base reset.
+        We only add page-specific component styles below.
+        .htaccess handles clean URL: /en/help → /en/help.html automatically.
+    -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── FLUTTER TOKEN MIRROR ───────────────────────────────────────────
+           AppColors.balticBlue      #125E8A  → --c-primary
+           AppColors.warmWhite       #FFF9F5  → --c-bg
+           AppColors.coolGrey / outline #E2E8F0 → --c-outline  (exact match)
+           AppColors.darkGrey        #1F2933  → --c-text
+           AppColors.mediumGrey      #6B7280  → --c-muted
+           AppColors.softBlue        #E6F1F7  → --c-surface
+           AppRadius.sm = 20, md = 25 → cards use 16px (mobile feel)
+           AppSpacing.lg = 16px padding
+        ────────────────────────────────────────────────────────────────────── */
+        :root {
+            --c-primary: #125E8A;
+            --c-bg: #FFF9F5;
+            --c-outline: #E2E8F0;
+            --c-text: #1F2933;
+            --c-muted: #6B7280;
+            --c-surface: #E6F1F7;
+            --r-card: 16px;
+            --r-pill: 999px;
+        }
+
+        /* CSS filter: converts black SVG stroke → AppColors.balticBlue #125E8A */
+        .icon-primary {
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        /* muted variant for chevrons → AppColors.mediumGrey #6B7280 */
+        .icon-muted {
+            filter: invert(46%) sepia(6%) saturate(531%) hue-rotate(176deg) brightness(93%) contrast(88%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: var(--c-bg);
+        }
+
+        body {
+            color: var(--c-text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        /* ── APP BAR ── matches Flutter ShurpAppBar transparent + title */
+        .app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 52px;
+            /* AppSizes.appBar */
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+            position: relative;
+        }
+
+        .app-bar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-primary);
+            letter-spacing: -0.3px;
+        }
+
+        /* ── PAGE WRAPPER — AppSpacing.lg = 16px sides ── */
+        .page {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px 48px;
+        }
+
+        /* ── SUBTITLE ── */
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: var(--c-muted);
+            padding: 14px 4px 20px;
+            line-height: 1.55;
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        /* ── CARD GROUP — white rounded card, AppRadius ~16px ── */
+        .card-group {
+            background: white;
+            border-radius: var(--r-card);
+            overflow: hidden;
+            margin-bottom: 28px;
+            border: 1px solid var(--c-outline);
+        }
+
+        /* ── ROW ── */
+        .help-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 16px;
+            border-bottom: 1px solid var(--c-outline);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--c-text);
+            -webkit-tap-highlight-color: transparent;
+            transition: background .1s;
+        }
+
+        .help-row:last-child {
+            border-bottom: none;
+        }
+
+        .help-row:active {
+            background: var(--c-surface);
+        }
+
+        .row-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            /* AppSizes.icon */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row-icon img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .row-label {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--c-text);
+        }
+
+        .row-chevron {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        /* ── LEGAL BLURB ── */
+        .legal-blurb {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--c-text);
+            text-align: justify;
+            margin-bottom: 28px;
+        }
+
+        .legal-blurb a {
+            color: var(--c-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .legal-blurb a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── ASK SECTION ── */
+        .ask-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 14px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            resize: none;
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 10px;
+        }
+
+        .form-textarea:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-textarea::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-select-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px 40px 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-muted);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition: border-color .15s;
+        }
+
+        .form-select:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-select.filled {
+            color: var(--c-text);
+        }
+
+        .select-chevron-wrap {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── SUBMIT BTN — matches ShurpButton primary ── */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--c-primary);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: var(--r-pill);
+            cursor: pointer;
+            transition: opacity .15s;
+            margin-bottom: 32px;
+            /* AppSizes.controlLg = 48px height */
+            min-height: 48px;
+        }
+
+        .submit-btn:active {
+            opacity: .82;
+        }
+
+        .success-banner {
+            display: none;
+            background: #E6F7EE;
+            color: #1A7F4B;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        /* ── MADE IN LATVIA ── */
+        .mil-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mil-flag {
+            display: flex;
+            gap: 3px;
+        }
+
+        .mil-flag span {
+            display: block;
+            width: 9px;
+            height: 28px;
+            border-radius: 3px;
+            background: #9E3039;
+        }
+
+        .mil-footer p {
+            font-size: 13px;
+            color: var(--c-muted);
+        }
+
+        /* ── CONTENT OVERLAYS — full-screen push ── */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: var(--c-bg);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .overlay.open {
+            display: block;
+        }
+
+        .overlay-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 52px;
+            padding: 0 16px;
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--c-outline);
+            background: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0;
+        }
+
+        .back-btn img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .overlay-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.2px;
+        }
+
+        .overlay-body {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px 16px 48px;
+        }
+
+        /* overlay typography */
+        .overlay-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-primary);
+            margin: 20px 0 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .overlay-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .overlay-body p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 6px;
+        }
+
+        .overlay-body ul {
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        .overlay-body ul li {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 3px;
+        }
+
+        .overlay-body strong {
+            color: var(--c-text);
+            font-weight: 600;
+        }
+
+        .overlay-body .note {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--c-muted);
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        /* ── FAQ ACCORDION ── */
+        .faq-item {
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            gap: 8px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            display: block;
+            transition: transform .2s;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        .faq-a {
+            display: none;
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            padding-bottom: 14px;
+        }
+
+        .faq-a a {
+            color: var(--c-primary);
+            text-decoration: underline;
+        }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        .lang-switch {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .lang-switch .active {
+            color: var(--c-primary);
+        }
+
+        .lang-switch .sep {
+            color: var(--c-outline);
+        }
+
+        .lang-switch a {
+            color: var(--c-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        .lang-switch a:hover {
+            color: var(--c-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- APP BAR -->
+    <div class="app-bar">
+        <span class="app-bar-title">Help</span>
+        <div class="lang-switch">
+            <span class="active">EN</span>
+            <span class="sep">|</span>
+            <a href="/lv/help">LV</a>
+        </div>
+    </div>
+
+    <div class="page">
+
+        <p class="subtitle">Having trouble with the app or something else? Find answers below or get in touch with us.
+        </p>
+
+        <!-- ══ USING THE APP ══ -->
+        <p class="section-title">Using the app</p>
+        <div class="card-group">
+
+            <a class="help-row" onclick="openOverlay('how'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">How it works?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('search'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_rides.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Searching rides</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('drive'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_drive.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Driving with Shurp</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('safety'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Safety and trust</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+        </div>
+
+        <!-- ══ FAQ ══ -->
+        <p class="section-title">Frequently Asked Questions</p>
+        <div class="card-group">
+
+            <a class="help-row" onclick="openOverlay('faq-ver'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Verification &amp; Safety</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-priv'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_password.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Data privacy</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-free'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_help.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Is Shurp free to use?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-profile'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_profile.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Car &amp; Profile management</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-book'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_alert.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Booking &amp; Requests</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-rat'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Ratings &amp; Community</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+        </div>
+
+        <!-- ══ LEGAL ══ -->
+        <p class="section-title">Legal</p>
+        <p class="legal-blurb">Safety first. We use Didit ID verification to build a community you can trust. Your
+            sensitive data is encrypted and never shared. Curious about the details? Read our <a
+                href="privacy">Privacy</a> and <a href="terms">Terms &amp; Conditions.</a></p>
+
+        <!-- ══ ASK A QUESTION ══ -->
+        <p id="ask-section" class="ask-title">Ask a question or report a problem</p>
+
+        <div class="success-banner" id="success-banner">✓ Sent! We'll get back to you shortly.</div>
+
+        <textarea class="form-textarea" id="msg-text" placeholder="Your text here"></textarea>
+
+        <div class="form-select-wrapper">
+            <select class="form-select" id="msg-type" onchange="this.classList.add('filled')">
+                <option value="" disabled selected>Choose type</option>
+                <option value="Bug / App issue">Bug / App issue</option>
+                <option value="Ride problem">Ride problem</option>
+                <option value="Account & Profile">Account &amp; Profile</option>
+                <option value="Safety concern">Safety concern</option>
+                <option value="Payment / cost sharing">Payment / cost sharing</option>
+                <option value="Other">Other</option>
+            </select>
+            <img src="../assets/icons/icon_left_chevron.svg" class="select-chevron-wrap icon-muted"
+                style="transform:translateY(-50%) rotate(-90deg); position:absolute; right:14px; top:50%; pointer-events:none;"
+                alt="">
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">Submit</button>
+
+        <div class="mil-footer">
+            <div class="mil-flag"><span></span><span></span></div>
+            <p>Made in Latvia</p>
+        </div>
+
+    </div><!-- /page -->
+
+
+    <!-- ══════════════════════════════════
+         CONTENT OVERLAYS
+    ══════════════════════════════════ -->
+
+    <!-- HOW IT WORKS -->
+    <div class="overlay" id="overlay-how">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('how')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">How it works?</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Ride with your pack</h3>
+            <p>Shurp is a community where empty seats become shared trips — drivers and passengers simply split the cost
+                of the road.</p>
+            <h3>Real talk, real savings</h3>
+            <p>We've ditched platform fees and commissions so every cent stays in your pocket. No middleman, no markup.
+            </p>
+            <h3>As easy as it looks</h3>
+            <p>Search for your route, chat with your travel buddy, and settle the fuel contribution directly when you
+                meet.</p>
+            <h3>Why we don't handle payments</h3>
+            <p>To keep Shurp free for everyone, we stay out of the middle. Settling costs directly with your driver
+                avoids extra fees and keeps the experience peer-to-peer.</p>
+            <p class="note">Shurp is a platform for cost-sharing, not a commercial transport service. All arrangements
+                and payments are made solely between users.</p>
+        </div>
+    </div>
+
+    <!-- SEARCHING RIDES -->
+    <div class="overlay" id="overlay-search">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('search')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Searching rides</span>
+        </div>
+        <div class="overlay-body">
+            <h3>The Classic (Single) Ride</h3>
+            <p>One-on-one match — one driver, one route, one seat waiting for you.</p>
+            <h3>Your Pack Ride</h3>
+            <p>When you see a "stack" with multiple drivers, you have a pack of Shurpers. More options, faster match.
+            </p>
+            <h3>Many birds, one tap</h3>
+            <p>Your request goes to the whole group at once. First come, first served — as soon as one driver accepts,
+                the ride is yours and you can start chatting.</p>
+            <h3>How to find your ride</h3>
+            <ul>
+                <li>Enter your origin and destination</li>
+                <li>Set your preferred departure time</li>
+                <li>Adjust the time window and detour radius</li>
+                <li>Tap Search — Shurp does the rest</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DRIVING WITH SHURP -->
+    <div class="overlay" id="overlay-drive">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('drive')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Driving with Shurp</span>
+        </div>
+        <div class="overlay-body">
+            <h3>The Magic advantage</h3>
+            <p>Let the "Magic button" handle your regular commute automatically. It puts your routine on the map so you
+                can focus on the playlist while we find your pack.</p>
+            <h3>Two ways to roll</h3>
+            <p>Use <strong>Magic button</strong> for the daily grind, or set a <strong>Preset Ride</strong> for one-off
+                trips where you have a specific seat to fill.</p>
+            <h3>Total privacy</h3>
+            <p>Your regular routes are for your eyes only — invisible to the public until you decide to accept a ride
+                request.</p>
+            <h3>Zero commitment drama</h3>
+            <p>You only commit to a drive when you say yes to an offer. It's always your car, your rules.</p>
+            <h3>Setting the price</h3>
+            <p>Shurp calculates a fair cost-sharing amount based on fuel prices and route distance. You can adjust
+                within the allowed range — drivers cannot charge more than actual costs.</p>
+        </div>
+    </div>
+
+    <!-- SAFETY AND TRUST -->
+    <div class="overlay" id="overlay-safety">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('safety')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Safety and trust</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Real IDs, real people</h3>
+            <p>Every driver is verified through Didit ID so you know you're riding with a verified member of the
+                community.</p>
+            <h3>Your data is a vault</h3>
+            <p>We encrypt your profile and sensitive info because your privacy isn't up for debate. Sensitive data is
+                never stored in plain text.</p>
+            <h3>The "I'm almost there" link</h3>
+            <p>Tap a button to send your live location to your pack on WhatsApp so they can watch you arrive in
+                real-time.</p>
+            <h3>Good vibes only</h3>
+            <p>Our rating system keeps the community awesome — it's how we reward the legends and filter out the rest.
+            </p>
+            <h3>The No-Ghosting rule</h3>
+            <p>Trust is a two-way street. Once a request is accepted, both sides are committed to a smooth trip.
+                Frequent no-shows affect your rating and platform access.</p>
+        </div>
+    </div>
+
+    <!-- FAQ: VERIFICATION -->
+    <div class="overlay" id="overlay-faq-ver">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-ver')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Verification &amp; Safety</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How does driver verification work?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">We use Didit ID — a secure identity verification service. Drivers complete a quick ID
+                    check and receive a verified badge. We don't store your document numbers, only an encrypted
+                    verification status.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Do passengers need to verify?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Passengers don't need ID verification to search and book rides. However, drivers may
+                    choose to verify your identity before the trip — that's their right.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What if I feel unsafe during a ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">In an emergency, always contact local authorities first. After the trip, use the
+                    Report function in the app. We take all safety reports seriously.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: PRIVACY -->
+    <div class="overlay" id="overlay-faq-priv">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-priv')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Data privacy</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What data does Shurp collect?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Only what's necessary: your name, phone number, profile photo (optional), and route
+                    data for matching. We never track your location continuously or in the background.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can other users see my personal data?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Your public profile shows first name, photo, car info, and rating — nothing more.
+                    Last name and phone are only shared with your confirmed ride partner.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I delete my account?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Settings → Account → Delete account. Personal data is permanently removed from active
+                    systems immediately. See our <a href="privacy">Privacy Policy</a> for the full retention schedule.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: FREE -->
+    <div class="overlay" id="overlay-faq-free">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-free')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Is Shurp free to use?</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Is there really no catch?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">No catch, no commissions, no drama. Every cent of the fuel contribution stays between
+                    driver and passenger. We keep the lights on through community "Cloud Coffee" donations and some
+                    route-based signposts from places worth a visit.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Does Shurp take a cut from the ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Zero. Shurp doesn't process payments at all — all cost-sharing is settled directly
+                    between driver and passenger when you meet.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: PROFILE -->
+    <div class="overlay" id="overlay-faq-profile">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-profile')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Car &amp; Profile management</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can I add more than one car?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Absolutely. List multiple vehicles and pick the one you're rolling in for each trip.
+                    Your garage lives in profile settings and is a tap away in the Drive section.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can I edit a ride after posting?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Yes, as long as there are no active bookings. Tap the ride and edit any time.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I change a booked ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Booked ride details are locked to avoid confusion. Write to your passenger(s) in chat
+                    and let them know directly.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I delete a booked ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Let your passengers know, remove them one by one via the app, then the ride is free
+                    to edit or delete.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: BOOKING -->
+    <div class="overlay" id="overlay-faq-book">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-book')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Booking &amp; Requests</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What if I need to cancel?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Use the in-app chat to let your travel buddy know as soon as possible. Since drivers
+                    are already heading that way for their own commute, a cancellation isn't a disaster — but
+                    communication is key.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What if someone doesn't show up?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">We call that "ghosting" — a major vibe-killer. Frequent no-shows tank your rating and
+                    we keep Shurp legend-only by rewarding people who actually show up.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I pay for the fuel contribution?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">All cost-sharing happens directly between you and your travel buddy when you meet.
+                    See our <a href="terms">Terms &amp; Conditions</a> for the full breakdown.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: RATINGS -->
+    <div class="overlay" id="overlay-faq-rat">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-rat')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Ratings &amp; Community</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How does the rating system work?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">After each completed trip, both driver and passenger can leave a rating. Ratings are
+                    averaged over time and visible on your public profile.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What happens if I get a bad rating?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">A single bad rating won't sink you — they average out over time. Consistently low
+                    ratings may affect your ability to match with other users.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I report a bad experience?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Use the Report button on the user's profile or within the ride screen. All reports
+                    are reviewed by our team.</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function openOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.add('open');
+            el.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            history.pushState({ overlay: id }, '');
+        }
+        function closeOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('popstate', function () {
+            document.querySelectorAll('.overlay.open').forEach(function (el) {
+                el.classList.remove('open');
+            });
+            document.body.style.overflow = '';
+        });
+        function toggleFaq(el) {
+            var item = el.closest('.faq-item');
+            var wasOpen = item.classList.contains('open');
+            item.closest('.overlay-body').querySelectorAll('.faq-item').forEach(function (i) {
+                i.classList.remove('open');
+            });
+            if (!wasOpen) item.classList.add('open');
+        }
+        function submitForm() {
+            var msg = document.getElementById('msg-text').value.trim();
+            var type = document.getElementById('msg-type').value;
+            if (!msg) { alert('Please describe your issue first.'); return; }
+            if (!type) { alert('Please choose a message type.'); return; }
+            window.location.href = 'mailto:info@shurp.lv?subject='
+                + encodeURIComponent('Shurp Help: ' + type)
+                + '&body=' + encodeURIComponent('[Type: ' + type + ']\n\n' + msg);
+            document.getElementById('success-banner').style.display = 'block';
+            document.getElementById('msg-text').value = '';
+            document.getElementById('msg-type').value = '';
+            document.getElementById('msg-type').classList.remove('filled');
+        }
+        // Hash deep-link: /en/help#ask → scroll to form
+        function handleHash() {
+            if (window.location.hash === '#ask') {
+                setTimeout(function () {
+                    var el = document.getElementById('ask-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+        window.addEventListener('load', handleHash);
+        window.addEventListener('hashchange', handleHash);
+    </script>
+
+</body>
+
+</html>
