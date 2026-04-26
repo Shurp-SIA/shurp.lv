@@ -8,6 +8,7 @@
     <title>Shurp | Palīdzība</title>
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
     <style>
         :root {
             --c-primary: #125E8A;
@@ -197,6 +198,60 @@
             color: var(--c-muted);
         }
 
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 6px;
+        }
+
+        .form-input:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-input.error {
+            border-color: #F4937C;
+        }
+
+        .form-input.error:focus {
+            border-color: #F4937C;
+        }
+
+        .form-input::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-helper {
+            color: var(--c-muted);
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 4px 10px;
+        }
+
+        .form-helper.error {
+            color: #F4937C;
+            font-weight: 600;
+        }
+
+        .char-counter {
+            color: var(--c-muted);
+            font-size: 12px;
+            margin: -6px 4px 10px;
+            text-align: right;
+        }
+
+        .turnstile-container {
+            height: 0;
+            overflow: hidden;
+        }
+
         .form-select-wrapper {
             position: relative;
             margin-bottom: 16px;
@@ -247,6 +302,11 @@
             opacity: .82;
         }
 
+        .submit-btn:disabled {
+            cursor: wait;
+            opacity: .65;
+        }
+
         .success-banner {
             display: none;
             background: #E6F7EE;
@@ -257,6 +317,21 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 16px;
+        }
+
+        .success-banner.error {
+            background: #FDECEC;
+            color: #A13434;
+        }
+
+        .mail-fallback {
+            display: block;
+            color: var(--c-primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin: -18px 0 30px;
+            text-align: center;
+            text-decoration: none;
         }
 
         .mil-footer {
@@ -553,7 +628,14 @@
 
         <p id="ask-section" class="ask-title">Uzdod jautājumu vai ziņo par problēmu</p>
         <div class="success-banner" id="success-banner">✓ Nosūtīts! Drīz atbildēsim.</div>
-        <textarea class="form-textarea" id="msg-text" placeholder="Tavs teksts šeit"></textarea>
+        <input class="form-input" id="contact-email" type="email" inputmode="email" autocomplete="email" maxlength="50"
+            placeholder="E-pasta adrese (nav obligāti)" oninput="clearEmailError()">
+        <p class="form-helper" id="email-helper"
+            data-default="Pievieno e-pastu, ja vēlies atbildi, īpaši ja vēl nevari ielogoties.">Pievieno e-pastu, ja
+            vēlies atbildi, īpaši ja vēl nevari ielogoties.</p>
+        <textarea class="form-textarea" id="msg-text" maxlength="2000" placeholder="Tavs teksts šeit"
+            oninput="updateCharCounter()"></textarea>
+        <div class="char-counter" id="char-counter">0 / 2000</div>
         <div class="form-select-wrapper">
             <select class="form-select" id="msg-type" onchange="this.classList.add('filled')">
                 <option value="" disabled selected>Izvēlies veidu</option>
@@ -568,7 +650,10 @@
                 style="transform:translateY(-50%) rotate(-90deg); position:absolute; right:14px; top:50%; pointer-events:none; width:16px; height:16px;"
                 alt="">
         </div>
-        <button class="submit-btn" onclick="submitForm()">Iesniegt</button>
+        <button class="submit-btn" id="submit-btn" onclick="submitForm(this)">Iesniegt</button>
+        <div id="turnstile-container" class="turnstile-container"></div>
+        <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Labāk e-pastā? Atvērt e-pasta
+            lietotni</a>
         <div class="mil-footer">
             <div class="mil-flag"><span></span><span></span></div>
             <p>Made in Latvia</p>
@@ -893,18 +978,200 @@
             item.closest('.overlay-body').querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
             if (!wasOpen) item.classList.add('open');
         }
-        function submitForm() {
+        var HELP_ENDPOINT = 'https://okyprkffbuorrtlhnplf.supabase.co/functions/v1/help-request';
+        var TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
+        var MAX_MESSAGE_LENGTH = 2000;
+        var HELP_AUTH_TOKEN = null;
+        var turnstileWidgetId = null;
+        var pendingTurnstileResolve = null;
+        var pendingTurnstileReject = null;
+
+        (function readLegacyQueryToken() {
+            var url = new URL(window.location.href);
+            var token = url.searchParams.get('token');
+            if (token) {
+                HELP_AUTH_TOKEN = token;
+                url.searchParams.delete('token');
+                history.replaceState(null, '', url.pathname + url.search + url.hash);
+            }
+        })();
+
+        window.setShurpAuthToken = function (token) {
+            if (typeof token === 'string' && token.trim()) {
+                HELP_AUTH_TOKEN = token.trim();
+                resetTurnstile();
+            }
+        };
+
+        function setBanner(message, isError) {
+            var banner = document.getElementById('success-banner');
+            banner.textContent = message;
+            banner.classList.toggle('error', !!isError);
+            banner.style.display = 'block';
+        }
+
+        function isValidEmail(email) {
+            return email.length <= 50 && /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email);
+        }
+
+        function setEmailError(message) {
+            var emailInput = document.getElementById('contact-email');
+            var helper = document.getElementById('email-helper');
+            emailInput.classList.add('error');
+            helper.classList.add('error');
+            helper.textContent = message;
+        }
+
+        function clearEmailError() {
+            var emailInput = document.getElementById('contact-email');
+            var helper = document.getElementById('email-helper');
+            emailInput.classList.remove('error');
+            helper.classList.remove('error');
+            helper.textContent = helper.getAttribute('data-default');
+        }
+
+        function validateOptionalEmail(email) {
+            if (!email || isValidEmail(email)) {
+                clearEmailError();
+                return true;
+            }
+            setEmailError('Lūdzu ievadi derīgu e-pasta adresi, piemēram, vards@example.com.');
+            return false;
+        }
+
+        function buildSupportMessage(msg, email) {
+            return email ? 'Atbildes e-pasts: ' + email + '\n\n' + msg : msg;
+        }
+
+        function updateCharCounter() {
+            var msg = document.getElementById('msg-text').value;
+            document.getElementById('char-counter').textContent = msg.length + ' / ' + MAX_MESSAGE_LENGTH;
+        }
+
+        function renderTurnstileOnce() {
+            var container = document.getElementById('turnstile-container');
+            if (!container || turnstileWidgetId !== null || !window.turnstile) return;
+
+            turnstileWidgetId = turnstile.render(container, {
+                sitekey: TURNSTILE_SITEKEY,
+                size: 'invisible',
+                callback: function (token) {
+                    if (pendingTurnstileResolve) pendingTurnstileResolve(token);
+                    pendingTurnstileResolve = null;
+                    pendingTurnstileReject = null;
+                },
+                'error-callback': function () {
+                    if (pendingTurnstileReject) pendingTurnstileReject(new Error('Turnstile failed'));
+                    pendingTurnstileResolve = null;
+                    pendingTurnstileReject = null;
+                    resetTurnstile();
+                },
+                'expired-callback': function () {
+                    resetTurnstile();
+                }
+            });
+        }
+
+        function getTurnstileToken() {
+            if (HELP_AUTH_TOKEN) return Promise.resolve(null);
+            if (!window.turnstile || turnstileWidgetId === null) {
+                return Promise.reject(new Error('Security check is still loading. Please try again in a moment.'));
+            }
+
+            var existingToken = turnstile.getResponse(turnstileWidgetId);
+            if (existingToken) return Promise.resolve(existingToken);
+
+            return new Promise(function (resolve, reject) {
+                pendingTurnstileResolve = resolve;
+                pendingTurnstileReject = reject;
+                turnstile.execute(turnstileWidgetId);
+            });
+        }
+
+        function resetTurnstile() {
+            if (window.turnstile && turnstileWidgetId !== null) {
+                turnstile.reset(turnstileWidgetId);
+            }
+        }
+
+        function buildMailto(msg, type, email) {
+            return 'mailto:info@shurp.lv?subject='
+                + encodeURIComponent('Shurp palīdzība: ' + type)
+                + '&body=' + encodeURIComponent('[Veids: ' + type + ']\n\n' + buildSupportMessage(msg, email));
+        }
+
+        function buildWebMailUrl(msg, type, email) {
+            return 'https://mail.google.com/mail/?view=cm&fs=1&to='
+                + encodeURIComponent('info@shurp.lv')
+                + '&su=' + encodeURIComponent('Shurp palīdzība: ' + type)
+                + '&body=' + encodeURIComponent('[Veids: ' + type + ']\n\n' + buildSupportMessage(msg, email));
+        }
+
+        function openMailFallback() {
             var msg = document.getElementById('msg-text').value.trim();
-            var type = document.getElementById('msg-type').value;
+            var type = document.getElementById('msg-type').value || 'Cits';
+            var email = document.getElementById('contact-email').value.trim();
+            if (!validateOptionalEmail(email)) return;
+            if (buildSupportMessage(msg, email).length > MAX_MESSAGE_LENGTH) { alert('Lūdzu raksti ziņu līdz 2000 rakstzīmēm.'); return; }
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            window.location.href = isAndroid ? buildWebMailUrl(msg, type, email) : buildMailto(msg, type, email);
+        }
+
+        async function submitForm(button) {
+            var msg = document.getElementById('msg-text').value.trim();
+            var email = document.getElementById('contact-email').value.trim();
+            var typeEl = document.getElementById('msg-type');
+            var type = typeEl.value;
             if (!msg) { alert('Lūdzu apraksti savu problēmu.'); return; }
             if (!type) { alert('Lūdzu izvēlies ziņas veidu.'); return; }
-            window.location.href = 'mailto:info@shurp.lv?subject='
-                + encodeURIComponent('Shurp palīdzība: ' + type)
-                + '&body=' + encodeURIComponent('[Veids: ' + type + ']\n\n' + msg);
-            document.getElementById('success-banner').style.display = 'block';
-            document.getElementById('msg-text').value = '';
-            document.getElementById('msg-type').value = '';
-            document.getElementById('msg-type').classList.remove('filled');
+            if (!validateOptionalEmail(email)) return;
+            if (buildSupportMessage(msg, email).length > MAX_MESSAGE_LENGTH) { alert('Lūdzu raksti ziņu līdz 2000 rakstzīmēm.'); return; }
+
+            var submitButton = button || document.getElementById('submit-btn');
+            var originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sūta...';
+
+            try {
+                var turnstileToken = await getTurnstileToken();
+                var headers = { 'Content-Type': 'application/json' };
+                if (HELP_AUTH_TOKEN) headers.Authorization = 'Bearer ' + HELP_AUTH_TOKEN;
+
+                var response = await fetch(HELP_ENDPOINT, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({
+                        message: buildSupportMessage(msg, email),
+                        type: type,
+                        lang: 'lv',
+                        contact_email: email || null,
+                        turnstile_token: turnstileToken,
+                        page_url: window.location.href,
+                        user_agent: navigator.userAgent,
+                        source: HELP_AUTH_TOKEN ? 'app' : 'web'
+                    })
+                });
+
+                if (!response.ok) {
+                    var errorText = await response.text();
+                    throw new Error(errorText || 'Request failed');
+                }
+
+                setBanner('Nosūtīts! Drīz atbildēsim.', false);
+                document.getElementById('msg-text').value = '';
+                document.getElementById('contact-email').value = '';
+                typeEl.value = '';
+                typeEl.classList.remove('filled');
+                updateCharCounter();
+                resetTurnstile();
+            } catch (err) {
+                console.error('Help request failed:', err);
+                setBanner('Šobrīd neizdevās nosūtīt. Mēģini vēlreiz vai izmanto e-pasta saiti zemāk.', true);
+                resetTurnstile();
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
         }
         function handleHash() {
             if (window.location.hash === '#ask') {
@@ -914,6 +1181,19 @@
                 }, 150);
             }
         }
+        window.addEventListener('load', function () {
+            updateCharCounter();
+            if (window.turnstile) {
+                renderTurnstileOnce();
+            } else {
+                var check = setInterval(function () {
+                    if (window.turnstile) {
+                        renderTurnstileOnce();
+                        clearInterval(check);
+                    }
+                }, 100);
+            }
+        });
         window.addEventListener('load', handleHash);
         window.addEventListener('hashchange', handleHash);
     </script>
