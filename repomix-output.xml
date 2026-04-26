@@ -44,6 +44,19 @@ public/
   assets/
     css/
       style.css
+    icons/
+      icon_alert.svg
+      icon_back.svg
+      icon_drive.svg
+      icon_help.svg
+      icon_left_chevron.svg
+      icon_options.svg
+      icon_password.svg
+      icon_profile.svg
+      icon_rides.svg
+      icon_right_chevron.svg
+      icon_star.svg
+      icon_verified.svg
     apple-touch-icon.png
     favicon-16x16.png
     favicon-32x32.png
@@ -61,10 +74,12 @@ public/
     callback/
       index.html
   en/
+    help.html
     index.html
     privacy.html
     terms.html
   lv/
+    help.html
     index.html
     privacy.html
     terms.html
@@ -86,1285 +101,1942 @@ This section contains the contents of the repository's files.
 
 <file path="public/assets/css/style.css">
 /*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
-@layer properties;
-@layer theme, base, components, utilities;
-@layer theme {
-  :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-      "Courier New", monospace;
-    --color-black: #000;
-    --color-white: #fff;
-    --spacing: 0.25rem;
-    --container-sm: 24rem;
-    --container-xl: 36rem;
-    --container-7xl: 80rem;
-    --text-xs: 0.75rem;
-    --text-xs--line-height: calc(1 / 0.75);
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
-    --text-base: 1rem;
-    --text-base--line-height: calc(1.5 / 1);
-    --text-lg: 1.125rem;
-    --text-lg--line-height: calc(1.75 / 1.125);
-    --text-xl: 1.25rem;
-    --text-xl--line-height: calc(1.75 / 1.25);
-    --text-2xl: 1.5rem;
-    --text-2xl--line-height: calc(2 / 1.5);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
-    --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
-    --text-7xl: 4.5rem;
-    --text-7xl--line-height: 1;
-    --text-8xl: 6rem;
-    --text-8xl--line-height: 1;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --tracking-tighter: -0.05em;
-    --tracking-tight: -0.025em;
-    --tracking-widest: 0.1em;
-    --leading-tight: 1.25;
-    --leading-relaxed: 1.625;
-    --radius-2xl: 1rem;
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --blur-md: 12px;
-    --default-transition-duration: 150ms;
-    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --default-font-family: var(--font-sans);
-    --default-mono-font-family: var(--font-mono);
-  }
-}
-@layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0 solid;
-  }
-  html, :host {
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
-    font-feature-settings: var(--default-font-feature-settings, normal);
-    font-variation-settings: var(--default-font-variation-settings, normal);
-    -webkit-tap-highlight-color: transparent;
-  }
-  hr {
-    height: 0;
-    color: inherit;
-    border-top-width: 1px;
-  }
-  abbr:where([title]) {
-    -webkit-text-decoration: underline dotted;
-    text-decoration: underline dotted;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-size: inherit;
-    font-weight: inherit;
-  }
-  a {
-    color: inherit;
-    -webkit-text-decoration: inherit;
-    text-decoration: inherit;
-  }
-  b, strong {
-    font-weight: bolder;
-  }
-  code, kbd, samp, pre {
-    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
-    font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
-    font-size: 1em;
-  }
-  small {
-    font-size: 80%;
-  }
-  sub, sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  sub {
-    bottom: -0.25em;
-  }
-  sup {
-    top: -0.5em;
-  }
-  table {
-    text-indent: 0;
-    border-color: inherit;
-    border-collapse: collapse;
-  }
-  :-moz-focusring {
-    outline: auto;
-  }
-  progress {
-    vertical-align: baseline;
-  }
-  summary {
-    display: list-item;
-  }
-  ol, ul, menu {
-    list-style: none;
-  }
-  img, svg, video, canvas, audio, iframe, embed, object {
-    display: block;
-    vertical-align: middle;
-  }
-  img, video {
-    max-width: 100%;
-    height: auto;
-  }
-  button, input, select, optgroup, textarea, ::file-selector-button {
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    border-radius: 0;
-    background-color: transparent;
-    opacity: 1;
-  }
-  :where(select:is([multiple], [size])) optgroup {
-    font-weight: bolder;
-  }
-  :where(select:is([multiple], [size])) optgroup option {
-    padding-inline-start: 20px;
-  }
-  ::file-selector-button {
-    margin-inline-end: 4px;
-  }
-  ::placeholder {
-    opacity: 1;
-  }
-  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
-    ::placeholder {
-      color: currentcolor;
-      @supports (color: color-mix(in lab, red, red)) {
-        color: color-mix(in oklab, currentcolor 50%, transparent);
-      }
-    }
-  }
-  textarea {
-    resize: vertical;
-  }
-  ::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-  ::-webkit-date-and-time-value {
-    min-height: 1lh;
-    text-align: inherit;
-  }
-  ::-webkit-datetime-edit {
-    display: inline-flex;
-  }
-  ::-webkit-datetime-edit-fields-wrapper {
-    padding: 0;
-  }
-  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
-    padding-block: 0;
-  }
-  ::-webkit-calendar-picker-indicator {
-    line-height: 1;
-  }
-  :-moz-ui-invalid {
-    box-shadow: none;
-  }
-  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
-    appearance: button;
-  }
-  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
-    height: auto;
-  }
-  [hidden]:where(:not([hidden="until-found"])) {
-    display: none !important;
-  }
-}
-@layer utilities {
-  .visible {
-    visibility: visible;
-  }
-  .fixed {
-    position: fixed;
-  }
-  .relative {
-    position: relative;
-  }
-  .top-0 {
-    top: calc(var(--spacing) * 0);
-  }
-  .z-10 {
-    z-index: 10;
-  }
-  .z-50 {
-    z-index: 50;
-  }
-  .mx-4 {
-    margin-inline: calc(var(--spacing) * 4);
-  }
-  .mx-auto {
-    margin-inline: auto;
-  }
-  .mt-4 {
-    margin-top: calc(var(--spacing) * 4);
-  }
-  .mt-6 {
-    margin-top: calc(var(--spacing) * 6);
-  }
-  .mr-4 {
-    margin-right: calc(var(--spacing) * 4);
-  }
-  .\!mb-0 {
-    margin-bottom: calc(var(--spacing) * 0) !important;
-  }
-  .\!mb-4 {
-    margin-bottom: calc(var(--spacing) * 4) !important;
-  }
-  .mb-1 {
-    margin-bottom: calc(var(--spacing) * 1);
-  }
-  .mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
-  }
-  .mb-3 {
-    margin-bottom: calc(var(--spacing) * 3);
-  }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
-  }
-  .mb-6 {
-    margin-bottom: calc(var(--spacing) * 6);
-  }
-  .mb-8 {
-    margin-bottom: calc(var(--spacing) * 8);
-  }
-  .mb-10 {
-    margin-bottom: calc(var(--spacing) * 10);
-  }
-  .mb-12 {
-    margin-bottom: calc(var(--spacing) * 12);
-  }
-  .mb-16 {
-    margin-bottom: calc(var(--spacing) * 16);
-  }
-  .flex {
-    display: flex;
-  }
-  .grid {
-    display: grid;
-  }
-  .hidden {
-    display: none;
-  }
-  .aspect-\[9\/19\.5\] {
-    aspect-ratio: 9/19.5;
-  }
-  .h-1 {
-    height: calc(var(--spacing) * 1);
-  }
-  .h-8 {
-    height: calc(var(--spacing) * 8);
-  }
-  .h-14 {
-    height: calc(var(--spacing) * 14);
-  }
-  .h-auto {
-    height: auto;
-  }
-  .min-h-\[calc\(100vh-8rem\)\] {
-    min-height: calc(100vh - 8rem);
-  }
-  .min-h-screen {
-    min-height: 100vh;
-  }
-  .w-4 {
-    width: calc(var(--spacing) * 4);
-  }
-  .w-8 {
-    width: calc(var(--spacing) * 8);
-  }
-  .w-12 {
-    width: calc(var(--spacing) * 12);
-  }
-  .w-48 {
-    width: calc(var(--spacing) * 48);
-  }
-  .w-\[330px\] {
-    width: 330px;
-  }
-  .w-auto {
-    width: auto;
-  }
-  .w-full {
-    width: 100%;
-  }
-  .max-w-7xl {
-    max-width: var(--container-7xl);
-  }
-  .max-w-sm {
-    max-width: var(--container-sm);
-  }
-  .max-w-xl {
-    max-width: var(--container-xl);
-  }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
-  .cursor-pointer {
-    cursor: pointer;
-  }
-  .grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-  .flex-col {
-    flex-direction: column;
-  }
-  .items-center {
-    align-items: center;
-  }
-  .justify-between {
-    justify-content: space-between;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .gap-3 {
-    gap: calc(var(--spacing) * 3);
-  }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
-  }
-  .gap-6 {
-    gap: calc(var(--spacing) * 6);
-  }
-  .gap-16 {
-    gap: calc(var(--spacing) * 16);
-  }
-  .gap-20 {
-    gap: calc(var(--spacing) * 20);
-  }
-  .space-x-2 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
-  .space-x-8 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
-  .overflow-hidden {
-    overflow: hidden;
-  }
-  .overflow-x-hidden {
-    overflow-x: hidden;
-  }
-  .rounded-2xl {
-    border-radius: var(--radius-2xl);
-  }
-  .rounded-\[2\.5rem\] {
-    border-radius: 2.5rem;
-  }
-  .rounded-\[3\.8rem\] {
-    border-radius: 3.8rem;
-  }
-  .rounded-\[3rem\] {
-    border-radius: 3rem;
-  }
-  .rounded-full {
-    border-radius: calc(infinity * 1px);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-  .border-t {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
-  }
-  .border-r {
-    border-right-style: var(--tw-border-style);
-    border-right-width: 1px;
-  }
-  .\!border-l-0 {
-    border-left-style: var(--tw-border-style) !important;
-    border-left-width: 0px !important;
-  }
-  .border-l-2 {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 2px;
-  }
-  .border-\[\#125E8A\]\/30 {
-    border-color: color-mix(in oklab, #125E8A 30%, transparent);
-  }
-  .border-\[\#E2E8F0\] {
-    border-color: #E2E8F0;
-  }
-  .border-white\/10 {
-    border-color: color-mix(in srgb, #fff 10%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-    }
-  }
-  .border-white\/20 {
-    border-color: color-mix(in srgb, #fff 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
-    }
-  }
-  .bg-\[\#125E8A\] {
-    background-color: #125E8A;
-  }
-  .bg-\[\#125E8A\]\/30 {
-    background-color: color-mix(in oklab, #125E8A 30%, transparent);
-  }
-  .bg-\[\#E6F1F7\] {
-    background-color: #E6F1F7;
-  }
-  .bg-\[\#FFF9F5\] {
-    background-color: #FFF9F5;
-  }
-  .bg-black {
-    background-color: var(--color-black);
-  }
-  .bg-white\/10 {
-    background-color: color-mix(in srgb, #fff 10%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-    }
-  }
-  .p-3\.5 {
-    padding: calc(var(--spacing) * 3.5);
-  }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
-  }
-  .p-10 {
-    padding: calc(var(--spacing) * 10);
-  }
-  .px-4 {
-    padding-inline: calc(var(--spacing) * 4);
-  }
-  .px-6 {
-    padding-inline: calc(var(--spacing) * 6);
-  }
-  .px-7 {
-    padding-inline: calc(var(--spacing) * 7);
-  }
-  .px-8 {
-    padding-inline: calc(var(--spacing) * 8);
-  }
-  .px-10 {
-    padding-inline: calc(var(--spacing) * 10);
-  }
-  .py-2\.5 {
-    padding-block: calc(var(--spacing) * 2.5);
-  }
-  .py-3 {
-    padding-block: calc(var(--spacing) * 3);
-  }
-  .py-4 {
-    padding-block: calc(var(--spacing) * 4);
-  }
-  .py-6 {
-    padding-block: calc(var(--spacing) * 6);
-  }
-  .py-12 {
-    padding-block: calc(var(--spacing) * 12);
-  }
-  .py-24 {
-    padding-block: calc(var(--spacing) * 24);
-  }
-  .py-32 {
-    padding-block: calc(var(--spacing) * 32);
-  }
-  .pt-4 {
-    padding-top: calc(var(--spacing) * 4);
-  }
-  .pt-8 {
-    padding-top: calc(var(--spacing) * 8);
-  }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
-  }
-  .pt-12 {
-    padding-top: calc(var(--spacing) * 12);
-  }
-  .pt-32 {
-    padding-top: calc(var(--spacing) * 32);
-  }
-  .pr-4 {
-    padding-right: calc(var(--spacing) * 4);
-  }
-  .pb-20 {
-    padding-bottom: calc(var(--spacing) * 20);
-  }
-  .\!pl-0 {
-    padding-left: calc(var(--spacing) * 0) !important;
-  }
-  .text-center {
-    text-align: center;
-  }
-  .text-left {
-    text-align: left;
-  }
-  .font-\[\'Inter\'\] {
-    font-family: 'Inter';
-  }
-  .text-2xl {
-    font-size: var(--text-2xl);
-    line-height: var(--tw-leading, var(--text-2xl--line-height));
-  }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-  }
-  .text-5xl {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
-  }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
-  }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
-  }
-  .text-xl {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
-  }
-  .text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-  .text-\[10px\] {
-    font-size: 10px;
-  }
-  .leading-relaxed {
-    --tw-leading: var(--leading-relaxed);
-    line-height: var(--leading-relaxed);
-  }
-  .leading-tight {
-    --tw-leading: var(--leading-tight);
-    line-height: var(--leading-tight);
-  }
-  .font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-  }
-  .font-medium {
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
-  }
-  .font-semibold {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-  }
-  .tracking-\[0\.2em\] {
-    --tw-tracking: 0.2em;
-    letter-spacing: 0.2em;
-  }
-  .tracking-tight {
-    --tw-tracking: var(--tracking-tight);
-    letter-spacing: var(--tracking-tight);
-  }
-  .tracking-tighter {
-    --tw-tracking: var(--tracking-tighter);
-    letter-spacing: var(--tracking-tighter);
-  }
-  .tracking-widest {
-    --tw-tracking: var(--tracking-widest);
-    letter-spacing: var(--tracking-widest);
-  }
-  .text-\[\#1F2933\] {
-    color: #1F2933;
-  }
-  .text-\[\#1F2933\]\/40 {
-    color: color-mix(in oklab, #1F2933 40%, transparent);
-  }
-  .text-\[\#1F2933\]\/60 {
-    color: color-mix(in oklab, #1F2933 60%, transparent);
-  }
-  .text-\[\#1F2933\]\/70 {
-    color: color-mix(in oklab, #1F2933 70%, transparent);
-  }
-  .text-\[\#125E8A\] {
-    color: #125E8A;
-  }
-  .text-\[\#F4937C\] {
-    color: #F4937C;
-  }
-  .text-white {
-    color: var(--color-white);
-  }
-  .text-white\/20 {
-    color: color-mix(in srgb, #fff 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-white) 20%, transparent);
-    }
-  }
-  .text-white\/60 {
-    color: color-mix(in srgb, #fff 60%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-white) 60%, transparent);
-    }
-  }
-  .text-white\/70 {
-    color: color-mix(in srgb, #fff 70%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-white) 70%, transparent);
-    }
-  }
-  .text-white\/80 {
-    color: color-mix(in srgb, #fff 80%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-white) 80%, transparent);
-    }
-  }
-  .uppercase {
-    text-transform: uppercase;
-  }
-  .italic {
-    font-style: italic;
-  }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .decoration-2 {
-    text-decoration-thickness: 2px;
-  }
-  .underline-offset-4 {
-    text-underline-offset: 4px;
-  }
-  .placeholder-\[\#1F2933\]\/50 {
-    &::placeholder {
-      color: color-mix(in oklab, #1F2933 50%, transparent);
-    }
-  }
-  .\!opacity-100 {
-    opacity: 100% !important;
-  }
-  .opacity-40 {
-    opacity: 40%;
-  }
-  .opacity-50 {
-    opacity: 50%;
-  }
-  .opacity-60 {
-    opacity: 60%;
-  }
-  .opacity-80 {
-    opacity: 80%;
-  }
-  .opacity-100 {
-    opacity: 100%;
-  }
-  .shadow-2xl {
-    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .backdrop-filter {
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
-  .transition {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-  .ease-in-out {
-    --tw-ease: var(--ease-in-out);
-    transition-timing-function: var(--ease-in-out);
-  }
-  .group-hover\:text-white {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        color: var(--color-white);
-      }
-    }
-  }
-  .hover\:scale-105 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-scale-x: 105%;
-        --tw-scale-y: 105%;
-        --tw-scale-z: 105%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .hover\:bg-white\/20 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: color-mix(in srgb, #fff 20%, transparent);
-        @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
-        }
-      }
-    }
-  }
-  .hover\:text-\[\#1F2933\] {
-    &:hover {
-      @media (hover: hover) {
-        color: #1F2933;
-      }
-    }
-  }
-  .hover\:text-white {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-white);
-      }
-    }
-  }
-  .hover\:underline {
-    &:hover {
-      @media (hover: hover) {
-        text-decoration-line: underline;
-      }
-    }
-  }
-  .hover\:opacity-80 {
-    &:hover {
-      @media (hover: hover) {
-        opacity: 80%;
-      }
-    }
-  }
-  .hover\:opacity-90 {
-    &:hover {
-      @media (hover: hover) {
-        opacity: 90%;
-      }
-    }
-  }
-  .focus\:border-\[\#125E8A\] {
-    &:focus {
-      border-color: #125E8A;
-    }
-  }
-  .focus\:outline-none {
-    &:focus {
-      --tw-outline-style: none;
-      outline-style: none;
-    }
-  }
-  .active\:scale-95 {
-    &:active {
-      --tw-scale-x: 95%;
-      --tw-scale-y: 95%;
-      --tw-scale-z: 95%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-  }
-  .sm\:flex-row {
-    @media (width >= 40rem) {
-      flex-direction: row;
-    }
-  }
-  .md\:col-span-2 {
-    @media (width >= 48rem) {
-      grid-column: span 2 / span 2;
-    }
-  }
-  .md\:mt-0 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 0);
-    }
-  }
-  .md\:ml-auto {
-    @media (width >= 48rem) {
-      margin-left: auto;
-    }
-  }
-  .md\:flex {
-    @media (width >= 48rem) {
-      display: flex;
-    }
-  }
-  .md\:h-10 {
-    @media (width >= 48rem) {
-      height: calc(var(--spacing) * 10);
-    }
-  }
-  .md\:h-64 {
-    @media (width >= 48rem) {
-      height: calc(var(--spacing) * 64);
-    }
-  }
-  .md\:h-80 {
-    @media (width >= 48rem) {
-      height: calc(var(--spacing) * 80);
-    }
-  }
-  .md\:w-1\/2 {
-    @media (width >= 48rem) {
-      width: calc(1 / 2 * 100%);
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  .md\:flex-row {
-    @media (width >= 48rem) {
-      flex-direction: row;
-    }
-  }
-  .md\:items-center {
-    @media (width >= 48rem) {
-      align-items: center;
-    }
-  }
-  .md\:px-12 {
-    @media (width >= 48rem) {
-      padding-inline: calc(var(--spacing) * 12);
-    }
-  }
-  .md\:text-right {
-    @media (width >= 48rem) {
-      text-align: right;
-    }
-  }
-  .md\:text-5xl {
-    @media (width >= 48rem) {
-      font-size: var(--text-5xl);
-      line-height: var(--tw-leading, var(--text-5xl--line-height));
-    }
-  }
-  .md\:text-7xl {
-    @media (width >= 48rem) {
-      font-size: var(--text-7xl);
-      line-height: var(--tw-leading, var(--text-7xl--line-height));
-    }
-  }
-  .md\:text-base {
-    @media (width >= 48rem) {
-      font-size: var(--text-base);
-      line-height: var(--tw-leading, var(--text-base--line-height));
-    }
-  }
-  .md\:text-xl {
-    @media (width >= 48rem) {
-      font-size: var(--text-xl);
-      line-height: var(--tw-leading, var(--text-xl--line-height));
-    }
-  }
-  .lg\:col-span-2 {
-    @media (width >= 64rem) {
-      grid-column: span 2 / span 2;
-    }
-  }
-  .lg\:col-span-4 {
-    @media (width >= 64rem) {
-      grid-column: span 4 / span 4;
-    }
-  }
-  .lg\:col-span-6 {
-    @media (width >= 64rem) {
-      grid-column: span 6 / span 6;
-    }
-  }
-  .lg\:grid-cols-6 {
-    @media (width >= 64rem) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-  }
-  .lg\:px-16 {
-    @media (width >= 64rem) {
-      padding-inline: calc(var(--spacing) * 16);
-    }
-  }
-  .lg\:pt-24 {
-    @media (width >= 64rem) {
-      padding-top: calc(var(--spacing) * 24);
-    }
-  }
-  .lg\:pb-12 {
-    @media (width >= 64rem) {
-      padding-bottom: calc(var(--spacing) * 12);
-    }
-  }
-  .lg\:text-8xl {
-    @media (width >= 64rem) {
-      font-size: var(--text-8xl);
-      line-height: var(--tw-leading, var(--text-8xl--line-height));
-    }
-  }
-}
-@layer components {
-  .nav-bar {
-    position: fixed;
-    top: calc(var(--spacing) * 0);
-    left: calc(var(--spacing) * 0);
-    z-index: 50;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 1px;
-    border-color: color-mix(in srgb, #fff 10%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
-    }
-    background-color: color-mix(in oklab, #125E8A 95%, transparent);
-    padding-inline: calc(var(--spacing) * 6);
-    padding-block: calc(var(--spacing) * 6);
-    --tw-backdrop-blur: blur(var(--blur-md));
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    @media (width >= 48rem) {
-      padding-inline: calc(var(--spacing) * 12);
-    }
-  }
-  .legal-card {
-    margin-inline: auto;
-    margin-top: 120px;
-    margin-bottom: 60px;
-    display: block;
-    max-width: 800px;
-    border-radius: 2.5rem;
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-    border-color: #E2E8F0;
-    background-color: #FFF9F5;
-    padding: calc(var(--spacing) * 6);
-    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    @media (width >= 48rem) {
-      padding: calc(var(--spacing) * 10);
-    }
-  }
-  .legal-section {
-    margin-bottom: calc(var(--spacing) * 14);
-    &:last-child {
-      margin-bottom: calc(var(--spacing) * 0);
-    }
-  }
-  .legal-section h2 {
-    margin-bottom: calc(var(--spacing) * 5);
-    border-left-style: var(--tw-border-style);
-    border-left-width: 4px;
-    border-color: #125E8A;
-    padding-left: calc(var(--spacing) * 4);
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
-    --tw-leading: var(--leading-tight);
-    line-height: var(--leading-tight);
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-    color: #1F2933;
-  }
-  .legal-section p {
-    margin-bottom: calc(var(--spacing) * 4);
-    --tw-leading: var(--leading-relaxed);
-    line-height: var(--leading-relaxed);
-    opacity: 70%;
-  }
-  .legal-section strong {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-    color: #1F2933;
-    opacity: 100%;
-  }
-  .compact-list {
-    margin-bottom: calc(var(--spacing) * 4);
-    list-style-type: none;
-    padding: calc(var(--spacing) * 0);
-    opacity: 70%;
-  }
-  .compact-list li {
-    position: relative;
-    margin-bottom: calc(var(--spacing) * 2);
-    padding-left: calc(var(--spacing) * 6);
-    &::before {
-      content: var(--tw-content);
-      position: absolute;
-    }
-    &::before {
-      content: var(--tw-content);
-      left: calc(var(--spacing) * 0);
-    }
-    &::before {
-      content: var(--tw-content);
-      --tw-font-weight: var(--font-weight-bold);
-      font-weight: var(--font-weight-bold);
-    }
-    &::before {
-      content: var(--tw-content);
-      color: #125E8A;
-    }
-    &::before {
-      --tw-content: '•';
-      content: var(--tw-content);
-    }
-  }
-  .highlight-box {
-    margin-bottom: calc(var(--spacing) * 8);
-    border-radius: 1.5rem;
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-    --tw-border-style: dashed;
-    border-style: dashed;
-    border-color: color-mix(in oklab, #125E8A 30%, transparent);
-    background-color: color-mix(in oklab, #125E8A 10%, transparent);
-    padding: calc(var(--spacing) * 6);
-    @media (width >= 48rem) {
-      padding: calc(var(--spacing) * 8);
-    }
-  }
-  .highlight-box p {
-    opacity: 100%;
-  }
-  .legal-footer-box {
-    border-radius: 1.5rem;
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-    border-color: #E2E8F0;
-    background-color: #E6F1F7;
-    padding: calc(var(--spacing) * 6);
-    @media (width >= 48rem) {
-      padding: calc(var(--spacing) * 8);
-    }
-  }
-}
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-space-x-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tw-shadow-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-shadow-alpha {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
-}
-@property --tw-inset-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tw-inset-shadow-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-inset-shadow-alpha {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
-}
-@property --tw-ring-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-ring-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tw-inset-ring-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-inset-ring-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tw-ring-inset {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-ring-offset-width {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0px;
-}
-@property --tw-ring-offset-color {
-  syntax: "*";
-  inherits: false;
-  initial-value: #fff;
-}
-@property --tw-ring-offset-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tw-backdrop-blur {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-brightness {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-contrast {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-grayscale {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-hue-rotate {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-invert {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-opacity {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-saturate {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-sepia {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-ease {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-content {
-  syntax: "*";
-  initial-value: "";
-  inherits: false;
-}
 @layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
-      --tw-space-x-reverse: 0;
-      --tw-border-style: solid;
-      --tw-leading: initial;
-      --tw-font-weight: initial;
-      --tw-tracking: initial;
-      --tw-shadow: 0 0 #0000;
-      --tw-shadow-color: initial;
-      --tw-shadow-alpha: 100%;
-      --tw-inset-shadow: 0 0 #0000;
-      --tw-inset-shadow-color: initial;
-      --tw-inset-shadow-alpha: 100%;
-      --tw-ring-color: initial;
-      --tw-ring-shadow: 0 0 #0000;
-      --tw-inset-ring-color: initial;
-      --tw-inset-ring-shadow: 0 0 #0000;
-      --tw-ring-inset: initial;
-      --tw-ring-offset-width: 0px;
-      --tw-ring-offset-color: #fff;
-      --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-backdrop-blur: initial;
-      --tw-backdrop-brightness: initial;
-      --tw-backdrop-contrast: initial;
-      --tw-backdrop-grayscale: initial;
-      --tw-backdrop-hue-rotate: initial;
-      --tw-backdrop-invert: initial;
-      --tw-backdrop-opacity: initial;
-      --tw-backdrop-saturate: initial;
-      --tw-backdrop-sepia: initial;
-      --tw-ease: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
-      --tw-content: "";
+    @supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))) {
+
+        *,
+        :before,
+        :after,
+        ::backdrop {
+            --tw-rotate-x: initial;
+            --tw-rotate-y: initial;
+            --tw-rotate-z: initial;
+            --tw-skew-x: initial;
+            --tw-skew-y: initial;
+            --tw-space-x-reverse: 0;
+            --tw-border-style: solid;
+            --tw-leading: initial;
+            --tw-font-weight: initial;
+            --tw-tracking: initial;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-color: initial;
+            --tw-shadow-alpha: 100%;
+            --tw-inset-shadow: 0 0 #0000;
+            --tw-inset-shadow-color: initial;
+            --tw-inset-shadow-alpha: 100%;
+            --tw-ring-color: initial;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-inset-ring-color: initial;
+            --tw-inset-ring-shadow: 0 0 #0000;
+            --tw-ring-inset: initial;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-outline-style: solid;
+            --tw-blur: initial;
+            --tw-brightness: initial;
+            --tw-contrast: initial;
+            --tw-grayscale: initial;
+            --tw-hue-rotate: initial;
+            --tw-invert: initial;
+            --tw-opacity: initial;
+            --tw-saturate: initial;
+            --tw-sepia: initial;
+            --tw-drop-shadow: initial;
+            --tw-drop-shadow-color: initial;
+            --tw-drop-shadow-alpha: 100%;
+            --tw-drop-shadow-size: initial;
+            --tw-backdrop-blur: initial;
+            --tw-backdrop-brightness: initial;
+            --tw-backdrop-contrast: initial;
+            --tw-backdrop-grayscale: initial;
+            --tw-backdrop-hue-rotate: initial;
+            --tw-backdrop-invert: initial;
+            --tw-backdrop-opacity: initial;
+            --tw-backdrop-saturate: initial;
+            --tw-backdrop-sepia: initial;
+            --tw-ease: initial;
+            --tw-content: "";
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-scale-z: 1
+        }
     }
-  }
 }
+
+@layer theme {
+
+    :root,
+    :host {
+        --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --color-black: #000;
+        --color-white: #fff;
+        --spacing: .25rem;
+        --container-sm: 24rem;
+        --container-xl: 36rem;
+        --container-7xl: 80rem;
+        --text-xs: .75rem;
+        --text-xs--line-height: calc(1 / .75);
+        --text-sm: .875rem;
+        --text-sm--line-height: calc(1.25 / .875);
+        --text-base: 1rem;
+        --text-base--line-height: calc(1.5 / 1);
+        --text-lg: 1.125rem;
+        --text-lg--line-height: calc(1.75 / 1.125);
+        --text-xl: 1.25rem;
+        --text-xl--line-height: calc(1.75 / 1.25);
+        --text-2xl: 1.5rem;
+        --text-2xl--line-height: calc(2 / 1.5);
+        --text-3xl: 1.875rem;
+        --text-3xl--line-height: calc(2.25 / 1.875);
+        --text-4xl: 2.25rem;
+        --text-4xl--line-height: calc(2.5 / 2.25);
+        --text-5xl: 3rem;
+        --text-5xl--line-height: 1;
+        --text-7xl: 4.5rem;
+        --text-7xl--line-height: 1;
+        --text-8xl: 6rem;
+        --text-8xl--line-height: 1;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --tracking-tighter: -.05em;
+        --tracking-tight: -.025em;
+        --tracking-widest: .1em;
+        --leading-tight: 1.25;
+        --leading-relaxed: 1.625;
+        --radius-2xl: 1rem;
+        --ease-in-out: cubic-bezier(.4, 0, .2, 1);
+        --blur-md: 12px;
+        --default-transition-duration: .15s;
+        --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+        --default-font-family: var(--font-sans);
+        --default-mono-font-family: var(--font-mono)
+    }
+}
+
+@layer base {
+
+    *,
+    :after,
+    :before,
+    ::backdrop {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
+
+    ::file-selector-button {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
+
+    html,
+    :host {
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        line-height: 1.5;
+        font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+        font-feature-settings: var(--default-font-feature-settings, normal);
+        font-variation-settings: var(--default-font-variation-settings, normal);
+        -webkit-tap-highlight-color: transparent
+    }
+
+    hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px
+    }
+
+    abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: inherit;
+        font-weight: inherit
+    }
+
+    a {
+        color: inherit;
+        -webkit-text-decoration: inherit;
+        -webkit-text-decoration: inherit;
+        -webkit-text-decoration: inherit;
+        text-decoration: inherit
+    }
+
+    b,
+    strong {
+        font-weight: bolder
+    }
+
+    code,
+    kbd,
+    samp,
+    pre {
+        font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+        font-feature-settings: var(--default-mono-font-feature-settings, normal);
+        font-variation-settings: var(--default-mono-font-variation-settings, normal);
+        font-size: 1em
+    }
+
+    small {
+        font-size: 80%
+    }
+
+    sub,
+    sup {
+        vertical-align: baseline;
+        font-size: 75%;
+        line-height: 0;
+        position: relative
+    }
+
+    sub {
+        bottom: -.25em
+    }
+
+    sup {
+        top: -.5em
+    }
+
+    table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse
+    }
+
+    :-moz-focusring {
+        outline: auto
+    }
+
+    progress {
+        vertical-align: baseline
+    }
+
+    summary {
+        display: list-item
+    }
+
+    ol,
+    ul,
+    menu {
+        list-style: none
+    }
+
+    img,
+    svg,
+    video,
+    canvas,
+    audio,
+    iframe,
+    embed,
+    object {
+        vertical-align: middle;
+        display: block
+    }
+
+    img,
+    video {
+        max-width: 100%;
+        height: auto
+    }
+
+    button,
+    input,
+    select,
+    optgroup,
+    textarea {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        opacity: 1;
+        background-color: #0000;
+        border-radius: 0
+    }
+
+    ::file-selector-button {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        opacity: 1;
+        background-color: #0000;
+        border-radius: 0
+    }
+
+    :where(select:is([multiple], [size])) optgroup {
+        font-weight: bolder
+    }
+
+    :where(select:is([multiple], [size])) optgroup option {
+        padding-inline-start: 20px
+    }
+
+    ::file-selector-button {
+        margin-inline-end: 4px
+    }
+
+    ::placeholder {
+        opacity: 1
+    }
+
+    @supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px) {
+        ::placeholder {
+            color: currentColor
+        }
+
+        @supports (color:color-mix(in lab, red, red)) {
+            ::placeholder {
+                color: color-mix(in oklab, currentcolor 50%, transparent)
+            }
+        }
+    }
+
+    textarea {
+        resize: vertical
+    }
+
+    ::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    ::-webkit-date-and-time-value {
+        min-height: 1lh;
+        text-align: inherit
+    }
+
+    ::-webkit-datetime-edit {
+        display: inline-flex
+    }
+
+    ::-webkit-datetime-edit-fields-wrapper {
+        padding: 0
+    }
+
+    ::-webkit-datetime-edit {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-year-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-month-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-day-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-hour-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-minute-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-second-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-millisecond-field {
+        padding-block: 0
+    }
+
+    ::-webkit-datetime-edit-meridiem-field {
+        padding-block: 0
+    }
+
+    ::-webkit-calendar-picker-indicator {
+        line-height: 1
+    }
+
+    :-moz-ui-invalid {
+        box-shadow: none
+    }
+
+    button,
+    input:where([type=button], [type=reset], [type=submit]) {
+        appearance: button
+    }
+
+    ::file-selector-button {
+        appearance: button
+    }
+
+    ::-webkit-inner-spin-button {
+        height: auto
+    }
+
+    ::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    [hidden]:where(:not([hidden=until-found])) {
+        display: none !important
+    }
+}
+
+@layer components {
+    .nav-bar {
+        top: calc(var(--spacing) * 0);
+        left: calc(var(--spacing) * 0);
+        z-index: 50;
+        border-bottom-style: var(--tw-border-style);
+        border-color: #ffffff1a;
+        border-bottom-width: 1px;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        display: flex;
+        position: fixed
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .nav-bar {
+            border-color: color-mix(in oklab, var(--color-white) 10%, transparent)
+        }
+    }
+
+    .nav-bar {
+        padding-inline: calc(var(--spacing) * 6);
+        padding-block: calc(var(--spacing) * 6);
+        --tw-backdrop-blur: blur(var(--blur-md));
+        -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+        backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+        background-color: oklab(46.0769% -.0484895 -.0866987/.95)
+    }
+
+    @media (min-width:48rem) {
+        .nav-bar {
+            padding-inline: calc(var(--spacing) * 12)
+        }
+    }
+
+    .legal-card {
+        border-style: var(--tw-border-style);
+        max-width: 800px;
+        padding: calc(var(--spacing) * 6);
+        --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, #0000001a), 0 8px 10px -6px var(--tw-shadow-color, #0000001a);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+        margin-inline: auto;
+        background-color: #fff9f5;
+        border-width: 1px;
+        border-color: #e2e8f0;
+        border-radius: 2.5rem;
+        margin-top: 120px;
+        margin-bottom: 60px;
+        display: block
+    }
+
+    @media (min-width:48rem) {
+        .legal-card {
+            padding: calc(var(--spacing) * 10)
+        }
+    }
+
+    .legal-section {
+        margin-bottom: calc(var(--spacing) * 14)
+    }
+
+    .legal-section:last-child {
+        margin-bottom: calc(var(--spacing) * 0)
+    }
+
+    .legal-section h2 {
+        margin-bottom: calc(var(--spacing) * 5);
+        border-left-style: var(--tw-border-style);
+        padding-left: calc(var(--spacing) * 4);
+        font-size: var(--text-xl);
+        line-height: var(--tw-leading, var(--text-xl--line-height));
+        --tw-leading: var(--leading-tight);
+        line-height: var(--leading-tight);
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+        color: #1f2933;
+        border-color: #125e8a;
+        border-left-width: 4px
+    }
+
+    .legal-section p {
+        margin-bottom: calc(var(--spacing) * 4);
+        --tw-leading: var(--leading-relaxed);
+        line-height: var(--leading-relaxed);
+        opacity: .7
+    }
+
+    .legal-section strong {
+        --tw-font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-semibold);
+        color: #1f2933;
+        opacity: 1
+    }
+
+    .compact-list {
+        margin-bottom: calc(var(--spacing) * 4);
+        padding: calc(var(--spacing) * 0);
+        opacity: .7;
+        list-style-type: none
+    }
+
+    .compact-list li {
+        margin-bottom: calc(var(--spacing) * 2);
+        padding-left: calc(var(--spacing) * 6);
+        position: relative
+    }
+
+    .compact-list li:before {
+        content: var(--tw-content);
+        content: var(--tw-content);
+        left: calc(var(--spacing) * 0);
+        content: var(--tw-content);
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+        content: var(--tw-content);
+        color: #125e8a;
+        --tw-content: "•";
+        content: var(--tw-content);
+        position: absolute
+    }
+
+    .highlight-box {
+        margin-bottom: calc(var(--spacing) * 8);
+        border-style: var(--tw-border-style);
+        --tw-border-style: dashed;
+        padding: calc(var(--spacing) * 6);
+        background-color: oklab(46.0769% -.0484895 -.0866987/.1);
+        border: 1px dashed oklab(46.0769% -.0484895 -.0866987/.3);
+        border-radius: 1.5rem
+    }
+
+    @media (min-width:48rem) {
+        .highlight-box {
+            padding: calc(var(--spacing) * 8)
+        }
+    }
+
+    .highlight-box p {
+        opacity: 1
+    }
+
+    .legal-footer-box {
+        border-style: var(--tw-border-style);
+        padding: calc(var(--spacing) * 6);
+        background-color: #e6f1f7;
+        border-width: 1px;
+        border-color: #e2e8f0;
+        border-radius: 1.5rem
+    }
+
+    @media (min-width:48rem) {
+        .legal-footer-box {
+            padding: calc(var(--spacing) * 8)
+        }
+    }
+}
+
+@layer utilities {
+    .invisible {
+        visibility: hidden
+    }
+
+    .visible {
+        visibility: visible
+    }
+
+    .fixed {
+        position: fixed
+    }
+
+    .relative {
+        position: relative
+    }
+
+    .start {
+        inset-inline-start: var(--spacing)
+    }
+
+    .top-0 {
+        top: calc(var(--spacing) * 0)
+    }
+
+    .left-0 {
+        left: calc(var(--spacing) * 0)
+    }
+
+    .z-10 {
+        z-index: 10
+    }
+
+    .z-50 {
+        z-index: 50
+    }
+
+    .container {
+        width: 100%
+    }
+
+    @media (min-width:40rem) {
+        .container {
+            max-width: 40rem
+        }
+    }
+
+    @media (min-width:48rem) {
+        .container {
+            max-width: 48rem
+        }
+    }
+
+    @media (min-width:64rem) {
+        .container {
+            max-width: 64rem
+        }
+    }
+
+    @media (min-width:80rem) {
+        .container {
+            max-width: 80rem
+        }
+    }
+
+    @media (min-width:96rem) {
+        .container {
+            max-width: 96rem
+        }
+    }
+
+    .mx-4 {
+        margin-inline: calc(var(--spacing) * 4)
+    }
+
+    .mx-auto {
+        margin-inline: auto
+    }
+
+    .mt-4 {
+        margin-top: calc(var(--spacing) * 4)
+    }
+
+    .mt-6 {
+        margin-top: calc(var(--spacing) * 6)
+    }
+
+    .mt-8 {
+        margin-top: calc(var(--spacing) * 8)
+    }
+
+    .mt-\[120px\] {
+        margin-top: 120px
+    }
+
+    .mr-4 {
+        margin-right: calc(var(--spacing) * 4)
+    }
+
+    .\!mb-0 {
+        margin-bottom: calc(var(--spacing) * 0) !important
+    }
+
+    .\!mb-4 {
+        margin-bottom: calc(var(--spacing) * 4) !important
+    }
+
+    .mb-1 {
+        margin-bottom: calc(var(--spacing) * 1)
+    }
+
+    .mb-2 {
+        margin-bottom: calc(var(--spacing) * 2)
+    }
+
+    .mb-3 {
+        margin-bottom: calc(var(--spacing) * 3)
+    }
+
+    .mb-4 {
+        margin-bottom: calc(var(--spacing) * 4)
+    }
+
+    .mb-5 {
+        margin-bottom: calc(var(--spacing) * 5)
+    }
+
+    .mb-6 {
+        margin-bottom: calc(var(--spacing) * 6)
+    }
+
+    .mb-8 {
+        margin-bottom: calc(var(--spacing) * 8)
+    }
+
+    .mb-10 {
+        margin-bottom: calc(var(--spacing) * 10)
+    }
+
+    .mb-12 {
+        margin-bottom: calc(var(--spacing) * 12)
+    }
+
+    .mb-14 {
+        margin-bottom: calc(var(--spacing) * 14)
+    }
+
+    .mb-16 {
+        margin-bottom: calc(var(--spacing) * 16)
+    }
+
+    .mb-\[60px\] {
+        margin-bottom: 60px
+    }
+
+    .block {
+        display: block
+    }
+
+    .contents {
+        display: contents
+    }
+
+    .flex {
+        display: flex
+    }
+
+    .grid {
+        display: grid
+    }
+
+    .hidden {
+        display: none
+    }
+
+    .table {
+        display: table
+    }
+
+    .aspect-\[9\/19\.5\] {
+        aspect-ratio: 9/19.5
+    }
+
+    .h-1 {
+        height: calc(var(--spacing) * 1)
+    }
+
+    .h-8 {
+        height: calc(var(--spacing) * 8)
+    }
+
+    .h-14 {
+        height: calc(var(--spacing) * 14)
+    }
+
+    .h-auto {
+        height: auto
+    }
+
+    .min-h-\[calc\(100vh-8rem\)\] {
+        min-height: calc(100vh - 8rem)
+    }
+
+    .min-h-screen {
+        min-height: 100vh
+    }
+
+    .w-4 {
+        width: calc(var(--spacing) * 4)
+    }
+
+    .w-8 {
+        width: calc(var(--spacing) * 8)
+    }
+
+    .w-12 {
+        width: calc(var(--spacing) * 12)
+    }
+
+    .w-48 {
+        width: calc(var(--spacing) * 48)
+    }
+
+    .w-\[330px\] {
+        width: 330px
+    }
+
+    .w-auto {
+        width: auto
+    }
+
+    .w-full {
+        width: 100%
+    }
+
+    .max-w-7xl {
+        max-width: var(--container-7xl)
+    }
+
+    .max-w-\[800px\] {
+        max-width: 800px
+    }
+
+    .max-w-sm {
+        max-width: var(--container-sm)
+    }
+
+    .max-w-xl {
+        max-width: var(--container-xl)
+    }
+
+    .flex-shrink {
+        flex-shrink: 1
+    }
+
+    .border-collapse {
+        border-collapse: collapse
+    }
+
+    .transform {
+        transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, )
+    }
+
+    .cursor-pointer {
+        cursor: pointer
+    }
+
+    .resize {
+        resize: both
+    }
+
+    .list-none {
+        list-style-type: none
+    }
+
+    .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr))
+    }
+
+    .flex-col {
+        flex-direction: column
+    }
+
+    .items-center {
+        align-items: center
+    }
+
+    .justify-between {
+        justify-content: space-between
+    }
+
+    .justify-center {
+        justify-content: center
+    }
+
+    .justify-end {
+        justify-content: flex-end
+    }
+
+    .gap-3 {
+        gap: calc(var(--spacing) * 3)
+    }
+
+    .gap-5 {
+        gap: calc(var(--spacing) * 5)
+    }
+
+    .gap-6 {
+        gap: calc(var(--spacing) * 6)
+    }
+
+    .gap-16 {
+        gap: calc(var(--spacing) * 16)
+    }
+
+    .gap-20 {
+        gap: calc(var(--spacing) * 20)
+    }
+
+    :where(.space-x-2>:not(:last-child)) {
+        --tw-space-x-reverse: 0;
+        margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+        margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)))
+    }
+
+    :where(.space-x-8>:not(:last-child)) {
+        --tw-space-x-reverse: 0;
+        margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
+        margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)))
+    }
+
+    .overflow-hidden {
+        overflow: hidden
+    }
+
+    .overflow-x-hidden {
+        overflow-x: hidden
+    }
+
+    .rounded {
+        border-radius: .25rem
+    }
+
+    .rounded-2xl {
+        border-radius: var(--radius-2xl)
+    }
+
+    .rounded-\[1\.5rem\] {
+        border-radius: 1.5rem
+    }
+
+    .rounded-\[2\.5rem\] {
+        border-radius: 2.5rem
+    }
+
+    .rounded-\[3\.8rem\] {
+        border-radius: 3.8rem
+    }
+
+    .rounded-\[3rem\] {
+        border-radius: 3rem
+    }
+
+    .rounded-full {
+        border-radius: 3.40282e38px
+    }
+
+    .border {
+        border-style: var(--tw-border-style);
+        border-width: 1px
+    }
+
+    .border-t {
+        border-top-style: var(--tw-border-style);
+        border-top-width: 1px
+    }
+
+    .border-r {
+        border-right-style: var(--tw-border-style);
+        border-right-width: 1px
+    }
+
+    .border-b {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 1px
+    }
+
+    .\!border-l-0 {
+        border-left-style: var(--tw-border-style) !important;
+        border-left-width: 0 !important
+    }
+
+    .border-l-2 {
+        border-left-style: var(--tw-border-style);
+        border-left-width: 2px
+    }
+
+    .border-l-4 {
+        border-left-style: var(--tw-border-style);
+        border-left-width: 4px
+    }
+
+    .border-dashed {
+        --tw-border-style: dashed;
+        border-style: dashed
+    }
+
+    .border-\[\#125E8A\] {
+        border-color: #125e8a
+    }
+
+    .border-\[\#125E8A\]\/30 {
+        border-color: oklab(46.0769% -.0484895 -.0866987/.3)
+    }
+
+    .border-\[\#E2E8F0\] {
+        border-color: #e2e8f0
+    }
+
+    .border-white {
+        border-color: var(--color-white)
+    }
+
+    .border-white\/10 {
+        border-color: #ffffff1a
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .border-white\/10 {
+            border-color: color-mix(in oklab, var(--color-white) 10%, transparent)
+        }
+    }
+
+    .border-white\/20 {
+        border-color: #fff3
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .border-white\/20 {
+            border-color: color-mix(in oklab, var(--color-white) 20%, transparent)
+        }
+    }
+
+    .bg-\[\#125E8A\] {
+        background-color: #125e8a
+    }
+
+    .bg-\[\#125E8A\]\/10 {
+        background-color: oklab(46.0769% -.0484895 -.0866987/.1)
+    }
+
+    .bg-\[\#125E8A\]\/30 {
+        background-color: oklab(46.0769% -.0484895 -.0866987/.3)
+    }
+
+    .bg-\[\#125E8A\]\/95 {
+        background-color: oklab(46.0769% -.0484895 -.0866987/.95)
+    }
+
+    .bg-\[\#E6F1F7\] {
+        background-color: #e6f1f7
+    }
+
+    .bg-\[\#FFF9F5\] {
+        background-color: #fff9f5
+    }
+
+    .bg-black {
+        background-color: var(--color-black)
+    }
+
+    .bg-white {
+        background-color: var(--color-white)
+    }
+
+    .bg-white\/10 {
+        background-color: #ffffff1a
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .bg-white\/10 {
+            background-color: color-mix(in oklab, var(--color-white) 10%, transparent)
+        }
+    }
+
+    .p-0 {
+        padding: calc(var(--spacing) * 0)
+    }
+
+    .p-3 {
+        padding: calc(var(--spacing) * 3)
+    }
+
+    .p-3\.5 {
+        padding: calc(var(--spacing) * 3.5)
+    }
+
+    .p-4 {
+        padding: calc(var(--spacing) * 4)
+    }
+
+    .p-6 {
+        padding: calc(var(--spacing) * 6)
+    }
+
+    .p-10 {
+        padding: calc(var(--spacing) * 10)
+    }
+
+    .px-4 {
+        padding-inline: calc(var(--spacing) * 4)
+    }
+
+    .px-6 {
+        padding-inline: calc(var(--spacing) * 6)
+    }
+
+    .px-7 {
+        padding-inline: calc(var(--spacing) * 7)
+    }
+
+    .px-8 {
+        padding-inline: calc(var(--spacing) * 8)
+    }
+
+    .px-10 {
+        padding-inline: calc(var(--spacing) * 10)
+    }
+
+    .py-2 {
+        padding-block: calc(var(--spacing) * 2)
+    }
+
+    .py-2\.5 {
+        padding-block: calc(var(--spacing) * 2.5)
+    }
+
+    .py-3 {
+        padding-block: calc(var(--spacing) * 3)
+    }
+
+    .py-4 {
+        padding-block: calc(var(--spacing) * 4)
+    }
+
+    .py-6 {
+        padding-block: calc(var(--spacing) * 6)
+    }
+
+    .py-12 {
+        padding-block: calc(var(--spacing) * 12)
+    }
+
+    .py-24 {
+        padding-block: calc(var(--spacing) * 24)
+    }
+
+    .py-32 {
+        padding-block: calc(var(--spacing) * 32)
+    }
+
+    .pt-4 {
+        padding-top: calc(var(--spacing) * 4)
+    }
+
+    .pt-8 {
+        padding-top: calc(var(--spacing) * 8)
+    }
+
+    .pt-10 {
+        padding-top: calc(var(--spacing) * 10)
+    }
+
+    .pt-12 {
+        padding-top: calc(var(--spacing) * 12)
+    }
+
+    .pt-32 {
+        padding-top: calc(var(--spacing) * 32)
+    }
+
+    .pr-4 {
+        padding-right: calc(var(--spacing) * 4)
+    }
+
+    .pb-20 {
+        padding-bottom: calc(var(--spacing) * 20)
+    }
+
+    .\!pl-0 {
+        padding-left: calc(var(--spacing) * 0) !important
+    }
+
+    .pl-4 {
+        padding-left: calc(var(--spacing) * 4)
+    }
+
+    .pl-6 {
+        padding-left: calc(var(--spacing) * 6)
+    }
+
+    .text-center {
+        text-align: center
+    }
+
+    .text-left {
+        text-align: left
+    }
+
+    .font-\[\'Inter\'\] {
+        font-family: Inter
+    }
+
+    .text-2xl {
+        font-size: var(--text-2xl);
+        line-height: var(--tw-leading, var(--text-2xl--line-height))
+    }
+
+    .text-3xl {
+        font-size: var(--text-3xl);
+        line-height: var(--tw-leading, var(--text-3xl--line-height))
+    }
+
+    .text-4xl {
+        font-size: var(--text-4xl);
+        line-height: var(--tw-leading, var(--text-4xl--line-height))
+    }
+
+    .text-5xl {
+        font-size: var(--text-5xl);
+        line-height: var(--tw-leading, var(--text-5xl--line-height))
+    }
+
+    .text-base {
+        font-size: var(--text-base);
+        line-height: var(--tw-leading, var(--text-base--line-height))
+    }
+
+    .text-lg {
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height))
+    }
+
+    .text-sm {
+        font-size: var(--text-sm);
+        line-height: var(--tw-leading, var(--text-sm--line-height))
+    }
+
+    .text-xl {
+        font-size: var(--text-xl);
+        line-height: var(--tw-leading, var(--text-xl--line-height))
+    }
+
+    .text-xs {
+        font-size: var(--text-xs);
+        line-height: var(--tw-leading, var(--text-xs--line-height))
+    }
+
+    .text-\[10px\] {
+        font-size: 10px
+    }
+
+    .leading-relaxed {
+        --tw-leading: var(--leading-relaxed);
+        line-height: var(--leading-relaxed)
+    }
+
+    .leading-tight {
+        --tw-leading: var(--leading-tight);
+        line-height: var(--leading-tight)
+    }
+
+    .font-bold {
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold)
+    }
+
+    .font-medium {
+        --tw-font-weight: var(--font-weight-medium);
+        font-weight: var(--font-weight-medium)
+    }
+
+    .font-semibold {
+        --tw-font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-semibold)
+    }
+
+    .tracking-\[0\.2em\] {
+        --tw-tracking: .2em;
+        letter-spacing: .2em
+    }
+
+    .tracking-tight {
+        --tw-tracking: var(--tracking-tight);
+        letter-spacing: var(--tracking-tight)
+    }
+
+    .tracking-tighter {
+        --tw-tracking: var(--tracking-tighter);
+        letter-spacing: var(--tracking-tighter)
+    }
+
+    .tracking-widest {
+        --tw-tracking: var(--tracking-widest);
+        letter-spacing: var(--tracking-widest)
+    }
+
+    .text-\[\#1F2933\] {
+        color: #1f2933
+    }
+
+    .text-\[\#1F2933\]\/40 {
+        color: oklab(27.6013% -.00846456 -.0216899/.4)
+    }
+
+    .text-\[\#1F2933\]\/60 {
+        color: oklab(27.6013% -.00846456 -.0216899/.6)
+    }
+
+    .text-\[\#1F2933\]\/70 {
+        color: oklab(27.6013% -.00846456 -.0216899/.7)
+    }
+
+    .text-\[\#125E8A\] {
+        color: #125e8a
+    }
+
+    .text-\[\#F4937C\] {
+        color: #f4937c
+    }
+
+    .text-white {
+        color: var(--color-white)
+    }
+
+    .text-white\/20 {
+        color: #fff3
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .text-white\/20 {
+            color: color-mix(in oklab, var(--color-white) 20%, transparent)
+        }
+    }
+
+    .text-white\/60 {
+        color: #fff9
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .text-white\/60 {
+            color: color-mix(in oklab, var(--color-white) 60%, transparent)
+        }
+    }
+
+    .text-white\/70 {
+        color: #ffffffb3
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .text-white\/70 {
+            color: color-mix(in oklab, var(--color-white) 70%, transparent)
+        }
+    }
+
+    .text-white\/80 {
+        color: #fffc
+    }
+
+    @supports (color:color-mix(in lab, red, red)) {
+        .text-white\/80 {
+            color: color-mix(in oklab, var(--color-white) 80%, transparent)
+        }
+    }
+
+    .uppercase {
+        text-transform: uppercase
+    }
+
+    .italic {
+        font-style: italic
+    }
+
+    .underline {
+        text-decoration-line: underline
+    }
+
+    .decoration-2 {
+        text-decoration-thickness: 2px
+    }
+
+    .underline-offset-4 {
+        text-underline-offset: 4px
+    }
+
+    .placeholder-\[\#1F2933\]\/50::placeholder {
+        color: oklab(27.6013% -.00846456 -.0216899/.5)
+    }
+
+    .\!opacity-100 {
+        opacity: 1 !important
+    }
+
+    .opacity-40 {
+        opacity: .4
+    }
+
+    .opacity-50 {
+        opacity: .5
+    }
+
+    .opacity-60 {
+        opacity: .6
+    }
+
+    .opacity-70 {
+        opacity: .7
+    }
+
+    .opacity-80 {
+        opacity: .8
+    }
+
+    .opacity-100 {
+        opacity: 1
+    }
+
+    .shadow-2xl {
+        --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, #00000040);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)
+    }
+
+    .outline {
+        outline-style: var(--tw-outline-style);
+        outline-width: 1px
+    }
+
+    .filter {
+        filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, )
+    }
+
+    .backdrop-filter {
+        -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+        backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, )
+    }
+
+    .transition {
+        transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+        transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+        transition-duration: var(--tw-duration, var(--default-transition-duration))
+    }
+
+    .ease-in-out {
+        --tw-ease: var(--ease-in-out);
+        transition-timing-function: var(--ease-in-out)
+    }
+
+    @media (hover:hover) {
+        .group-hover\:text-white:is(:where(.group):hover *) {
+            color: var(--color-white)
+        }
+    }
+
+    .before\:absolute:before {
+        content: var(--tw-content);
+        position: absolute
+    }
+
+    .before\:left-0:before {
+        content: var(--tw-content);
+        left: calc(var(--spacing) * 0)
+    }
+
+    .before\:text-\[\#125E8A\]:before {
+        content: var(--tw-content);
+        color: #125e8a
+    }
+
+    .before\:content-\[\'•\'\]:before {
+        --tw-content: "•";
+        content: var(--tw-content)
+    }
+
+    @media (hover:hover) {
+        .hover\:scale-105:hover {
+            --tw-scale-x: 105%;
+            --tw-scale-y: 105%;
+            --tw-scale-z: 105%;
+            scale: var(--tw-scale-x) var(--tw-scale-y)
+        }
+
+        .hover\:bg-white\/20:hover {
+            background-color: #fff3
+        }
+
+        @supports (color:color-mix(in lab, red, red)) {
+            .hover\:bg-white\/20:hover {
+                background-color: color-mix(in oklab, var(--color-white) 20%, transparent)
+            }
+        }
+
+        .hover\:text-\[\#1F2933\]:hover {
+            color: #1f2933
+        }
+
+        .hover\:text-white:hover {
+            color: var(--color-white)
+        }
+
+        .hover\:underline:hover {
+            text-decoration-line: underline
+        }
+
+        .hover\:opacity-80:hover {
+            opacity: .8
+        }
+
+        .hover\:opacity-90:hover {
+            opacity: .9
+        }
+    }
+
+    .focus\:border-\[\#125E8A\]:focus {
+        border-color: #125e8a
+    }
+
+    .focus\:outline-none:focus {
+        --tw-outline-style: none;
+        outline-style: none
+    }
+
+    .active\:scale-95:active {
+        --tw-scale-x: 95%;
+        --tw-scale-y: 95%;
+        --tw-scale-z: 95%;
+        scale: var(--tw-scale-x) var(--tw-scale-y)
+    }
+
+    @media (min-width:40rem) {
+        .sm\:flex-row {
+            flex-direction: row
+        }
+    }
+
+    @media (min-width:48rem) {
+        .md\:col-span-2 {
+            grid-column: span 2/span 2
+        }
+
+        .md\:mt-0 {
+            margin-top: calc(var(--spacing) * 0)
+        }
+
+        .md\:ml-auto {
+            margin-left: auto
+        }
+
+        .md\:flex {
+            display: flex
+        }
+
+        .md\:h-10 {
+            height: calc(var(--spacing) * 10)
+        }
+
+        .md\:h-64 {
+            height: calc(var(--spacing) * 64)
+        }
+
+        .md\:h-80 {
+            height: calc(var(--spacing) * 80)
+        }
+
+        .md\:w-1\/2 {
+            width: 50%
+        }
+
+        .md\:grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .md\:flex-row {
+            flex-direction: row
+        }
+
+        .md\:items-center {
+            align-items: center
+        }
+
+        .md\:p-8 {
+            padding: calc(var(--spacing) * 8)
+        }
+
+        .md\:p-10 {
+            padding: calc(var(--spacing) * 10)
+        }
+
+        .md\:px-12 {
+            padding-inline: calc(var(--spacing) * 12)
+        }
+
+        .md\:text-right {
+            text-align: right
+        }
+
+        .md\:text-5xl {
+            font-size: var(--text-5xl);
+            line-height: var(--tw-leading, var(--text-5xl--line-height))
+        }
+
+        .md\:text-7xl {
+            font-size: var(--text-7xl);
+            line-height: var(--tw-leading, var(--text-7xl--line-height))
+        }
+
+        .md\:text-base {
+            font-size: var(--text-base);
+            line-height: var(--tw-leading, var(--text-base--line-height))
+        }
+
+        .md\:text-xl {
+            font-size: var(--text-xl);
+            line-height: var(--tw-leading, var(--text-xl--line-height))
+        }
+    }
+
+    @media (min-width:64rem) {
+        .lg\:col-span-2 {
+            grid-column: span 2/span 2
+        }
+
+        .lg\:col-span-4 {
+            grid-column: span 4/span 4
+        }
+
+        .lg\:col-span-6 {
+            grid-column: span 6/span 6
+        }
+
+        .lg\:grid-cols-6 {
+            grid-template-columns: repeat(6, minmax(0, 1fr))
+        }
+
+        .lg\:px-16 {
+            padding-inline: calc(var(--spacing) * 16)
+        }
+
+        .lg\:pt-24 {
+            padding-top: calc(var(--spacing) * 24)
+        }
+
+        .lg\:pb-12 {
+            padding-bottom: calc(var(--spacing) * 12)
+        }
+
+        .lg\:text-8xl {
+            font-size: var(--text-8xl);
+            line-height: var(--tw-leading, var(--text-8xl--line-height))
+        }
+    }
+}
+
+@property --tw-rotate-x {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-rotate-y {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-rotate-z {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-skew-x {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-skew-y {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-space-x-reverse {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-border-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid
+}
+
+@property --tw-leading {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-font-weight {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-tracking {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-shadow-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%
+}
+
+@property --tw-inset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-inset-shadow-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-inset-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%
+}
+
+@property --tw-ring-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-inset-ring-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-inset-ring-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-ring-inset {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-ring-offset-width {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0
+}
+
+@property --tw-ring-offset-color {
+    syntax: "*";
+    inherits: false;
+    initial-value: #fff
+}
+
+@property --tw-ring-offset-shadow {
+    syntax: "*";
+    inherits: false;
+    initial-value: 0 0 #0000
+}
+
+@property --tw-outline-style {
+    syntax: "*";
+    inherits: false;
+    initial-value: solid
+}
+
+@property --tw-blur {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-brightness {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-contrast {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-grayscale {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-hue-rotate {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-invert {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-opacity {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-saturate {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-sepia {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-drop-shadow {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-drop-shadow-color {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-drop-shadow-alpha {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%
+}
+
+@property --tw-drop-shadow-size {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-blur {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-brightness {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-contrast {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-grayscale {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-hue-rotate {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-invert {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-opacity {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-saturate {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-backdrop-sepia {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-ease {
+    syntax: "*";
+    inherits: false
+}
+
+@property --tw-content {
+    syntax: "*";
+    inherits: false;
+    initial-value: ""
+}
+
+@property --tw-scale-x {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1
+}
+
+@property --tw-scale-y {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1
+}
+
+@property --tw-scale-z {
+    syntax: "*";
+    inherits: false;
+    initial-value: 1
+}
+</file>
+
+<file path="public/assets/icons/icon_alert.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M12.139 19.3a.75.75 0 0 1 1.344.666c-.439.886-1.277 1.458-2.301 1.377-.923-.073-1.609-.802-2.011-1.61a.751.751 0 0 1 1.344-.668c.3.603.628.77.785.783.325.026.63-.127.839-.547M9.994 6.061c.608-.41 1.443-.458 2.282-.291a.75.75 0 0 1-.292 1.47c-.657-.13-1.018-.026-1.152.064-.221.15-.429.45-.48.976a.75.75 0 0 1-1.493-.144c.085-.871.466-1.623 1.135-2.075"/><path fill="#000" fill-rule="evenodd" d="M12.314 1.872c3.732.295 5.896 3.464 5.753 7.15l-.015.576c-.035 2.624.403 4.327 1.294 5.72l.198.293.008.013c.375.553.45 1.22.23 1.79a1.7 1.7 0 0 1-1.464 1.09 1 1 0 0 1-.13-.001L4.03 17.248a1 1 0 0 1-.115-.02c-.636-.158-1.123-.603-1.274-1.215-.149-.6.059-1.22.497-1.687l.01-.01c1.322-1.354 2.115-3.145 2.495-6.277.217-1.82.934-3.398 2.09-4.511C8.9 2.407 10.466 1.803 12.283 1.87zm-.107 1.496c-1.423-.048-2.58.42-3.432 1.24-.864.831-1.458 2.069-1.642 3.61-.401 3.316-1.275 5.463-2.901 7.133v.001c-.152.163-.14.276-.134.3a.1.1 0 0 0 .03.05.3.3 0 0 0 .12.059L18.228 17a.2.2 0 0 0 .089-.036c.025-.02.05-.049.067-.093.034-.09.038-.243-.073-.407-1.343-1.904-1.868-4.163-1.743-7.5.12-3.077-1.624-5.374-4.36-5.597" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_back.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M13.4 7.04a.75.75 0 0 1 1 1.12c-1.24 1.1-2.46 2.23-3.68 3.26l2.44.02q2.3.03 4.9-.09a.75.75 0 0 1 .08 1.5c-1.77.1-3.47.1-5 .09l-2.34-.02 3.7 3.32a.75.75 0 1 1-1 1.12c-1.82-1.62-3.5-3.2-5.28-4.68a.75.75 0 0 1 .02-1.18c1.67-1.27 3.34-2.84 5.16-4.46"/><path fill="#000" fill-rule="evenodd" d="M11.97 2.35c2.94-.1 5.4.86 7.1 2.62a9.3 9.3 0 0 1 2.49 6.53l-.01.53a9.8 9.8 0 0 1-3 6.97 9.5 9.5 0 0 1-6.98 2.45c-5.51-.22-9.24-4.37-9.02-9.68a9.5 9.5 0 0 1 9.42-9.42m.06 1.5a8 8 0 0 0-7.98 7.98c-.18 4.49 2.9 7.94 7.58 8.12a8 8 0 0 0 5.9-2.05 8.3 8.3 0 0 0 2.52-5.93A8 8 0 0 0 18 6.01c-1.37-1.42-3.4-2.25-5.97-2.16" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_drive.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M10 3.5c5.21-1 10.06 2.06 11 7.08l.1.66c.55 4.76-2.76 9.02-7.75 9.96-5.22 1-10.06-2.06-11.01-7.08S4.77 4.48 9.99 3.5m.1 11.74-.17.12c-2.7.73-3.59 1.05-4.97 1.46a7.9 7.9 0 0 0 7.56 3.1 37 37 0 0 1-1.81-3.76.7.7 0 0 1 .02-.57q-.34-.14-.64-.35m3.48.36a4 4 0 0 1-1.48.29q.83 1.94 1.85 3.74l.4-.12-.08-.25a20 20 0 0 0-.7-3.66m6.2-3.36a37 37 0 0 1-4.36 1.6q-.27.55-.72 1 .15.13.2.32.54 1.89.73 3.79a7.6 7.6 0 0 0 4.14-6.71m-11.22.55c-1.43.72-3 1.45-4.56 2.17l.23.59.08-.02c1.38-.26 3.06-.81 4.78-1.32a4 4 0 0 1-.53-1.42m10.89-2.75-.24.1c-1.13.19-2.44.45-3.72.7a4 4 0 0 1 .3 1.44q1.8-.59 3.84-1.5-.07-.38-.18-.74m-9.2-5.18c-4.44.84-7.22 4.63-6.6 8.72a117 117 0 0 0 5.04-2.4 3.64 3.64 0 0 1 5.92-1.59h.03c1.4-.27 2.97-.59 4.29-.82-1.53-2.95-4.94-4.62-8.68-3.9" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_help.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M11.8 17.3c.4-.2.8 0 .9.4s-.3.7-.7.6-.5-.6-.2-1m.73-10.66.17.02c1.78.25 3.03 1.81 2.63 3.59v.02c-.14.7-.55 1.24-.96 1.65s-.86.72-1.2.96c-.33.29-.49.47-.58.66-.08.17-.13.44-.05.94a.75.75 0 1 1-1.48.24 3 3 0 0 1 .17-1.81c.24-.5.62-.87.98-1.18l.05-.04c.36-.26.74-.52 1.05-.83q.46-.46.56-.9v-.03c.19-.82-.35-1.64-1.37-1.79-1.15-.15-1.99.51-2.05 1.5a.75.75 0 1 1-1.5-.09c.13-1.94 1.79-3.07 3.58-2.91"/><path fill="#000" fill-rule="evenodd" d="M11.96 2.45c3-.16 5.5.83 7.2 2.62a9.3 9.3 0 0 1 2.39 7.07 9.8 9.8 0 0 1-3.1 6.9 9.5 9.5 0 0 1-7 2.3 9.6 9.6 0 0 1-6.63-2.96 9 9 0 0 1-2.27-6.73c.32-5.28 4.13-8.98 9.41-9.2m.08 1.5c-4.52.18-7.7 3.28-7.98 7.8a7.5 7.5 0 0 0 1.88 5.62 8 8 0 0 0 5.61 2.48 8 8 0 0 0 5.9-1.92 8.3 8.3 0 0 0 2.61-5.87 7.8 7.8 0 0 0-1.98-5.95c-1.37-1.44-3.43-2.3-6.03-2.16" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_left_chevron.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M11.702 6.44a.75.75 0 0 1 .996 1.12c-1.527 1.358-3.025 2.754-4.514 3.96 1.559 1.336 3.068 2.746 4.614 4.12a.75.75 0 0 1-.996 1.121c-1.822-1.62-3.494-3.194-5.283-4.685a.75.75 0 0 1 .025-1.171c1.67-1.278 3.334-2.844 5.158-4.465"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_options.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M10.95 15.5c1.36-.07 2.14-.24 3.24.02a.75.75 0 1 1-.35 1.46c-.82-.2-1.2-.07-2.82.01a.75.75 0 0 1-.07-1.5m.98-4.29c1.06.04 1.93.16 3 .05a.75.75 0 1 1 .14 1.5c-1.19.11-2.3-.02-3.18-.05a5 5 0 0 0-2.56.47.75.75 0 1 1-.67-1.34 6.5 6.5 0 0 1 3.27-.63m4.49-3.95a.75.75 0 0 1 .16 1.5c-2.23.24-3.16.39-4.05.39S10.77 9 8.67 8.75c-.06 0-.09.02-.32.15-.3.17-.69.35-1.35.35a.75.75 0 0 1 0-1.5c.34 0 .47-.07.61-.15.18-.1.53-.35 1.09-.35h.1c2.22.28 2.95.4 3.73.39.78 0 1.56-.13 3.89-.39"/><path fill="#000" fill-rule="evenodd" d="M11.97 2.45c2.99-.16 5.46.8 7.14 2.58s2.5 4.3 2.34 7.11a9.8 9.8 0 0 1-3.04 6.83 9.4 9.4 0 0 1-6.43 2.39l-.51-.01c-5.4-.22-9.14-4.26-8.92-9.58.22-5.3 4.04-9.1 9.42-9.32m.07 1.5c-4.61.18-7.8 3.38-7.98 7.88-.18 4.48 2.89 7.84 7.48 8.02 2.37.1 4.4-.65 5.86-2a8.3 8.3 0 0 0 2.56-5.8c.14-2.47-.59-4.56-1.93-5.98s-3.37-2.26-5.98-2.12" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_password.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M12 13.41c1.07-.13 1.88.68 1.75 1.63a2.2 2.2 0 0 1-1.22 1.62l.14 2.03c0 .4-.27.67-.68.67a.64.64 0 0 1-.67-.67l.13-2.03c-.68-.4-1.08-.95-1.08-1.62 0-.95.68-1.63 1.62-1.63"/><path fill="#000" fill-rule="evenodd" d="M11.97 2.26a6.3 6.3 0 0 1 5.2 2.16c.83 1 1.33 2.28 1.49 3.65.67.03 1.29.24 1.74.69.48.48.66 1.14.59 1.84l-.14 8.5a2.5 2.5 0 0 1-.82 1.95 2.6 2.6 0 0 1-1.97.55l-12.14.14a2.5 2.5 0 0 1-1.98-.63 2.3 2.3 0 0 1-.67-1.92l.13-9.21q-.17-.37-.06-.77c.1-.34.35-.58.59-.74q.52-.32 1.25-.33a6.4 6.4 0 0 1 1.65-3.72 7 7 0 0 1 5.14-2.16m6.72 7.42a.75.75 0 0 1-1.5-.1l-10.56.11a.75.75 0 0 1-1.46-.05q-.15 0-.28.03l.01.1-.14 9.47v.08c-.04.33.06.56.21.7s.43.27.85.22h.08l12.17-.14h.09c.45.06.74-.05.9-.2.15-.12.3-.37.3-.8v-.02l.13-8.52v-.08c.05-.36-.05-.55-.15-.66s-.3-.21-.65-.24zm-6.67-5.93c-1.8.07-3.18.7-4.1 1.7a5 5 0 0 0-1.24 2.74l10.47-.1A5.3 5.3 0 0 0 16 5.37a4.8 4.8 0 0 0-4-1.63" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_profile.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M12.17 14.02a6.4 6.4 0 0 1 5.18 3.03.75.75 0 0 1-1.25.83 5 5 0 0 0-4.02-2.37c-1.4-.08-2.85.57-3.92 2.26a.75.75 0 1 1-1.27-.8c1.33-2.12 3.28-3.07 5.28-2.95"/><path fill="#000" fill-rule="evenodd" d="M12.17 6.62c1.02.06 1.9.45 2.53 1.12s.94 1.58.87 2.57a3.3 3.3 0 0 1-3.6 3.2 3.65 3.65 0 0 1-3.4-3.4 3.2 3.2 0 0 1 1-2.62 3.5 3.5 0 0 1 2.6-.87m-.1 1.5a2 2 0 0 0-1.47.47c-.34.31-.56.79-.53 1.42l.03.2c.16 1.01 1 1.74 1.98 1.8 1.09.08 1.92-.61 2-1.8.04-.6-.15-1.1-.48-1.45a2.2 2.2 0 0 0-1.52-.65" clip-rule="evenodd"/><path fill="#000" fill-rule="evenodd" d="M12.1 3.02c2.98-.16 5.45.8 7.13 2.58 1.68 1.77 2.5 4.29 2.34 7.1a9.8 9.8 0 0 1-3.04 6.83 9.4 9.4 0 0 1-6.43 2.4l-.5-.01c-5.41-.22-9.14-4.27-8.92-9.58.21-5.3 4.03-9.1 9.42-9.32m.06 1.5c-4.62.18-7.8 3.37-7.99 7.88-.18 4.48 2.9 7.83 7.49 8.02a8 8 0 0 0 5.86-2 8.3 8.3 0 0 0 2.56-5.8c.14-2.48-.59-4.56-1.94-5.99-1.34-1.42-3.36-2.26-5.98-2.12" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_rides.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M9.28 5.34c2.28-.22 4.71.03 5.61.1 1.26.1 2.06.93 2.58 1.7q.4.62.68 1.17t.48.84c.02.02.07.07.47.22.33.11.84.29 1.31.67 1 .83 1.54 2.38 1.27 5.44-.08.87-.74 1.29-1.3 1.47a6 6 0 0 1-1.23.23 3.2 3.2 0 0 1-3.07 2.39 3.2 3.2 0 0 1-2.91-1.9c-1.05.06-2.04.13-2.96.05a3.2 3.2 0 0 1-2.88 1.85A3.2 3.2 0 0 1 4.3 17.3a1 1 0 0 0-.36.03c-.06.01-.2.05-.33.06-.14.02-.37.02-.62-.1-.25-.14-.4-.35-.47-.54a2 2 0 0 1-.16-.58q-.09-.59-.1-1.81a6.4 6.4 0 0 1 .87-3.63c.47-.8.85-1.21 1.04-2.13a3.3 3.3 0 0 1 1.9-2.43 9 9 0 0 1 3.22-.84M7.34 14.7a1.7 1.7 0 0 0-1.68 1.68c0 .9.77 1.68 1.68 1.68.7 0 1.31-.46 1.56-1.08a1 1 0 0 1 .12-.51v-.1a1.7 1.7 0 0 0-1.68-1.67m8.75 0a1.7 1.7 0 0 0-1.68 1.68c0 .9.77 1.68 1.68 1.68a1.7 1.7 0 0 0 1.68-1.68 1.7 1.7 0 0 0-1.68-1.68m-1.3-7.78c-.95-.07-3.24-.3-5.35-.1-1.05.11-2 .32-2.69.68q-.99.5-1.1 1.36v.05c-.27 1.23-.87 1.96-1.23 2.59-.36.6-.68 1.33-.66 2.84q.01 1.05.07 1.48.17-.03.39-.03a3.2 3.2 0 0 1 3.12-2.6 3.2 3.2 0 0 1 3.18 3.05c.68.03 1.45-.02 2.4-.08a3.2 3.2 0 0 1 3.17-2.96 3.2 3.2 0 0 1 3.09 2.46q.44-.04.74-.14a1 1 0 0 0 .26-.13l.02-.05c.25-2.94-.32-3.81-.73-4.15-.24-.2-.5-.3-.87-.42-.21-.08-.57-.2-.88-.44l-.16.12c-1.6.8-3.67.9-5.6.79-1.94-.12-3.88-.49-5.28-.72a.75.75 0 0 1 .24-1.48c1.45.24 3.3.59 5.14.7 1.86.12 3.59-.01 4.83-.63l-.06-.1q-.28-.55-.59-1.03c-.43-.64-.88-1-1.46-1.06" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_right_chevron.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M10.639 6.502a.75.75 0 0 1 1.058-.062c1.824 1.62 3.488 3.187 5.159 4.465a.75.75 0 0 1 .024 1.171c-1.788 1.49-3.46 3.066-5.282 4.685a.75.75 0 0 1-.996-1.121c1.546-1.374 3.055-2.784 4.613-4.12-1.489-1.206-2.987-2.602-4.514-3.96a.75.75 0 0 1-.062-1.058"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_star.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M14.19 2.833c.371 1.621.976 3.6 1.496 5.194.784.173 1.672.349 2.564.526 1.041.206 2.089.418 2.933.63a.75.75 0 0 1 .288 1.311c-1.283 1.034-2.873 2.271-4.171 3.418.396 1.857.893 4.158 1.152 5.983a.75.75 0 0 1-1.123.752c-1.567-.922-3.262-2.016-4.696-2.83-.777.429-1.597.9-2.397 1.364-.921.533-1.822 1.057-2.585 1.476a.75.75 0 0 1-1.104-.756c.256-1.94.748-4.226 1.144-5.976-1.437-1.192-3.024-2.538-4.154-3.424A.751.751 0 0 1 3.83 9.18c.907-.211 1.983-.42 3.042-.627.902-.176 1.79-.352 2.573-.525.545-1.722 1.303-3.778 1.794-5.263.101-.307.926-.765 1.25-.765.645.004 1.499-.05 1.701.833m-1.702.917c-.547 1.612-1.244 3.516-1.738 5.136a.75.75 0 0 1-.548.511c-.907.211-1.984.42-3.042.627-.498.098-.993.195-1.467.29 1.055.867 2.26 1.885 3.308 2.75a.75.75 0 0 1 .254.746c-.314 1.369-.701 3.12-.988 4.775l1.218-.702c.925-.535 1.893-1.094 2.794-1.583l.086-.04a.75.75 0 0 1 .633.042c1.096.602 2.444 1.444 3.709 2.218-.284-1.566-.659-3.282-.965-4.722a.75.75 0 0 1 .23-.711c1.005-.913 2.23-1.9 3.343-2.788-.435-.09-.892-.182-1.357-.275-1.04-.206-2.117-.416-3.024-.627a.75.75 0 0 1-.542-.495c-.493-1.49-1.1-3.444-1.523-5.152z" clip-rule="evenodd"/></svg>
+</file>
+
+<file path="public/assets/icons/icon_verified.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#000" d="M14.607 8.252a.75.75 0 0 1 .105 1.496q-.076.006-.127.01a5 5 0 0 0-.282.369c-.303.462-.8 1.266-1.147 1.975-.358.733-.566 1.323-.648 1.719-.073.35-.14.709-.193.936-.024.104-.06.252-.116.376-.016.037-.093.218-.277.351a.774.774 0 0 1-.992-.07c-.182-.175-.807-.704-1.431-1.707a48 48 0 0 1-1.154-1.944.75.75 0 0 1 1.31-.73c.104.186.474.846 1.118 1.882q.153.245.301.442c.131-.538.383-1.194.736-1.914.393-.805.94-1.685 1.255-2.163l.015-.024c.357-.5.618-.82 1.04-.943l.033-.01.037-.007c.139-.027.31-.037.417-.044"/><path fill="#000" fill-rule="evenodd" d="M11.73 2.8a.75.75 0 0 1 .624.038c2.667 1.429 4.922 1.614 6.769 1.921a.75.75 0 0 1 .627.74v5.7c0 4.63-3.12 7.633-7.454 9.49a.75.75 0 0 1-.592 0C7.371 18.832 4.25 15.83 4.25 11.2V5.5c0-.366.265-.68.627-.74 1.847-.307 4.103-.492 6.769-1.92zM12 4.34c-2.456 1.24-4.619 1.552-6.25 1.8V11.2c0 3.678 2.36 6.238 6.25 7.98 3.89-1.742 6.25-4.302 6.25-7.98V6.14c-1.63-.248-3.794-.56-6.25-1.8" clip-rule="evenodd"/></svg>
 </file>
 
 <file path="public/assets/favicon.svg">
@@ -1394,12 +2066,16 @@ This section contains the contents of the repository's files.
     <p>If you are on your phone, you will be redirected to Shurp automatically.</p>
 
     <script>
+        var APP_CALLBACK_URL = "io.supabase.shurp://login-callback/";
+        var SUCCESS_URL = "https://shurp.lv/identity-confirmed";
+        var callbackPayload = window.location.search + window.location.hash;
+
         // 1. Try to open the app (Works on iPhone/Android)
-        window.location.href = "io.supabase.shurp://login-callback/";
+        window.location.href = APP_CALLBACK_URL + callbackPayload;
 
         // 2. If the user is on a Desktop, redirect them to a "Success" landing page
         setTimeout(() => {
-            window.location.href = "https://shurp.lv/identity-confirmed";
+            window.location.href = SUCCESS_URL + callbackPayload;
         }, 1000);
     </script>
 </body>
@@ -1451,7 +2127,7 @@ This section contains the contents of the repository's files.
         </p>
 
         <!-- The Smart Button -->
-        <a href="io.supabase.shurp://login-callback/"
+        <a id="return-to-shurp" href="io.supabase.shurp://login-callback/"
             class="shurp-blue-bg block w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition mb-4">
             Atgriezties Shurp / Return to Shurp
         </a>
@@ -1460,8 +2136,13 @@ This section contains the contents of the repository's files.
     </div>
 
     <script>
-        // Automatic trigger: The phone will attempt to open the app immediately
-        window.location.href = "io.supabase.shurp://login-callback/";
+        var APP_CALLBACK_URL = "io.supabase.shurp://login-callback/";
+        var appCallbackUrl = APP_CALLBACK_URL + window.location.search + window.location.hash;
+
+        document.getElementById("return-to-shurp").href = appCallbackUrl;
+
+        // Automatic trigger: The phone will attempt to open the app immediately.
+        window.location.href = appCallbackUrl;
     </script>
 </body>
 
@@ -2456,6 +3137,1303 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </file>
 
+<file path="public/en/help.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Shurp | Help</title>
+    <!--
+        style.css is compiled Tailwind v4 output — already includes base reset.
+        We only add page-specific component styles below.
+        .htaccess handles clean URL: /en/help → /en/help.html automatically.
+    -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <style>
+        /* ── FLUTTER TOKEN MIRROR ───────────────────────────────────────────
+           AppColors.balticBlue      #125E8A  → --c-primary
+           AppColors.warmWhite       #FFF9F5  → --c-bg
+           AppColors.coolGrey / outline #E2E8F0 → --c-outline  (exact match)
+           AppColors.darkGrey        #1F2933  → --c-text
+           AppColors.mediumGrey      #6B7280  → --c-muted
+           AppColors.softBlue        #E6F1F7  → --c-surface
+           AppRadius.sm = 20, md = 25 → cards use 16px (mobile feel)
+           AppSpacing.lg = 16px padding
+        ────────────────────────────────────────────────────────────────────── */
+        :root {
+            --c-primary: #125E8A;
+            --c-bg: #F3F3F3;
+            --c-outline: #E2E8F0;
+            --c-text: #1F2933;
+            --c-muted: #6B7280;
+            --c-surface: #E6F1F7;
+            --r-card: 16px;
+            --r-pill: 999px;
+        }
+
+        /* CSS filter: converts black SVG stroke → AppColors.balticBlue #125E8A */
+        .icon-primary {
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        /* muted variant for chevrons → AppColors.mediumGrey #6B7280 */
+        .icon-muted {
+            filter: invert(46%) sepia(6%) saturate(531%) hue-rotate(176deg) brightness(93%) contrast(88%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: var(--c-bg);
+        }
+
+        body {
+            color: var(--c-text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        /* ── APP BAR ── matches Flutter ShurpAppBar transparent + title */
+        .app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 52px;
+            /* AppSizes.appBar */
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+            position: relative;
+        }
+
+        .app-bar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-primary);
+            letter-spacing: -0.3px;
+        }
+
+        /* ── PAGE WRAPPER — AppSpacing.lg = 16px sides ── */
+        .page {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px 48px;
+        }
+
+        /* ── SUBTITLE ── */
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: var(--c-muted);
+            padding: 14px 4px 20px;
+            line-height: 1.55;
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        /* ── CARD GROUP — white rounded card, AppRadius ~16px ── */
+        .card-group {
+            background: white;
+            border-radius: var(--r-card);
+            overflow: hidden;
+            margin-bottom: 28px;
+            border: 1px solid var(--c-outline);
+        }
+
+        /* ── ROW ── */
+        .help-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 16px;
+            border-bottom: 1px solid var(--c-outline);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--c-text);
+            -webkit-tap-highlight-color: transparent;
+            transition: background .1s;
+        }
+
+        .help-row:last-child {
+            border-bottom: none;
+        }
+
+        .help-row:active {
+            background: var(--c-surface);
+        }
+
+        .row-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            /* AppSizes.icon */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row-icon img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .row-label {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--c-text);
+        }
+
+        .row-chevron {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        /* ── LEGAL BLURB ── */
+        .legal-blurb {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--c-text);
+            text-align: justify;
+            margin-bottom: 28px;
+        }
+
+        .legal-blurb a {
+            color: var(--c-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .legal-blurb a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── ASK SECTION ── */
+        .ask-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 14px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            resize: none;
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 10px;
+        }
+
+        .form-textarea:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-textarea::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 6px;
+        }
+
+        .form-input:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-input.error {
+            border-color: #F4937C;
+        }
+
+        .form-input.error:focus {
+            border-color: #F4937C;
+        }
+
+        .form-input::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-helper {
+            color: var(--c-muted);
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 4px 10px;
+        }
+
+        .form-helper.error {
+            color: #F4937C;
+            font-weight: 600;
+        }
+
+        .char-counter {
+            color: var(--c-muted);
+            font-size: 12px;
+            margin: -6px 4px 10px;
+            text-align: right;
+        }
+
+        .turnstile-container {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .form-select-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px 40px 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-muted);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition: border-color .15s;
+        }
+
+        .form-select:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-select.filled {
+            color: var(--c-text);
+        }
+
+        .select-chevron-wrap {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── SUBMIT BTN — matches ShurpButton primary ── */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--c-primary);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: var(--r-pill);
+            cursor: pointer;
+            transition: opacity .15s;
+            margin-bottom: 32px;
+            /* AppSizes.controlLg = 48px height */
+            min-height: 48px;
+        }
+
+        .submit-btn:active {
+            opacity: .82;
+        }
+
+        .submit-btn:disabled {
+            cursor: wait;
+            opacity: .65;
+        }
+
+        .success-banner {
+            display: none;
+            background: #E6F7EE;
+            color: #1A7F4B;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .success-banner.error {
+            background: #FDECEC;
+            color: #A13434;
+        }
+
+        .mail-fallback {
+            display: block;
+            color: var(--c-primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin: -18px 0 30px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* ── MADE IN LATVIA ── */
+        .mil-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mil-flag {
+            display: flex;
+            gap: 3px;
+        }
+
+        .mil-flag span {
+            display: block;
+            width: 9px;
+            height: 28px;
+            border-radius: 3px;
+            background: #9E3039;
+        }
+
+        .mil-footer p {
+            font-size: 13px;
+            color: var(--c-muted);
+        }
+
+        /* ── CONTENT OVERLAYS — full-screen push ── */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: var(--c-bg);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .overlay.open {
+            display: block;
+        }
+
+        .overlay-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 52px;
+            padding: 0 16px;
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--c-outline);
+            background: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0;
+        }
+
+        .back-btn img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .overlay-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.2px;
+        }
+
+        .overlay-body {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px 16px 48px;
+        }
+
+        /* overlay typography */
+        .overlay-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-primary);
+            margin: 20px 0 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .overlay-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .overlay-body p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 6px;
+        }
+
+        .overlay-body ul {
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        .overlay-body ul li {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 3px;
+        }
+
+        .overlay-body strong {
+            color: var(--c-text);
+            font-weight: 600;
+        }
+
+        .overlay-body .note {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--c-muted);
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        /* ── FAQ ACCORDION ── */
+        .faq-item {
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            gap: 8px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            display: block;
+            transition: transform .2s;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        .faq-a {
+            display: none;
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            padding-bottom: 14px;
+        }
+
+        .faq-a a {
+            color: var(--c-primary);
+            text-decoration: underline;
+        }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        .lang-switch {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .lang-switch .active {
+            color: var(--c-primary);
+        }
+
+        .lang-switch .sep {
+            color: var(--c-outline);
+        }
+
+        .lang-switch a {
+            color: var(--c-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        .lang-switch a:hover {
+            color: var(--c-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- APP BAR -->
+    <div class="app-bar">
+        <span class="app-bar-title">Help</span>
+        <div class="lang-switch">
+            <span class="active">EN</span>
+            <span class="sep">|</span>
+            <a href="/lv/help">LV</a>
+        </div>
+    </div>
+
+    <div class="page">
+
+        <p class="subtitle">Having trouble with the app or something else? Find answers below or get in touch with us.
+        </p>
+
+        <!-- ══ USING THE APP ══ -->
+        <p class="section-title">Using the app</p>
+        <div class="card-group">
+
+            <a class="help-row" onclick="openOverlay('how'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">How it works?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('search'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_rides.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Searching rides</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('drive'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_drive.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Driving with Shurp</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('safety'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Safety and trust</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+        </div>
+
+        <!-- ══ FAQ ══ -->
+        <p class="section-title">Frequently Asked Questions</p>
+        <div class="card-group">
+
+            <a class="help-row" onclick="openOverlay('faq-ver'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Verification &amp; Safety</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-priv'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_password.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Data privacy</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-free'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_help.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Is Shurp free to use?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-profile'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_profile.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Car &amp; Profile management</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-book'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_alert.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Booking &amp; Requests</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('faq-rat'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Ratings &amp; Community</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+        </div>
+
+        <!-- ══ LEGAL ══ -->
+        <p class="section-title">Legal</p>
+        <p class="legal-blurb">Safety first. We use Didit ID verification to build a community you can trust. Your
+            sensitive data is encrypted and never shared. Curious about the details? Read our <a
+                href="privacy">Privacy</a> and <a href="terms">Terms &amp; Conditions.</a></p>
+
+        <!-- ══ ASK A QUESTION ══ -->
+        <p id="ask-section" class="ask-title">Ask a question or report a problem</p>
+
+        <div class="success-banner" id="success-banner">✓ Sent! We'll get back to you shortly.</div>
+
+        <input class="form-input" id="contact-email" type="email" inputmode="email" autocomplete="email" maxlength="50"
+            placeholder="Email address (optional)" oninput="clearEmailError()">
+        <p class="form-helper" id="email-helper"
+            data-default="Add your email if you want us to reply, especially if you cannot log in yet.">Add your email
+            if you want us to reply, especially if you cannot log in yet.</p>
+
+        <textarea class="form-textarea" id="msg-text" maxlength="2000" placeholder="Your text here"
+            oninput="updateCharCounter()"></textarea>
+        <div class="char-counter" id="char-counter">0 / 2000</div>
+
+        <div class="form-select-wrapper">
+            <select class="form-select" id="msg-type" onchange="this.classList.add('filled')">
+                <option value="" disabled selected>Choose type</option>
+                <option value="Bug / App issue">Bug / App issue</option>
+                <option value="Ride problem">Ride problem</option>
+                <option value="Account & Profile">Account &amp; Profile</option>
+                <option value="Safety concern">Safety concern</option>
+                <option value="Payment / cost sharing">Payment / cost sharing</option>
+                <option value="Other">Other</option>
+            </select>
+            <img src="../assets/icons/icon_left_chevron.svg" class="select-chevron-wrap icon-muted"
+                style="transform:translateY(-50%) rotate(-90deg); position:absolute; right:14px; top:50%; pointer-events:none;"
+                alt="">
+        </div>
+
+        <button class="submit-btn" id="submit-btn" onclick="submitForm(this)">Submit</button>
+        <div id="turnstile-container" class="turnstile-container"></div>
+        <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Prefer email? Open mail app</a>
+
+        <div class="mil-footer">
+            <div class="mil-flag"><span></span><span></span></div>
+            <p>Made in Latvia</p>
+        </div>
+
+    </div><!-- /page -->
+
+
+    <!-- ══════════════════════════════════
+         CONTENT OVERLAYS
+    ══════════════════════════════════ -->
+
+    <!-- HOW IT WORKS -->
+    <div class="overlay" id="overlay-how">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('how')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">How it works?</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Ride with your pack</h3>
+            <p>Shurp is a community where empty seats become shared trips — drivers and passengers simply split the cost
+                of the road.</p>
+            <h3>Real talk, real savings</h3>
+            <p>We've ditched platform fees and commissions so every cent stays in your pocket. No middleman, no markup.
+            </p>
+            <h3>As easy as it looks</h3>
+            <p>Search for your route, chat with your travel buddy, and settle the fuel contribution directly when you
+                meet.</p>
+            <h3>Why we don't handle payments</h3>
+            <p>To keep Shurp free for everyone, we stay out of the middle. Settling costs directly with your driver
+                avoids extra fees and keeps the experience peer-to-peer.</p>
+            <p class="note">Shurp is a platform for cost-sharing, not a commercial transport service. All arrangements
+                and payments are made solely between users.</p>
+        </div>
+    </div>
+
+    <!-- SEARCHING RIDES -->
+    <div class="overlay" id="overlay-search">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('search')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Searching rides</span>
+        </div>
+        <div class="overlay-body">
+            <h3>The Classic (Single) Ride</h3>
+            <p>One-on-one match — one driver, one route, one seat waiting for you.</p>
+            <h3>Your Pack Ride</h3>
+            <p>When you see a "stack" with multiple drivers, you have a pack of Shurpers. More options, faster match.
+            </p>
+            <h3>Many birds, one tap</h3>
+            <p>Your request goes to the whole group at once. First come, first served — as soon as one driver accepts,
+                the ride is yours and you can start chatting.</p>
+            <h3>How to find your ride</h3>
+            <ul>
+                <li>Enter your origin and destination</li>
+                <li>Set your preferred departure time</li>
+                <li>Adjust the time window and detour radius</li>
+                <li>Tap Search — Shurp does the rest</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DRIVING WITH SHURP -->
+    <div class="overlay" id="overlay-drive">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('drive')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Driving with Shurp</span>
+        </div>
+        <div class="overlay-body">
+            <h3>The Magic advantage</h3>
+            <p>Let the "Magic button" handle your regular commute automatically. It puts your routine on the map so you
+                can focus on the playlist while we find your pack.</p>
+            <h3>Two ways to roll</h3>
+            <p>Use <strong>Magic button</strong> for the daily grind, or set a <strong>Preset Ride</strong> for one-off
+                trips where you have a specific seat to fill.</p>
+            <h3>Total privacy</h3>
+            <p>Your regular routes are for your eyes only — invisible to the public until you decide to accept a ride
+                request.</p>
+            <h3>Zero commitment drama</h3>
+            <p>You only commit to a drive when you say yes to an offer. It's always your car, your rules.</p>
+            <h3>Setting the price</h3>
+            <p>Shurp calculates a fair cost-sharing amount based on fuel prices and route distance. You can adjust
+                within the allowed range — drivers cannot charge more than actual costs.</p>
+        </div>
+    </div>
+
+    <!-- SAFETY AND TRUST -->
+    <div class="overlay" id="overlay-safety">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('safety')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Safety and trust</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Real IDs, real people</h3>
+            <p>Every driver is verified through Didit ID so you know you're riding with a verified member of the
+                community.</p>
+            <h3>Your data is a vault</h3>
+            <p>We encrypt your profile and sensitive info because your privacy isn't up for debate. Sensitive data is
+                never stored in plain text.</p>
+            <h3>The "I'm almost there" link</h3>
+            <p>Tap a button to send your live location to your pack on WhatsApp so they can watch you arrive in
+                real-time.</p>
+            <h3>Good vibes only</h3>
+            <p>Our rating system keeps the community awesome — it's how we reward the legends and filter out the rest.
+            </p>
+            <h3>The No-Ghosting rule</h3>
+            <p>Trust is a two-way street. Once a request is accepted, both sides are committed to a smooth trip.
+                Frequent no-shows affect your rating and platform access.</p>
+        </div>
+    </div>
+
+    <!-- FAQ: VERIFICATION -->
+    <div class="overlay" id="overlay-faq-ver">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-ver')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Verification &amp; Safety</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How does driver verification work?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">We use Didit ID — a secure identity verification service. Drivers complete a quick ID
+                    check and receive a verified badge. We don't store your document numbers, only an encrypted
+                    verification status.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Do passengers need to verify?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Passengers don't need ID verification to search and book rides. However, drivers may
+                    choose to verify your identity before the trip — that's their right.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What if I feel unsafe during a ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">In an emergency, always contact local authorities first. After the trip, use the
+                    Report function in the app. We take all safety reports seriously.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: PRIVACY -->
+    <div class="overlay" id="overlay-faq-priv">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-priv')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Data privacy</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What data does Shurp collect?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Only what's necessary: your name, phone number, profile photo (optional), and route
+                    data for matching. We never track your location continuously or in the background.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can other users see my personal data?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Your public profile shows first name, photo, car info, and rating — nothing more.
+                    Last name and phone are only shared with your confirmed ride partner.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I delete my account?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Settings → Account → Delete account. Personal data is permanently removed from active
+                    systems immediately. See our <a href="privacy">Privacy Policy</a> for the full retention schedule.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: FREE -->
+    <div class="overlay" id="overlay-faq-free">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-free')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Is Shurp free to use?</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Is there really no catch?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">No catch, no commissions, no drama. Every cent of the fuel contribution stays between
+                    driver and passenger. We keep the lights on through community "Cloud Coffee" donations and some
+                    route-based signposts from places worth a visit.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Does Shurp take a cut from the ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Zero. Shurp doesn't process payments at all — all cost-sharing is settled directly
+                    between driver and passenger when you meet.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: PROFILE -->
+    <div class="overlay" id="overlay-faq-profile">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-profile')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Car &amp; Profile management</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can I add more than one car?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Absolutely. List multiple vehicles and pick the one you're rolling in for each trip.
+                    Your garage lives in profile settings and is a tap away in the Drive section.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Can I edit a ride after posting?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Yes, as long as there are no active bookings. Tap the ride and edit any time.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I change a booked ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Booked ride details are locked to avoid confusion. Write to your passenger(s) in chat
+                    and let them know directly.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I delete a booked ride?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Let your passengers know, remove them one by one via the app, then the ride is free
+                    to edit or delete.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: BOOKING -->
+    <div class="overlay" id="overlay-faq-book">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-book')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Booking &amp; Requests</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What if I need to cancel?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Use the in-app chat to let your travel buddy know as soon as possible. Since drivers
+                    are already heading that way for their own commute, a cancellation isn't a disaster — but
+                    communication is key.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What if someone doesn't show up?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">We call that "ghosting" — a major vibe-killer. Frequent no-shows tank your rating and
+                    we keep Shurp legend-only by rewarding people who actually show up.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I pay for the fuel contribution?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">All cost-sharing happens directly between you and your travel buddy when you meet.
+                    See our <a href="terms">Terms &amp; Conditions</a> for the full breakdown.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ: RATINGS -->
+    <div class="overlay" id="overlay-faq-rat">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-rat')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Ratings &amp; Community</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How does the rating system work?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">After each completed trip, both driver and passenger can leave a rating. Ratings are
+                    averaged over time and visible on your public profile.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What happens if I get a bad rating?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">A single bad rating won't sink you — they average out over time. Consistently low
+                    ratings may affect your ability to match with other users.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How do I report a bad experience?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Use the Report button on the user's profile or within the ride screen. All reports
+                    are reviewed by our team.</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function openOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.add('open');
+            el.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            history.pushState({ overlay: id }, '');
+        }
+        function closeOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('popstate', function () {
+            document.querySelectorAll('.overlay.open').forEach(function (el) {
+                el.classList.remove('open');
+            });
+            document.body.style.overflow = '';
+        });
+        function toggleFaq(el) {
+            var item = el.closest('.faq-item');
+            var wasOpen = item.classList.contains('open');
+            item.closest('.overlay-body').querySelectorAll('.faq-item').forEach(function (i) {
+                i.classList.remove('open');
+            });
+            if (!wasOpen) item.classList.add('open');
+        }
+        var HELP_ENDPOINT = 'https://okyprkffbuorrtlhnplf.supabase.co/functions/v1/help-request';
+        var TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
+        var MAX_MESSAGE_LENGTH = 2000;
+        var HELP_AUTH_TOKEN = null;
+        var turnstileWidgetId = null;
+        var pendingTurnstileResolve = null;
+        var pendingTurnstileReject = null;
+
+        (function readLegacyQueryToken() {
+            var url = new URL(window.location.href);
+            var token = url.searchParams.get('token');
+            if (token) {
+                HELP_AUTH_TOKEN = token;
+                url.searchParams.delete('token');
+                history.replaceState(null, '', url.pathname + url.search + url.hash);
+            }
+        })();
+
+        window.setShurpAuthToken = function (token) {
+            if (typeof token === 'string' && token.trim()) {
+                HELP_AUTH_TOKEN = token.trim();
+                resetTurnstile();
+            }
+        };
+
+        function setBanner(message, isError) {
+            var banner = document.getElementById('success-banner');
+            banner.textContent = message;
+            banner.classList.toggle('error', !!isError);
+            banner.style.display = 'block';
+        }
+
+        function isValidEmail(email) {
+            return email.length <= 50 && /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email);
+        }
+
+        function setEmailError(message) {
+            var emailInput = document.getElementById('contact-email');
+            var helper = document.getElementById('email-helper');
+            emailInput.classList.add('error');
+            helper.classList.add('error');
+            helper.textContent = message;
+        }
+
+        function clearEmailError() {
+            var emailInput = document.getElementById('contact-email');
+            var helper = document.getElementById('email-helper');
+            emailInput.classList.remove('error');
+            helper.classList.remove('error');
+            helper.textContent = helper.getAttribute('data-default');
+        }
+
+        function validateOptionalEmail(email) {
+            if (!email || isValidEmail(email)) {
+                clearEmailError();
+                return true;
+            }
+            setEmailError('Please enter a valid email address, for example name@example.com.');
+            return false;
+        }
+
+        function buildSupportMessage(msg, email) {
+            return email ? 'Reply-to email: ' + email + '\n\n' + msg : msg;
+        }
+
+        function updateCharCounter() {
+            var msg = document.getElementById('msg-text').value;
+            document.getElementById('char-counter').textContent = msg.length + ' / ' + MAX_MESSAGE_LENGTH;
+        }
+
+        function renderTurnstileOnce() {
+            var container = document.getElementById('turnstile-container');
+            if (!container || turnstileWidgetId !== null || !window.turnstile) return;
+
+            turnstileWidgetId = turnstile.render(container, {
+                sitekey: TURNSTILE_SITEKEY,
+                size: 'invisible',
+                callback: function (token) {
+                    if (pendingTurnstileResolve) pendingTurnstileResolve(token);
+                    pendingTurnstileResolve = null;
+                    pendingTurnstileReject = null;
+                },
+                'error-callback': function () {
+                    if (pendingTurnstileReject) pendingTurnstileReject(new Error('Turnstile failed'));
+                    pendingTurnstileResolve = null;
+                    pendingTurnstileReject = null;
+                    resetTurnstile();
+                },
+                'expired-callback': function () {
+                    resetTurnstile();
+                }
+            });
+        }
+
+        function getTurnstileToken() {
+            if (HELP_AUTH_TOKEN) return Promise.resolve(null);
+            if (!window.turnstile || turnstileWidgetId === null) {
+                return Promise.reject(new Error('Security check is still loading. Please try again in a moment.'));
+            }
+
+            var existingToken = turnstile.getResponse(turnstileWidgetId);
+            if (existingToken) return Promise.resolve(existingToken);
+
+            return new Promise(function (resolve, reject) {
+                pendingTurnstileResolve = resolve;
+                pendingTurnstileReject = reject;
+                turnstile.execute(turnstileWidgetId);
+            });
+        }
+
+        function resetTurnstile() {
+            if (window.turnstile && turnstileWidgetId !== null) {
+                turnstile.reset(turnstileWidgetId);
+            }
+        }
+
+        function buildMailto(msg, type, email) {
+            return 'mailto:info@shurp.lv?subject='
+                + encodeURIComponent('Shurp Help: ' + type)
+                + '&body=' + encodeURIComponent('[Type: ' + type + ']\n\n' + buildSupportMessage(msg, email));
+        }
+
+        function buildWebMailUrl(msg, type, email) {
+            return 'https://mail.google.com/mail/?view=cm&fs=1&to='
+                + encodeURIComponent('info@shurp.lv')
+                + '&su=' + encodeURIComponent('Shurp Help: ' + type)
+                + '&body=' + encodeURIComponent('[Type: ' + type + ']\n\n' + buildSupportMessage(msg, email));
+        }
+
+        function openMailFallback() {
+            var msg = document.getElementById('msg-text').value.trim();
+            var type = document.getElementById('msg-type').value || 'Other';
+            var email = document.getElementById('contact-email').value.trim();
+            if (!validateOptionalEmail(email)) return;
+            if (buildSupportMessage(msg, email).length > MAX_MESSAGE_LENGTH) { alert('Please keep your message under 2000 characters.'); return; }
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            window.location.href = isAndroid ? buildWebMailUrl(msg, type, email) : buildMailto(msg, type, email);
+        }
+
+        async function submitForm(button) {
+            var msg = document.getElementById('msg-text').value.trim();
+            var email = document.getElementById('contact-email').value.trim();
+            var typeEl = document.getElementById('msg-type');
+            var type = typeEl.value;
+            if (!msg) { alert('Please describe your issue first.'); return; }
+            if (!type) { alert('Please choose a message type.'); return; }
+            if (!validateOptionalEmail(email)) return;
+            if (buildSupportMessage(msg, email).length > MAX_MESSAGE_LENGTH) { alert('Please keep your message under 2000 characters.'); return; }
+
+            var submitButton = button || document.getElementById('submit-btn');
+            var originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            try {
+                var turnstileToken = await getTurnstileToken();
+                var headers = { 'Content-Type': 'application/json' };
+                if (HELP_AUTH_TOKEN) headers.Authorization = 'Bearer ' + HELP_AUTH_TOKEN;
+
+                var response = await fetch(HELP_ENDPOINT, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({
+                        message: buildSupportMessage(msg, email),
+                        type: type,
+                        lang: 'en',
+                        contact_email: email || null,
+                        turnstile_token: turnstileToken,
+                        page_url: window.location.href,
+                        user_agent: navigator.userAgent,
+                        source: HELP_AUTH_TOKEN ? 'app' : 'web'
+                    })
+                });
+
+                if (!response.ok) {
+                    var errorText = await response.text();
+                    throw new Error(errorText || 'Request failed');
+                }
+
+                setBanner("Sent! We'll get back to you shortly.", false);
+                document.getElementById('msg-text').value = '';
+                document.getElementById('contact-email').value = '';
+                typeEl.value = '';
+                typeEl.classList.remove('filled');
+                updateCharCounter();
+                resetTurnstile();
+            } catch (err) {
+                console.error('Help request failed:', err);
+                setBanner('Could not send right now. Please try again or use the email fallback below.', true);
+                resetTurnstile();
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        }
+        // Hash deep-link: /en/help#ask → scroll to form
+        function handleHash() {
+            if (window.location.hash === '#ask') {
+                setTimeout(function () {
+                    var el = document.getElementById('ask-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+        window.addEventListener('load', function () {
+            updateCharCounter();
+            if (window.turnstile) {
+                renderTurnstileOnce();
+            } else {
+                var check = setInterval(function () {
+                    if (window.turnstile) {
+                        renderTurnstileOnce();
+                        clearInterval(check);
+                    }
+                }, 100);
+            }
+        });
+        window.addEventListener('load', handleHash);
+        window.addEventListener('hashchange', handleHash);
+    </script>
+
+</body>
+
+</html>
+</file>
+
 <file path="public/en/index.html">
 <!DOCTYPE html>
 <html lang="en">
@@ -3018,6 +4996,1211 @@ SOFTWARE.
         });
 
         document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="public/lv/help.html">
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Shurp | Palīdzība</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <style>
+        :root {
+            --c-primary: #125E8A;
+            --c-bg: #F3F3F3;
+            --c-outline: #E2E8F0;
+            --c-text: #1F2933;
+            --c-muted: #6B7280;
+            --c-surface: #E6F1F7;
+            --r-card: 16px;
+            --r-pill: 999px;
+        }
+
+        .icon-primary {
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        .icon-muted {
+            filter: invert(46%) sepia(6%) saturate(531%) hue-rotate(176deg) brightness(93%) contrast(88%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: var(--c-bg);
+        }
+
+        body {
+            color: var(--c-text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        .app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 52px;
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+            position: relative;
+        }
+
+        .app-bar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .page {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px 48px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: var(--c-muted);
+            padding: 14px 4px 20px;
+            line-height: 1.55;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        .card-group {
+            background: white;
+            border-radius: var(--r-card);
+            overflow: hidden;
+            margin-bottom: 28px;
+            border: 1px solid var(--c-outline);
+        }
+
+        .help-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 16px;
+            border-bottom: 1px solid var(--c-outline);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--c-text);
+            -webkit-tap-highlight-color: transparent;
+            transition: background .1s;
+        }
+
+        .help-row:last-child {
+            border-bottom: none;
+        }
+
+        .help-row:active {
+            background: var(--c-surface);
+        }
+
+        .row-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row-icon img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .row-label {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--c-text);
+        }
+
+        .row-chevron {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        .legal-blurb {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--c-text);
+            text-align: justify;
+            margin-bottom: 28px;
+        }
+
+        .legal-blurb a {
+            color: var(--c-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .legal-blurb a:hover {
+            text-decoration: underline;
+        }
+
+        .ask-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 14px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            resize: none;
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 10px;
+        }
+
+        .form-textarea:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-textarea::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-text);
+            outline: none;
+            transition: border-color .15s;
+            margin-bottom: 6px;
+        }
+
+        .form-input:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-input.error {
+            border-color: #F4937C;
+        }
+
+        .form-input.error:focus {
+            border-color: #F4937C;
+        }
+
+        .form-input::placeholder {
+            color: var(--c-muted);
+        }
+
+        .form-helper {
+            color: var(--c-muted);
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 4px 10px;
+        }
+
+        .form-helper.error {
+            color: #F4937C;
+            font-weight: 600;
+        }
+
+        .char-counter {
+            color: var(--c-muted);
+            font-size: 12px;
+            margin: -6px 4px 10px;
+            text-align: right;
+        }
+
+        .turnstile-container {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .form-select-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px 40px 14px 16px;
+            background: white;
+            border: 1.5px solid var(--c-outline);
+            border-radius: var(--r-card);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--c-muted);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            transition: border-color .15s;
+        }
+
+        .form-select:focus {
+            border-color: var(--c-primary);
+        }
+
+        .form-select.filled {
+            color: var(--c-text);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--c-primary);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: var(--r-pill);
+            cursor: pointer;
+            transition: opacity .15s;
+            margin-bottom: 32px;
+            min-height: 48px;
+        }
+
+        .submit-btn:active {
+            opacity: .82;
+        }
+
+        .submit-btn:disabled {
+            cursor: wait;
+            opacity: .65;
+        }
+
+        .success-banner {
+            display: none;
+            background: #E6F7EE;
+            color: #1A7F4B;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .success-banner.error {
+            background: #FDECEC;
+            color: #A13434;
+        }
+
+        .mail-fallback {
+            display: block;
+            color: var(--c-primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin: -18px 0 30px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .mil-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mil-flag {
+            display: flex;
+            gap: 3px;
+        }
+
+        .mil-flag span {
+            display: block;
+            width: 9px;
+            height: 28px;
+            border-radius: 3px;
+            background: #9E3039;
+        }
+
+        .mil-footer p {
+            font-size: 13px;
+            color: var(--c-muted);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: var(--c-bg);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .overlay.open {
+            display: block;
+        }
+
+        .overlay-bar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 52px;
+            padding: 0 16px;
+            background: var(--c-bg);
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--c-outline);
+            background: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0;
+        }
+
+        .back-btn img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .overlay-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--c-text);
+            letter-spacing: -0.2px;
+        }
+
+        .overlay-body {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px 16px 48px;
+        }
+
+        .overlay-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-primary);
+            margin: 20px 0 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .overlay-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .overlay-body p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 6px;
+        }
+
+        .overlay-body ul {
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        .overlay-body ul li {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            margin-bottom: 3px;
+        }
+
+        .overlay-body strong {
+            color: var(--c-text);
+            font-weight: 600;
+        }
+
+        .overlay-body .note {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--c-muted);
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--c-outline);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            gap: 8px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            display: block;
+            transition: transform .2s;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            filter: invert(27%) sepia(52%) saturate(701%) hue-rotate(172deg) brightness(90%) contrast(98%);
+        }
+
+        .faq-a {
+            display: none;
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, .78);
+            padding-bottom: 14px;
+        }
+
+        .faq-a a {
+            color: var(--c-primary);
+            text-decoration: underline;
+        }
+
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        .lang-switch {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+        }
+
+        .lang-switch .active {
+            color: var(--c-primary);
+        }
+
+        .lang-switch .sep {
+            color: var(--c-outline);
+        }
+
+        .lang-switch a {
+            color: var(--c-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        .lang-switch a:hover {
+            color: var(--c-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-bar">
+        <span class="app-bar-title">Palīdzība</span>
+        <!-- ADD THIS -->
+        <div class="lang-switch">
+            <a href="/en/help">EN</a>
+            <span class="sep">|</span>
+            <span class="active">LV</span>
+        </div>
+    </div>
+
+    <div class="page">
+        <p class="subtitle">Problēmas ar lietotni vai kaut kas cits? Atbildes meklē zemāk vai sazinies ar mums.
+        </p>
+
+        <p class="section-title">Kā lietot Shurp</p>
+        <div class="card-group">
+            <a class="help-row" onclick="openOverlay('how'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Kas ir Shurp?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('search'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_rides.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Braucienu meklēšana</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('drive'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_drive.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Braukšana ar Shurp</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('safety'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Drošība</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+        </div>
+
+        <p class="section-title">Biežāk uzdotie jautājumi</p>
+        <div class="card-group">
+            <a class="help-row" onclick="openOverlay('faq-ver'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Verifikācija un drošība braucienā</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-priv'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_password.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Dati un privātums</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-free'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_help.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Vai Shurp ir bezmaksas?</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-profile'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_profile.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Auto un profila pārvaldība</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-book'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_alert.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Rezervācija un pieprasījumi</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+            <a class="help-row" onclick="openOverlay('faq-rat'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Reitingi un kopiena</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+        </div>
+
+        <p class="section-title">Noteikumi</p>
+        <p class="legal-blurb">Drošība pirmajā vietā. Mēs izmantojam Didit ID verifikāciju, lai veidotu uzticamu
+            kopienu. Tavi sensitīvie dati ir šifrēti un nekad netiek kopīgoti. Interesē detaļas? Lasi mūsu <a
+                href="privacy">Privātuma politiku</a> un <a href="terms">Lietošanas noteikumus.</a></p>
+
+        <p id="ask-section" class="ask-title">Uzdod jautājumu vai ziņo par problēmu</p>
+        <div class="success-banner" id="success-banner">✓ Nosūtīts! Drīz atbildēsim.</div>
+        <input class="form-input" id="contact-email" type="email" inputmode="email" autocomplete="email" maxlength="50"
+            placeholder="E-pasta adrese (nav obligāti)" oninput="clearEmailError()">
+        <p class="form-helper" id="email-helper"
+            data-default="Pievieno e-pastu, ja vēlies atbildi, īpaši ja vēl nevari ielogoties.">Pievieno e-pastu, ja
+            vēlies atbildi, īpaši ja vēl nevari ielogoties.</p>
+        <textarea class="form-textarea" id="msg-text" maxlength="2000" placeholder="Tavs teksts šeit"
+            oninput="updateCharCounter()"></textarea>
+        <div class="char-counter" id="char-counter">0 / 2000</div>
+        <div class="form-select-wrapper">
+            <select class="form-select" id="msg-type" onchange="this.classList.add('filled')">
+                <option value="" disabled selected>Izvēlies veidu</option>
+                <option value="Kļūda lietotnē">Kļūda lietotnē</option>
+                <option value="Brauciena problēma">Brauciena problēma</option>
+                <option value="Konts un profils">Konts un profils</option>
+                <option value="Drošības bažas">Drošība</option>
+                <option value="Maksājums / izmaksu dalīšana">Maksājums / izmaksu dalīšana</option>
+                <option value="Cits">Cits</option>
+            </select>
+            <img src="../assets/icons/icon_left_chevron.svg" class="icon-muted"
+                style="transform:translateY(-50%) rotate(-90deg); position:absolute; right:14px; top:50%; pointer-events:none; width:16px; height:16px;"
+                alt="">
+        </div>
+        <button class="submit-btn" id="submit-btn" onclick="submitForm(this)">Iesniegt</button>
+        <div id="turnstile-container" class="turnstile-container"></div>
+        <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Labāk e-pastā? Atvērt e-pasta
+            lietotni</a>
+        <div class="mil-footer">
+            <div class="mil-flag"><span></span><span></span></div>
+            <p>Made in Latvia</p>
+        </div>
+    </div>
+
+    <!-- OVERLAYS -->
+    <div class="overlay" id="overlay-how">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('how')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Kā tas darbojas?</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Brauc ar savējiem</h3>
+            <p>Shurp ir kopiena, kur brīvās sēdvietas kļūst par kopīgiem braucieniem — šoferi un pasažieri sadala ceļa
+                izmaksas.</p>
+            <h3>Reāla taupīšana</h3>
+            <p>Mēs esam atteikušies no platformas maksām un komisijām, lai katrs cents paliktu Tavā kabatā.</p>
+            <h3>Tik vienkārši, kā izskatās</h3>
+            <p>Meklē maršrutu, raksti ceļabiedram un norēķinies par degvielu tikšanās reizē.</p>
+            <h3>Kāpēc mēs neapstrādājam maksājumus</h3>
+            <p>Bez komisijas maksām. Norēķinoties ar vadītāju personīgi, Shurp var palikt bezmaksas rīks ikvienam.
+                Vienkārši, godīgi un
+                bez starpniekiem.</p>
+            <p class="note">Shurp ir izmaksu dalīšanas platforma, nevis komerciāls transporta pakalpojums. Visi norēķini
+                notiek tieši starp lietotājiem.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-search">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('search')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Braucienu meklēšana</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Klasiskais brauciens</h3>
+            <p>Viens pret vienu — viens šoferis, viens maršruts, viena sēdvieta.</p>
+            <h3>Izvēlies no Savējiem</h3>
+            <p>Bieži vairāki šoferi brauc vienā maršrutā. Nosūti savu pieprasījumu visiem un izvēlies no pieejamajiem
+                braucieniem.</p>
+            <h3>Divi zaķi (vai daudz vairāk) ar vienu pogu</h3>
+            <p>Tavs pieprasījums aiziet visai grupai uzreiz. Šoferīšu pilnos profilus vari apskatīt, kad saņemsi
+                apstiprinājumu. Kas pirmais brauc, tas pirmais maļ.</p>
+            <h3>Kā atrast braucienu</h3>
+            <ul>
+                <li>No sākuma meklē meklētājā</li>
+                <li>-> Ievadi sākuma punktu un galamērķi</li>
+                <li>-> Izvēlies vēlamo izbraukšanas laiku</li>
+                <li>-> Nospied Meklēt — Shurp paveic pārējo</li>
+                <li>*</li>
+                <li>Ja atrodi Savējo braucienus (vairāki braucieni vienā maršrutā):</li>
+                <li>-> Nospied pieejamo braucienu</li>
+                <li>-> Izvēlies papildus filtrus kā cena, laiks un brauciena iespējas</li>
+                <li>-> Spied pogu un gaidi apstiprinājumu</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-drive">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('drive')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Braukšana ar Shurp</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Maģiskā poga</h3>
+            <p>"Maģiskā poga" izveido visus Tavus regulāros braucienus automātiski. Izvēlies maršrutu, dienas un laiku,
+                kad parasti brauc un ar vienu pogu pievieno. Apturi vai maini jebkurā laikā.</p>
+            <h3>Divi veidi</h3>
+            <p>Izmanto <strong>Maģisko pogu</strong> regulārajiem maršrutiem vai <strong>Pievieno braucienu</strong>
+                vienreizējam
+                braucieniem.
+            </p>
+            <h3>Pilnīgs privātums</h3>
+            <p>Tavi regulārie maršruti ir anonīmi. Tavu profilu un datus redzēs tikai pasažieris, ar ko izvēlēsies
+                braukt.</p>
+            <h3>Nulles saistības, nulle stresa</h3>
+            <p>Tu uzņemies saistības tikai tad, kad saki "jā" piedāvājumam. Tavs auto — Tavi noteikumi.</p>
+            <h3>Cenas noteikšana</h3>
+            <p>Shurp aprēķina godīgu izmaksu dalīšanas summu, pamatojoties uz degvielas cenām un maršruta garumu.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-safety">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('safety')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Drošība un uzticēšanās</span>
+        </div>
+        <div class="overlay-body">
+            <h3>Īsti ID, īsti cilvēki</h3>
+            <p>Verificēti šoferi ir verificēti caur Didit ID vadītāja apliecības verifikāciju — zini, ar ko brauc.</p>
+            <h3>Tavi dati ir drošībā</h3>
+            <p>Tava profila sensitīvie dati ir drošībā, jo Tavs privātums nav diskutējams.</p>
+            <h3>"Esmu gandrīz klāt" saite</h3>
+            <p>Dalies ar savu atrašanās vietu, izmantojot WhatsApp. Vieglāk tikties un vieglāk dalīties ar savējiem.</p>
+            <h3>Tikai pozitīvas emocijas</h3>
+            <p>Mūsu reitingu sistēma uztur kopienu lielisku — tā mēs apbalvojam leģendas.</p>
+            <h3>No-Ghosting noteikums</h3>
+            <p>Uzticēšanās ir abpusēja. Ja reiz pieprasījums ir apstiprināts, tad abas puses ir apņēmušās nodrošināt
+                labu
+                braucienu.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-ver">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-ver')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Verifikācija un drošība</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā darbojas šoferu verifikācija?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Mēs izmantojam Didit ID, kas pārbauda šofera vadītāja apliecību un identitāti. Pēc
+                    verifikācijas šoferi saņem žetonu
+                    profilā. Mēs neglabājam dokumentu numurus, tikai šifrētu verifikācijas statusu.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai pasažieriem jāveic verifikācija?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Pasažieriem nav nepieciešama ID verifikācija, lai meklētu braucienus. Tomēr šoferu
+                    sirdsmieram un drošākai kopienai iesakām
+                    arī pasažieriem veikt brīvprātīgu ID
+                    verifikāciju.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Ko darīt, ja rodas problēmas brauciena laikā?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Ārkārtas situācijā vienmēr vērsies pie ārkārtas dienestiem. Pēc brauciena izmanto
+                    Ziņot
+                    funkciju lietotnē.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-priv">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-priv')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Datu privātums</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kādus datus Shurp vāc?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Tikai nepieciešamo: vārdu, tālruņa numuru, profila foto (pēc izvēles) un maršruta
+                    datus saskaņošanai. Mēs nekad neizsekojam atrašanās vietu fonā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai citi lietotāji var redzēt manus datus?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Publiskajā profilā redzams tikai vārds, foto, auto informācija un reitings. Uzvārds
+                    un tālrunis tiek kopīgoti tikai ar apstiprināto brauciena partneri.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā dzēst kontu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Iestatījumi → Konts → Dzēst kontu. Personas dati tiek neatgriezeniski dzēsti. Pilna
+                    informācija — <a href="privacy">Privātuma politikā</a>.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-free">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-free')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Vai Shurp ir bezmaksas?</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Bez zemūdens akmeņiem?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Tieši tā – bez komisijām un starpniekiem. 100% no brauciena maksas paliek pie
+                    vadītāja. Shurp dzīvo no "Cloud Coffee"
+                    brīvprātīgiem atbalsta maksājumiem un ceļā esošo apskates objektu atbalsta (reklāmām).
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai Shurp ņem daļu no brauciena?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Nulle. Shurp neapstrādā maksājumus — visi norēķini notiek tieši starp šoferi un
+                    pasažieri tikšanās reizē.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-profile">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-profile')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Auto un profila pārvaldība</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai varu pievienot vairākus auto?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Droši. Pievieno vairākas mašīnas un katram braucienam izvēlies
+                    vajadzīgo. Garāža ir profila iestatījumos un Braukšnas sadaļā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Vai varu labot braucienu pēc publicēšanas?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Jā, kamēr nav aktīvu rezervāciju. Nospied uz brauciena un rediģē jebkurā laikā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā mainīt rezervētu braucienu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Rezervēteim braucieniem mainīt vair neko nevar. Raksti pasažieriem čatā, ja kas
+                    jāmaina.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā dzēst rezervētu braucienu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Informē pasažierus, noņem tos vienu pēc otra lietotnē — pēc tam braucienu var
+                    rediģēt vai dzēst.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-book">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-book')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Rezervācija un pieprasījumi</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Ko darīt, ja jāatceļ brauciens?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Izmanto lietotnē esošo čatu, lai pēc iespējas ātrāk informētu ceļabiedru. Atcelšana
+                    nav katastrofa, bet forši, ja informē savlaicīgi.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Ko darīt, ja kāds neierodas?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Mēs to saucam par "ghosting" — nopietns kopienas pārkāpums. Biežas neierašanās
+                    pazeminās reitingu.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā norēķināties par degvielu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Visi norēķini notiek tieši starp Tevi un ceļabiedru tikšanās reizē. Skatīt <a
+                        href="terms">Lietošanas noteikumus</a> pilnai informācijai.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay-faq-rat">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('faq-rat')"><img src="../assets/icons/icon_back.svg"
+                    class="icon-primary" alt="back"></button>
+            <span class="overlay-title">Reitingi un kopiena</span>
+        </div>
+        <div class="overlay-body">
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā darbojas reitingu sistēma?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Pēc katra pabeigta brauciena gan šoferis, gan pasažieris var novērtēt braucienu.
+                    Reitingi un komentāri ir redzami katam lietotājam profilā.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kas notiek, ja saņemu sliktu vērtējumu?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Viens slikts vērtējums neko nenogrimdinās — tie laika gaitā izlīdzinās. Pastāvīgi
+                    zemi
+                    vērtējumi var ietekmēt saskaņošanas iespējas.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">Kā ziņot, ja kaut kas nogāja greizi?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Izmanto Ziņot pogu lietotāja profilā vai ziņu ekrānā. Visi ziņojumi tiek
+                    izskatīti.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.add('open');
+            el.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            history.pushState({ overlay: id }, '');
+        }
+        function closeOverlay(id) {
+            var el = document.getElementById('overlay-' + id);
+            if (!el) return;
+            el.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('popstate', function () {
+            document.querySelectorAll('.overlay.open').forEach(function (el) { el.classList.remove('open'); });
+            document.body.style.overflow = '';
+        });
+        function toggleFaq(el) {
+            var item = el.closest('.faq-item');
+            var wasOpen = item.classList.contains('open');
+            item.closest('.overlay-body').querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+            if (!wasOpen) item.classList.add('open');
+        }
+        var HELP_ENDPOINT = 'https://okyprkffbuorrtlhnplf.supabase.co/functions/v1/help-request';
+        var TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
+        var MAX_MESSAGE_LENGTH = 2000;
+        var HELP_AUTH_TOKEN = null;
+        var turnstileWidgetId = null;
+        var pendingTurnstileResolve = null;
+        var pendingTurnstileReject = null;
+
+        (function readLegacyQueryToken() {
+            var url = new URL(window.location.href);
+            var token = url.searchParams.get('token');
+            if (token) {
+                HELP_AUTH_TOKEN = token;
+                url.searchParams.delete('token');
+                history.replaceState(null, '', url.pathname + url.search + url.hash);
+            }
+        })();
+
+        window.setShurpAuthToken = function (token) {
+            if (typeof token === 'string' && token.trim()) {
+                HELP_AUTH_TOKEN = token.trim();
+                resetTurnstile();
+            }
+        };
+
+        function setBanner(message, isError) {
+            var banner = document.getElementById('success-banner');
+            banner.textContent = message;
+            banner.classList.toggle('error', !!isError);
+            banner.style.display = 'block';
+        }
+
+        function isValidEmail(email) {
+            return email.length <= 50 && /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email);
+        }
+
+        function setEmailError(message) {
+            var emailInput = document.getElementById('contact-email');
+            var helper = document.getElementById('email-helper');
+            emailInput.classList.add('error');
+            helper.classList.add('error');
+            helper.textContent = message;
+        }
+
+        function clearEmailError() {
+            var emailInput = document.getElementById('contact-email');
+            var helper = document.getElementById('email-helper');
+            emailInput.classList.remove('error');
+            helper.classList.remove('error');
+            helper.textContent = helper.getAttribute('data-default');
+        }
+
+        function validateOptionalEmail(email) {
+            if (!email || isValidEmail(email)) {
+                clearEmailError();
+                return true;
+            }
+            setEmailError('Lūdzu ievadi derīgu e-pasta adresi, piemēram, vards@example.com.');
+            return false;
+        }
+
+        function buildSupportMessage(msg, email) {
+            return email ? 'Atbildes e-pasts: ' + email + '\n\n' + msg : msg;
+        }
+
+        function updateCharCounter() {
+            var msg = document.getElementById('msg-text').value;
+            document.getElementById('char-counter').textContent = msg.length + ' / ' + MAX_MESSAGE_LENGTH;
+        }
+
+        function renderTurnstileOnce() {
+            var container = document.getElementById('turnstile-container');
+            if (!container || turnstileWidgetId !== null || !window.turnstile) return;
+
+            turnstileWidgetId = turnstile.render(container, {
+                sitekey: TURNSTILE_SITEKEY,
+                size: 'invisible',
+                callback: function (token) {
+                    if (pendingTurnstileResolve) pendingTurnstileResolve(token);
+                    pendingTurnstileResolve = null;
+                    pendingTurnstileReject = null;
+                },
+                'error-callback': function () {
+                    if (pendingTurnstileReject) pendingTurnstileReject(new Error('Turnstile failed'));
+                    pendingTurnstileResolve = null;
+                    pendingTurnstileReject = null;
+                    resetTurnstile();
+                },
+                'expired-callback': function () {
+                    resetTurnstile();
+                }
+            });
+        }
+
+        function getTurnstileToken() {
+            if (HELP_AUTH_TOKEN) return Promise.resolve(null);
+            if (!window.turnstile || turnstileWidgetId === null) {
+                return Promise.reject(new Error('Security check is still loading. Please try again in a moment.'));
+            }
+
+            var existingToken = turnstile.getResponse(turnstileWidgetId);
+            if (existingToken) return Promise.resolve(existingToken);
+
+            return new Promise(function (resolve, reject) {
+                pendingTurnstileResolve = resolve;
+                pendingTurnstileReject = reject;
+                turnstile.execute(turnstileWidgetId);
+            });
+        }
+
+        function resetTurnstile() {
+            if (window.turnstile && turnstileWidgetId !== null) {
+                turnstile.reset(turnstileWidgetId);
+            }
+        }
+
+        function buildMailto(msg, type, email) {
+            return 'mailto:info@shurp.lv?subject='
+                + encodeURIComponent('Shurp palīdzība: ' + type)
+                + '&body=' + encodeURIComponent('[Veids: ' + type + ']\n\n' + buildSupportMessage(msg, email));
+        }
+
+        function buildWebMailUrl(msg, type, email) {
+            return 'https://mail.google.com/mail/?view=cm&fs=1&to='
+                + encodeURIComponent('info@shurp.lv')
+                + '&su=' + encodeURIComponent('Shurp palīdzība: ' + type)
+                + '&body=' + encodeURIComponent('[Veids: ' + type + ']\n\n' + buildSupportMessage(msg, email));
+        }
+
+        function openMailFallback() {
+            var msg = document.getElementById('msg-text').value.trim();
+            var type = document.getElementById('msg-type').value || 'Cits';
+            var email = document.getElementById('contact-email').value.trim();
+            if (!validateOptionalEmail(email)) return;
+            if (buildSupportMessage(msg, email).length > MAX_MESSAGE_LENGTH) { alert('Lūdzu raksti ziņu līdz 2000 rakstzīmēm.'); return; }
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            window.location.href = isAndroid ? buildWebMailUrl(msg, type, email) : buildMailto(msg, type, email);
+        }
+
+        async function submitForm(button) {
+            var msg = document.getElementById('msg-text').value.trim();
+            var email = document.getElementById('contact-email').value.trim();
+            var typeEl = document.getElementById('msg-type');
+            var type = typeEl.value;
+            if (!msg) { alert('Lūdzu apraksti savu problēmu.'); return; }
+            if (!type) { alert('Lūdzu izvēlies ziņas veidu.'); return; }
+            if (!validateOptionalEmail(email)) return;
+            if (buildSupportMessage(msg, email).length > MAX_MESSAGE_LENGTH) { alert('Lūdzu raksti ziņu līdz 2000 rakstzīmēm.'); return; }
+
+            var submitButton = button || document.getElementById('submit-btn');
+            var originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sūta...';
+
+            try {
+                var turnstileToken = await getTurnstileToken();
+                var headers = { 'Content-Type': 'application/json' };
+                if (HELP_AUTH_TOKEN) headers.Authorization = 'Bearer ' + HELP_AUTH_TOKEN;
+
+                var response = await fetch(HELP_ENDPOINT, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({
+                        message: buildSupportMessage(msg, email),
+                        type: type,
+                        lang: 'lv',
+                        contact_email: email || null,
+                        turnstile_token: turnstileToken,
+                        page_url: window.location.href,
+                        user_agent: navigator.userAgent,
+                        source: HELP_AUTH_TOKEN ? 'app' : 'web'
+                    })
+                });
+
+                if (!response.ok) {
+                    var errorText = await response.text();
+                    throw new Error(errorText || 'Request failed');
+                }
+
+                setBanner('Nosūtīts! Drīz atbildēsim.', false);
+                document.getElementById('msg-text').value = '';
+                document.getElementById('contact-email').value = '';
+                typeEl.value = '';
+                typeEl.classList.remove('filled');
+                updateCharCounter();
+                resetTurnstile();
+            } catch (err) {
+                console.error('Help request failed:', err);
+                setBanner('Šobrīd neizdevās nosūtīt. Mēģini vēlreiz vai izmanto e-pasta saiti zemāk.', true);
+                resetTurnstile();
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        }
+        function handleHash() {
+            if (window.location.hash === '#ask') {
+                setTimeout(function () {
+                    var el = document.getElementById('ask-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+        window.addEventListener('load', function () {
+            updateCharCounter();
+            if (window.turnstile) {
+                renderTurnstileOnce();
+            } else {
+                var check = setInterval(function () {
+                    if (window.turnstile) {
+                        renderTurnstileOnce();
+                        clearInterval(check);
+                    }
+                }, 100);
+            }
+        });
+        window.addEventListener('load', handleHash);
+        window.addEventListener('hashchange', handleHash);
     </script>
 </body>
 

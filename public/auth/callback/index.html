@@ -8,14 +8,15 @@
 <body>
     <h1>Confirming your identity...</h1>
     <p>If you are on your phone, you will be redirected to Shurp automatically.</p>
-
     <script>
+        var APP_CALLBACK_URL = "lv.shurp.app://login-callback/";
+        var SUCCESS_URL = "https://shurp.lv/identity-confirmed";
+        var callbackPayload = window.location.search + window.location.hash;
         // 1. Try to open the app (Works on iPhone/Android)
-        window.location.href = "io.supabase.shurp://login-callback/";
-
+        window.location.href = APP_CALLBACK_URL + callbackPayload;
         // 2. If the user is on a Desktop, redirect them to a "Success" landing page
         setTimeout(() => {
-            window.location.href = "https://shurp.lv/identity-confirmed";
+            window.location.href = SUCCESS_URL + callbackPayload;
         }, 1000);
     </script>
 </body>
