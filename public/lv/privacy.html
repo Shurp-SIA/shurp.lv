@@ -22,144 +22,188 @@
     </nav>
 
     <div class="legal-card">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privātuma politika</h1>
-        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada februārī</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privātuma politika: Shurp</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada maijā</p>
 
         <section class="legal-section">
             <div class="highlight-box">
-                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Mūsu filozofija: Mazāk ir drošāk</h2>
-                <p class="!mb-0 !opacity-100">Shurp pamatā ir princips: mēs nevācam datus, kurus mums nevajag, un
-                    neuzglabājam tos ilgāk, nekā nepieciešams.</p>
-                <p class="!mb-0 !opacity-100 font-medium">Tavs privātums mums nav tikai ķeksītis — tā ir mūsu lietotnes
-                    arhitektūra.</p>
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Mūsu filozofija: Mazāk ir drošāk.</h2>
+                <p class="!mb-4 !opacity-100">Mēs nevācam datus, kurus mums nevajag, un neuzglabājam tos ilgāk, nekā
+                    nepieciešams.</p>
+                <p class="!mb-0 !opacity-100">Tavs privātums ir iestrādāts mūsu lietotnes arhitektūrā.</p>
             </div>
         </section>
 
         <section class="legal-section">
             <h2>2. Kas ir datu pārzinis?</h2>
-            <p>Personas datu pārzinis ir:</p>
-            <p><strong class="text-[#1F2933] font-bold">SIA Shurp</strong><br>
-                Reģ. Nr. LV40203709369<br>
-                Adrese: Briežu iela 9, Lapsas, LV-2107, Latvija<br>
-                E-pasts privātuma jautājumiem: <span id="safe-email-p2"></span>
-            </p>
-            <p>Mēs apstrādājam personas datus saskaņā ar Vispārīgo datu aizsardzības regulu (GDPR) un Latvijas
-                normatīvajiem aktiem.</p>
+            <p>Tavu personas datu pārzinis ir SIA Shurp, Reģ. Nr. LV40203709369, E-pasts privātuma jautājumiem: <span
+                    id="safe-email-p2"></span></p>
         </section>
 
         <section class="legal-section">
             <h2>3. Kādus datus mēs apstrādājam?</h2>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2">Identitātes dati</p>
             <ul class="compact-list">
-                <li>Vārds</li>
-                <li>Tālruņa numurs</li>
-                <li>Profila foto (ja pievienots)</li>
-            </ul>
-            <p class="text-sm italic">Nepieciešami, lai lietotāji zinātu, ar ko kopā brauc.</p>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Verifikācijas dati</p>
-            <p class="text-sm">Ja Tu apstiprini savu identitāti (piemēram, kā šoferis caur CSDD):</p>
-            <ul class="compact-list">
-                <li>mēs neuzglabājam Tavus personas dokumentu numurus,</li>
-                <li>mēs saglabājam tikai šifrētu apstiprinājuma statusu.</li>
-            </ul>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Atrašanās vietas dati (GPS)</p>
-            <p class="text-sm">Lai atrastu savējos vienā maršrutā, mums nepieciešama:</p>
-            <ul class="compact-list">
-                <li>sākuma un galamērķa informācija</li>
-                <li>maršruta dati</li>
-            </ul>
-            <p class="text-sm">Precīzas koordinātas tiek apstrādātas tikai tik ilgi, cik nepieciešams brauciena
-                nodrošināšanai. Shurp neveic nepārtrauktu vai fonā notiekošu lietotāja atrašanās vietas izsekošanu.</p>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Saziņas dati</p>
-            <ul class="compact-list">
-                <li>Čata ziņas starp lietotājiem</li>
-                <li>Tehniskā saziņa ar atbalstu</li>
+                <li><strong>Publiskais profils (redzams visiem lietotājiem):</strong> Vārds, profila foto, teksta
+                    apraksts "Par mani", brauciena preferences (mūzika, smēķēšana u.c.), transportlīdzekļa marka un
+                    modelis (tikai šoferiem), verifikācijas statuss un "Atbalstītāja" nozīmīte. Profila foto tiek
+                    glabāts Supabase Storage (Īrija, ES) ar publisku URL, lai citi lietotāji to redzētu profilā un
+                    brauciena rezultātos.</li>
+                <li><strong>Atsauksmes.</strong> Pēc brauciena Tu vari atstāt vērtējumu (1-5 zvaigznes) un komentāru par
+                    citu dalībnieku. Šie vērtējumi ir publiski redzami otra lietotāja profilā kopā ar Tavu vārdu un
+                    profila foto. Vērtējumi paliek pieejami arī pēc Tava konta dzēšanas, bet tiek anonimizēti.</li>
+                <li><strong>Privātie dati (redzami tikai Tev):</strong> E-pasta adrese tiek izmantota autentifikācijai
+                    un
+                    saziņai (piemēram, paroles atjaunošanai). Parole tiek glabāta šifrētā veidā un nav redzama nevienam,
+                    ieskaitot Shurp administrāciju.</li>
+                <li><strong>Dati apstiprināta brauciena dalībniekiem (atklāti tikai pēc brauciena
+                        apstiprināšanas):</strong> Pilns vārds un tālruņa numurs. Tālruņa numurs tiek atklāts drošā
+                    veidā tieši lietotnē, lai brauciena dalībnieki varētu savstarpēji sazināties. Pēc brauciena šie dati
+                    nav publiski pieejami.</li>
+                <li><strong>Atrašanās vietas dati:</strong> Lietotne apstrādā tikai tos sākumpunktus, galamērķus un
+                    maršrutus, kurus Tu pats norādi. Nav fonā esošas izsekošanas. Ja izmanto ierīces atrašanās vietu, šī
+                    informācija tiek izmantota tikai konkrētās adreses noteikšanai. Ja izveido brauciena paziņojumu,
+                    Tavs
+                    meklētais maršruts (sākums-galamērķis) tiek glabāts, līdz Tu to izdzēs vai atslēgsi.</li>
+                <li><strong>Tehniskie dati:</strong> Ierīces IP adrese, operētājsistēmas versija un kļūdu ziņojumi —
+                    sistēmas uzturēšanai.</li>
+                <li><strong>Paziņojumu dati:</strong> Ierīces unikāls paziņojumu identifikators (FCM token) —
+                    nepieciešams
+                    push paziņojumu nosūtīšanai. Tiek dzēsts, dzēšot kontu.</li>
+                <li><strong>Palīdzības sadaļa:</strong> Ja sazinies ar atbalsta dienestu, mēs glabājam Tavu
+                    pieprasījumu,
+                    e-pastu un tehnisko informāciju (piemēram, ierīces tipu), lai varētu atbildēt.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>4. Kā mēs aizsargājam Tavu atrašanās vietu?</h2>
-            <p>Mēs apzināti esam izveidojuši vairākus aizsardzības slāņus.</p>
+            <h2>4. Verifikācijas dati (Identitātes apstiprināšana)</h2>
+            <p>Lai veicinātu drošību un savstarpēju uzticību kopienā, Shurp piedāvā identitātes verifikāciju, izmantojot
+                neatkarīgu, Eiropas Savienībā bāzētu pakalpojumu sniedzēju Didit (Didit Solutions S.L.).</p>
             <ul class="compact-list">
-                <li><strong>Lokācijas anonimizācija:</strong> Mēs neizmantojam Tavu precīzo adresi meklēšanas procesos.
+                <li><strong>Atbilstība standartiem:</strong> Didit ir GDPR atbilstoša platforma, reģistrēta Eiropas
+                    Savienībā, kas nodrošina personu apliecinošu dokumentu digitālo apstrādi saskaņā ar eIDAS regulējuma
+                    pamatprincipiem.</li>
+                <li><strong>Verifikācijas process:</strong> Šoferiem: vadītāja apliecības pārbaude verificēta statusa
+                    iegūšanai. Pasažieriem: brīvprātīga personas dokumenta (ID karte vai pase) pārbaude.</li>
+                <li><strong>Kā mēs apstrādājam šos datus:</strong> Dokumentu skenēšana, datu nolasīšana un biometriskā
+                    salīdzināšana notiek drošā Didit vidē. Shurp datubāzē tiek saglabāts tikai gala rezultāts:
+                    "Verificēts: Jā/Nē" un unikāls šifrēts identifikators.</li>
+                <li><strong>Datu uzglabāšana un piekļuve:</strong> Mēs neuzglabājam dokumentu attēlus, sērijas numurus
+                    vai
+                    personas kodus savos serveros. Shurp administrācija Didit datiem piekļūst tikai izņēmuma gadījumos:
+                    drošības incidentu izmeklēšanai, juridisku strīdu risināšanai, kļūdu novēršanai vai pēc Tava tieša
+                    pieprasījuma.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. Saziņa starp lietotājiem.</h2>
+            <p>Pēc brauciena apstiprināšanas dalībnieki var sazināties divos veidos:</p>
+            <ul class="compact-list">
+                <li><strong>Shurp iekšējais čats</strong> — ziņojumu saturs tiek glabāts mūsu serveros (Supabase, ES)
+                    līdz
+                    90 dienām pēc brauciena drošības un strīdu risināšanas nolūkos. Pēc tam saturs tiek dzēsts, bet
+                    metadati (kurš, kad, ar kuru komunicējis) saglabājas vēl 1 gadu.</li>
+                <li><strong>WhatsApp pāreja</strong> — pēc paša lietotāja izvēles. Šajā gadījumā saziņa notiek Meta
+                    serveros saskaņā ar WhatsApp privātuma politiku, un Shurp tajā nepiedalās.</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. Datu drošība.</h2>
+            <ul class="compact-list">
+                <li><strong>Piekļuves ierobežošana:</strong> Piekļuve lietotāju verifikācijas datiem trešās puses
+                    platformā (Didit) ir ierobežota tikai autorizētiem Shurp administratoriem.</li>
+                <li><strong>Datu segregācija:</strong> Tavs publiskais profils nekad neuzrāda privātos datus — tikai
+                    verifikācijas faktu.</li>
+                <li><strong>Šifrēšana:</strong> Visa saziņa starp Shurp, Didit un Tavu ierīci ir šifrēta (TLS/SSL).</li>
+            </ul>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. Datu apstrādes tiesiskais pamats</h2>
+            <p>Datu apstrāde notiek balstoties uz:</p>
+            <ul class="compact-list">
+                <li><strong>Līguma izpildi:</strong> Lai nodrošinātu pakalpojumu un savienotu Tevi ar citiem
+                    lietotājiem.
                 </li>
-                <li><strong>Dinamiskā nobīde:</strong> Tavs maršruts tiek apstrādāts anonimizētos reģionos.</li>
-                <li><strong>Pakāpeniska piekļuve:</strong> Precīza satikšanās vieta kļūst redzama tikai pēc brauciena
-                    apstiprināšanas.</li>
-                <li><strong>Privātie maršruti:</strong> Tavi regulārie maršruti nav publiski redzami.</li>
+                <li><strong>Leģitīmajām interesēm:</strong> Drošības nodrošināšana, krāpniecības novēršana un servisa
+                    uzlabošana.</li>
+                <li><strong>Piekrišanu:</strong> Gadījumos, kad Tu sniedz piekļuvi ierīces funkcijām (piemēram, kamerai
+                    vai
+                    lokācijai).</li>
+                <li><strong>Juridiskā pienākuma izpildi:</strong> Braucienu dati (maršruts, cena, datums) tiek glabāti 5
+                    gadus saskaņā ar Latvijas nodokļu un transporta tiesību aktu prasībām. Dati ir saistīti ar anonīmu
+                    lietotāja identifikatoru — ne vārdu vai kontaktinformāciju. Dzēšot kontu, arī šis identifikators
+                    tiek
+                    neatgriezeniski noņemts.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>5. Datu apstrādes tiesiskais pamats</h2>
-            <p>Mēs apstrādājam datus, pamatojoties uz:</p>
+            <h2>8. Cik ilgi mēs glabājam datus?</h2>
+            <p>Mēs neuzglabājam datus ilgāk, kā tas nepieciešams mērķim, kuram tie vākti:</p>
             <ul class="compact-list">
-                <li>Līguma izpildi (brauciena organizēšana)</li>
-                <li>Juridisko pienākumu izpildi</li>
-                <li>Leģitīmajām interesēm (platformas drošība)</li>
-                <li>Lietotāja piekrišanu</li>
+                <li><strong>Aktīvie braucieni:</strong> tiek glabāti līdz 10 dienām pēc brauciena, pēc tam pārvietoti uz
+                    arhīvu.</li>
+                <li><strong>Braucienu arhīvs:</strong> tiek glabāts 5 gadus saskaņā ar juridiskajām prasībām, pēc tam
+                    automātiski dzēsts.</li>
+                <li><strong>Čata saturs:</strong> tiek dzēsts 90 dienas pēc brauciena. Tehniskie metadati (kurš ar kuru
+                    sarakstījās un kad) — pēc 1 gada.</li>
+                <li><strong>Sūdzības par lietotājiem:</strong> anonimizētas pēc derīguma termiņa beigām, saglabājot
+                    tikai
+                    statistikas datus.</li>
+                <li><strong>Dzēšot kontu:</strong> visi personas dati tiek neatgriezeniski dzēsti. Braucienu arhīvā
+                    saglabājas tikai anonīmi brauciena dati bez jebkādas saiknes ar Tavu identitāti.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>6. Cik ilgi mēs glabājam datus?</h2>
-            <p>Mums nepatīk digitālie putekļi.</p>
+            <h2>9. Datu nodošana un drošība</h2>
+            <p>Mēs nepārdodam datus trešajām pusēm un nekad nenododam Tavus personas datus reklāmdevējiem.</p>
             <ul class="compact-list">
-                <li>Detalizētas koordinātas tiek anonimizētas pēc 30 dienām.</li>
-                <li>Čata vēsture tiek dzēsta 30 dienas pēc brauciena beigām.</li>
-                <li>Ja Tu dzēs savu kontu, dati tiek neatgriezeniski dzēsti.</li>
+                <li><strong>Reklāmas:</strong> Šobrīd Shurp lietotnē reklāmas netiek rādītas. Ja nākotnē tiks ieviesta
+                    reklāmu funkcionalitāte, mēs atjaunināsim šo politiku un lūgsim Tavu piekrišanu pirms reklāmu
+                    rādīšanas saskaņā ar GDPR un ePrivacy regulējumu (piemēram, iOS App Tracking Transparency un
+                    piekrišanas dialogu Eiropā).</li>
             </ul>
-        </section>
-
-        <section class="legal-section">
-            <h2>7. Datu nodošana trešajām pusēm</h2>
-            <p>Mēs nepārdodam Tavus personas datus reklāmdevējiem.</p>
-            <p>Dati var tikt nodoti starp šoferi un pasažieri, tehniskajiem pakalpojumu sniedzējiem (ES teritorijā) un
-                saskaņā ar DPA līgumiem.</p>
-        </section>
-
-        <section class="legal-section">
-            <h2>8. Drošība</h2>
+            <p>Dati var tikt nodoti tikai:</p>
             <ul class="compact-list">
-                <li>Dati tiek šifrēti pārsūtīšanas un uzglabāšanas laikā.</li>
-                <li>Sensitīva informācija netiek glabāta atklātā veidā.</li>
-                <li>Pieeja datiem ir ierobežota un auditējama.</li>
+                <li><strong>Brauciena dalībniekiem</strong> - vārds un tālruņa numurs tikai pēc brauciena
+                    apstiprināšanas.
+                    Saziņa primāri notiek Shurp iekšējā čatā; pēc paša lietotāja izvēles to var turpināt arī WhatsApp
+                    lietotnē (Meta Platforms Ireland Limited), uz kuru attiecas WhatsApp privātuma politika.</li>
+                <li><strong>Tehniskajiem partneriem:</strong> Supabase Inc. (serveru infrastruktūra, autentifikācija,
+                    datu
+                    bāze un failu glabātava, hostēts Īrijā, ES); Didit Solutions S.L. (Spānija, ES — identitātes
+                    verifikācija); Google Ireland Limited (push paziņojumi caur Firebase Cloud Messaging); Apple Inc. /
+                    Google LLC (ja pierakstāties ar Apple ID vai Google kontu, partneri mums nodod e-pasta adresi un
+                    Google
+                    gadījumā vārdu un saiti uz profila fotogrāfiju, kas tiek glabāta Google serveros. Apple App Store /
+                    Google Play (brīvprātīgo "Atbalstītāja" maksājumu apstrādei — Shurp nesaņem un neuzglabā maksājumu
+                    kartes datus).</li>
             </ul>
+            <p>Visi tehniskie partneri darbojas saskaņā ar Datu apstrādes līgumiem (DPA) un GDPR.</p>
+            <p>Visi dati tiek šifrēti gan pārsūtot (TLS), gan uzglabājot.</p>
         </section>
 
         <section class="legal-section">
-            <h2>9. Tavas tiesības</h2>
-            <p>Saskaņā ar GDPR Tev ir tiesības piekļūt saviem datiem, tos labot, dzēst vai ierobežot apstrādi.</p>
-            <p>Pieprasījumus vari iesniegt rakstot uz: <span id="safe-email-p9"></span></p>
-        </section>
-
-        <section class="legal-section">
-            <h2>10. Izmaiņas šajā politikā</h2>
-            <p>Ja mēs veiksim būtiskas izmaiņas, par to informēsim lietotnē vai mājaslapā.</p>
-        </section>
-
-        <section class="legal-section">
-            <div class="legal-footer-box">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Datu pārzinis</p>
-                        <p class="font-bold">SIA Shurp</p>
-                        <p class="text-sm opacity-60">Reģ. Nr. LV40203709369</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Juridiskā adrese</p>
-                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvija</p>
-                    </div>
-                    <div class="pt-4 border-t border-[#E2E8F0] md:col-span-2">
-                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">DSA kontaktpunkts</p>
-                        <span id="safe-email-footer"></span>
-                    </div>
-                </div>
-            </div>
+            <h2>10. Tavas tiesības (GDPR)</h2>
+            <p>Saskaņā ar GDPR Tev ir šādas tiesības:</p>
+            <ul class="compact-list">
+                <li><strong>Piekļuve:</strong> jebkurā brīdī pieprasīt, kādus datus mēs par Tevi glabājam.</li>
+                <li><strong>Labošana:</strong> pieprasīt neprecīzu vai nepilnīgu datu labošanu.</li>
+                <li><strong>Dzēšana:</strong> pieprasīt savu datu dzēšanu, ja tie vairs nav nepieciešami.</li>
+                <li><strong>Ierobežošana:</strong> pieprasīt datu apstrādes ierobežošanu.</li>
+                <li><strong>Datu pārnesamība:</strong> pieprasīt savu datu kopiju lejupielādei vai nodošanai citam
+                    pakalpojumam.</li>
+                <li><strong>Iebildums:</strong> iebilst pret datu apstrādi, kas balstīta uz leģitīmajām interesēm.</li>
+                <li><strong>Piekrišanas atsaukšana:</strong> jebkurā brīdī atsaukt iepriekš sniegto piekrišanu.</li>
+            </ul>
+            <p>Pieprasījumus sūti uz <span id="safe-email-p10"></span>. Mēs atbildēsim 30 dienu laikā.</p>
+            <p>Ja uzskat, ka Tavi dati tiek apstrādāti pretlikumīgi, Tev ir tiesības iesniegt sūdzību Datu valsts
+                inspekcijā (<a href="https://www.dvi.gov.lv" class="text-[#125E8A] hover:underline font-semibold"
+                    target="_blank" rel="noopener noreferrer">www.dvi.gov.lv</a>).</p>
         </section>
 
         <div class="pt-8 text-center">
@@ -181,8 +225,7 @@
             if (el) el.innerHTML = `<a href="mailto:${email}" class="text-[#125E8A] hover:underline font-bold">${email}</a>`;
         };
         setupEmail("safe-email-p2");
-        setupEmail("safe-email-p9");
-        setupEmail("safe-email-footer");
+        setupEmail("safe-email-p10");
     </script>
 </body>
 

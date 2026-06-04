@@ -22,157 +22,190 @@
     </nav>
 
     <div class="legal-card">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privacy Policy</h1>
-        <p class="text-sm opacity-40 mb-10 italic">Last updated: February 2026</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privacy Policy: Shurp</h1>
+        <p class="text-sm opacity-40 mb-10 italic">Last updated: May 2026</p>
 
         <section class="legal-section">
             <div class="highlight-box">
-                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Our Philosophy: Privacy by Design</h2>
-                <p class="!mb-0 !opacity-100">Shurp is built on one principle: we collect only what’s necessary — and
-                    nothing more.</p>
-                <p class="!mb-0 !opacity-100 font-medium">Your privacy isn’t a feature. It’s part of the architecture.
-                </p>
+                <h2 class="!border-l-0 !pl-0 !mb-4 text-xl">1. Our Philosophy: Less is Safer.</h2>
+                <p class="!mb-4 !opacity-100">We do not collect data we do not need, and we do not store it longer than
+                    necessary.</p>
+                <p class="!mb-0 !opacity-100">Your privacy is built into our app architecture.</p>
             </div>
         </section>
 
         <section class="legal-section">
             <h2>2. Who is the Data Controller?</h2>
-            <p>The personal data controller is:</p>
-            <p><strong class="text-[#1F2933] font-bold">SIA Shurp</strong><br>
-                Reg. No. LV40203709369<br>
-                Address: Briežu iela 9, Lapsas, LV-2107, Latvia<br>
-                Email for privacy inquiries: <span id="safe-email-p2"></span>
-            </p>
-            <p>We process personal data in accordance with the General Data Protection Regulation (GDPR) and Latvian
-                legislation.</p>
+            <p>Your personal data controller is SIA Shurp, Reg. No. LV40203709369, Email for privacy inquiries: <span
+                    id="safe-email-p2"></span></p>
         </section>
 
         <section class="legal-section">
             <h2>3. What Data Do We Process?</h2>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2">Identity Data</p>
             <ul class="compact-list">
-                <li>Name</li>
-                <li>Phone number</li>
-                <li>Profile photo (if added)</li>
-            </ul>
-            <p class="text-sm italic">Required so users know who they're riding with.</p>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Verification Data</p>
-            <p class="text-sm">If you verify your identity (e.g., as a driver through CSDD):</p>
-            <ul class="compact-list">
-                <li>we do not store your personal document numbers,</li>
-                <li>we only save an encrypted verification status.</li>
-            </ul>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Location Data (GPS)</p>
-            <p class="text-sm">To find fellow travelers on the same route, we need:</p>
-            <ul class="compact-list">
-                <li>origin and destination information</li>
-                <li>route data</li>
-            </ul>
-            <p class="text-sm">Precise coordinates are processed only as long as necessary for trip facilitation. Shurp
-                does not perform continuous or background location tracking.</p>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Communication Data</p>
-            <ul class="compact-list">
-                <li>Chat messages between users</li>
-                <li>Technical communication with support</li>
-            </ul>
-
-            <p class="font-bold text-[#1F2933] !opacity-100 mb-2 mt-6">Technical Data</p>
-            <ul class="compact-list">
-                <li>Device type</li>
-                <li>App version</li>
-                <li>Access time</li>
-            </ul>
-            <p class="text-sm italic">This data is used only for system security and stability.</p>
-        </section>
-
-        <section class="legal-section">
-            <h2>4. How Do We Protect Your Location?</h2>
-            <p>We've intentionally built multiple layers of protection.</p>
-            <ul class="compact-list">
-                <li><strong>Location Anonymization:</strong> We don't use your exact address in search processes.</li>
-                <li><strong>Dynamic Offset:</strong> Your route is processed in anonymized regions, ensuring no one can
-                    trace your exact trip starting point.</li>
-                <li><strong>Progressive Access:</strong> The exact meeting point becomes visible only after trip
-                    confirmation.</li>
-                <li><strong>Private Routes:</strong> Your regular routes ("Magic Button") are not publicly visible until
-                    you confirm a trip.</li>
+                <li><strong>Public profile (visible to all users):</strong> Name, profile photo, "About me" text
+                    description, ride preferences (music, smoking, etc.), vehicle make and model (drivers only),
+                    verification status, and "Supporter" badge. Profile photos are stored in Supabase Storage (Ireland,
+                    EU) with a public URL so other users can see them on profiles and in ride results.</li>
+                <li><strong>Reviews.</strong> After a ride you may leave a rating (1–5 stars) and a comment about
+                    another
+                    participant. These ratings are publicly visible on the other user's profile together with your name
+                    and profile photo. Ratings remain available even after you delete your account, but they are
+                    anonymized.</li>
+                <li><strong>Private data (visible only to you):</strong> Your email address is used for authentication
+                    and communication (for example, password reset). Your password is stored in encrypted form and is
+                    not
+                    visible to anyone, including Shurp administration.</li>
+                <li><strong>Data for confirmed ride participants (disclosed only after the ride is
+                        confirmed):</strong> Full name and phone number. The phone number is disclosed securely in the
+                    app so ride participants can contact each other. After the ride, this data is not publicly
+                    available.</li>
+                <li><strong>Location data:</strong> The app processes only the start points, destinations, and routes
+                    you
+                    specify yourself. There is no background tracking. If you use your device's location, that
+                    information
+                    is used only to determine a specific address. If you create a ride alert, your searched route
+                    (start–destination) is stored until you delete it or turn it off.</li>
+                <li><strong>Technical data:</strong> Device IP address, operating system version, and error reports —
+                    for
+                    system maintenance.</li>
+                <li><strong>Notification data:</strong> Your device's unique notification identifier (FCM token) —
+                    required to send push notifications. It is deleted when you delete your account.</li>
+                <li><strong>Help section:</strong> If you contact support, we store your request, email, and technical
+                    information (for example, device type) so we can respond.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>5. Legal Basis for Data Processing</h2>
-            <p>We process data based on:</p>
+            <h2>4. Verification Data (Identity Confirmation)</h2>
+            <p>To promote safety and mutual trust in the community, Shurp offers identity verification using an
+                independent service provider based in the European Union, Didit (Didit Solutions S.L.).</p>
             <ul class="compact-list">
-                <li>Contract performance (organizing trips between users)</li>
-                <li>Legal obligation compliance</li>
-                <li>Legitimate interests (platform security)</li>
-                <li>User consent (e.g., location access)</li>
+                <li><strong>Standards compliance:</strong> Didit is a GDPR-compliant platform registered in the European
+                    Union that provides digital processing of identity documents in line with the core principles of the
+                    eIDAS regulation.</li>
+                <li><strong>Verification process:</strong> For drivers: driver's licence check to obtain verified
+                    status.
+                    For passengers: voluntary identity document check (ID card or passport).</li>
+                <li><strong>How we process this data:</strong> Document scanning, data reading, and biometric comparison
+                    take place in Didit's secure environment. Only the final result is stored in Shurp's database:
+                    "Verified: Yes/No" and a unique encrypted identifier.</li>
+                <li><strong>Data storage and access:</strong> We do not store document images, serial numbers, or
+                    personal
+                    identification numbers on our servers. Shurp administration accesses Didit data only in exceptional
+                    cases: investigating security incidents, resolving legal disputes, fixing errors, or at your direct
+                    request.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>6. How Long Do We Store Data?</h2>
-            <p>We don't like digital dust.</p>
+            <h2>5. Communication Between Users.</h2>
+            <p>After a ride is confirmed, participants can communicate in two ways:</p>
             <ul class="compact-list">
-                <li>Detailed trip coordinates are anonymized after 30 days.</li>
-                <li>Chat history is deleted 30 days after the trip ends.</li>
-                <li>Technical logs are stored for limited periods for security purposes.</li>
-                <li>If you delete your account, personal data is permanently removed from active systems.</li>
+                <li><strong>Shurp in-app chat</strong> — message content is stored on our servers (Supabase, EU) for up
+                    to 90 days after the ride for safety and dispute resolution. After that, content is deleted, but
+                    metadata (who, when, and with whom you communicated) is kept for 1 more year.</li>
+                <li><strong>WhatsApp handoff</strong> — at the user's own choice. In that case, communication takes
+                    place
+                    on Meta's servers in accordance with WhatsApp's privacy policy, and Shurp is not involved.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>7. Data Sharing with Third Parties</h2>
-            <p>We don't sell your personal data to advertisers.</p>
-            <p>Advertising content is served based on non-identifiable criteria (general route or region) without
-                disclosing your identity. This is conducted in accordance with GDPR principles.</p>
-            <p>Data may be shared between driver and passenger, or with technical service providers (DPA agreements in
-                place).</p>
-        </section>
-
-        <section class="legal-section">
-            <h2>8. Security</h2>
+            <h2>6. Data Security.</h2>
             <ul class="compact-list">
-                <li>Data is encrypted during transmission and storage.</li>
-                <li>Sensitive information is not stored in plain text.</li>
-                <li>Data access is restricted and auditable.</li>
+                <li><strong>Access restriction:</strong> Access to user verification data on the third-party platform
+                    (Didit) is limited to authorized Shurp administrators only.</li>
+                <li><strong>Data segregation:</strong> Your public profile never displays private data — only the fact
+                    of
+                    verification.</li>
+                <li><strong>Encryption:</strong> All communication between Shurp, Didit, and your device is encrypted
+                    (TLS/SSL).</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>9. Your Rights</h2>
-            <p>Under GDPR, you have the right to access, correct, or delete your data, and to restrict or object to
-                processing.</p>
-            <p>Requests can be submitted through the app, or by writing to: <span id="safe-email-p9"></span></p>
+            <h2>7. Legal Basis for Data Processing</h2>
+            <p>Data processing is based on:</p>
+            <ul class="compact-list">
+                <li><strong>Contract performance:</strong> To provide the service and connect you with other users.</li>
+                <li><strong>Legitimate interests:</strong> Ensuring security, preventing fraud, and improving the
+                    service.</li>
+                <li><strong>Consent:</strong> When you grant access to device features (for example, camera or
+                    location).
+                </li>
+                <li><strong>Legal obligation:</strong> Ride data (route, price, date) is stored for 5 years in
+                    accordance
+                    with Latvian tax and transport law requirements. Data is linked to an anonymous user identifier —
+                    not
+                    your name or contact information. When you delete your account, this identifier is also permanently
+                    removed.</li>
+            </ul>
         </section>
 
         <section class="legal-section">
-            <h2>10. Changes to This Policy</h2>
-            <p>If we make significant changes, we will notify you in the app or on the website.</p>
+            <h2>8. How Long Do We Store Data?</h2>
+            <p>We do not store data longer than necessary for the purpose for which it was collected:</p>
+            <ul class="compact-list">
+                <li><strong>Active rides:</strong> stored for up to 10 days after the ride, then moved to the archive.
+                </li>
+                <li><strong>Ride archive:</strong> stored for 5 years in accordance with legal requirements, then
+                    automatically deleted.</li>
+                <li><strong>Chat content:</strong> deleted 90 days after the ride. Technical metadata (who messaged whom
+                    and when) — after 1 year.</li>
+                <li><strong>User complaints:</strong> anonymized after they expire, retaining only statistical data.
+                </li>
+                <li><strong>When you delete your account:</strong> all personal data is permanently deleted. Only
+                    anonymous ride data remains in the ride archive, with no link to your identity.</li>
+            </ul>
         </section>
 
         <section class="legal-section">
-            <div class="legal-footer-box">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Data Controller</p>
-                        <p class="font-bold">SIA Shurp</p>
-                        <p class="text-sm opacity-60">Reg. No. LV40203709369</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">Legal Address</p>
-                        <p class="text-sm">Briežu iela 9, Lapsas, LV-2107, Latvia</p>
-                    </div>
-                    <div class="pt-4 border-t border-[#E2E8F0] md:col-span-2">
-                        <p class="text-[10px] uppercase tracking-widest opacity-40 mb-1">DSA Contact Point</p>
-                        <span id="safe-email-footer"></span>
-                    </div>
-                </div>
-            </div>
+            <h2>9. Data Sharing and Security</h2>
+            <p>We do not sell data to third parties and never pass your personal data to advertisers.</p>
+            <ul class="compact-list">
+                <li><strong>Advertising:</strong> Shurp does not currently show ads in the app. If advertising is
+                    introduced in the future, we will update this policy and ask for your consent before showing ads in
+                    accordance with GDPR and the ePrivacy rules (for example, iOS App Tracking Transparency and consent
+                    dialogs in Europe).</li>
+            </ul>
+            <p>Data may be shared only with:</p>
+            <ul class="compact-list">
+                <li><strong>Ride participants</strong> - name and phone number only after the ride is confirmed.
+                    Communication primarily takes place in Shurp's in-app chat; at the user's choice it may continue in
+                    the WhatsApp app (Meta Platforms Ireland Limited), which is subject to WhatsApp's privacy policy.
+                </li>
+                <li><strong>Technical partners:</strong> Supabase Inc. (server infrastructure, authentication, database
+                    and file storage, hosted in Ireland, EU); Didit Solutions S.L. (Spain, EU — identity verification);
+                    Google Ireland Limited (push notifications via Firebase Cloud Messaging); Apple Inc. / Google LLC
+                    (if
+                    you sign in with Apple ID or a Google account, partners provide us with your email address and, for
+                    Google, your name and a link to your profile photo stored on Google's servers. Apple App Store /
+                    Google Play (for voluntary "Supporter" payments — Shurp does not receive or store payment card
+                    data).</li>
+            </ul>
+            <p>All technical partners operate under Data Processing Agreements (DPA) and GDPR.</p>
+            <p>All data is encrypted both in transit (TLS) and at rest.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>10. Your Rights (GDPR)</h2>
+            <p>Under GDPR, you have the following rights:</p>
+            <ul class="compact-list">
+                <li><strong>Access:</strong> request at any time what data we hold about you.</li>
+                <li><strong>Rectification:</strong> request correction of inaccurate or incomplete data.</li>
+                <li><strong>Erasure:</strong> request deletion of your data when it is no longer necessary.</li>
+                <li><strong>Restriction:</strong> request restriction of data processing.</li>
+                <li><strong>Data portability:</strong> request a copy of your data for download or transfer to another
+                    service.</li>
+                <li><strong>Objection:</strong> object to processing based on legitimate interests.</li>
+                <li><strong>Withdrawal of consent:</strong> withdraw previously given consent at any time.</li>
+            </ul>
+            <p>Send requests to <span id="safe-email-p10"></span>. We will respond within 30 days.</p>
+            <p>If you believe your data is being processed unlawfully, you have the right to lodge a complaint with the
+                Data State Inspectorate (<a href="https://www.dvi.gov.lv"
+                    class="text-[#125E8A] hover:underline font-semibold" target="_blank"
+                    rel="noopener noreferrer">www.dvi.gov.lv</a>).</p>
         </section>
 
         <div class="pt-8 text-center">
@@ -187,14 +220,14 @@
     </footer>
 
     <script>
-        const setupEmail = (id) => {
-            const email = "legal" + "@" + "shurp.lv";
+        const setupEmail = (id, user = "legal") => {
+            const domain = "shurp.lv";
+            const email = user + "@" + domain;
             const el = document.getElementById(id);
             if (el) el.innerHTML = `<a href="mailto:${email}" class="text-[#125E8A] hover:underline font-bold">${email}</a>`;
         };
         setupEmail("safe-email-p2");
-        setupEmail("safe-email-p9");
-        setupEmail("safe-email-footer");
+        setupEmail("safe-email-p10");
     </script>
 </body>
 

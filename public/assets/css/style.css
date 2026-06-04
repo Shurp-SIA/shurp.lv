@@ -476,7 +476,10 @@
         margin-bottom: calc(var(--spacing) * 4);
         --tw-leading: var(--leading-relaxed);
         line-height: var(--leading-relaxed);
-        opacity: .7
+        opacity: .7;
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto
     }
 
     .legal-section strong {
@@ -484,6 +487,64 @@
         font-weight: var(--font-weight-semibold);
         color: #1f2933;
         opacity: 1
+    }
+
+    .legal-clause {
+        display: grid;
+        grid-template-columns: var(--legal-clause-gutter) minmax(0, 1fr);
+        column-gap: calc(var(--spacing) * 2);
+        margin-bottom: calc(var(--spacing) * 4);
+        --tw-leading: var(--leading-relaxed);
+        line-height: var(--leading-relaxed);
+        opacity: .7;
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto
+    }
+
+    .legal-clause--depth-1 {
+        --legal-clause-gutter: 2.75rem
+    }
+
+    .legal-clause--depth-2 {
+        --legal-clause-gutter: 3.5rem;
+        margin-left: calc(var(--spacing) * 6)
+    }
+
+    .legal-clause--depth-3 {
+        --legal-clause-gutter: 4.25rem;
+        margin-left: calc(var(--spacing) * 10)
+    }
+
+    .legal-clause--depth-4 {
+        --legal-clause-gutter: 5rem;
+        margin-left: calc(var(--spacing) * 14)
+    }
+
+    .legal-clause-num {
+        grid-column: 1;
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+        color: #1f2933;
+        opacity: 1;
+        text-align: right;
+        line-height: var(--leading-relaxed)
+    }
+
+    .legal-clause-body {
+        grid-column: 2;
+        min-width: 0
+    }
+
+    .legal-clause-body strong {
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+        color: #1f2933;
+        opacity: 1
+    }
+
+    .legal-section>p:not(.legal-clause) {
+        margin-bottom: calc(var(--spacing) * 4)
     }
 
     .compact-list {
@@ -496,7 +557,15 @@
     .compact-list li {
         margin-bottom: calc(var(--spacing) * 2);
         padding-left: calc(var(--spacing) * 6);
-        position: relative
+        position: relative;
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto
+    }
+
+    .compact-list--nested {
+        margin-left: calc(var(--spacing) * 10);
+        margin-top: calc(var(--spacing) * 2)
     }
 
     .compact-list li:before {
@@ -530,7 +599,10 @@
     }
 
     .highlight-box p {
-        opacity: 1
+        opacity: 1;
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto
     }
 
     .legal-footer-box {
