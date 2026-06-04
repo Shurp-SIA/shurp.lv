@@ -608,12 +608,12 @@
         </p>
 
         <!-- ══ USING THE APP ══ -->
-        <p class="section-title">Using the app</p>
+        <p class="section-title">How to use Shurp</p>
         <div class="card-group">
 
             <a class="help-row" onclick="openOverlay('how'); return false;" href="#">
                 <span class="row-icon"><img src="../assets/icons/icon_star.svg" class="icon-primary" alt=""></span>
-                <span class="row-label">How it works?</span>
+                <span class="row-label">What is Shurp?</span>
                 <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
             </a>
 
@@ -631,7 +631,7 @@
 
             <a class="help-row" onclick="openOverlay('safety'); return false;" href="#">
                 <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
-                <span class="row-label">Safety and trust</span>
+                <span class="row-label">Safety</span>
                 <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
             </a>
 
@@ -643,13 +643,13 @@
 
             <a class="help-row" onclick="openOverlay('faq-ver'); return false;" href="#">
                 <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
-                <span class="row-label">Verification &amp; Safety</span>
+                <span class="row-label">Verification &amp; safety on a ride</span>
                 <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
             </a>
 
             <a class="help-row" onclick="openOverlay('faq-priv'); return false;" href="#">
                 <span class="row-icon"><img src="../assets/icons/icon_password.svg" class="icon-primary" alt=""></span>
-                <span class="row-label">Data privacy</span>
+                <span class="row-label">Data &amp; privacy</span>
                 <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
             </a>
 
@@ -680,10 +680,10 @@
         </div>
 
         <!-- ══ LEGAL ══ -->
-        <p class="section-title">Legal</p>
+        <p class="section-title">Terms</p>
         <p class="legal-blurb">Safety first. We use Didit ID verification to build a community you can trust. Your
-            sensitive data is encrypted and never shared. Curious about the details? Read our <a
-                href="privacy">Privacy</a> and <a href="terms">Terms &amp; Conditions.</a></p>
+            sensitive data is encrypted and never shared. Curious about the details? Read our <a href="privacy">Privacy
+                Policy</a> and <a href="terms">Terms of Use.</a></p>
 
         <!-- ══ ASK A QUESTION ══ -->
         <p id="ask-section" class="ask-title">Ask a question or report a problem</p>
@@ -706,7 +706,7 @@
                 <option value="Bug / App issue">Bug / App issue</option>
                 <option value="Ride problem">Ride problem</option>
                 <option value="Account & Profile">Account &amp; Profile</option>
-                <option value="Safety concern">Safety concern</option>
+                <option value="Safety concern">Safety</option>
                 <option value="Payment / cost sharing">Payment / cost sharing</option>
                 <option value="Other">Other</option>
             </select>
@@ -717,7 +717,8 @@
 
         <button class="submit-btn" id="submit-btn" onclick="submitForm(this)">Submit</button>
         <div id="turnstile-container" class="turnstile-container"></div>
-        <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Prefer email? Open mail app</a>
+        <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Prefer email? Open your mail
+            app</a>
 
         <div class="mil-footer">
             <div class="mil-flag"><span></span><span></span></div>
@@ -737,23 +738,21 @@
             <button class="back-btn" onclick="closeOverlay('how')">
                 <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
             </button>
-            <span class="overlay-title">How it works?</span>
+            <span class="overlay-title">How does it work?</span>
         </div>
         <div class="overlay-body">
             <h3>Ride with your pack</h3>
-            <p>Shurp is a community where empty seats become shared trips — drivers and passengers simply split the cost
-                of the road.</p>
-            <h3>Real talk, real savings</h3>
-            <p>We've ditched platform fees and commissions so every cent stays in your pocket. No middleman, no markup.
-            </p>
+            <p>Shurp is a community where empty seats become shared trips — drivers and passengers split the cost of the
+                road.</p>
+            <h3>Real savings</h3>
+            <p>We've ditched platform fees and commissions so every cent stays in your pocket.</p>
             <h3>As easy as it looks</h3>
-            <p>Search for your route, chat with your travel buddy, and settle the fuel contribution directly when you
-                meet.</p>
-            <h3>Why we don't handle payments</h3>
-            <p>To keep Shurp free for everyone, we stay out of the middle. Settling costs directly with your driver
-                avoids extra fees and keeps the experience peer-to-peer.</p>
-            <p class="note">Shurp is a platform for cost-sharing, not a commercial transport service. All arrangements
-                and payments are made solely between users.</p>
+            <p>Search for your route, message your travel buddy, and settle fuel costs when you meet.</p>
+            <h3>Why we don't process payments</h3>
+            <p>No commission fees. Settling directly with your driver lets Shurp stay a free tool for everyone. Simple,
+                fair, and without middlemen.</p>
+            <p class="note">Shurp is a cost-sharing platform, not a commercial transport service. All payments happen
+                directly between users.</p>
         </div>
     </div>
 
@@ -766,20 +765,17 @@
             <span class="overlay-title">Searching rides</span>
         </div>
         <div class="overlay-body">
-            <h3>The Classic (Single) Ride</h3>
-            <p>One-on-one match — one driver, one route, one seat waiting for you.</p>
-            <h3>Your Pack Ride</h3>
-            <p>When you see a "stack" with multiple drivers, you have a pack of Shurpers. More options, faster match.
+            <h3>The classic ride</h3>
+            <p>One-on-one — one driver, one route, one seat.</p>
+            <h3>Choose from your pack</h3>
+            <p>Often several drivers take the same route. Pick from available rides and send your request with one tap.
             </p>
-            <h3>Many birds, one tap</h3>
-            <p>Your request goes to the whole group at once. First come, first served — as soon as one driver accepts,
-                the ride is yours and you can start chatting.</p>
-            <h3>How to find your ride</h3>
+            <h3>How to find a ride</h3>
             <ul>
-                <li>Enter your origin and destination</li>
-                <li>Set your preferred departure time</li>
-                <li>Adjust the time window and detour radius</li>
-                <li>Tap Search — Shurp does the rest</li>
+                <li>Start in search</li>
+                <li>-> Enter origin and destination</li>
+                <li>-> Choose your preferred departure time</li>
+                <li>-> Tap Search</li>
             </ul>
         </div>
     </div>
@@ -793,20 +789,13 @@
             <span class="overlay-title">Driving with Shurp</span>
         </div>
         <div class="overlay-body">
-            <h3>The Magic advantage</h3>
-            <p>Let the "Magic button" handle your regular commute automatically. It puts your routine on the map so you
-                can focus on the playlist while we find your pack.</p>
-            <h3>Two ways to roll</h3>
-            <p>Use <strong>Magic button</strong> for the daily grind, or set a <strong>Preset Ride</strong> for one-off
-                trips where you have a specific seat to fill.</p>
-            <h3>Total privacy</h3>
-            <p>Your regular routes are for your eyes only — invisible to the public until you decide to accept a ride
-                request.</p>
-            <h3>Zero commitment drama</h3>
-            <p>You only commit to a drive when you say yes to an offer. It's always your car, your rules.</p>
+            <h3>One button, all routes</h3>
+            <p>Create a one-off ride or all your regular commutes automatically with one tap. Pick the route, days, and
+                times you usually drive and add them with one button. Pause or change anytime.</p>
+            <h3>Zero commitment, zero stress</h3>
+            <p>You only commit when you say yes to an offer. Your car — your rules.</p>
             <h3>Setting the price</h3>
-            <p>Shurp calculates a fair cost-sharing amount based on fuel prices and route distance. You can adjust
-                within the allowed range — drivers cannot charge more than actual costs.</p>
+            <p>Shurp calculates a fair cost-sharing amount based on fuel prices and route distance.</p>
         </div>
     </div>
 
@@ -820,20 +809,16 @@
         </div>
         <div class="overlay-body">
             <h3>Real IDs, real people</h3>
-            <p>Every driver is verified through Didit ID so you know you're riding with a verified member of the
-                community.</p>
-            <h3>Your data is a vault</h3>
-            <p>We encrypt your profile and sensitive info because your privacy isn't up for debate. Sensitive data is
-                never stored in plain text.</p>
+            <p>Verified drivers are verified through Didit ID driver's licence verification — know who you're riding
+                with.</p>
+            <h3>Your data is safe</h3>
+            <p>Your profile's sensitive data is protected because your privacy isn't up for debate.</p>
             <h3>The "I'm almost there" link</h3>
-            <p>Tap a button to send your live location to your pack on WhatsApp so they can watch you arrive in
-                real-time.</p>
+            <p>Share your location via WhatsApp. Easier to meet up and easier to share with your pack.</p>
             <h3>Good vibes only</h3>
-            <p>Our rating system keeps the community awesome — it's how we reward the legends and filter out the rest.
-            </p>
+            <p>Our rating system keeps the community great — that's how we reward the legends.</p>
             <h3>The No-Ghosting rule</h3>
-            <p>Trust is a two-way street. Once a request is accepted, both sides are committed to a smooth trip.
-                Frequent no-shows affect your rating and platform access.</p>
+            <p>Trust goes both ways. Once a request is confirmed, both sides are committed to a good trip.</p>
         </div>
     </div>
 
@@ -843,30 +828,31 @@
             <button class="back-btn" onclick="closeOverlay('faq-ver')">
                 <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
             </button>
-            <span class="overlay-title">Verification &amp; Safety</span>
+            <span class="overlay-title">Verification &amp; safety</span>
         </div>
         <div class="overlay-body">
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">How does driver verification work?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">We use Didit ID — a secure identity verification service. Drivers complete a quick ID
-                    check and receive a verified badge. We don't store your document numbers, only an encrypted
-                    verification status.</div>
+                <div class="faq-a">We use Didit ID to verify the driver's licence and identity. After verification,
+                    drivers get a badge on their profile. We don't store document numbers, only an encrypted
+                    verification
+                    status.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">Do passengers need to verify?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Passengers don't need ID verification to search and book rides. However, drivers may
-                    choose to verify your identity before the trip — that's their right.</div>
+                <div class="faq-a">Passengers don't need ID verification to search for rides. For drivers' peace of mind
+                    and a safer community, we also recommend voluntary ID verification for passengers.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFaq(this)">What if I feel unsafe during a ride?<img
+                <div class="faq-q" onclick="toggleFaq(this)">What if something goes wrong during a ride?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">In an emergency, always contact local authorities first. After the trip, use the
-                    Report function in the app. We take all safety reports seriously.</div>
+                <div class="faq-a">In an emergency, always contact emergency services. After the trip, use the Report
+                    function in the app.</div>
             </div>
         </div>
     </div>
@@ -885,22 +871,23 @@
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
                 <div class="faq-a">Only what's necessary: your name, phone number, profile photo (optional), and route
-                    data for matching. We never track your location continuously or in the background.</div>
+                    data for matching. We never track your location in the background.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">Can other users see my personal data?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Your public profile shows first name, photo, car info, and rating — nothing more.
-                    Last name and phone are only shared with your confirmed ride partner.</div>
+                <div class="faq-a">Your public profile shows only your first name, photo, car info, and rating. Last
+                    name
+                    and phone are shared only with your confirmed ride partner.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">How do I delete my account?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Settings → Account → Delete account. Personal data is permanently removed from active
-                    systems immediately. See our <a href="privacy">Privacy Policy</a> for the full retention schedule.
-                </div>
+                <div class="faq-a">Settings → Account → Delete account. Personal data is permanently deleted. Full
+                    details
+                    in our <a href="privacy">Privacy Policy</a>.</div>
             </div>
         </div>
     </div>
@@ -915,19 +902,19 @@
         </div>
         <div class="overlay-body">
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFaq(this)">Is there really no catch?<img
+                <div class="faq-q" onclick="toggleFaq(this)">No hidden catches?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">No catch, no commissions, no drama. Every cent of the fuel contribution stays between
-                    driver and passenger. We keep the lights on through community "Cloud Coffee" donations and some
-                    route-based signposts from places worth a visit.</div>
+                <div class="faq-a">Exactly — no commissions or middlemen. 100% of the ride cost stays with the driver.
+                    Shurp is supported by voluntary "Cloud Coffee" donations and roadside points of interest (ads).
+                </div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">Does Shurp take a cut from the ride?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Zero. Shurp doesn't process payments at all — all cost-sharing is settled directly
-                    between driver and passenger when you meet.</div>
+                <div class="faq-a">Zero. Shurp doesn't process payments — all settlements happen directly between driver
+                    and passenger when you meet.</div>
             </div>
         </div>
     </div>
@@ -945,8 +932,8 @@
                 <div class="faq-q" onclick="toggleFaq(this)">Can I add more than one car?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Absolutely. List multiple vehicles and pick the one you're rolling in for each trip.
-                    Your garage lives in profile settings and is a tap away in the Drive section.</div>
+                <div class="faq-a">Sure. Add multiple cars and pick the one you need for each ride. Your garage is in
+                    profile settings and the Drive section.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">Can I edit a ride after posting?<img
@@ -958,15 +945,15 @@
                 <div class="faq-q" onclick="toggleFaq(this)">How do I change a booked ride?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Booked ride details are locked to avoid confusion. Write to your passenger(s) in chat
-                    and let them know directly.</div>
+                <div class="faq-a">Booked rides can't be edited anymore. Message your passenger(s) in chat if something
+                    needs to change.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">How do I delete a booked ride?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Let your passengers know, remove them one by one via the app, then the ride is free
-                    to edit or delete.</div>
+                <div class="faq-a">Let passengers know, remove them one by one in the app — then you can edit or delete
+                    the ride.</div>
             </div>
         </div>
     </div>
@@ -981,26 +968,26 @@
         </div>
         <div class="overlay-body">
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFaq(this)">What if I need to cancel?<img
+                <div class="faq-q" onclick="toggleFaq(this)">What if I need to cancel a ride?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Use the in-app chat to let your travel buddy know as soon as possible. Since drivers
-                    are already heading that way for their own commute, a cancellation isn't a disaster — but
-                    communication is key.</div>
+                <div class="faq-a">Use in-app chat to let your travel buddy know as soon as you can. Cancelling isn't a
+                    disaster, but it's great if you give advance notice.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">What if someone doesn't show up?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">We call that "ghosting" — a major vibe-killer. Frequent no-shows tank your rating and
-                    we keep Shurp legend-only by rewarding people who actually show up.</div>
+                <div class="faq-a">We call that "ghosting" — a serious community violation. Frequent no-shows lower your
+                    rating.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFaq(this)">How do I pay for the fuel contribution?<img
+                <div class="faq-q" onclick="toggleFaq(this)">How do I pay for fuel?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">All cost-sharing happens directly between you and your travel buddy when you meet.
-                    See our <a href="terms">Terms &amp; Conditions</a> for the full breakdown.</div>
+                <div class="faq-a">All payments happen directly between you and your travel buddy when you meet. See our
+                    <a href="terms">Terms of Use</a> for full details.
+                </div>
             </div>
         </div>
     </div>
@@ -1018,22 +1005,22 @@
                 <div class="faq-q" onclick="toggleFaq(this)">How does the rating system work?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">After each completed trip, both driver and passenger can leave a rating. Ratings are
-                    averaged over time and visible on your public profile.</div>
+                <div class="faq-a">After each completed trip, both driver and passenger can rate the ride. Ratings and
+                    comments are visible on each user's profile.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">What happens if I get a bad rating?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">A single bad rating won't sink you — they average out over time. Consistently low
-                    ratings may affect your ability to match with other users.</div>
+                <div class="faq-a">One bad rating won't sink you — they even out over time. Consistently low ratings may
+                    affect your matching opportunities.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFaq(this)">How do I report a bad experience?<img
+                <div class="faq-q" onclick="toggleFaq(this)">How do I report if something went wrong?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Use the Report button on the user's profile or within the ride screen. All reports
-                    are reviewed by our team.</div>
+                <div class="faq-a">Use the Report button on the user's profile or in the message screen. All reports are
+                    reviewed.</div>
             </div>
         </div>
     </div>
