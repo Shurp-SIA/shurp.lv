@@ -654,6 +654,7 @@
         <div id="turnstile-container" class="turnstile-container"></div>
         <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Labāk e-pastā? Atvērt e-pasta
             lietotni</a>
+        <a class="mail-fallback" id="safe-whatsapp" href="#"></a>
         <div class="mil-footer">
             <div class="mil-flag"><span></span><span></span></div>
             <p>Made in Latvia</p>
@@ -1168,6 +1169,11 @@
         }
         window.addEventListener('load', function () {
             updateCharCounter();
+            var whatsappLink = document.getElementById('safe-whatsapp');
+            if (whatsappLink) {
+                whatsappLink.href = 'https://wa.me/' + '371' + '22477949';
+                whatsappLink.textContent = 'Jautā ar WhatsApp · wa.me/' + '371' + '22477949';
+            }
             if (window.turnstile) {
                 renderTurnstileOnce();
             } else {

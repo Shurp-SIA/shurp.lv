@@ -719,6 +719,7 @@
         <div id="turnstile-container" class="turnstile-container"></div>
         <a class="mail-fallback" href="#" onclick="openMailFallback(); return false;">Prefer email? Open your mail
             app</a>
+        <a class="mail-fallback" id="safe-whatsapp" href="#"></a>
 
         <div class="mil-footer">
             <div class="mil-flag"><span></span><span></span></div>
@@ -1261,6 +1262,11 @@
         }
         window.addEventListener('load', function () {
             updateCharCounter();
+            var whatsappLink = document.getElementById('safe-whatsapp');
+            if (whatsappLink) {
+                whatsappLink.href = 'https://wa.me/' + '371' + '22477949';
+                whatsappLink.textContent = 'Send feedback in WhatsApp · wa.me/' + '371' + '22477949';
+            }
             if (window.turnstile) {
                 renderTurnstileOnce();
             } else {
