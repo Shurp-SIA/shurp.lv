@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shurp</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://shurp.lv/get" />
+
+    <!-- Minimal critical CSS for loader -->
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: #125E8A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        .wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .loader {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .message {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .message-en {
+            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+        }
+
+        .fallback {
+            margin-top: 28px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .fallback-en {
+            display: block;
+            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="loader" aria-hidden="true"></div>
+        <p class="message">Novirzām uz veikalu...</p>
+        <p class="message-en">Redirecting to the store...</p>
+        <a id="fallback-link" class="fallback" href="https://shurp.lv/lv/">
+            Turpināt manuāli
+            <span class="fallback-en">Continue manually</span>
+        </a>
+    </div>
+
+    <!-- No-JS fallback -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=https://shurp.lv/lv/" />
+    </noscript>
+
+    <!-- Device-detection redirect -->
+    <script>
+        (function () {
+            var IOS_URL = 'https://apps.apple.com/lv/app/shurp/id6760924489';
+            var ANDROID_URL = 'https://play.google.com/store/apps/details?id=lv.shurp.app&pcampaignid=web_share';
+            var DEFAULT_URL = 'https://shurp.lv/lv/';
+
+            try {
+                var ua = navigator.userAgent || navigator.vendor || '';
+
+                var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+                var isAndroid = /android/i.test(ua);
+
+                var targetUrl = isIOS ? IOS_URL : (isAndroid ? ANDROID_URL : DEFAULT_URL);
+
+                var fallbackLink = document.getElementById('fallback-link');
+                if (fallbackLink) {
+                    fallbackLink.href = targetUrl;
+                }
+
+                setTimeout(function () {
+                    window.location.href = targetUrl;
+                }, 400);
+            } catch (e) {
+                window.location.href = DEFAULT_URL;
+            }
+        })();
+    </script>
+</body>
+
+</html>
