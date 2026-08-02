@@ -587,6 +587,66 @@
         .lang-switch a:hover {
             color: var(--c-primary);
         }
+
+        .help-video {
+            margin: 0 auto 20px;
+            width: min(220px, 70%);
+        }
+
+        .help-phone {
+            background: #000;
+            border-radius: 1.8rem;
+            padding: 8px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+        }
+
+        .help-phone-inner {
+            border-radius: 1.4rem;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .lite-yt {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .lite-yt img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lite-yt-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .lite-yt-play svg {
+            width: 52px;
+            height: 52px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+        }
+
+        .lite-yt iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 
@@ -632,6 +692,12 @@
             <a class="help-row" onclick="openOverlay('safety'); return false;" href="#">
                 <span class="row-icon"><img src="../assets/icons/icon_verified.svg" class="icon-primary" alt=""></span>
                 <span class="row-label">Safety</span>
+                <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
+            </a>
+
+            <a class="help-row" onclick="openOverlay('share'); return false;" href="#">
+                <span class="row-icon"><img src="../assets/icons/icon_share.svg" class="icon-primary" alt=""></span>
+                <span class="row-label">Share Shurp</span>
                 <img src="../assets/icons/icon_right_chevron.svg" class="row-chevron icon-muted" alt="">
             </a>
 
@@ -742,16 +808,31 @@
             <span class="overlay-title">How does it work?</span>
         </div>
         <div class="overlay-body">
-            <h3>Ride with your pack</h3>
-            <p>Shurp is a community where empty seats become shared trips — drivers and passengers split the cost of the
-                road.</p>
-            <h3>Real savings</h3>
-            <p>We've ditched platform fees and commissions so every cent stays in your pocket.</p>
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="moDcayN93ao" data-title="What is Shurp?">
+                            <img src="https://i.ytimg.com/vi/moDcayN93ao/hqdefault.jpg" alt="What is Shurp?"
+                                loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Ride with the pack</h3>
+            <p>Shurp connects people going the same way — not a taxi, but everyday people sharing road costs. Simpler
+                than chat groups, everything in one place.</p>
+            <h3>Zero commissions</h3>
+            <p>Sign up and use it safely for free. No commissions — every cent stays with you and your travel buddy.</p>
             <h3>As easy as it looks</h3>
-            <p>Search for your route, message your travel buddy, and settle fuel costs when you meet.</p>
-            <h3>Why we don't process payments</h3>
-            <p>No commission fees. Settling directly with your driver lets Shurp stay a free tool for everyone. Simple,
-                fair, and without middlemen.</p>
+            <p>Search your route, message, and settle fuel when you meet.</p>
             <p class="note">Shurp is a cost-sharing platform, not a commercial transport service. All payments happen
                 directly between users.</p>
         </div>
@@ -766,17 +847,37 @@
             <span class="overlay-title">Searching rides</span>
         </div>
         <div class="overlay-body">
-            <h3>The classic ride</h3>
-            <p>One-on-one — one driver, one route, one seat.</p>
-            <h3>Choose from your pack</h3>
-            <p>Often several drivers take the same route. Pick from available rides and send your request with one tap.
-            </p>
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="Oo3XkZRLVaE" data-title="Passenger guide">
+                            <img src="https://i.ytimg.com/vi/Oo3XkZRLVaE/hqdefault.jpg" alt="Passenger guide"
+                                loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <h3>How to find a ride</h3>
             <ul>
-                <li>Start in search</li>
-                <li>-> Enter origin and destination</li>
-                <li>-> Choose your preferred departure time</li>
-                <li>-> Tap Search</li>
+                <li>Enter From, To, and When</li>
+                <li>Time is optional</li>
+                <li>Check the profile and tap Request ride</li>
+            </ul>
+            <h3>After confirmation</h3>
+            <p>Chat or use WhatsApp. Rides end automatically — then leave a rating.</p>
+            <h3>Tips if nothing turns up</h3>
+            <ul>
+                <li>Search only To if timing does not matter</li>
+                <li>Turn on route alerts</li>
+                <li>Share with friends in chats and socials</li>
             </ul>
         </div>
     </div>
@@ -790,13 +891,33 @@
             <span class="overlay-title">Driving with Shurp</span>
         </div>
         <div class="overlay-body">
-            <h3>One button, all routes</h3>
-            <p>Create a one-off ride or all your regular commutes automatically with one tap. Pick the route, days, and
-                times you usually drive and add them with one button. Pause or change anytime.</p>
-            <h3>Zero commitment, zero stress</h3>
-            <p>You only commit when you say yes to an offer. Your car — your rules.</p>
-            <h3>Setting the price</h3>
-            <p>Shurp calculates a fair cost-sharing amount based on fuel prices and route distance.</p>
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="WN_r2wIlLv8" data-title="Driver guide">
+                            <img src="https://i.ytimg.com/vi/WN_r2wIlLv8/hqdefault.jpg" alt="Driver guide"
+                                loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Add a ride</h3>
+            <p>Tap Add ride, enter where from, where to, and when. You can set a recurring ride by weekdays so you never
+                have to post the same trip again.</p>
+            <h3>Seats, price and sharing</h3>
+            <p>Choose free seats and price (including free). Share with one tap in chats and socials.</p>
+            <h3>Requests and chat</h3>
+            <p>Several passengers can request at once — you approve based on profile and reviews. Chat, WhatsApp, send a
+                photo or location. After the trip, leave a rating.</p>
+            <p class="note">Make sure notifications are on — that is how you hear about new requests.</p>
         </div>
     </div>
 
@@ -809,17 +930,69 @@
             <span class="overlay-title">Safety and trust</span>
         </div>
         <div class="overlay-body">
-            <h3>Real IDs, real people</h3>
-            <p>Verified drivers are verified through Didit ID driver's licence verification — know who you're riding
-                with.</p>
-            <h3>Your data is safe</h3>
-            <p>Your profile's sensitive data is protected because your privacy isn't up for debate.</p>
-            <h3>The "I'm almost there" link</h3>
-            <p>Share your location via WhatsApp. Easier to meet up and easier to share with your pack.</p>
-            <h3>Good vibes only</h3>
-            <p>Our rating system keeps the community great — that's how we reward the legends.</p>
-            <h3>The No-Ghosting rule</h3>
-            <p>Trust goes both ways. Once a request is confirmed, both sides are committed to a good trip.</p>
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="jN-qb3nDPMY" data-title="Safety">
+                            <img src="https://i.ytimg.com/vi/jN-qb3nDPMY/hqdefault.jpg" alt="Safety" loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>1. Profiles</h3>
+            <p>Check the name and photo — it might be someone you already know.</p>
+            <h3>2. Reviews</h3>
+            <p>See how others rated riding with this person before you go.</p>
+            <h3>3. Document verification</h3>
+            <p>GDPR-safe identity verification is optional, but we recommend it — it shows you are a real person.</p>
+            <h3>4. Chat and reporting</h3>
+            <p>In-app chat and WhatsApp coordination. If something is not OK — report the user. All reports are
+                reviewed,
+                and rule-breakers lose access.</p>
+            <p class="note">Carpooling is only as good as its community — and we build that community ourselves.</p>
+        </div>
+    </div>
+
+    <!-- SHARE -->
+    <div class="overlay" id="overlay-share">
+        <div class="overlay-bar">
+            <button class="back-btn" onclick="closeOverlay('share')">
+                <img src="../assets/icons/icon_back.svg" class="icon-primary" alt="back">
+            </button>
+            <span class="overlay-title">Share Shurp</span>
+        </div>
+        <div class="overlay-body">
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="pkY__nKA330" data-title="Share at 200%">
+                            <img src="https://i.ytimg.com/vi/pkY__nKA330/hqdefault.jpg" alt="Share at 200%"
+                                loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Share at 200%</h3>
+            <p>Sharing is the best way to show you are a real person — you share with people who already know you.</p>
+            <h3>One tap</h3>
+            <p>Use built-in sharing with one tap. Sharing gives you a better chance of finding a ride mate.</p>
+            <p class="note">Tell others and ride with the pack.</p>
         </div>
     </div>
 
@@ -902,13 +1075,30 @@
             <span class="overlay-title">Is Shurp free to use?</span>
         </div>
         <div class="overlay-body">
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="NZCs-wBUye8" data-title="Is Shurp free?">
+                            <img src="https://i.ytimg.com/vi/NZCs-wBUye8/hqdefault.jpg" alt="Is Shurp free?"
+                                loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">No hidden catches?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
                         style="transform:rotate(-90deg)" alt=""></div>
-                <div class="faq-a">Exactly — no commissions or middlemen. 100% of the ride cost stays with the driver.
-                    Shurp is supported by voluntary "Cloud Coffee" donations and roadside points of interest (ads).
-                </div>
+                <div class="faq-a">Exactly — no commissions or middlemen. The app is free, and there are no fees for
+                    posting rides. 100% of the ride cost stays with the driver.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">Does Shurp take a cut from the ride?<img
@@ -916,6 +1106,13 @@
                         style="transform:rotate(-90deg)" alt=""></div>
                 <div class="faq-a">Zero. Shurp doesn't process payments — all settlements happen directly between driver
                     and passenger when you meet.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">How can I support the project?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Rate the app on the App Store or Play Store, share your experience on socials, or
+                    optionally tip under Support project in your profile.</div>
             </div>
         </div>
     </div>
@@ -929,6 +1126,31 @@
             <span class="overlay-title">Car &amp; Profile management</span>
         </div>
         <div class="overlay-body">
+            <div class="help-video">
+                <div class="help-phone">
+                    <div class="help-phone-inner">
+                        <div class="lite-yt" data-id="OXdvYcBVSxA" data-title="Perfect profile">
+                            <img src="https://i.ytimg.com/vi/OXdvYcBVSxA/hqdefault.jpg" alt="Perfect profile"
+                                loading="lazy">
+                            <span class="lite-yt-play" aria-hidden="true">
+                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                        fill="#FA7E61" />
+                                    <path d="M45 24L27 14v20" fill="#fff" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)">What should I fill in on my profile?<img
+                        src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
+                        style="transform:rotate(-90deg)" alt=""></div>
+                <div class="faq-a">Your name and a short bio. A phone number helps WhatsApp handoff. Document
+                    verification is optional but builds trust.</div>
+            </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFaq(this)">Can I add more than one car?<img
                         src="../assets/icons/icon_left_chevron.svg" class="faq-chevron icon-muted"
@@ -1056,6 +1278,34 @@
             });
             if (!wasOpen) item.classList.add('open');
         }
+
+        function activateLiteYt(el) {
+            if (el.querySelector('iframe')) return;
+            var id = el.getAttribute('data-id');
+            var title = el.getAttribute('data-title') || 'Shurp video';
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + id
+                + '?autoplay=1&playsinline=1&rel=0&cc_load_policy=1&cc_lang_pref=en';
+            iframe.title = title;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.allowFullscreen = true;
+            el.innerHTML = '';
+            el.appendChild(iframe);
+        }
+
+        document.querySelectorAll('.lite-yt').forEach(function (el) {
+            el.setAttribute('role', 'button');
+            el.setAttribute('tabindex', '0');
+            el.setAttribute('aria-label', 'Play: ' + (el.getAttribute('data-title') || 'video'));
+            el.addEventListener('click', function () { activateLiteYt(el); });
+            el.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    activateLiteYt(el);
+                }
+            });
+        });
+
         var HELP_ENDPOINT = 'https://okyprkffbuorrtlhnplf.supabase.co/functions/v1/help-request';
         var TURNSTILE_SITEKEY = '0x4AAAAAACjXgi-e6gTBacXk';
         var MAX_MESSAGE_LENGTH = 2000;
