@@ -4,7 +4,9 @@
 [![Status](https://img.shields.io/badge/Status-Lobby_Live-FA7E61)]()
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey)]()
 
-**[Shurp](https://www.shurp.lv)** ir digitāla kopbraukšanas (*carpooling*) platforma, kurā mēs braucam kopā. Shurp savieno autovadītājus un pasažierus Rīgā, Latvijā un Baltijā. Mūsu mērķis ir padarīt mobilitāti lētāku, zaļāku un draudzīgāku, dalot ceļu un izmaksas bez slēptām komisijas maksām.
+> **GitHub repo description:** Shurp — Braucam kopā! Latvijas bezmaksas kopbraukšanas lietotne. Alternatīva tādiem transporta veidiem kā autobuss un vilciens. | Shurp is a digital carpooling platform for Riga and Latvia.
+
+**[Shurp](https://www.shurp.lv)** ir digitāla kopbraukšanas (*carpooling*) platforma, kurā mēs braucam kopā. Alternatīva tādiem transporta veidiem kā autobuss un vilciens. Shurp savieno autovadītājus un pasažierus Rīgā, Latvijā un Baltijā. Mūsu mērķis ir padarīt mobilitāti lētāku, zaļāku un draudzīgāku, dalot ceļu un izmaksas bez slēptām komisijas maksām.
 
 Baltijas mērogs: Shurp sākotnēji startē Latvijā, bet mūsu vīzija ir savienot visu Baltiju. Shurp ir visur, kur ir cilvēki un auto. Tikpat labi var braukt uz Rīgu, Viļņu un Tallinu, padarot ceļošanu starp kaimiņvalstīm pieejamāku.
 
@@ -35,8 +37,12 @@ Shurp ir radīts aizņemtiem cilvēkiem. Mēs zinām, ka šoferim, kurš katru d
 🧮 Tirgus cenu algoritms: Lai nebūtu jālauza galva par cipariem un Latvijas likumdevēju regulējumiem, mūsu algoritms automātiski aprēķina brauciena maksimālo pieļaujamo cenu. 
 
 ## 📈 SEO & Topics
-Mūsu digitālā klātbūtne ir optimizēta Latvijas tirgum, izmantojot viedos atslēgvārdus:
-`kopbraukšana`, `carpooling latvia`, `riga transport`, `lēti braucieni`, `dali ceļu`.
+Mūsu digitālā klātbūtne ir optimizēta Latvijas tirgum, īpaši meklējumiem par **autobusu** un **vilcienu** kā alternatīvu kopbraukšanai:
+`šurp`, `kopbraukšana`, `autobuss`, `vilciens`, `autobuss alternatīva`, `vilciens alternatīva`, `carpooling latvia`, `dali ceļu`, `braucam kopā`.
+
+**Meta description (LV):** Shurp — Latvijas bezmaksas kopbraukšanas (carpooling) lietotne. Alternatīva tādiem transporta veidiem kā autobuss un vilciens. Dali ceļu un degvielu bez komisijas Rīgā, Pierīgā un visā Latvijā.
+
+**Ieteicamie GitHub topics:** `šurp`, `kopbrauksana`, `autobuss`, `vilciens`, `autobuss-alternativa`, `vilciens-alternativa`, `transports`, `latvija`, `riga`, `carpooling`, `ridesharing`
 
 ## 🔗 Saites un Juridiskā info
 - **Mājaslapa:** [shurp.lv](https://www.shurp.lv)
@@ -91,8 +97,8 @@ Shurp is created for busy people. We know that a driver who commutes to work eve
 🧮 Market Price Algorithm: To avoid worrying about numbers or Latvian legislative regulations, our algorithm automatically calculates the maximum allowable price for the ride.
 
 📈 SEO & Topics
-Our digital presence is optimized for the Latvian market using smart keywords:
-carpooling, carpooling latvia, riga transport, cheap rides, share the road.
+Our digital presence is optimized for the Latvian market, especially searches for **bus** and **train** alternatives to carpooling:
+šurp, carpooling, carpooling latvia, bus alternative, train alternative, autobuss, vilciens, share the road, ride sharing latvia.
 
 🔗 Links and Legal Info
 Website: shurp.lv
