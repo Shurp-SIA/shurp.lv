@@ -19,7 +19,7 @@
     }
 
     .legal-section p {
-        @apply opacity-70 mb-4 leading-relaxed;
+        @apply opacity-70 mb-4 leading-relaxed text-justify;
     }
 
     /* Important: Ensure strong tags override the paragraph opacity */
@@ -32,7 +32,11 @@
     }
 
     .compact-list li {
-        @apply mb-2 relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-[#125E8A] before:font-bold;
+        @apply mb-2 relative pl-6 text-justify before:content-['•'] before:absolute before:left-0 before:text-[#125E8A] before:font-bold;
+    }
+
+    .legal-clause-body {
+        @apply text-justify;
     }
 
     .highlight-box {
