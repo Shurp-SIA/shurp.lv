@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="application/ld:json">
+    <script type="application/ld+json">
             {
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
@@ -37,8 +37,8 @@
               ],
               "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "5",
-                "ratingCount": "1"
+                "ratingValue": "4.3",
+                "ratingCount": "35"
               }
             }
             </script>
@@ -114,9 +114,14 @@
     <meta name="keywords"
         content="šurp, Shurp, kopbraukšana, kopbraukšana Latvija, kopbraukšana Rīga, braucam kopā, carpooling Latvija, dali degvielu, dali ceļu, līdzbraucēji, koplietošanas auto, carsharing alternatīva, autobuss alternatīva, autobuss, vilciens, Pierīga, bez komisijas">
     <meta name="author" content="Shurp SIA">
-    <link rel="canonical" href="https://shurp.lv/lv" />
+    <link rel="canonical" href="https://shurp.lv/lv/" />
+    <link rel="alternate" href="https://shurp.lv/lv/" hreflang="lv" />
+    <link rel="alternate" href="https://shurp.lv/en/" hreflang="en" />
+    <link rel="alternate" href="https://shurp.lv/lv/" hreflang="x-default" />
 
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="lv_LV">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:url" content="https://www.shurp.lv/lv/">
     <meta property="og:title" content="Shurp | Kopbraukšana Latvijā — Brauc ar savējiem">
     <meta property="og:description"
@@ -125,6 +130,9 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shurp | Kopbraukšana Latvijā — Brauc ar savējiem">
+    <meta name="twitter:description"
+        content="Shurp — bezmaksas kopbraukšanas lietotne. Alternatīva tādiem transporta veidiem kā autobuss un vilciens — bez komisijas.">
     <meta name="twitter:image" content="https://www.shurp.lv/assets/og-image.png">
 
     <!-- Standard favicon -->
@@ -227,6 +235,15 @@
             background-color: #125E8A;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-copy {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            width: 100%;
         }
 
         .hero {
@@ -234,6 +251,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             position: relative;
+            width: 100%;
         }
 
         .soft-blue-bg {
@@ -324,7 +342,7 @@
             height: auto;
             pointer-events: none;
             opacity: 0.95;
-            z-index: 0;
+            z-index: 5;
         }
 
         @media (max-width: 1024px) {
@@ -437,6 +455,156 @@
         .tutorial-link-card:hover .tutorial-link-more {
             color: #0f4f76;
         }
+
+        .reviews-banner {
+            background-color: #E6F1F7;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 2.75rem 0 0.5rem;
+            overflow: hidden;
+        }
+
+        .reviews-scroller {
+            overflow: hidden;
+            cursor: grab;
+            touch-action: none;
+            -webkit-user-select: none;
+            user-select: none;
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .reviews-scroller.is-paused,
+        .reviews-scroller.is-dragging {
+            cursor: grabbing;
+        }
+
+        .reviews-track {
+            display: flex;
+            align-items: center;
+            gap: 1.35rem;
+            width: max-content;
+            padding: 1.75rem 1.5rem 2.25rem;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .review-item {
+            flex: 0 0 auto;
+            margin: 0;
+            width: min(17rem, 74vw);
+            animation: review-bob 5.4s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
+
+        .review-item:nth-child(3n+1) {
+            animation-duration: 4.8s;
+            animation-delay: -0.6s;
+        }
+
+        .review-item:nth-child(3n+2) {
+            animation-duration: 6.2s;
+            animation-delay: -2.1s;
+        }
+
+        .review-item:nth-child(3n) {
+            animation-duration: 5.5s;
+            animation-delay: -3.4s;
+        }
+
+        .reviews-scroller.is-paused .review-item {
+            animation-play-state: paused;
+        }
+
+        @keyframes review-bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .review-bubble {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.35rem;
+            padding: 0.9rem 1.05rem 0.85rem;
+            border-radius: 1.2rem 1.2rem 1.2rem 0.35rem;
+            background: rgba(255, 249, 245, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow:
+                0 16px 36px rgba(18, 94, 138, 0.12),
+                0 3px 10px rgba(18, 94, 138, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            will-change: opacity, transform, filter;
+            transition: box-shadow 0.45s ease;
+        }
+
+        .review-bubble::after {
+            content: "";
+            position: absolute;
+            left: 1.05rem;
+            bottom: -7px;
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 249, 245, 0.96);
+            border-right: 1px solid rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            transform: rotate(45deg);
+            border-radius: 2px;
+        }
+
+        .reviews-scroller.is-settling .review-bubble {
+            box-shadow:
+                0 20px 42px rgba(18, 94, 138, 0.16),
+                0 4px 12px rgba(18, 94, 138, 0.08);
+        }
+
+        .review-stars {
+            letter-spacing: 0.12em;
+            font-size: 0.72rem;
+            line-height: 1;
+            color: #FA7E61;
+        }
+
+        .review-text {
+            margin: 0;
+            font-size: 0.86rem;
+            line-height: 1.4;
+            font-weight: 450;
+            color: rgba(31, 41, 51, 0.88);
+            white-space: normal;
+        }
+
+        .review-name {
+            display: block;
+            margin-top: 0.15rem;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 600;
+            color: rgba(18, 94, 138, 0.62);
+            white-space: nowrap;
+        }
+
+        .review-name::before {
+            content: "— ";
+            font-weight: 500;
+            opacity: 0.7;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reviews-track,
+            .review-item {
+                animation: none;
+            }
+
+            .reviews-scroller {
+                mask-image: none;
+                -webkit-mask-image: none;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 
@@ -448,8 +616,8 @@
         </div>
         <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
             <a href="#how-it-works" class="hover:text-white transition">Kā tas strādā</a>
-            <a href="tutorial.html" class="hover:text-white transition">Par kopbraukšanu un Shurp</a>
-            <a href="tutorial.html#faq-safety" class="hover:text-white transition">Drošība</a>
+            <a href="tutorial" class="hover:text-white transition">Par kopbraukšanu un Shurp</a>
+            <a href="tutorial#faq-safety" class="hover:text-white transition">Drošība</a>
             <a href="#legal" class="hover:text-white transition">Juridiskā info</a>
         </div>
         <div class="flex items-center gap-6">
@@ -463,10 +631,10 @@
         </div>
     </nav>
 
-    <section class="hero-section min-h-screen relative overflow-hidden pt-32 pb-20 lg:pb-12">
-        <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
-            <div class="hero min-h-[calc(100vh-8rem)]">
-                <div class="pt-12 lg:pt-24">
+    <section class="hero-section min-h-screen relative overflow-hidden pt-32">
+        <div class="hero-copy max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+            <div class="hero py-10 lg:py-16">
+                <div class="pt-6 lg:pt-10">
                     <h1
                         class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight text-white">
                         Brauc ar savējiem<br><span class="text-[#F4937C] font-medium italic"> Dali ceļu, dali
@@ -554,7 +722,7 @@
                 </div>
             </div>
 
-            <a href="tutorial.html" class="tutorial-link-card feature-card rounded-[3rem] mt-6 block">
+            <a href="tutorial" class="tutorial-link-card feature-card rounded-[3rem] mt-6 block">
                 <h3 class="text-xl md:text-2xl font-bold tracking-tight text-[#1F2933] mb-2">
                     Par kopbraukšanu un Shurp
                 </h3>
@@ -563,7 +731,25 @@
         </div>
     </section>
 
-    <section class="soft-blue-bg py-32 px-6">
+    <section class="reviews-banner soft-blue-bg" aria-label="Lietotāju atsauksmes">
+        <div class="reviews-scroller" id="reviews-scroller" tabindex="0"
+            aria-label="Ritināmās atsauksmes — pieskaries, lai apturētu">
+            <div class="reviews-track">
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Labs variants, kad pašam auto noplīsis un ar autobusu par garlaicīgu. Trāpījās normāls pipars un pa ceļam.</p></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ērti ielikt/atrast braucienus, laba ideja!</p></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Aizbraucu vienreiz ar Shurpu, viss strādā — ļoti labi, ka šādi projekti tiek ieviesti arī Latvijā.</p></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ļoti ērta un viegli lietojama bezmaksas aplikācija, kā arī ātrs tehniskais atbalsts.</p></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ētri un viegli atrast gan ceļabiedrus, gan šoferus.</p><cite class="review-name">Anna</cite></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Viss darbojas! Plānotie braucieni ir redzami un pieejami.</p></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Respekts par aplikāciju un idejas novešanu līdz reālam rezultātam.</p><cite class="review-name">Martins</cite></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ļoti laba un galvenais, ka viegli saprotama app. Laba ideja.</p><cite class="review-name">Uģis</cite></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Perfekti. Viss strādā.</p><cite class="review-name">Oskars</cite></div></blockquote>
+                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Awesome concept, works great!</p></div></blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="soft-blue-bg pt-16 pb-32 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
             <div class="md:w-1/2 text-left">
                 <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
@@ -670,6 +856,209 @@
                 }
             });
         });
+
+        (function initReviewsMarquee() {
+            var scroller = document.getElementById('reviews-scroller');
+            if (!scroller) return;
+            var track = scroller.querySelector('.reviews-track');
+            if (!track) return;
+
+            track.innerHTML = track.innerHTML + track.innerHTML;
+
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var resumeTimer = null;
+            var items = [];
+            var offset = 0;
+            var halfWidth = 0;
+            var autoSpeed = 0.28;
+            var paused = reduced;
+            var dragging = false;
+            var dragMoved = false;
+            var pointerId = null;
+            var startX = 0;
+            var startY = 0;
+            var startOffset = 0;
+            var lastX = 0;
+            var lastT = 0;
+            var velocity = 0;
+            var axisLocked = null;
+
+            function collectItems() {
+                items = Array.prototype.slice.call(track.querySelectorAll('.review-item'));
+            }
+
+            function measure() {
+                halfWidth = track.scrollWidth / 2;
+            }
+
+            function wrapOffset() {
+                if (halfWidth <= 0) return;
+                while (offset <= -halfWidth) offset += halfWidth;
+                while (offset > 0) offset -= halfWidth;
+            }
+
+            function applyOffset() {
+                wrapOffset();
+                track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
+            }
+
+            function updateFocus() {
+                var scrollerRect = scroller.getBoundingClientRect();
+                var centerX = scrollerRect.left + scrollerRect.width / 2;
+                var half = Math.max(scrollerRect.width / 2, 1);
+                var clearZone = half * 0.32;
+                var fadeEnd = half * 0.92;
+                var settling = scroller.classList.contains('is-settling');
+
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    var bubble = item.querySelector('.review-bubble');
+                    if (!bubble) continue;
+                    var rect = item.getBoundingClientRect();
+                    var itemCenter = rect.left + rect.width / 2;
+                    var absDist = Math.abs(itemCenter - centerX);
+                    var focus;
+                    if (absDist <= clearZone) {
+                        focus = 1;
+                    } else if (absDist >= fadeEnd) {
+                        focus = 0;
+                    } else {
+                        focus = 1 - (absDist - clearZone) / (fadeEnd - clearZone);
+                    }
+                    var opacity = 0.28 + focus * 0.72;
+                    var scale = 0.92 + focus * 0.08;
+                    if (settling) scale *= 1.03;
+                    var blur = (1 - focus) * 1.35;
+                    bubble.style.opacity = String(opacity);
+                    bubble.style.transform = 'scale(' + scale.toFixed(3) + ')';
+                    bubble.style.filter = blur > 0.05 ? 'blur(' + blur.toFixed(2) + 'px)' : 'none';
+                }
+            }
+
+            collectItems();
+            measure();
+            applyOffset();
+            window.addEventListener('resize', function () {
+                measure();
+                applyOffset();
+            });
+
+            if (reduced) {
+                scroller.classList.add('is-paused');
+                items.forEach(function (item) {
+                    var bubble = item.querySelector('.review-bubble');
+                    if (!bubble) return;
+                    bubble.style.opacity = '1';
+                    bubble.style.transform = 'none';
+                    bubble.style.filter = 'none';
+                });
+                return;
+            }
+
+            function pause(settling) {
+                paused = true;
+                scroller.classList.add('is-paused');
+                if (settling) scroller.classList.add('is-settling');
+                clearTimeout(resumeTimer);
+            }
+
+            function scheduleResume(ms) {
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(function () {
+                    scroller.classList.remove('is-settling');
+                    scroller.classList.remove('is-paused');
+                    paused = false;
+                    velocity = 0;
+                }, ms);
+            }
+
+            function endDrag() {
+                if (!dragging) return;
+                dragging = false;
+                axisLocked = null;
+                scroller.classList.remove('is-dragging');
+                if (pointerId !== null) {
+                    try { scroller.releasePointerCapture(pointerId); } catch (e) {}
+                    pointerId = null;
+                }
+                if (Math.abs(velocity) > 0.4) {
+                    offset += velocity * 12;
+                    applyOffset();
+                }
+                scroller.classList.add('is-settling');
+                scheduleResume(dragMoved ? 3200 : 4500);
+                dragMoved = false;
+            }
+
+            scroller.addEventListener('pointerdown', function (e) {
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                pause(true);
+                dragging = true;
+                dragMoved = false;
+                axisLocked = null;
+                pointerId = e.pointerId;
+                startX = e.clientX;
+                startY = e.clientY;
+                startOffset = offset;
+                lastX = e.clientX;
+                lastT = performance.now();
+                velocity = 0;
+                scroller.classList.add('is-dragging');
+                scroller.setPointerCapture(e.pointerId);
+            });
+
+            scroller.addEventListener('pointermove', function (e) {
+                if (!dragging || e.pointerId !== pointerId) return;
+                var dx = e.clientX - startX;
+                var dy = e.clientY - startY;
+
+                if (!axisLocked) {
+                    if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+                    axisLocked = Math.abs(dx) >= Math.abs(dy) ? 'x' : 'y';
+                    if (axisLocked === 'y') {
+                        endDrag();
+                        scheduleResume(800);
+                        return;
+                    }
+                }
+
+                if (axisLocked !== 'x') return;
+                e.preventDefault();
+                dragMoved = true;
+                var now = performance.now();
+                var dt = Math.max(now - lastT, 1);
+                velocity = (e.clientX - lastX) / dt * 16;
+                lastX = e.clientX;
+                lastT = now;
+                offset = startOffset + dx;
+                applyOffset();
+            }, { passive: false });
+
+            scroller.addEventListener('pointerup', endDrag);
+            scroller.addEventListener('pointercancel', endDrag);
+
+            scroller.addEventListener('focusin', function () {
+                pause(true);
+            });
+            scroller.addEventListener('focusout', function () {
+                if (!dragging) scheduleResume(1800);
+            });
+
+            function tick() {
+                if (!paused && !dragging) {
+                    offset -= autoSpeed;
+                    if (Math.abs(velocity) > 0.05) {
+                        offset += velocity;
+                        velocity *= 0.95;
+                    }
+                    applyOffset();
+                }
+                updateFocus();
+                requestAnimationFrame(tick);
+            }
+
+            requestAnimationFrame(tick);
+        })();
 
     </script>
 </body>
