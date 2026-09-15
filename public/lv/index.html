@@ -50,7 +50,7 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Kas ir kopbraukšana un Shurp?",
+          "name": "Par kopbraukšanu un Shurp",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Shurp ir Latvijas bezmaksas kopbraukšanas lietotne. Nevis taksis, bet cilvēki, kas brauc kopā. Atrodi vai pievieno braucienu, sarunā, brauc un norēķinies klātienē. Pieejams ikvienam Latvijā. Kopbraukšana (carpooling) ir process, kur braucam kopā tajā pašā virzienā un dalām ceļa izmaksas. Alternatīva autobusam, vilcienam, taksim un koplietošanas auto (carsharing)."
@@ -161,10 +161,18 @@
             z-index: 20;
         }
 
+        /* Mobile (stacked): equal width. Desktop (side-by-side): equal height. */
         .store-badges img {
             display: block;
             width: 9rem;
             height: auto;
+        }
+
+        @media (min-width: 640px) {
+            .store-badges img {
+                height: 3rem;
+                width: auto;
+            }
         }
 
         .nav-bar {
@@ -346,259 +354,6 @@
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .faq-accordion {
-            display: flex;
-            flex-direction: column;
-            padding-top: 0.25rem;
-        }
-
-        .faq-card {
-            position: relative;
-            background-color: #FFF9F5;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-            border-radius: 2.5rem;
-            overflow: hidden;
-            margin-top: -1.35rem;
-            z-index: 1;
-            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.45s ease,
-                background-color 0.4s ease,
-                border-color 0.4s ease;
-        }
-
-        .faq-accordion .faq-card:first-child {
-            margin-top: 0;
-        }
-
-        .faq-card:not(.open):hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.09);
-        }
-
-        .faq-card.open {
-            background-color: #0f4f76;
-            border-color: rgba(255, 255, 255, 0.14);
-            box-shadow: 0 34px 60px rgba(15, 79, 118, 0.35), 0 10px 26px rgba(0, 0, 0, 0.2);
-            transform: translateY(-6px) scale(1.012);
-            z-index: 20;
-        }
-
-        .faq-card-header {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            width: 100%;
-            padding: 1.5rem 1.75rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-            font-family: inherit;
-            color: #1F2933;
-            -webkit-tap-highlight-color: transparent;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-card-header {
-            color: #ffffff;
-        }
-
-        .faq-card-header h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-header {
-                padding: 1.75rem 2.5rem;
-            }
-
-            .faq-card-header h3 {
-                font-size: 1.4rem;
-            }
-        }
-
-        .faq-chevron {
-            flex-shrink: 0;
-            width: 1.25rem;
-            height: 1.25rem;
-            transition: transform 0.3s ease, color 0.35s ease;
-            color: #125E8A;
-        }
-
-        .faq-card.open .faq-chevron {
-            transform: rotate(180deg);
-            color: #ffffff;
-        }
-
-        .faq-card-body {
-            position: relative;
-            z-index: 2;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            padding: 0 1.75rem;
-            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, padding 0.4s ease;
-        }
-
-        .faq-card.open .faq-card-body {
-            opacity: 1;
-            padding: 0 1.75rem 1.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-body {
-                padding: 0 2.5rem;
-            }
-
-            .faq-card.open .faq-card-body {
-                padding: 0 2.5rem 2.5rem;
-            }
-        }
-
-        .faq-card-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-inner {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 2.5rem;
-            }
-        }
-
-        .faq-copy {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .faq-copy p {
-            color: rgba(31, 41, 51, 0.7);
-            font-size: 1.05rem;
-            line-height: 1.65;
-            margin-bottom: 0.85rem;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy p {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .faq-copy h4 {
-            font-size: 0.92rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color: #125E8A;
-            margin: 1.05rem 0 0.45rem;
-            transition: color 0.35s ease;
-        }
-
-        .faq-copy h4:first-of-type {
-            margin-top: 0.15rem;
-        }
-
-        .faq-card.open .faq-copy h4 {
-            color: #FA7E61;
-        }
-
-        .faq-copy ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 0.35rem;
-        }
-
-        .faq-copy ul li {
-            position: relative;
-            padding-left: 1.25rem;
-            margin-bottom: 0.45rem;
-            color: rgba(31, 41, 51, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.55;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy ul li {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .faq-copy ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.55em;
-            width: 0.4rem;
-            height: 0.4rem;
-            border-radius: 50%;
-            background: #125E8A;
-            transition: background-color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy ul li::before {
-            background: #FA7E61;
-        }
-
-        .faq-copy ul li strong {
-            font-weight: 600;
-            color: #1F2933;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy ul li strong {
-            color: #ffffff;
-        }
-
-        .faq-copy .faq-note {
-            font-size: 0.85rem;
-            font-style: italic;
-            line-height: 1.5;
-            color: rgba(31, 41, 51, 0.55);
-            margin-top: 1rem;
-            margin-bottom: 0;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy .faq-note {
-            color: rgba(255, 255, 255, 0.65);
-        }
-
-        .faq-phone {
-            flex-shrink: 0;
-            width: min(260px, 68vw);
-        }
-
-        @media (min-width: 768px) {
-            .faq-phone {
-                width: 300px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .faq-phone {
-                width: 330px;
-            }
-        }
-
-        .faq-phone .phone-shadow {
-            transform: rotate(-1.5deg);
-            box-shadow: 0 36px 70px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.1);
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-inner {
-                align-items: center;
-            }
-        }
-
         .lite-yt {
             position: relative;
             width: 100%;
@@ -640,6 +395,48 @@
             height: 100%;
             border: 0;
         }
+
+        .feature-video-pill {
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: 0 22px 48px rgba(18, 94, 138, 0.28), 0 8px 20px rgba(18, 94, 138, 0.14);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-video-pill:hover {
+            box-shadow: 0 28px 56px rgba(18, 94, 138, 0.34), 0 10px 24px rgba(18, 94, 138, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .feature-video-pill .lite-yt {
+            aspect-ratio: 16 / 9;
+            border-radius: inherit;
+            background: #0a3d5c;
+        }
+
+        .tutorial-link-card {
+            padding: 1.5rem 1.75rem 1.35rem;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .tutorial-link-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .tutorial-link-more {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #125E8A;
+        }
+
+        .tutorial-link-card:hover .tutorial-link-more {
+            color: #0f4f76;
+        }
     </style>
 </head>
 
@@ -650,9 +447,9 @@
             <a href="/lv/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
         </div>
         <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
-            <a href="#features" class="hover:text-white transition">Kā tas strādā</a>
-            <a href="#faq" class="hover:text-white transition">Jautājumi</a>
-            <a href="#safety" class="hover:text-white transition">Drošība</a>
+            <a href="#how-it-works" class="hover:text-white transition">Kā tas strādā</a>
+            <a href="tutorial.html" class="hover:text-white transition">Par kopbraukšanu un Shurp</a>
+            <a href="tutorial.html#faq-safety" class="hover:text-white transition">Drošība</a>
             <a href="#legal" class="hover:text-white transition">Juridiskā info</a>
         </div>
         <div class="flex items-center gap-6">
@@ -683,12 +480,11 @@
                         <a href="https://apps.apple.com/app/shurp/id6760924489" target="_blank"
                             rel="noopener noreferrer" class="hover:opacity-90 transition">
                             <img src="../assets/Download_on_the_App_Store_Badge_LV_RGB_blk_100317.svg"
-                                alt="Lejupielādēt App Store" width="144">
+                                alt="Lejupielādēt App Store">
                         </a>
                         <a href="https://play.google.com/store/apps/details?id=lv.shurp.app&pcampaignid=web_share"
                             target="_blank" rel="noopener noreferrer" class="hover:opacity-90 transition">
-                            <img src="../assets/GetItOnGooglePlay_Badge_Web_color_Latvian.svg" alt="Iegūt Google Play"
-                                width="144">
+                            <img src="../assets/GetItOnGooglePlay_Badge_Web_color_Latvian.svg" alt="Iegūt Google Play">
                         </a>
                     </div>
                 </div>
@@ -725,6 +521,21 @@
                     </p>
                 </div>
 
+                <div id="how-it-works" class="lg:col-span-6 feature-video-pill rounded-[3rem] overflow-hidden">
+                    <div class="lite-yt" data-id="-LjYrRCGaXc" data-title="Kā tas strādā — Shurp">
+                        <img src="../assets/promo-lv-poster.jpg" width="1280" height="720"
+                            alt="Kā tas strādā — Shurp video" loading="lazy" decoding="async">
+                        <span class="lite-yt-play" aria-hidden="true">
+                            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                    fill="#FA7E61" />
+                                <path d="M45 24L27 14v20" fill="#fff" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
                 <div
                     class="lg:col-span-6 h-auto md:h-64 feature-card rounded-[3rem] p-10 flex flex-col md:flex-row md:items-center justify-between relative overflow-hidden">
                     <div class="max-w-xl relative z-10">
@@ -742,398 +553,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="faq" class="soft-blue-bg px-6 pb-24 pt-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-10 md:mb-14">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1F2933] mb-3 leading-tight">
-                    Braukšana kopā ar <span class="shurp-blue-text">Shurp</span>
-                </h2>
-                <p class="text-base md:text-lg text-[#1F2933]/60 max-w-2xl leading-relaxed">
-                    Kopbraukšana Latvijā ikvienam — alternatīva autobusam, vilcienam, taksim un koplietošanas auto
-                    (carsharing).<br>
-                    Īsi skaidrojoši video un atbildes.
-                </p>
-            </div>
-
-            <div class="faq-accordion">
-                <article class="faq-card open" id="faq-what-is-shurp">
-                    <button type="button" class="faq-card-header" aria-expanded="true" onclick="toggleFaqCard(this)">
-                        <h3>Kas ir kopbraukšana un Shurp?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Shurp ir Latvijas bezmaksas <strong>kopbraukšanas*</strong> lietotne. Nevis taksis,
-                                    bet vienkārši cilvēki, kas brauc kopā.<br>
-                                    Atrodi vai pievieno braucienu. Sarunā. Brauc un norēķinies klātienē.<br>
-                                    Ne tikai Rīgā un Pierīgā. Shurp ir pieejams ikvienam Latvijā.</p>
-                                <h4>Kad braukt Shurp?</h4>
-                                <ul>
-                                    <li>Kad <strong>autobuss</strong> vai <strong>vilciens</strong> neiet īstajā laikā
-                                        vai bez pārsēšanās</li>
-                                    <li>Kad <strong>koplietošanas auto</strong> ir pārāk dārgs starpilsētu braucienam
-                                    </li>
-                                    <li>Kad taksis ir dārgs vai nav nemaz pieejams</li>
-                                    <li>Kad tu jau brauc ikdienā un gribi ietaupīt, dalot ceļa izmaksas</li>
-                                </ul>
-                                <h4>Kas atšķir Shurp</h4>
-                                <ul>
-                                    <li><strong>Bez komisijas</strong> — nekādu maksu par braucienu pievienošanu vai
-                                        pieteikšanos</li>
-                                    <li><strong>Viss vienuviet</strong> — meklēšana, pieprasījumi, čats un visi virzieni
-                                        tavā plaukstā</li>
-                                    <li><strong>Īsti cilvēki</strong> — izmaksu dalīšana starp reāliem cilvēkiem</li>
-                                    <li><strong>Tas NAV taksis</strong> — izmaksu dalīšana, nevis komercpārvadājums</li>
-                                    <li><strong>Droši</strong> — tikai reģistrēti lietotāji, publiski profili,
-                                        atsauksmes
-                                        un ID validācija</li>
-                                </ul>
-                                <p class="faq-note">*Kopbraukšana (carpooling) ir process, kur mēs braucam kopā tajā
-                                    pašā virzienā un dalām ceļa izmaksas.</p>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="moDcayN93ao" data-title="Kas ir Shurp?">
-                                            <img src="https://i.ytimg.com/vi/moDcayN93ao/hqdefault.jpg"
-                                                alt="Kas ir Shurp? video" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-drivers">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Kā pievienot braucienu?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Ja brauc ar tukšām sēdvietām — no Rīgas uz Liepāju, Daugavpili, Jelgavu vai tikai uz
-                                    darbu Pierīgā vai jebkur citur Latvijā — pievieno braucienu un dalies ar degvielas
-                                    izmaksām. Tavs auto, Tavi noteikumi.</p>
-                                <h4>Pievieno un atkārto</h4>
-                                <ul>
-                                    <li>Ieraksti no kurienes, uz kurieni un kad — arī starpilsētu un ikdienas pilsētas
-                                        maršrutus</li>
-                                    <li><strong>Regulārie braucieni</strong> — izvēlies nedēļas dienas un ar vienu
-                                        pieskārienu tavi braucieni vienmēr būs Shurp</li>
-                                    <li><strong>Vietas un cena</strong> — tu nosaki cenu un elastību, vari arī vest
-                                        draugus vai kaimiņus par velti</li>
-                                    <li>Pirms publicēšanas pievieno auto un aizpildi profilu</li>
-                                </ul>
-                                <h4>Pieprasījumi un saziņa</h4>
-                                <ul>
-                                    <li>Dalies ar saiti uzreiz — čati, soctīkli, kolēģi, kaimiņi</li>
-                                    <li>Apstiprini vai noraidi pieprasījumu, pirms tam redzot profilu un atsauksmes</li>
-                                    <li>Pēc apstiprinājuma — čato vai izmanto WhatsApp</li>
-                                    <li>Pēc brauciena atstāj vērtējumu — tā veidojas uzticama kopbraukšanas kopiena</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="WN_r2wIlLv8" data-title="Pamācība šoferiem">
-                                            <img src="https://i.ytimg.com/vi/WN_r2wIlLv8/hqdefault.jpg"
-                                                alt="Pamācība šoferiem" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-pax">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Kā atrast braucienu?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Meklē <strong>lētus braucienus</strong> Rīgā un Latvijā, kad sabiedriskais transports
-                                    neder: agri no rīta, vēlu vakarā, kad bez pārsēšanās ar <strong>autobusu</strong>
-                                    vai <strong>vilcienu</strong> nesanāk, vai kad vienkārši vēlies braukt ērtāk.
-                                    Shurp rāda cilvēkus, kas jau brauc Tavā virzienā.</p>
-                                <h4>Atradi un pieprasi</h4>
-                                <ul>
-                                    <li>Meklē, aizpildot: <strong>No</strong>, <strong>Uz</strong> un
-                                        <strong>Kad</strong> — (vari atstāt arī laiku neaizpildītu un meklēt «Jebkurā
-                                        laikā»)
-                                    </li>
-                                    <li>Triks: raksti tikai galamērķi, ja laiks nav svarīgs, un spied meklēt</li>
-                                    <li>Filtrē «Tikai verificētie», ja vēlies papildu uzticību</li>
-                                    <li>Viens pieskāriens var nosūtīt pieprasījumu vairākiem šoferiem</li>
-                                </ul>
-                                <h4>Ja nekas neatrodas</h4>
-                                <ul>
-                                    <li><strong>Paziņot par braucienu</strong> — atgādinājums, kad kāds ieliks to pašu
-                                        maršrutu</li>
-                                    <li>Padalies ar meklēšanu — varbūt kolēģis vai draugs brauc uz Ventspili, Bausku,
-                                        Valmieru vai Rēzekni…</li>
-                                    <li>Lētāk un elastīgāk par koplietošanas auto (carsharing), ja Tev nevajag visu auto
-                                        sev</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="Oo3XkZRLVaE" data-title="Pamācība pasažieriem">
-                                            <img src="https://i.ytimg.com/vi/Oo3XkZRLVaE/hqdefault.jpg"
-                                                alt="Pamācība pasažieriem" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-profile">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Kā izveidot uzticamu profilu?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Kopbraukšanā uzticība ir viss. Labs profils palīdz atrast līdzbraucējus ātrāk —
-                                    gan ikdienas braucienos uz darbu, gan starpilsētu maršrutā.</p>
-                                <h4>Profilā aizpildi</h4>
-                                <ul>
-                                    <li><strong>Vārds</strong> + īss «Par tevi»</li>
-                                    <li><strong>Tālrunis</strong> — privāts; redzams tikai apstiprinātajam ceļabiedram
-                                    </li>
-                                    <li><strong>Mana garāža</strong> — marka, modelis, degviela, vietas</li>
-                                    <li>Veic dokumentu validāciju, lai palielinātu uzticību citu lietotāju acīs</li>
-                                    <li>Publiskais un privātais profils ir atdalīti — Tu kontrolē, ko redz citi</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="OXdvYcBVSxA" data-title="Perfekts profils">
-                                            <img src="https://i.ytimg.com/vi/OXdvYcBVSxA/hqdefault.jpg"
-                                                alt="Perfekts profils" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-free">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Vai Shurp ir bezmaksas?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Jā. <strong>Kopbraukšanai Latvijā</strong> jābūt pieejamai ikvienam, tāpēc Shurp
-                                    lietotne un braucienu publicēšana ir <strong>bez komisijas</strong>.
-                                    Atšķirībā no takša, carsharing minūšu tarifa vai daudzām starptautiskām platformām,
-                                    Shurp neiekasē komisiju par braucieniem.</p>
-                                <h4>Kas ir bezmaksas</h4>
-                                <ul>
-                                    <li>Reģistrācija, meklēšana, pievienošana, čats</li>
-                                    <li>Norēķini notiek <strong>klātienē</strong> starp šoferi un pasažieri</li>
-                                    <li>Shurp neapstrādā brauciena maksājumus</li>
-                                </ul>
-                                <h4>Ja vēlies atbalstīt projektu</h4>
-                                <ul>
-                                    <li>Dalies ar Shurp soc. tīklos</li>
-                                    <li>Novērtē lietotni App Store vai Play Store</li>
-                                    <li>Atrodi profilā <strong>Atbalsti projektu</strong> sadaļu un veic brīvprātīgu
-                                        atbalsta maksājumu</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="NZCs-wBUye8" data-title="Vai Shurp ir bezmaksas?">
-                                            <img src="https://i.ytimg.com/vi/NZCs-wBUye8/hqdefault.jpg"
-                                                alt="Vai Shurp ir bezmaksas?" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-sharing">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Dalies uz 200%</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Kopbraukšana Latvijā vēl bieži dzīvo čata grupās, ko ar Shurp var apvienot un
-                                    vienkāršot.
-                                    Dalies uzreiz no Shurp un brauciens paliek lietotnē, bet saite aiziet pie cilvēkiem,
-                                    kas Tevi jau pazīst — kolēģiem, kaimiņiem, čata biedriem.</p>
-                                <h4>Kur dalīties</h4>
-                                <ul>
-                                    <li>Uzreiz pēc brauciena pievienošanas — viena poga</li>
-                                    <li>No brauciena kartītes</li>
-                                    <li>No tukšiem meklēšanas rezultātiem — «Hei, varbūt Tu brauc šajā virzienā?»</li>
-                                </ul>
-                                <h4>Kāpēc tas strādā</h4>
-                                <ul>
-                                    <li>Draugi reaģē ātrāk un tev uzticās</li>
-                                    <li>Tu parādi, ka esi īsts cilvēks ar reālu maršrutu</li>
-                                    <li>Daloties iegūsti lielāku iespēju atrast līdzbraucēju</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="pkY__nKA330" data-title="Dalies uz 200%">
-                                            <img src="https://i.ytimg.com/vi/pkY__nKA330/hqdefault.jpg"
-                                                alt="Dalies uz 200%" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-safety">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Drošība Shurp platformā</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Droša <strong>kopbraukšana</strong> sākas ar informāciju. Shurp piedāvā vairākus
-                                    uzticības līmeņus — pirms Tu izvēlies braukt kopā.</p>
-                                <h4>Pirms ceļa</h4>
-                                <ul>
-                                    <li><strong>Profili</strong> — vārds, foto, apraksts un reitings</li>
-                                    <li><strong>Atsauksmes</strong> — ko citi teikuši pēc kopīgiem braucieniem</li>
-                                    <li><strong>Dokumentu validācija</strong> — GDPR droša, brīvprātīga, ar žetonu
-                                        profilā</li>
-                                </ul>
-                                <h4>Ceļā un pēc tam</h4>
-                                <ul>
-                                    <li>Čats pēc apstiprinājuma; WhatsApp — tikšanās un lokācija</li>
-                                    <li>Tālrunis nekad nav publisks — tikai apstiprinātajam partnerim</li>
-                                    <li><strong>Ziņot</strong> — drošība, krāpšana, neierašanās u.c.</li>
-                                    <li>Ziņojumi tiek izskatīti; pārkāpējiem — liegta pieeja Shurp</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="jN-qb3nDPMY" data-title="Drošība">
-                                            <img src="https://i.ytimg.com/vi/jN-qb3nDPMY/hqdefault.jpg"
-                                                alt="Drošība Shurp" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <a href="tutorial.html" class="tutorial-link-card feature-card rounded-[3rem] mt-6 block">
+                <h3 class="text-xl md:text-2xl font-bold tracking-tight text-[#1F2933] mb-2">
+                    Par kopbraukšanu un Shurp
+                </h3>
+                <p class="tutorial-link-more">Pieskaries, lai uzzinātu vairāk →</p>
+            </a>
         </div>
     </section>
 
@@ -1218,42 +644,6 @@
             });
         });
 
-        function faqCardBody(card) {
-            return card.querySelector('.faq-card-body');
-        }
-
-        function openFaqCard(card) {
-            card.classList.add('open');
-            var header = card.querySelector('.faq-card-header');
-            if (header) header.setAttribute('aria-expanded', 'true');
-            var body = faqCardBody(card);
-            if (body) body.style.maxHeight = body.scrollHeight + 'px';
-        }
-
-        function closeFaqCard(card) {
-            var body = faqCardBody(card);
-            if (body) body.style.maxHeight = body.scrollHeight + 'px';
-            // force reflow so the browser registers the current height before collapsing
-            if (body) body.offsetHeight;
-            card.classList.remove('open');
-            var header = card.querySelector('.faq-card-header');
-            if (header) header.setAttribute('aria-expanded', 'false');
-            if (body) body.style.maxHeight = '0px';
-        }
-
-        function toggleFaqCard(btn) {
-            var card = btn.closest('.faq-card');
-            var wasOpen = card.classList.contains('open');
-            document.querySelectorAll('.faq-card.open').forEach(function (c) {
-                if (c !== card) closeFaqCard(c);
-            });
-            if (wasOpen) {
-                closeFaqCard(card);
-            } else {
-                openFaqCard(card);
-            }
-        }
-
         function activateLiteYt(el) {
             if (el.querySelector('iframe')) return;
             var id = el.getAttribute('data-id');
@@ -1281,31 +671,6 @@
             });
         });
 
-        function handleFaqHash() {
-            var hash = window.location.hash;
-            if (!hash || hash === '#faq') return;
-            var el = document.getElementById(hash.slice(1));
-            if (!el || !el.classList.contains('faq-card')) return;
-            document.querySelectorAll('.faq-card.open').forEach(function (c) {
-                if (c !== el) closeFaqCard(c);
-            });
-            openFaqCard(el);
-            setTimeout(function () {
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
-
-        window.addEventListener('load', function () {
-            document.querySelectorAll('.faq-card.open').forEach(function (c) { openFaqCard(c); });
-            handleFaqHash();
-        });
-        window.addEventListener('hashchange', handleFaqHash);
-        window.addEventListener('resize', function () {
-            var openCard = document.querySelector('.faq-card.open');
-            if (!openCard) return;
-            var body = faqCardBody(openCard);
-            if (body) body.style.maxHeight = body.scrollHeight + 'px';
-        });
     </script>
 </body>
 

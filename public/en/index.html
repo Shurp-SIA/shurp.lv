@@ -160,10 +160,18 @@
             z-index: 20;
         }
 
+        /* Mobile (stacked): equal width. Desktop (side-by-side): equal height. */
         .store-badges img {
             display: block;
             width: 9rem;
             height: auto;
+        }
+
+        @media (min-width: 640px) {
+            .store-badges img {
+                height: 3rem;
+                width: auto;
+            }
         }
 
         .nav-bar {
@@ -345,257 +353,46 @@
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .faq-accordion {
-            display: flex;
-            flex-direction: column;
-            padding-top: 0.25rem;
-        }
-
-        .faq-card {
-            position: relative;
-            background-color: #FFF9F5;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-            border-radius: 2.5rem;
-            overflow: hidden;
-            margin-top: -1.35rem;
-            z-index: 1;
-            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.45s ease,
-                background-color 0.4s ease,
-                border-color 0.4s ease;
-        }
-
-        .faq-accordion .faq-card:first-child {
-            margin-top: 0;
-        }
-
-        .faq-card:not(.open):hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.09);
-        }
-
-        .faq-card.open {
-            background-color: #0f4f76;
-            border-color: rgba(255, 255, 255, 0.14);
-            box-shadow: 0 34px 60px rgba(15, 79, 118, 0.35), 0 10px 26px rgba(0, 0, 0, 0.2);
-            transform: translateY(-6px) scale(1.012);
-            z-index: 20;
-        }
-
-        .faq-card-header {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            width: 100%;
-            padding: 1.5rem 1.75rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-            font-family: inherit;
-            color: #1F2933;
-            -webkit-tap-highlight-color: transparent;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-card-header {
-            color: #ffffff;
-        }
-
-        .faq-card-header h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-header {
-                padding: 1.75rem 2.5rem;
-            }
-
-            .faq-card-header h3 {
-                font-size: 1.4rem;
-            }
-        }
-
-        .faq-chevron {
-            flex-shrink: 0;
-            width: 1.25rem;
-            height: 1.25rem;
-            transition: transform 0.3s ease, color 0.35s ease;
-            color: #125E8A;
-        }
-
-        .faq-card.open .faq-chevron {
-            transform: rotate(180deg);
-            color: #ffffff;
-        }
-
-        .faq-card-body {
-            position: relative;
-            z-index: 2;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            padding: 0 1.75rem;
-            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, padding 0.4s ease;
-        }
-
-        .faq-card.open .faq-card-body {
-            opacity: 1;
-            padding: 0 1.75rem 1.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-body {
-                padding: 0 2.5rem;
-            }
-
-            .faq-card.open .faq-card-body {
-                padding: 0 2.5rem 2.5rem;
-            }
-        }
-
-        .faq-card-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-inner {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 2.5rem;
-            }
-        }
-
-        .faq-copy {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .faq-copy p {
-            color: rgba(31, 41, 51, 0.7);
-            font-size: 1.05rem;
-            line-height: 1.65;
-            margin-bottom: 0.85rem;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy p {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .faq-copy h4 {
-            font-size: 0.92rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color: #125E8A;
-            margin: 1.05rem 0 0.45rem;
-            transition: color 0.35s ease;
-        }
-
-        .faq-copy h4:first-of-type {
-            margin-top: 0.15rem;
-        }
-
-        .faq-card.open .faq-copy h4 {
-            color: #FA7E61;
-        }
-
-        .faq-copy ul {
-            list-style: none;
+        .feature-video-pill {
             padding: 0;
-            margin: 0 0 0.35rem;
+            background: transparent;
+            border: 0;
+            box-shadow: 0 22px 48px rgba(18, 94, 138, 0.28), 0 8px 20px rgba(18, 94, 138, 0.14);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
-        .faq-copy ul li {
-            position: relative;
-            padding-left: 1.25rem;
-            margin-bottom: 0.45rem;
-            color: rgba(31, 41, 51, 0.7);
+        .feature-video-pill:hover {
+            box-shadow: 0 28px 56px rgba(18, 94, 138, 0.34), 0 10px 24px rgba(18, 94, 138, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .feature-video-pill .lite-yt {
+            aspect-ratio: 16 / 9;
+            border-radius: inherit;
+            background: #0a3d5c;
+        }
+
+        .tutorial-link-card {
+            padding: 1.5rem 1.75rem 1.35rem;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .tutorial-link-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .tutorial-link-more {
+            margin: 0;
             font-size: 0.95rem;
-            line-height: 1.55;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy ul li {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .faq-copy ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.55em;
-            width: 0.4rem;
-            height: 0.4rem;
-            border-radius: 50%;
-            background: #125E8A;
-            transition: background-color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy ul li::before {
-            background: #FA7E61;
-        }
-
-        .faq-copy ul li strong {
             font-weight: 600;
-            color: #1F2933;
-            transition: color 0.35s ease;
+            color: #125E8A;
         }
 
-        .faq-card.open .faq-copy ul li strong {
-            color: #ffffff;
-        }
-
-        .faq-copy .faq-note {
-            font-size: 0.85rem;
-            font-style: italic;
-            line-height: 1.5;
-            color: rgba(31, 41, 51, 0.55);
-            margin-top: 1rem;
-            margin-bottom: 0;
-            transition: color 0.35s ease;
-        }
-
-        .faq-card.open .faq-copy .faq-note {
-            color: rgba(255, 255, 255, 0.65);
-        }
-
-        .faq-phone {
-            flex-shrink: 0;
-            width: min(260px, 68vw);
-        }
-
-        @media (min-width: 768px) {
-            .faq-phone {
-                width: 300px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .faq-phone {
-                width: 330px;
-            }
-        }
-
-        .faq-phone .phone-shadow {
-            transform: rotate(-1.5deg);
-            box-shadow: 0 36px 70px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.1);
-        }
-
-        @media (min-width: 768px) {
-            .faq-card-inner {
-                align-items: center;
-            }
+        .tutorial-link-card:hover .tutorial-link-more {
+            color: #0f4f76;
         }
 
         .lite-yt {
@@ -646,13 +443,12 @@
 
     <nav class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
         <div class="flex items-center">
-            <a href="index.html"><img src="../assets/logo.png" alt="Shurp"
-                    class="h-8 md:h-10 w-auto cursor-pointer"></a>
+            <a href="/en/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
         </div>
         <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
-            <a href="#features" class="hover:text-white transition">How It Works</a>
-            <a href="#faq" class="hover:text-white transition">FAQ</a>
-            <a href="#safety" class="hover:text-white transition">Safety</a>
+            <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
+            <a href="tutorial.html" class="hover:text-white transition">What is carpooling</a>
+            <a href="tutorial.html#faq-safety" class="hover:text-white transition">Safety</a>
             <a href="#legal" class="hover:text-white transition">Legal Info</a>
         </div>
         <div class="flex items-center gap-6">
@@ -683,12 +479,12 @@
                         <a href="https://apps.apple.com/app/shurp/id6760924489" target="_blank"
                             rel="noopener noreferrer" class="hover:opacity-90 transition">
                             <img src="../assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                                alt="Download on the App Store" width="144">
+                                alt="Download on the App Store">
                         </a>
                         <a href="https://play.google.com/store/apps/details?id=lv.shurp.app&pcampaignid=web_share"
                             target="_blank" rel="noopener noreferrer" class="hover:opacity-90 transition">
                             <img src="../assets/GetItOnGooglePlay_Badge_Web_color_English.svg"
-                                alt="Get it on Google Play" width="144">
+                                alt="Get it on Google Play">
                         </a>
                     </div>
                 </div>
@@ -724,6 +520,23 @@
                     </p>
                 </div>
 
+                
+                <div id="how-it-works" class="lg:col-span-6 feature-video-pill rounded-[3rem] overflow-hidden">
+                    <div class="lite-yt" data-id="w1DjtOCobg0" data-title="How it works — Shurp">
+                        <img src="https://i.ytimg.com/vi/w1DjtOCobg0/maxresdefault.jpg"
+                            alt="How it works — Shurp video" loading="lazy"
+                            onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/w1DjtOCobg0/hqdefault.jpg'">
+                        <span class="lite-yt-play" aria-hidden="true">
+                            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
+                                    fill="#FA7E61" />
+                                <path d="M45 24L27 14v20" fill="#fff" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
                 <div
                     class="lg:col-span-6 h-auto md:h-64 feature-card rounded-[3rem] p-10 flex flex-col md:flex-row md:items-center justify-between relative overflow-hidden">
                     <div class="max-w-xl relative z-10">
@@ -740,399 +553,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="faq" class="soft-blue-bg px-6 pb-24 pt-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-10 md:mb-14">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1F2933] mb-3 leading-tight">
-                    Ride together with <span class="shurp-blue-text">Shurp</span>
-                </h2>
-                <p class="text-base md:text-lg text-[#1F2933]/60 max-w-2xl leading-relaxed">
-                    Carpooling in Latvia for everyone — an alternative to bus, train, taxi and carsharing.<br>
-                    Short explainer videos and answers.
-                </p>
-            </div>
-
-            <div class="faq-accordion">
-                <article class="faq-card open" id="faq-what-is-shurp">
-                    <button type="button" class="faq-card-header" aria-expanded="true" onclick="toggleFaqCard(this)">
-                        <h3>What is carpooling and Shurp?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Shurp is Latvia's free <strong>carpooling*</strong> app. Not a taxi —
-                                    just people riding together.<br>
-                                    Find or add a ride. Arrange it. Travel and settle in person.<br>
-                                    Not only Riga and Pieriga. Shurp is available to everyone in Latvia.</p>
-                                <h4>When to ride with Shurp?</h4>
-                                <ul>
-                                    <li>When the <strong>bus</strong> or <strong>train</strong> does not run at the
-                                        right time or without a transfer</li>
-                                    <li>When <strong>carsharing</strong> is too expensive for an intercity trip
-                                    </li>
-                                    <li>When a taxi is expensive or not available at all</li>
-                                    <li>When you already drive daily and want to save by splitting road costs</li>
-                                </ul>
-                                <h4>What sets Shurp apart</h4>
-                                <ul>
-                                    <li><strong>Zero commission</strong> — no fees for posting or requesting a ride
-                                    </li>
-                                    <li><strong>Everything in one place</strong> — search, requests, chat and every
-                                        direction in your pocket</li>
-                                    <li><strong>Real people</strong> — cost-sharing between real people</li>
-                                    <li><strong>This is NOT a taxi</strong> — cost-sharing, not commercial transport
-                                    </li>
-                                    <li><strong>Safe</strong> — registered users only, public profiles, reviews and
-                                        ID validation</li>
-                                </ul>
-                                <p class="faq-note">*Carpooling is when we travel together in the same direction and
-                                    split the road costs.</p>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="moDcayN93ao" data-title="What is Shurp?">
-                                            <img src="https://i.ytimg.com/vi/moDcayN93ao/hqdefault.jpg"
-                                                alt="What is Shurp? video" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-drivers">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>How do I add a ride?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>If you drive with empty seats — from Riga to Liepaja, Daugavpils, Jelgava, or just to
-                                    work in Riga-area or anywhere else in Latvia — add a ride and share fuel costs. Your
-                                    car, your rules.</p>
-                                <h4>Add and repeat</h4>
-                                <ul>
-                                    <li>Enter from, to and when — intercity and daily city routes too</li>
-                                    <li><strong>Recurring rides</strong> — pick weekdays and with one tap your rides
-                                        stay on Shurp</li>
-                                    <li><strong>Seats and price</strong> — you set the price and flexibility; you can
-                                        also take friends or neighbours for free</li>
-                                    <li>Before publishing, add a car and complete your profile</li>
-                                </ul>
-                                <h4>Requests and messaging</h4>
-                                <ul>
-                                    <li>Share the link right away — chats, socials, colleagues, neighbours</li>
-                                    <li>Accept or decline a request after seeing the profile and reviews</li>
-                                    <li>After confirmation — chat or use WhatsApp</li>
-                                    <li>After the trip leave a rating — that is how a trusted carpooling community
-                                        grows</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="WN_r2wIlLv8" data-title="Driver guide">
-                                            <img src="https://i.ytimg.com/vi/WN_r2wIlLv8/hqdefault.jpg"
-                                                alt="Driver guide" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-pax">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>How do I find a ride?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Search for <strong>cheap rides</strong> in Riga and Latvia when public transport
-                                    does not fit: early mornings, late evenings, when a transfer-free
-                                    <strong>bus</strong> or <strong>train</strong> trip does not work, or when you
-                                    simply want a more comfortable ride.
-                                    Shurp shows people already going your way.
-                                </p>
-                                <h4>Find and request</h4>
-                                <ul>
-                                    <li>Search by filling: <strong>From</strong>, <strong>To</strong> and
-                                        <strong>When</strong> — (you can also leave time empty and search «Anytime»)
-                                    </li>
-                                    <li>Tip: enter only the destination if timing does not matter, then hit search</li>
-                                    <li>Filter «Verified only» if you want extra trust</li>
-                                    <li>One tap can send a request to multiple drivers</li>
-                                </ul>
-                                <h4>If nothing turns up</h4>
-                                <ul>
-                                    <li><strong>Create a ride alert</strong> — a reminder when someone posts the same
-                                        route</li>
-                                    <li>Share the search — maybe a colleague or friend is heading to Ventspils,
-                                        Bauska, Valmiera or Rezekne…</li>
-                                    <li>Cheaper and more flexible than carsharing if you do not need
-                                        the whole car to yourself</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="Oo3XkZRLVaE" data-title="Passenger guide">
-                                            <img src="https://i.ytimg.com/vi/Oo3XkZRLVaE/hqdefault.jpg"
-                                                alt="Passenger guide" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-profile">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>How do I create a trusted profile?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>In carpooling, trust is everything. A good profile helps you connect faster
-                                    — for daily work trips and intercity routes.</p>
-                                <h4>Fill in your profile</h4>
-                                <ul>
-                                    <li><strong>Name</strong> + a short «About you»</li>
-                                    <li><strong>Phone</strong> — private; visible only to your confirmed ride partner
-                                    </li>
-                                    <li><strong>My Garage</strong> — make, model, fuel, seats</li>
-                                    <li>Complete document validation to build trust with other users</li>
-                                    <li>Public and private profiles are separate — you control what others see</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="OXdvYcBVSxA" data-title="Perfect profile">
-                                            <img src="https://i.ytimg.com/vi/OXdvYcBVSxA/hqdefault.jpg"
-                                                alt="Perfect profile" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-free">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Is Shurp free?</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Yes. <strong>Carpooling in Latvia</strong> should be available to everyone, so the
-                                    Shurp app and posting rides are <strong>commission-free</strong>.
-                                    Unlike taxi, carsharing per-minute pricing, or many international platforms,
-                                    Shurp takes no commission on rides.</p>
-                                <h4>What is free</h4>
-                                <ul>
-                                    <li>Sign-up, search, posting, chat</li>
-                                    <li>Settlements happen <strong>in person</strong> between driver and passenger</li>
-                                    <li>Shurp does not process ride payments</li>
-                                </ul>
-                                <h4>If you want to support the project</h4>
-                                <ul>
-                                    <li>Share Shurp on socials</li>
-                                    <li>Rate the app on the App Store or Play Store</li>
-                                    <li>Find <strong>Support the project</strong> in your profile and make an optional
-                                        support payment</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="NZCs-wBUye8" data-title="Is Shurp free?">
-                                            <img src="https://i.ytimg.com/vi/NZCs-wBUye8/hqdefault.jpg"
-                                                alt="Is Shurp free?" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-sharing">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Share at 200%</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Carpooling in Latvia still often lives in chat groups — Shurp can bring them together
-                                    and simplify them.
-                                    Share right from Shurp and the ride stays in the app, while the link goes to people
-                                    who already know you — colleagues, neighbours, chat mates.</p>
-                                <h4>Where to share</h4>
-                                <ul>
-                                    <li>Right after adding a ride — one button</li>
-                                    <li>From the ride card</li>
-                                    <li>From empty search results — «Hey, maybe you are going that way?»</li>
-                                </ul>
-                                <h4>Why it works</h4>
-                                <ul>
-                                    <li>Friends respond faster and already trust you</li>
-                                    <li>You show you are a real person with a real route</li>
-                                    <li>Sharing gives you a better chance of finding a ride mate</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="pkY__nKA330" data-title="Share at 200%">
-                                            <img src="https://i.ytimg.com/vi/pkY__nKA330/hqdefault.jpg"
-                                                alt="Share at 200%" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="faq-card" id="faq-safety">
-                    <button type="button" class="faq-card-header" aria-expanded="false" onclick="toggleFaqCard(this)">
-                        <h3>Safety on the Shurp platform</h3>
-                        <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="faq-card-body">
-                        <div class="faq-card-inner">
-                            <div class="faq-copy">
-                                <p>Safe <strong>carpooling</strong> starts with information. Shurp offers several
-                                    trust layers — before you choose to ride together.</p>
-                                <h4>Before the trip</h4>
-                                <ul>
-                                    <li><strong>Profiles</strong> — name, photo, bio and rating</li>
-                                    <li><strong>Reviews</strong> — what others said after shared trips</li>
-                                    <li><strong>Document validation</strong> — GDPR-safe, optional, with a verified
-                                        badge on
-                                        your profile</li>
-                                </ul>
-                                <h4>On the way and after</h4>
-                                <ul>
-                                    <li>Chat after confirmation; WhatsApp — meet-up and location</li>
-                                    <li>Phone is never public — matched partner only</li>
-                                    <li><strong>Report</strong> — safety, scam, no-show, and more</li>
-                                    <li>Reports are reviewed; rule-breakers lose access to Shurp</li>
-                                </ul>
-                            </div>
-                            <div class="faq-phone">
-                                <div class="relative bg-black rounded-[3.8rem] p-3.5 phone-shadow overflow-hidden">
-                                    <div class="bg-black rounded-[3rem] overflow-hidden phone-frame">
-                                        <div class="lite-yt" data-id="jN-qb3nDPMY" data-title="Safety">
-                                            <img src="https://i.ytimg.com/vi/jN-qb3nDPMY/hqdefault.jpg"
-                                                alt="Shurp safety" loading="lazy">
-                                            <span class="lite-yt-play" aria-hidden="true">
-                                                <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M66.52 7.74a8 8 0 00-5.64-5.66C55.6.9 34 0.9 34 0.9s-21.6 0-26.88 1.18A8 8 0 001.48 7.74C.3 13.03.3 24 .3 24s0 10.97 1.18 16.26a8 8 0 005.64 5.66C12.4 47.1 34 47.1 34 47.1s21.6 0 26.88-1.18a8 8 0 005.64-5.66C67.7 34.97 67.7 24 67.7 24s0-10.97-1.18-16.26z"
-                                                        fill="#FA7E61" />
-                                                    <path d="M45 24L27 14v20" fill="#fff" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <a href="tutorial.html" class="tutorial-link-card feature-card rounded-[3rem] mt-6 block">
+                <h3 class="text-xl md:text-2xl font-bold tracking-tight text-[#1F2933] mb-2">
+                    What is carpooling and how to use Shurp
+                </h3>
+                <p class="tutorial-link-more">Tap to learn more →</p>
+            </a>
         </div>
     </section>
 
@@ -1215,42 +642,6 @@
             });
         });
 
-        function faqCardBody(card) {
-            return card.querySelector('.faq-card-body');
-        }
-
-        function openFaqCard(card) {
-            card.classList.add('open');
-            var header = card.querySelector('.faq-card-header');
-            if (header) header.setAttribute('aria-expanded', 'true');
-            var body = faqCardBody(card);
-            if (body) body.style.maxHeight = body.scrollHeight + 'px';
-        }
-
-        function closeFaqCard(card) {
-            var body = faqCardBody(card);
-            if (body) body.style.maxHeight = body.scrollHeight + 'px';
-            // force reflow so the browser registers the current height before collapsing
-            if (body) body.offsetHeight;
-            card.classList.remove('open');
-            var header = card.querySelector('.faq-card-header');
-            if (header) header.setAttribute('aria-expanded', 'false');
-            if (body) body.style.maxHeight = '0px';
-        }
-
-        function toggleFaqCard(btn) {
-            var card = btn.closest('.faq-card');
-            var wasOpen = card.classList.contains('open');
-            document.querySelectorAll('.faq-card.open').forEach(function (c) {
-                if (c !== card) closeFaqCard(c);
-            });
-            if (wasOpen) {
-                closeFaqCard(card);
-            } else {
-                openFaqCard(card);
-            }
-        }
-
         function activateLiteYt(el) {
             if (el.querySelector('iframe')) return;
             var id = el.getAttribute('data-id');
@@ -1278,31 +669,6 @@
             });
         });
 
-        function handleFaqHash() {
-            var hash = window.location.hash;
-            if (!hash || hash === '#faq') return;
-            var el = document.getElementById(hash.slice(1));
-            if (!el || !el.classList.contains('faq-card')) return;
-            document.querySelectorAll('.faq-card.open').forEach(function (c) {
-                if (c !== el) closeFaqCard(c);
-            });
-            openFaqCard(el);
-            setTimeout(function () {
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
-
-        window.addEventListener('load', function () {
-            document.querySelectorAll('.faq-card.open').forEach(function (c) { openFaqCard(c); });
-            handleFaqHash();
-        });
-        window.addEventListener('hashchange', handleFaqHash);
-        window.addEventListener('resize', function () {
-            var openCard = document.querySelector('.faq-card.open');
-            if (!openCard) return;
-            var body = faqCardBody(openCard);
-            if (body) body.style.maxHeight = body.scrollHeight + 'px';
-        });
     </script>
 </body>
 
