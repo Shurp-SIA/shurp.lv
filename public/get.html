@@ -89,13 +89,14 @@
 
 <body>
     <div class="wrap">
-        <div class="loader" aria-hidden="true"></div>
+        <div id="loader" class="loader" aria-hidden="true"></div>
         <p class="message">Novirzām uz veikalu...</p>
         <p class="message-en">Redirecting to the store...</p>
         <a id="fallback-link" class="fallback" href="https://shurp.lv/lv/">
             Turpināt manuāli
             <span class="fallback-en">Continue manually</span>
         </a>
+        <a id="back-link" class="fallback" href="/lv/">Atpakaļ / Back</a>
     </div>
 
     <!-- No-JS fallback -->
@@ -103,32 +104,57 @@
         <meta http-equiv="refresh" content="0; url=https://shurp.lv/lv/" />
     </noscript>
 
-    <!-- Device-detection redirect -->
+    <script src="/assets/js/analytics.js"></script>
     <script>
         (function () {
             var IOS_URL = 'https://apps.apple.com/app/shurp/id6760924489';
             var ANDROID_URL = 'https://play.google.com/store/apps/details?id=lv.shurp.app&pcampaignid=web_share';
             var DEFAULT_URL = 'https://shurp.lv/lv/';
-
-            try {
-                var ua = navigator.userAgent || navigator.vendor || '';
-
-                var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-                var isAndroid = /android/i.test(ua);
-
-                var targetUrl = isIOS ? IOS_URL : (isAndroid ? ANDROID_URL : DEFAULT_URL);
-
-                var fallbackLink = document.getElementById('fallback-link');
-                if (fallbackLink) {
-                    fallbackLink.href = targetUrl;
-                }
-
-                setTimeout(function () {
-                    window.location.href = targetUrl;
-                }, 400);
-            } catch (e) {
-                window.location.href = DEFAULT_URL;
+            var ua = navigator.userAgent || '';
+            var isIOS = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+            var isAndroid = /android/i.test(ua);
+            var targetUrl = isIOS ? IOS_URL : (isAndroid ? ANDROID_URL : DEFAULT_URL);
+            var fallbackLink = document.getElementById('fallback-link');
+            fallbackLink.href = targetUrl;
+            var timer;
+            var departed = false;
+            function showFallback() {
+                clearTimeout(timer);
+                document.getElementById('loader').hidden = true;
+                document.querySelector('.message').textContent = 'Turpināt Shurp';
+                document.querySelector('.message-en').textContent = 'Continue to Shurp';
             }
+            fallbackLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                showFallback();
+                window.location.replace(targetUrl);
+            });
+            var backLink = document.getElementById('back-link');
+            try {
+                var previous = new URL(document.referrer);
+                if (previous.origin === location.origin && !/^\/get(?:\.html)?\/?$/.test(previous.pathname)) {
+                    backLink.href = previous.href;
+                    backLink.addEventListener('click', function (event) {
+                        event.preventDefault(); clearTimeout(timer);
+                        if (history.length > 1) history.back(); else location.replace(backLink.href);
+                    });
+                }
+            } catch (_) { /* Direct visits keep a usable homepage link. */ }
+            addEventListener('pagehide', function () { departed = true; clearTimeout(timer); });
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) { departed = true; showFallback(); }
+                else if (departed) showFallback();
+            });
+            addEventListener('pageshow', function (event) { if (event.persisted) showFallback(); });
+            var navigation = performance.getEntriesByType('navigation')[0];
+            if (navigation && navigation.type === 'back_forward') { showFallback(); return; }
+            window.ShurpAnalytics?.track('app_redirect', {platform: isIOS ? 'ios' : (isAndroid ? 'android' : 'other')});
+            timer = setTimeout(function () {
+                // Replace the handoff entry: Back must return to the previous page,
+                // rather than replaying this automatic store redirect.
+                showFallback();
+                window.location.replace(targetUrl);
+            }, 400);
         })();
     </script>
 </body>

@@ -1,3 +1,15 @@
 node_modules/
 dist/
 .env
+.secrets/
+.hetzner-data
+
+tests/artifacts/
+temp/
+artifacts/
+__pycache__/
+*.pyc
+
+repomix-output.*
+.env.*
+!.env.example

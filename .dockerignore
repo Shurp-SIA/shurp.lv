@@ -1,0 +1,15 @@
+.git/
+.env
+.env.*
+!.env.example
+.secrets/
+.hetzner-data
+node_modules/
+repomix-output.xml
+tests/artifacts/
+tests/__pycache__/
+__pycache__/
+*.pyc
+
+temp/
+artifacts/

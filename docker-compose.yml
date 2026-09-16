@@ -1,0 +1,25 @@
+services:
+  website:
+    build: .
+    image: shurp-website:local
+    ports:
+      - "127.0.0.1:8094:8094"
+      - "10.137.192.11:8094:8094"
+    environment:
+      ANALYTICS_DB_PATH: ${ANALYTICS_DB_PATH:-}
+      FORWARDED_ALLOW_IPS: ${TRUSTED_PROXY_IPS:-}
+      ANALYTICS_ALLOWED_ORIGINS: ${ANALYTICS_ALLOWED_ORIGINS:-}
+    volumes:
+      - website-analytics:/var/lib/shurp-analytics
+    restart: unless-stopped
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    profiles: [public-preview]
+    network_mode: host
+    command: ["tunnel", "--no-autoupdate", "--url", "http://127.0.0.1:8094"]
+    depends_on:
+      - website
+    restart: unless-stopped
+
+volumes:
+  website-analytics:

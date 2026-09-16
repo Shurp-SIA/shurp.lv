@@ -549,28 +549,66 @@
         }
 
 
+        .homepage-links { gap: clamp(12px, 2vw, 32px); }
+        .mobile-menu-toggle, .mobile-download { display: none; }
+        .mobile-menu-toggle .menu-close-icon { display: none; }
+        .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
+        .nav-bar.mobile-menu-open .menu-close-icon { display: block; }
+
+        @media (max-width: 767px) {
+            .homepage-brand { flex-shrink: 0; }
+            .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
+            .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
+            .homepage-actions { gap: 16px; flex-shrink: 0; }
+            .homepage-actions > div > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+            .homepage-actions > .scroll-to-badges { display: none; }
+            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
+            .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+            .mobile-menu-toggle:focus-visible { outline: 3px solid #FA7E61; outline-offset: 3px; }
+            .nav-bar > .homepage-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 4px; padding: 16px 24px 24px; max-height: calc(100vh - 92px); max-height: calc(100dvh - 92px); overflow-y: auto; background: #FFF9F5; color: #125E8A; border-bottom: 1px solid #dce6e9; box-shadow: 0 14px 24px #16344224; }
+            .nav-bar.mobile-menu-open > .homepage-links { display: flex; }
+            .homepage-links > a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; }
+            .homepage-links > a:hover, .homepage-links > a:focus-visible { background: #E6F1F7; color: #125E8A; }
+            .homepage-links a:focus-visible { outline: 3px solid #125E8A; outline-offset: 2px; }
+            .mobile-download { display: block; margin-top: 12px; padding-top: 16px; border-top: 1px solid #dce6e9; }
+            .mobile-download a { display: flex; align-items: center; justify-content: center; min-height: 44px; color: #1F2933; }
+        }
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            .nav-bar { flex-wrap: wrap; row-gap: 16px; }
+            .nav-bar > :nth-child(2) { order: 3; flex-basis: 100%; justify-content: space-between; }
+        }
+
     </style>
+    <link rel="stylesheet" href="/assets/css/analytics.css">
+    <script src="/assets/js/analytics.js" defer></script>
 </head>
 
 <body>
-    <nav class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
-        <div class="flex items-center">
-            <a href="./"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
+    <nav aria-label="Galvenā navigācija" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+        <div class="homepage-brand flex items-center">
+            <a href="/lv/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
         </div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium text-white/70">
-            <a href="./#how-it-works" class="hover:text-white transition">Kā tas strādā</a>
-            <a href="tutorial" class="text-white transition">Par kopbraukšanu un Shurp</a>
+        <div id="homepage-nav-links" class="homepage-links hidden md:flex text-sm font-medium text-white/70">
+            <a href="/lv/#how-it-works" class="hover:text-white transition">Kā tas strādā</a>
+            <a aria-current="page" href="/lv/tutorial" class="hover:text-white transition">Par kopbraukšanu un Shurp</a>
             <a href="#faq-safety" class="hover:text-white transition">Drošība</a>
-            <a href="./#legal" class="hover:text-white transition">Juridiskā info</a>
+            <a href="/lv/#legal" class="hover:text-white transition">Juridiskā info</a>
+            <a href="https://lawyer-wishes-parent-console.trycloudflare.com/lv/transport" class="hover:text-white transition">Sabiedriskais transports</a>
+            <div class="mobile-download"><a href="/lv/#download" class="scroll-to-badges shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
-        <div class="flex items-center gap-6">
+        <div class="homepage-actions flex items-center gap-6">
             <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
-                <a href="../en/tutorial" class="hover:text-white transition">EN</a>
+                <a href="/en/tutorial" class="hover:text-white transition">EN</a>
                 <span class="text-white/20">|</span>
                 <span class="text-white">LV</span>
             </div>
-            <a href="./#download"
-                class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>
+            <a href="/lv/#download"
+                class="scroll-to-badges shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>
+            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button" aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Atvērt izvēlni" data-open-label="Atvērt izvēlni" data-close-label="Aizvērt izvēlni">
+                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            </button>
         </div>
     </nav>
 
@@ -1021,6 +1059,44 @@
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
     <script src="../assets/js/shurp-motion.js" defer></script>
     <script>
+        (() => {
+            const nav = document.querySelector('.nav-bar');
+            const toggle = document.getElementById('homepage-menu-toggle');
+            if (!nav || !toggle) return;
+            const setOpen = (open, restoreFocus = false) => {
+                nav.classList.toggle('mobile-menu-open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
+                if (restoreFocus) toggle.focus();
+            };
+            toggle.addEventListener('click', () => {
+                const open = toggle.getAttribute('aria-expanded') !== 'true';
+                setOpen(open);
+                if (open) nav.querySelector('.homepage-links > a').focus({preventScroll: true});
+            });
+            nav.addEventListener('click', event => {
+                const link = event.target.closest('a');
+                if (!link) return;
+                const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
+                setOpen(false);
+                if (wasOpen && link.getAttribute('href').startsWith('#')) {
+                    const destination = document.getElementById(link.hash.slice(1));
+                    if (destination) { destination.setAttribute('tabindex', '-1'); destination.focus({preventScroll: true}); }
+                }
+            });
+            document.addEventListener('click', event => {
+                if (!nav.contains(event.target)) setOpen(false);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+                    event.preventDefault(); setOpen(false, true);
+                }
+            });
+            window.matchMedia('(min-width: 768px)').addEventListener('change', event => {
+                if (event.matches) setOpen(false);
+            });
+        })();
+
         document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
         function faqCardBody(card) {
             return card.querySelector('.faq-card-body');
