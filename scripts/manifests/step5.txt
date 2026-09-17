@@ -1,0 +1,13 @@
+# APPROVED 2026-09-17 — fix: whole-day search for future dates
+#
+# Before publishing step 5, run:
+#
+#     scripts/sync-planner-ui.sh --index
+#
+# The planner kept the current wall-clock time in the time field after the
+# date changed, so a search for a future day made in the afternoon asked the
+# backend for "that day, from now on" and every morning carpool ride was
+# excluded. transport-inputs.js now resets the time to 00:00 whenever the
+# selected date leaves today, and restores the current time when today comes
+# back. Nothing else changed, so this step ships exactly one file.
+assets/js/transport-inputs.js

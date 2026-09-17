@@ -28,7 +28,16 @@
     let selectedDate = iso(Number(now.year), Number(now.month), Number(now.day));
     let restoreFocus = null;
     let pickerCommitValue = null;
+    const defaultTime = value => {
+      const current = rigaParts();
+      return value === iso(Number(current.year), Number(current.month), Number(current.day)) ? `${current.hour}:${current.minute}` : "00:00";
+    };
     const setDate = value => {
+      // The search runs from the requested moment to the end of the chosen day,
+      // so a time left at the current wall clock hides every morning ride once
+      // the date moves off today.  Let the time follow the date: midnight for
+      // any other day, the current time again when today comes back.
+      if (value !== selectedDate) { time.value = defaultTime(value); time.setCustomValidity(""); }
       selectedDate = value;
       date.value = displayDate(value);
       if (datePicker) datePicker.value = value;
