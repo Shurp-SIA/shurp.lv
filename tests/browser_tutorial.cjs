@@ -11,7 +11,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:18097';
       const response = await page.goto(`${base}/${locale}/tutorial`, {waitUntil: 'networkidle'});
       assert.equal(response.status(), 200);
       const links = page.locator('.homepage-links > a'), toggle = page.locator('#homepage-menu-toggle');
-      assert.equal(await links.count(), 5);
+      assert.equal(await links.count(), 6);
       assert.equal(await links.nth(1).getAttribute('aria-current'), 'page');
       if (width < 768) {
         await toggle.click();
@@ -21,7 +21,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:18097';
         assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
         await toggle.click();
       }
-      await links.nth(2).click();
+      await links.nth(3).click();
       await page.waitForFunction(() => document.getElementById('faq-safety').classList.contains('open'));
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
       if (width < 768) await toggle.click();

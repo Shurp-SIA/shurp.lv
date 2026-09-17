@@ -13,7 +13,7 @@ const artifacts = process.env.ARTIFACTS || '/artifacts';
       await page.goto(`${base}/${locale}/`, {waitUntil:'networkidle'});
       const nav = page.locator('.nav-bar'), links = page.locator('.homepage-links > a');
       const toggle = page.locator('#homepage-menu-toggle'), menu = page.locator('#homepage-nav-links');
-      assert.deepEqual(await links.evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), ['#how-it-works','tutorial','tutorial#faq-safety','#legal',`/${locale}/transport`]);
+      assert.deepEqual(await links.evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), ['#how-it-works','tutorial',locale === 'lv' ? 'zinas' : 'news','tutorial#faq-safety','#legal',`/${locale}/transport`]);
       assert.equal(await nav.locator('.homepage-actions > .scroll-to-badges').getAttribute('href'),'#download');
       if (width < 768) {
         assert.equal(await toggle.isVisible(),true);
@@ -30,7 +30,7 @@ const artifacts = process.env.ARTIFACTS || '/artifacts';
           const rect = await link.boundingBox(); assert.ok(rect.x >= 0 && rect.x+rect.width <= width && rect.height >= 44);
         }
         assert.equal(await menu.locator('.mobile-download a').getAttribute('href'),'#download');
-        for (let i = 0; i < 4; i++) await page.keyboard.press('Tab');
+        for (let i = 0; i < 5; i++) await page.keyboard.press('Tab');
         assert.equal(await links.last().evaluate(el => document.activeElement === el), true, `${locale}/${width}: keyboard cannot reach public transport`);
         if (fs.existsSync(artifacts)) await page.screenshot({path:`${artifacts}/homepage-menu-${locale}-${width}.png`});
         await page.keyboard.press('Escape');
@@ -56,9 +56,11 @@ const artifacts = process.env.ARTIFACTS || '/artifacts';
         assert.equal(await toggle.isVisible(),false);
         assert.equal(await menu.isVisible(),true);
         assert.equal(await menu.locator('.mobile-download').isVisible(),false);
-        const rects = await links.evaluateAll(nodes => nodes.map(node => {const r=node.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right}}));
+        const rects = await links.evaluateAll(nodes => nodes.map(node => {const r=node.getBoundingClientRect();return{x:r.x,right:r.right,middle:r.y+r.height/2}}));
         assert.ok(rects.every(rect=>rect.x>=0 && rect.right<=width),`${locale}/${width}: desktop/tablet navigation clipped`);
-        assert.ok(rects.every(rect=>Math.abs(rect.y-rects[0].y)<1),`${locale}/${width}: section links no longer share one row`);
+        // Six items are wider than a 768px row, so a label may take two lines; the
+        // items still share one row, centred on each other.
+        assert.ok(rects.every(rect=>Math.abs(rect.middle-rects[0].middle)<1),`${locale}/${width}: section links no longer share one row`);
         if (fs.existsSync(artifacts)) await page.screenshot({path:`${artifacts}/homepage-menu-${locale}-${width}.png`});
       }
       assert.deepEqual(errors,[],`${locale}/${width}: page errors`);

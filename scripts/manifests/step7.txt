@@ -1,0 +1,37 @@
+# APPROVED 2026-09-17 — six-item navigation on every page
+#
+# Before publishing step 7, run:
+#
+#     scripts/sync-planner-ui.sh --index
+#
+# Commit 8847eac replaced the Drošība / Safety entry with Ziņas / News, so the
+# menu lost an item and no two pages agreed on it any more. Every page that
+# carries the main menu now shows the same six items, in this order:
+#
+#     Kā tas strādā | Par kopbraukšanu un Shurp | Ziņas | Drošība |
+#     Juridiskā info | Sabiedriskais transports
+#
+# and in English: How It Works | What is carpooling | News | Safety |
+# Legal Info | Public transport.
+#
+# The planner and ticket pages come from ../shurp-transport (commit b8453ea),
+# which now carries the same .nav-bar header in its templates; run the sync
+# above before uploading them. The two legal pages per language had only a
+# logo and a "back" link and now carry the full menu, the language switch and
+# the download button, which is why they gain a style block and the shared
+# site-nav.js. assets/css/transport.css and assets/js/site-nav.js are already
+# live from step 6 and are byte-identical after the sync, so they are not in
+# this step. lv/tutorial.html and en/tutorial.html already listed all six
+# items and are unchanged.
+en/index.html
+en/news.html
+en/privacy.html
+en/terms.html
+en/tickets.html
+en/transport.html
+lv/index.html
+lv/privacy.html
+lv/terms.html
+lv/tickets.html
+lv/transport.html
+lv/zinas.html
