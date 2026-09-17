@@ -1,0 +1,17 @@
+# Scoped to /api/ on purpose: if the shared host's AllowOverride rejects any of
+# these directives, only this directory 500s, never the whole site.
+#
+# The transport client key is NOT here - it lives outside the webroot, in the
+# account home at /config/transport-client-key, so it can never be served over
+# HTTP even if PHP stops executing.
+
+Options -Indexes
+
+# transport.php already sets both headers itself; these are the belt to that
+# suspenders, and are skipped entirely when mod_headers is unavailable.
+<IfModule mod_headers.c>
+    <FilesMatch "^transport\.php$">
+        Header always set Cache-Control "no-store"
+        Header always set X-Content-Type-Options "nosniff"
+    </FilesMatch>
+</IfModule>

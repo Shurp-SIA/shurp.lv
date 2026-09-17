@@ -1,6 +1,9 @@
 RewriteEngine On
 RewriteBase /
 
+# 0. Same-origin transport API (before the clean-URL rules so it is never shadowed).
+RewriteRule ^api/transport/([A-Za-z0-9_-]{1,32})/?$ /api/transport.php?resource=$1 [QSA,L]
+
 # 1. Force remove .html from URL (Browser redirect)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,NE]

@@ -3,6 +3,7 @@ Content-Signal: search=yes,ai-train=no
 Allow: /
 Disallow: /assets/data/
 Disallow: /assets/config/
+Disallow: /api/
 
 # Block AI Scrapers specifically
 User-agent: GPTBot
