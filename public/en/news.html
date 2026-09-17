@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Shurp — carpooling in Latvia</title>
+    <meta name="description"
+        content="News from Shurp — the project behind Latvia’s free carpooling app, product updates, and official announcements.">
+    <meta name="keywords"
+        content="Shurp news, carpooling latvia, press, announcements, kopbraukšana, ride sharing latvia">
+    <meta name="author" content="Shurp SIA">
+    <link rel="canonical" href="https://shurp.lv/en/news" />
+    <link rel="alternate" href="https://shurp.lv/en/news" hreflang="en" />
+    <link rel="alternate" href="https://shurp.lv/lv/zinas" hreflang="lv" />
+    <link rel="alternate" href="https://shurp.lv/lv/zinas" hreflang="x-default" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="lv_LV">
+    <meta property="og:url" content="https://www.shurp.lv/en/news">
+    <meta property="og:title" content="News | Shurp — carpooling in Latvia">
+    <meta property="og:description"
+        content="Project story, founder note, and news from Shurp — Latvia’s free carpooling app.">
+    <meta property="og:image" content="https://www.shurp.lv/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="News | Shurp — carpooling in Latvia">
+    <meta name="twitter:description"
+        content="Project story, founder note, and news from Shurp — Latvia’s free carpooling app.">
+    <meta name="twitter:image" content="https://www.shurp.lv/assets/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Shurp News",
+      "description": "News from Shurp — the project behind Latvia’s free carpooling app, product updates, and official announcements.",
+      "url": "https://shurp.lv/en/news",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Shurp",
+        "url": "https://shurp.lv"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Shurp SIA",
+        "url": "https://shurp.lv",
+        "identifier": "40203709369"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Shurp",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "iOS, Android"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://shurp.lv/en/news#what-is-carpooling",
+          "name": "What is carpooling?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://shurp.lv/en/news#shurp-launches-in-latvia",
+          "name": "Shurp — Latvia’s free carpooling app is here"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#125E8A">
+
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E6F1F7;
+            color: #1F2933;
+        }
+
+        main.news-main {
+            padding-bottom: 6.5rem;
+        }
+
+        @media (min-width: 768px) {
+            main.news-main {
+                padding-bottom: 9rem;
+            }
+        }
+
+        .shurp-blue-text { color: #125E8A; }
+        .shurp-coral-bg { background-color: #FA7E61; }
+        .shurp-coral-bg:hover { background-color: #e8705a; }
+        .shurp-blue-bg { background-color: #125E8A; }
+        .cta-pop {
+            box-shadow: 0 6px 16px rgba(18, 94, 138, 0.22);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .nav-bar {
+            background-color: rgba(18, 94, 138, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .homepage-links { gap: clamp(12px, 2vw, 32px); }
+        .mobile-menu-toggle, .mobile-download { display: none; }
+        .mobile-menu-toggle .menu-close-icon { display: none; }
+        .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
+        .nav-bar.mobile-menu-open .menu-close-icon { display: block; }
+
+        @media (max-width: 767px) {
+            .homepage-brand { flex-shrink: 0; }
+            .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
+            .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
+            .homepage-actions { gap: 16px; flex-shrink: 0; }
+            .homepage-actions > .shurp-coral-bg { display: none; }
+            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
+            .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+            .mobile-menu-toggle:focus-visible { outline: 3px solid #FA7E61; outline-offset: 3px; }
+            .nav-bar > .homepage-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 4px; padding: 16px 24px 24px; max-height: calc(100vh - 92px); max-height: calc(100dvh - 92px); overflow-y: auto; background: #FFF9F5; color: #125E8A; border-bottom: 1px solid #dce6e9; box-shadow: 0 14px 24px #16344224; }
+            .nav-bar.mobile-menu-open > .homepage-links { display: flex; }
+            .homepage-links > a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; color: #125E8A; }
+            .homepage-links > a:hover, .homepage-links > a:focus-visible, .homepage-links > a[aria-current="page"] { background: #E6F1F7; color: #125E8A; }
+            .homepage-links a:focus-visible { outline: 3px solid #125E8A; outline-offset: 2px; }
+            .mobile-download { display: block; margin-top: 12px; padding-top: 16px; border-top: 1px solid #dce6e9; }
+            .mobile-download a { display: flex; align-items: center; justify-content: center; min-height: 44px; color: #1F2933; }
+        }
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            .nav-bar { flex-wrap: wrap; row-gap: 16px; }
+            .nav-bar > :nth-child(2) { order: 3; flex-basis: 100%; justify-content: space-between; }
+        }
+
+        .project-panel {
+            display: grid;
+            gap: 1.75rem;
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            border-radius: 2rem;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 900px) {
+            .project-panel {
+                grid-template-columns: 1.35fr 0.9fr;
+                gap: 2.5rem;
+                padding: 2.5rem 2.75rem;
+                align-items: stretch;
+            }
+        }
+
+        .project-label {
+            margin: 0 0 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #125E8A;
+        }
+
+        .project-title {
+            font-size: clamp(1.85rem, 4vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.12;
+            color: #111827;
+            margin: 0 0 1rem;
+        }
+
+        .project-copy {
+            font-size: 1.08rem;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, 0.78);
+            margin: 0 0 0.85rem;
+            max-width: 36rem;
+        }
+
+        .project-copy:last-child {
+            margin-bottom: 0;
+        }
+
+        .founder-card {
+            background: #125E8A;
+            color: #fff;
+            border-radius: 1.5rem;
+            padding: 1.75rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100%;
+            box-shadow: 0 22px 44px rgba(18, 94, 138, 0.28);
+        }
+
+        @media (min-width: 900px) {
+            .founder-card {
+                padding: 2rem 1.85rem;
+            }
+        }
+
+        .founder-quote {
+            font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.45;
+            margin: 0 0 1.5rem;
+        }
+
+        .founder-quote span {
+            color: #F4937C;
+        }
+
+        .founder-meta {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .founder-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 0 0 0.2rem;
+        }
+
+        .founder-role {
+            margin: 0;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .timeline-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .timeline-header h2 {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0;
+            color: #111827;
+        }
+
+        .timeline-hint {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        .news-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .news-timeline::before {
+                content: '';
+                position: absolute;
+                left: 0.55rem;
+                top: 0.4rem;
+                bottom: 0.4rem;
+                width: 2px;
+                background: rgba(18, 94, 138, 0.18);
+            }
+        }
+
+        .news-item {
+            position: relative;
+            background: #FFF9F5;
+            border: 1px solid #E2E8F0;
+            border-radius: 2rem;
+            padding: 1.5rem 1.5rem 1.35rem;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+            scroll-margin-top: 7rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.09);
+            transform: translateY(-2px);
+        }
+
+        @media (min-width: 768px) {
+            .news-item {
+                margin-left: 2.25rem;
+                padding: 1.85rem 2.25rem 1.65rem;
+            }
+
+            .news-item::before {
+                content: '';
+                position: absolute;
+                left: -2.05rem;
+                top: 2rem;
+                width: 0.85rem;
+                height: 0.85rem;
+                border-radius: 50%;
+                background: #FA7E61;
+                border: 3px solid #E6F1F7;
+                box-shadow: 0 0 0 2px rgba(250, 126, 97, 0.35);
+            }
+        }
+
+        .news-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.55rem 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .news-type {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #125E8A;
+            background: rgba(18, 94, 138, 0.1);
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+        }
+
+        .news-type--press {
+            color: #9A3412;
+            background: rgba(250, 126, 97, 0.18);
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        .news-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem 1.25rem;
+        }
+
+        .news-top-copy {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .news-thumb {
+            flex: 0 0 auto;
+            margin: 0;
+            width: 5.5rem;
+            border-radius: 0.85rem;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 8px 20px rgba(18, 94, 138, 0.12);
+            background: #E6F1F7;
+        }
+
+        @media (min-width: 640px) {
+            .news-thumb {
+                width: 7.5rem;
+                border-radius: 1rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .news-thumb {
+                width: 9rem;
+            }
+        }
+
+        .news-thumb img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .news-item h3 {
+            font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin: 0 0 0.75rem;
+            color: #111827;
+        }
+
+        .news-lead {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(31, 41, 51, 0.82);
+            margin: 0;
+            max-width: 42rem;
+        }
+
+        .news-item:first-child .news-lead,
+        .news-item.is-expanded .news-lead {
+            margin-bottom: 1rem;
+        }
+
+        /* Newest (first) post: full body always. Older posts: collapsed until Read more. */
+        .news-timeline > .news-item:not(:first-child) .news-body {
+            display: none;
+        }
+
+        .news-timeline > .news-item:not(:first-child).is-expanded .news-body {
+            display: block;
+        }
+
+        .news-timeline > .news-item:first-child .news-toggle {
+            display: none;
+        }
+
+        .news-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-top: 1rem;
+            padding: 0;
+            border: none;
+            background: none;
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #125E8A;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .news-toggle:hover {
+            color: #0f4f76;
+            text-decoration: underline;
+        }
+
+        .news-toggle-chevron {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.25s ease;
+        }
+
+        .news-item.is-expanded .news-toggle-chevron {
+            transform: rotate(180deg);
+        }
+
+        .news-body {
+            border-top: 1px solid #E2E8F0;
+            padding-top: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .news-body p {
+            font-size: 0.98rem;
+            line-height: 1.65;
+            color: rgba(31, 41, 51, 0.72);
+            margin: 0 0 0.85rem;
+            max-width: 42rem;
+        }
+
+        .news-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .news-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0.85rem;
+            max-width: 42rem;
+        }
+
+        .news-body ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.45rem;
+            color: rgba(31, 41, 51, 0.72);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        .news-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            background: #125E8A;
+        }
+
+        .news-note {
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: #6B7280;
+            max-width: 42rem;
+        }
+
+        .news-about {
+            margin-top: 1.5rem;
+            padding-top: 1.35rem;
+            border-top: 3px double #C5CDD6;
+            max-width: 42rem;
+        }
+
+        .news-about h4 {
+            margin: 0 0 0.55rem;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #111827;
+        }
+
+        .news-about p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: rgba(31, 41, 51, 0.72);
+        }
+    </style>
+</head>
+
+<body>
+    <nav aria-label="Main navigation" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+        <div class="homepage-brand flex items-center">
+            <a href="/en/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
+        </div>
+        <div id="homepage-nav-links" class="homepage-links hidden md:flex text-sm font-medium text-white/70">
+            <a href="/en/#how-it-works" class="hover:text-white transition">How It Works</a>
+            <a href="/en/tutorial" class="hover:text-white transition">What is carpooling</a>
+            <a aria-current="page" href="/en/news" class="text-white transition">News</a>
+            <a href="/en/#legal" class="hover:text-white transition">Legal Info</a>
+            <a href="/en/transport" class="hover:text-white transition">Public transport</a>
+            <div class="mobile-download"><a href="/en/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
+        </div>
+        <div class="homepage-actions flex items-center gap-6">
+            <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
+                <span class="text-white">EN</span>
+                <span class="text-white/20">|</span>
+                <a href="/lv/zinas" class="hover:text-white transition">LV</a>
+            </div>
+            <a href="/en/#download"
+                class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Download</a>
+            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button" aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu">
+                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="news-main pt-36 md:pt-40 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-8 md:mb-10">
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1F2933] mb-3 leading-tight">
+                    News
+                </h1>
+                <p class="text-lg text-[#1F2933]/70 max-w-2xl leading-relaxed">
+                    Project updates, product notes, and official announcements from Shurp.
+                </p>
+            </div>
+
+            <section class="project-panel" aria-labelledby="project-heading">
+                <div>
+                    <p class="project-label">The project</p>
+                    <h2 id="project-heading" class="project-title">Shurp is carpooling for Latvia — and built for the Baltics.</h2>
+                    <p class="project-copy">
+                        Shurp is a free carpooling app. People going the same way share the road and the travel cost.
+                        No commission on rides.
+                    </p>
+                    <p class="project-copy">
+                        Built in Latvia for everyday routes in Riga, Pieriga and across the country. An alternative when
+                        the bus or train does not fit. A greener way to fill empty seats and ease traffic jams.
+                    </p>
+                </div>
+                <aside class="founder-card" aria-label="Words from the founder">
+                    <p class="founder-quote">
+                        “Carpooling should be available to everyone, so I built Shurp for neighbours, colleagues and
+                        people heading the same way to <span>ride with the pack</span>. Simple, and with no commission.”
+                    </p>
+                    <div class="founder-meta">
+                        <p class="founder-name">Rūdolfs</p>
+                        <p class="founder-role">Founder, Shurp SIA</p>
+                    </div>
+                </aside>
+            </section>
+
+            <section aria-labelledby="timeline-heading">
+                <div class="timeline-header">
+                    <h2 id="timeline-heading">Latest</h2>
+                    <p class="timeline-hint">Newest first</p>
+                </div>
+
+                <div class="news-timeline">
+                    <!--
+                      CONTENT MODEL (add new posts at the TOP):
+                      - First item = newest → always shown in full
+                      - Items below → lead only + Read more (full HTML stays in page for SEO)
+                      - Types: Press / Product / Company / Media
+                    -->
+                    <article class="news-item" id="what-is-carpooling" itemscope itemtype="https://schema.org/NewsArticle">
+                        <div class="news-top">
+                            <div class="news-top-copy">
+                                <div class="news-meta">
+                                    <span class="news-type">Article</span>
+                                    <time class="news-date" datetime="2026-08-26" itemprop="datePublished">26 August 2026</time>
+                                </div>
+                                <h3 itemprop="headline">What is carpooling?</h3>
+                                <p class="news-lead" itemprop="description">
+                                    Carpooling is simple — people heading the same way travel together and share the cost of the trip.
+                                </p>
+                            </div>
+                            <figure class="news-thumb">
+                                <img src="../assets/kas-ir-kopbrauksana.jpg"
+                                    alt="What is carpooling? — Shurp"
+                                    width="360" height="360" loading="lazy" decoding="async"
+                                    itemprop="image">
+                            </figure>
+                        </div>
+                        <div class="news-body" itemprop="articleBody">
+                            <p>
+                                <strong>Riga, Latvia — 26 August 2026.</strong> Someone is already driving to Riga,
+                                Liepāja, Valmiera or Jelgava. Others need to get in the same direction. Some cars have
+                                empty seats; some people do not have a car of their own. Why not ride together and share
+                                the cost?
+                            </p>
+                            <p>
+                                The idea of carpooling is not new around the world, but in Latvia it is still little known
+                                and mostly informal — among friends, in Facebook groups or scattered chat threads. Shurp
+                                makes that process simpler and open to everyone by bringing it into one free app.
+                            </p>
+                            <p><strong>Not a new trip — using a trip that is already happening</strong></p>
+                            <p>
+                                Carpooling is not a taxi and not carsharing. It is based on a trip the driver would take
+                                anyway, even without a passenger.
+                            </p>
+                            <p>
+                                If someone is driving from Riga to Liepāja on Friday and has three empty seats, they can
+                                offer them to others. Someone who needs to get to Liepāja can find that ride and join.
+                                Driver and passenger travel together, and the road costs are shared.
+                            </p>
+                            <p>
+                                Both sides gain — the driver can lower their trip costs, and the passenger gets a way to
+                                reach their destination without their own car.
+                            </p>
+                            <p><strong>Carpooling already happens — often chaotically</strong></p>
+                            <p>
+                                Carpooling is not new in Latvia. People have been finding each other for years in Facebook
+                                groups, WhatsApp chats and friend circles.
+                            </p>
+                            <p>
+                                “Is anyone driving from Riga to Valmiera on Friday?”<br>
+                                “Maybe someone is going to Liepāja with one free seat?”
+                            </p>
+                            <p>
+                                Questions like these are nothing unusual here. The problem is that the information sits in
+                                different groups and threads, and finding the right ride is not always easy. Shurp’s idea
+                                is to make that simpler — find or offer a ride in one place.
+                            </p>
+                            <p><strong>Why ride alone when you can ride together?</strong></p>
+                            <p>
+                                Every day, cars on Latvian roads travel with empty seats. At the same time, people are
+                                looking for a way to get to work, home, studies, an event or another city. Carpooling
+                                connects those two situations.
+                            </p>
+                            <p>
+                                It might be a student going home for the weekend. Someone who commutes to another city
+                                every day. A family without a car on a particular day. Or simply someone who does not want
+                                to pay for an expensive taxi. If someone is already going your way, there is no need to
+                                create another trip.
+                            </p>
+                            <p><strong>Lower costs for both sides</strong></p>
+                            <p>
+                                The essence of carpooling is sharing costs — not carrying passengers for profit. The
+                                driver takes their planned trip, and passengers help cover part of the expenses. That
+                                makes using the car more affordable, while the passenger gets another way to get around.
+                            </p>
+                            <p>
+                                Shurp is built exactly for this kind of non-commercial carpooling — share the ride, share
+                                the tank.
+                            </p>
+                            <p><strong>And the benefit is not only for your wallet</strong></p>
+                            <p>
+                                When several people ride in one car, you do not need several cars. That means fewer empty
+                                seats, fewer cars on the road and lighter traffic. Fuel use and trip-related emissions are
+                                also spread across more people.
+                            </p>
+                            <p>
+                                The more people who are already heading the same way choose to ride together, the more
+                                empty seats in cars get used.
+                            </p>
+                            <p><strong>Carpooling is not only a last resort</strong></p>
+                            <p>
+                                Shurp’s goal is for carpooling to become a normal everyday travel choice. Not only when
+                                the bus is cancelled. Not only when the public transport timetable does not fit. And not
+                                only when a car suddenly is not available.
+                            </p>
+                            <p>
+                                If people already travel the same directions every day, carpooling can simply become one
+                                more usual way to get around.
+                            </p>
+                            <p><strong>Shurp makes it simpler</strong></p>
+                            <p>
+                                Shurp lets you search for a ride or offer a free seat in your car. Today you can be a
+                                passenger; tomorrow — a driver. The app helps you find people going the same way, get in
+                                touch and agree the trip. All of it — in one free app.
+                            </p>
+                            <p>
+                                Carpooling is simple: people are going the same way, so they ride together. Why ride alone
+                                when you can ride together — and cheaper?
+                            </p>
+                            <p>
+                                <strong>Shurp — Ride with the pack.</strong>
+                                More: <a href="https://shurp.lv" class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
+                            </p>
+                            <div class="news-about">
+                                <h4>About Shurp</h4>
+                                <p>
+                                    Shurp is an information society platform built in Latvia for non-commercial sharing
+                                    of ride costs. It helps drivers and passengers find each other and share trips that
+                                    are already planned. Shurp is not a taxi, a car rental service or commercial
+                                    passenger transport.
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more" data-less="Show less">
+                            <span class="news-toggle-label">Read more</span>
+                            <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <meta itemprop="author" content="Shurp SIA">
+                        <meta itemprop="inLanguage" content="en">
+                    </article>
+
+                    <article class="news-item" id="shurp-launches-in-latvia" itemscope itemtype="https://schema.org/NewsArticle">
+                        <div class="news-top">
+                            <div class="news-top-copy">
+                                <div class="news-meta">
+                                    <span class="news-type news-type--press">Press release</span>
+                                    <time class="news-date" datetime="2026-06-19" itemprop="datePublished">19 June 2026</time>
+                                </div>
+                                <h3 itemprop="headline">Shurp — Latvia’s free carpooling app is here</h3>
+                                <p class="news-lead" itemprop="description">
+                                    A new app built in Latvia that helps people ride together. Shurp lets you find or offer rides across Latvia in one place — simply share the road, share the tank.
+                                </p>
+                            </div>
+                            <figure class="news-thumb">
+                                <img src="../assets/shurp-launch-promo.png"
+                                    alt="Shurp app — carpooling in Latvia, available on App Store and Google Play"
+                                    width="360" height="360" loading="lazy" decoding="async"
+                                    itemprop="image">
+                            </figure>
+                        </div>
+                        <div class="news-body" itemprop="articleBody">
+                            <p>
+                                <strong>Riga, Latvia — 19 June 2026.</strong> Shurp SIA
+                                (Reg.&nbsp;No.&nbsp;LV40203709369) launches
+                                <strong>Shurp — a free carpooling app built in Latvia</strong>.
+                            </p>
+                            <p>
+                                The idea is simple: if you are already going somewhere, why not take along someone heading
+                                the same way? And if you do not have a car, you can find a ride with others.
+                            </p>
+                            <p>
+                                Shurp is not a taxi. It is a platform for people who are already on the road and want to
+                                travel together. Find or post a ride, chat in the app, and agree the trip and how you
+                                share the costs.
+                            </p>
+                            <p><strong>Why ride together?</strong></p>
+                            <ul>
+                                <li><strong>Save money</strong> — share the cost of the trip instead of driving alone or paying taxi rates.</li>
+                                <li><strong>Use empty seats</strong> — if you are going anyway, take others along and split the road costs.</li>
+                                <li><strong>Meet people</strong> — a shared journey can also be a good way to meet someone new.</li>
+                                <li><strong>Fewer empty seats, fewer cars</strong> — more people in one car means fewer unnecessary trips.</li>
+                            </ul>
+                            <p><strong>The whole trip in one place</strong></p>
+                            <p>
+                                Shurp lets you post a ride or find a route that fits
+                                <strong>in Riga, Pieriga and across Latvia</strong>. After a ride is confirmed, you can
+                                message the others in the in-app chat, check profiles and reviews, and use optional
+                                document verification.
+                            </p>
+                            <p>
+                                <strong>Shurp takes no commission on cost-sharing between users.</strong>
+                            </p>
+                            <p>
+                                The app is brand new, and its value comes from the people who use it. So we invite you to
+                                join, publish your routes, and invite friends, colleagues, neighbours and others you
+                                already tend to travel with in the same direction.
+                            </p>
+                            <p>
+                                <strong>Download Shurp and try it today.</strong>
+                            </p>
+                            <p>
+                                Available on the
+                                <a href="https://apps.apple.com/app/shurp/id6760924489" class="shurp-blue-text font-semibold hover:underline" target="_blank" rel="noopener noreferrer">App Store</a>
+                                and
+                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app" class="shurp-blue-text font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Google Play</a>,
+                                and at <a href="https://shurp.lv/get" class="shurp-blue-text font-semibold hover:underline">shurp.lv/get</a>.
+                            </p>
+                            <p>
+                                Media contact: <span class="press-email"></span>
+                            </p>
+                            <div class="news-about">
+                                <h4>About Shurp</h4>
+                                <p>
+                                    Shurp is an information society platform built in Latvia for non-commercial sharing
+                                    of ride costs. It helps drivers and passengers find each other and share trips that
+                                    are already planned. Shurp is not a taxi, a car rental service or commercial
+                                    passenger transport.
+                                </p>
+                            </div>
+                        </div>
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more" data-less="Show less">
+                            <span class="news-toggle-label">Read more</span>
+                            <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <meta itemprop="author" content="Shurp SIA">
+                        <meta itemprop="inLanguage" content="en">
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="legal" class="py-24 px-8 shurp-blue-bg">
+        <div class="max-w-7xl mx-auto text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                <div class="text-left">
+                    <h4 class="text-lg font-bold mb-6 text-white">Shurp SIA</h4>
+                    <p class="leading-relaxed mb-4 text-white/70">
+                        Reg. No: LV40203709369<br>
+                        Contact Information: <span id="safe-email" class="text-white/70"></span>
+                    </p>
+                    <p class="leading-relaxed text-white/70">
+                        <strong class="text-white">Privacy Notice:</strong> We use address data only for connecting
+                        rides. Exact address and user information is visible only to ride participants.
+                    </p>
+                </div>
+                <div class="text-left md:text-right">
+                    <h4 class="text-lg font-bold mb-6 text-white">About the Platform</h4>
+                    <p class="leading-relaxed text-white/70 max-w-xl md:ml-auto">
+                        Shurp connects drivers and passengers for shared rides across Latvia — without commission fees.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/10 uppercase tracking-[0.2em] text-[10px] text-white/70">
+                <p>&copy; 2026 SHURP. All rights reserved.</p>
+                <div class="flex space-x-8 mt-6 md:mt-0">
+                    <a href="privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="terms" class="hover:text-white transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/site-nav.js" defer></script>
+    <script>
+        document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
+        document.querySelectorAll('.press-email').forEach(function (el) {
+            el.textContent = 'info' + '@' + 'shurp.lv';
+        });
+
+        function setNewsExpanded(item, expanded) {
+            var btn = item.querySelector('.news-toggle');
+            var label = btn && btn.querySelector('.news-toggle-label');
+            item.classList.toggle('is-expanded', expanded);
+            if (btn) {
+                btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                if (label) {
+                    label.textContent = expanded
+                        ? (btn.getAttribute('data-less') || 'Show less')
+                        : (btn.getAttribute('data-more') || 'Read more');
+                }
+            }
+        }
+
+        document.querySelectorAll('.news-timeline > .news-item:not(:first-child) .news-toggle').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.news-item');
+                setNewsExpanded(item, !item.classList.contains('is-expanded'));
+            });
+        });
+
+        function expandNewsFromHash() {
+            var hash = window.location.hash;
+            if (!hash) return;
+            var el = document.getElementById(hash.slice(1));
+            if (!el || !el.classList.contains('news-item')) return;
+            var items = document.querySelectorAll('.news-timeline > .news-item');
+            if (items.length && el === items[0]) return;
+            setNewsExpanded(el, true);
+            setTimeout(function () {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        }
+
+        window.addEventListener('load', expandNewsFromHash);
+        window.addEventListener('hashchange', expandNewsFromHash);
+    </script>
+</body>
+
+</html>

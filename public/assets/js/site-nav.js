@@ -1,41 +1,48 @@
 (() => {
-  const nav = document.querySelector('.site-nav');
+  const nav = document.querySelector('.nav-bar') || document.querySelector('.site-nav');
   if (!nav) return;
-  const toggle = nav.querySelector('.site-menu-toggle');
-  const menu = nav.querySelector('.site-nav-links');
-  const compact = matchMedia('(max-width: 1279px)');
+  const toggle = nav.querySelector('#homepage-menu-toggle') || nav.querySelector('.site-menu-toggle') || nav.querySelector('.mobile-menu-toggle');
+  const menu = nav.querySelector('#homepage-nav-links') || nav.querySelector('.homepage-links') || nav.querySelector('.site-nav-links');
+  if (!toggle || !menu) return;
+
+  const openClass = nav.classList.contains('nav-bar') ? 'mobile-menu-open' : 'menu-open';
+
   function setOpen(open, restoreFocus = false) {
-    nav.classList.toggle('menu-open', open);
+    nav.classList.toggle(openClass, open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
-    if (restoreFocus) toggle.focus({preventScroll: true});
+    if (toggle.dataset.openLabel && toggle.dataset.closeLabel) {
+      toggle.setAttribute('aria-label', open ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
+    }
+    if (restoreFocus) toggle.focus({ preventScroll: true });
   }
+
   nav.classList.add('nav-ready');
   toggle.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     setOpen(open);
-    if (open) menu.querySelector('a').focus({preventScroll: true});
+    if (open) {
+      const first = menu.querySelector('a');
+      if (first) first.focus({ preventScroll: true });
+    }
   });
-  nav.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && nav.classList.contains('menu-open')) {
+  nav.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && nav.classList.contains(openClass)) {
       event.preventDefault();
       setOpen(false, true);
     }
   });
-  menu.addEventListener('click', event => {
+  menu.addEventListener('click', (event) => {
     if (event.target.closest('a')) setOpen(false);
   });
-  document.addEventListener('click', event => {
+  document.addEventListener('click', (event) => {
     if (!nav.contains(event.target)) setOpen(false);
   });
   nav.addEventListener('focusout', () => {
-    // Let the browser finish moving focus before deciding it left the menu.
     setTimeout(() => {
       if (!nav.contains(document.activeElement)) setOpen(false);
     }, 0);
   });
-  compact.addEventListener('change', () => {
-    const focusedLink = menu.contains(document.activeElement);
-    setOpen(false, compact.matches && focusedLink);
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+    if (event.matches) setOpen(false);
   });
 })();

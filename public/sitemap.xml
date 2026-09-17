@@ -49,6 +49,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/tickets"/>
   </url>
   <url>
+    <loc>https://shurp.lv/en/news</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/zinas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/news"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/zinas"/>
+  </url>
+  <url>
     <loc>https://shurp.lv/en/privacy</loc>
     <lastmod>2026-03-03</lastmod>
     <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/privacy"/>
@@ -100,6 +109,15 @@
     <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/tickets"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/tickets"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/tickets"/>
+  </url>
+  <url>
+    <loc>https://shurp.lv/lv/zinas</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/news"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/zinas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/zinas"/>
   </url>
   <url>
     <loc>https://shurp.lv/lv/privacy</loc>
