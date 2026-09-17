@@ -14,3 +14,5 @@ repomix-output.*
 .env.*
 !.env.example
 backups/
+
+temp/
