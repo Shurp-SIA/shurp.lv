@@ -1,4 +1,15 @@
 # NOT YET APPROVED
+#
+# Before publishing step 4, run:
+#
+#     scripts/sync-planner-ui.sh --index
+#
+# Step 3 uploads the planner pages with <meta name="robots" content="noindex">
+# because nothing links to them yet. Step 4 is the release that links them from
+# the navigation and lists them in sitemap.xml, so the noindex must be removed
+# from lv/transport.html, en/transport.html, lv/tickets.html and
+# en/tickets.html first - otherwise the sitemap advertises pages that ask not
+# to be indexed.
 lv/index.html
 en/index.html
 lv/tutorial.html

@@ -13,7 +13,7 @@ const artifacts = process.env.ARTIFACTS || '/artifacts';
       await page.goto(`${base}/${locale}/`, {waitUntil:'networkidle'});
       const nav = page.locator('.nav-bar'), links = page.locator('.homepage-links > a');
       const toggle = page.locator('#homepage-menu-toggle'), menu = page.locator('#homepage-nav-links');
-      assert.deepEqual(await links.evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), ['#how-it-works','tutorial','tutorial#faq-safety','#legal',`https://shurp.proofit.lv/transport/${locale}/transport`]);
+      assert.deepEqual(await links.evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), ['#how-it-works','tutorial','tutorial#faq-safety','#legal',`/${locale}/transport`]);
       assert.equal(await nav.locator('.homepage-actions > .scroll-to-badges').getAttribute('href'),'#download');
       if (width < 768) {
         assert.equal(await toggle.isVisible(),true);
@@ -49,7 +49,6 @@ const artifacts = process.env.ARTIFACTS || '/artifacts';
         const badges = await page.locator('#download').boundingBox();
         assert.ok(badges.y >= 0 && badges.y+badges.height <= 844, `${locale}/${width}: Download did not reveal store badges`);
         await toggle.click();
-        await page.route('https://shurp.proofit.lv/transport/**', route => route.fulfill({contentType:'text/html', body:'<title>External service</title>'}));
         const arrival=page.waitForURL(`**/${locale}/transport`);
         await links.last().click(); await arrival;
         assert.equal(new URL(page.url()).pathname,`/${locale}/transport`, `${locale}/${width}: transport menu action did not navigate`);
