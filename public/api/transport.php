@@ -9,7 +9,8 @@ declare(strict_types=1);
  * The browser talks only to https://www.shurp.lv/api/transport... . This file
  * forwards the request to the transport service and adds the client key, which
  * lives outside the webroot (account home /config/transport-client-key) so that
- * it can never be served over HTTP even if PHP stops executing.
+ * it can never be served over HTTP even if PHP stops executing. See
+ * account_home() for how that directory is located on this host.
  *
  * Routing forms (all three resolve to the same thing)
  * --------------------------------------------------
@@ -52,12 +53,102 @@ const MAX_BODY_BYTES  = 2097152;          /* 2 MiB */
 const CONNECT_TIMEOUT = 5;
 const TOTAL_TIMEOUT   = 15;
 
-/* Fixed-window per-IP throttle. Set THROTTLE_DIR to '' to disable it. */
-const THROTTLE_DIR    = __DIR__ . '/../../.tmp/shurp-throttle';
+/* Fixed-window per-IP throttle. Set THROTTLE_ENABLED to false to disable it. */
+const THROTTLE_ENABLED = true;
+const THROTTLE_SUBPATH = '.tmp/shurp-throttle';   /* relative to account_home() */
 const THROTTLE_LIMIT  = 40;
 const THROTTLE_WINDOW = 60;
 
+/* The client key, relative to the account home (never under the document root). */
+const CLIENT_KEY_SUBPATH = 'config/transport-client-key';
+
 const GENERIC_UNAVAILABLE = 'Transport service is temporarily unavailable.';
+
+/* ------------------------------------------------------------- account home */
+
+/**
+ * Locate the account's home directory - the private tree that holds the client
+ * key and the scratch space.
+ *
+ * Hetzner shared hosting gives one account two unrelated trees:
+ *
+ *     document root   /usr/www/users/<user>    (FTP shows it as "public_html")
+ *     account home    /usr/home/<user>         (FTP shows it as "/")
+ *
+ * The webroot is therefore NOT a subdirectory of the home directory, and the
+ * usual dirname(__DIR__, 2) walk up from /usr/www/users/<user>/api lands on
+ * /usr/www/users - a shared parent that contains neither config/ nor .tmp/.
+ * That is exactly why the key was invisible to this proxy. Everything private
+ * lives under the home tree, which no URL can reach.
+ *
+ * Candidates, in order: the passwd entry for the effective user, $HOME, and the
+ * conventional /usr/home/<user>. A candidate that already holds a readable
+ * client key wins outright; otherwise the first existing directory is used, so
+ * the throttle still gets a home even before the key is uploaded.
+ *
+ * @return string|null Absolute path with no trailing slash, or null if none of
+ *                     the candidates exists.
+ */
+function account_home(): ?string
+{
+    static $resolved = false;
+    static $home = null;
+
+    if ($resolved) {
+        return $home;
+    }
+    $resolved = true;
+
+    $user    = get_current_user();
+    $envHome = getenv('HOME');
+
+    $posixHome = null;
+    if (function_exists('posix_getpwuid') && function_exists('posix_geteuid')) {
+        $entry = @posix_getpwuid(posix_geteuid());
+        if (is_array($entry) && isset($entry['dir']) && is_string($entry['dir'])) {
+            $posixHome = $entry['dir'];
+        }
+    }
+
+    $candidates = [
+        $posixHome,
+        is_string($envHome) && $envHome !== '' ? $envHome : null,
+        $user !== '' ? '/usr/home/' . $user : null,
+    ];
+
+    $firstExisting = null;
+    foreach ($candidates as $candidate) {
+        if (!is_string($candidate)) {
+            continue;
+        }
+        $candidate = rtrim($candidate, '/');
+        if ($candidate === '' || !is_dir($candidate)) {
+            continue;
+        }
+        if ($firstExisting === null) {
+            $firstExisting = $candidate;
+        }
+        if (is_readable($candidate . '/' . CLIENT_KEY_SUBPATH)) {
+            $home = $candidate;
+            return $home;
+        }
+    }
+
+    $home = $firstExisting;
+    return $home;
+}
+
+/**
+ * Throttle state directory, or '' when there is nowhere to put it (fail-open).
+ */
+function throttle_dir(): string
+{
+    if (!THROTTLE_ENABLED) {
+        return '';
+    }
+    $home = account_home();
+    return $home === null ? '' : $home . '/' . THROTTLE_SUBPATH;
+}
 
 /* ------------------------------------------------------------------ output */
 
@@ -194,10 +285,10 @@ if ($cfIp !== '' && filter_var($cfIp, FILTER_VALIDATE_IP) !== false) {
  */
 function throttle_retry_after(string $ip): int
 {
-    if (THROTTLE_DIR === '' || $ip === '') {
+    $dir = throttle_dir();
+    if ($dir === '' || $ip === '') {
         return 0;
     }
-    $dir = THROTTLE_DIR;
     if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
         return 0;
     }
@@ -271,10 +362,16 @@ if ($retryAfterSeconds > 0) {
 
 /* --------------------------------------------------------------- client key */
 
-$keyFile = getenv('SHURP_TRANSPORT_KEY_FILE') ?: dirname(__DIR__, 2) . '/config/transport-client-key';
+/* An explicit override always wins (local test runs); otherwise the key comes
+   from the account home - see account_home() for why that is not the webroot. */
+$keyFile = (string) (getenv('SHURP_TRANSPORT_KEY_FILE') ?: '');
+if ($keyFile === '') {
+    $home    = account_home();
+    $keyFile = $home !== null ? $home . '/' . CLIENT_KEY_SUBPATH : '';
+}
 
 $clientKey = '';
-if (is_string($keyFile) && $keyFile !== '' && is_readable($keyFile)) {
+if ($keyFile !== '' && is_readable($keyFile)) {
     $raw = @file_get_contents($keyFile, false, null, 0, 4096);
     if (is_string($raw) && $raw !== '') {
         $firstLine = strtok($raw, "\r\n");
