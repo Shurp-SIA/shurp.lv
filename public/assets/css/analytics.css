@@ -1,6 +1,0 @@
-.analytics-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;max-width:620px;padding:20px;border:1px solid #125e8a;border-radius:12px;background:#fff9f5;color:#1f2933;box-shadow:0 4px 24px #0003;font:15px/1.5 system-ui,sans-serif}
-.analytics-consent p{margin:0 0 10px}.analytics-consent a{color:#125e8a;text-decoration:underline}.analytics-actions{display:flex;gap:12px;margin-top:14px}
-.analytics-actions button{flex:1;padding:10px 18px;border:2px solid #125e8a;border-radius:7px;background:#fff9f5;color:#125e8a;font:600 15px system-ui,sans-serif;cursor:pointer}
-.analytics-settings{position:fixed;bottom:10px;left:10px;z-index:9999;padding:8px 12px;border:1px solid #125e8a;border-radius:7px;background:#fff9f5;color:#125e8a;font:13px system-ui,sans-serif;cursor:pointer}
-.analytics-actions button:hover,.analytics-settings:hover{background:#e6f1f7}.analytics-actions button:focus-visible,.analytics-settings:focus-visible,.analytics-consent a:focus-visible{outline:3px solid #125e8a;outline-offset:3px}
-.analytics-consent[hidden],.analytics-settings[hidden]{display:none}

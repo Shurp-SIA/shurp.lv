@@ -1,9 +1,8 @@
-"""Shurp marketing pages and consent-based website analytics."""
+"""Shurp marketing pages."""
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from .analytics import router as analytics_router
 
 PUBLIC = Path(__file__).resolve().parents[1] / "public"
 HEADERS = {"Cache-Control": "no-store", "X-Content-Type-Options": "nosniff"}
@@ -24,5 +23,4 @@ async def localized_page(locale: str, request: Request):
 async def download_redirect():
     return FileResponse(PUBLIC / "get.html", headers=HEADERS)
 
-app.include_router(analytics_router)
 app.mount("/", StaticFiles(directory=PUBLIC, html=True), name="public")

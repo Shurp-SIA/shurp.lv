@@ -10,7 +10,6 @@ const artifacts = process.env.ARTIFACTS || '/artifacts';
       const context = await browser.newContext({viewport:{width,height:844}});
       const page = await context.newPage(), errors = [];
       page.on('pageerror', error => errors.push(error.message));
-      await page.route('**/api/analytics/config', route => route.fulfill({contentType:'application/json',body:'{"enabled":false}'}));
       await page.goto(`${base}/${locale}/`, {waitUntil:'networkidle'});
       const nav = page.locator('.nav-bar'), links = page.locator('.homepage-links > a');
       const toggle = page.locator('#homepage-menu-toggle'), menu = page.locator('#homepage-nav-links');

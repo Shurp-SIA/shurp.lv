@@ -116,29 +116,9 @@ Company: Shurp SIA (Reg. No: 40203709369)
 * **Disclaimer:** Shurp is not affiliated with Bolt, CityBee, or Facebook. It is an independent carpooling platform offering an alternative way for individuals to travel together and share commuting costs.
 ---
 
-## Website analytics
-
-Website analytics is opt-in and disabled by default. In the Docker deployment,
-enable its private persistent store with:
+## Local preview
 
 ```bash
-ANALYTICS_DB_PATH=/var/lib/shurp-analytics/events.sqlite3 \
-ANALYTICS_ALLOWED_ORIGINS=https://shurp.lv,https://www.shurp.lv \
 docker compose up -d --build website
+BASE_URL=http://127.0.0.1:8094 node tests/browser_homepage_navigation.cjs
 ```
-
-Use the actual deployed origins. For local HTTP testing the origin can be omitted.
-The named `website-analytics` volume survives container recreation. This command
-requires the appropriate runtime; uploading `public/` to FTP does not install an
-analytics collector.
-
-Inspect the private aggregate report inside the configured container:
-
-```bash
-docker compose exec website python -m server.analytics_report --days 7
-```
-
-[Website analytics documentation](docs/website-analytics.md) explains consent,
-events, retention and the separate existing mobile-app funnel. Before advertising,
-verify production event delivery and mobile signup/booking reporting; a website
-store click is not an app install or booking.

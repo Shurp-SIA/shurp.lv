@@ -104,7 +104,6 @@
         <meta http-equiv="refresh" content="0; url=https://shurp.lv/lv/" />
     </noscript>
 
-    <script src="/assets/js/analytics.js"></script>
     <script>
         (function () {
             var IOS_URL = 'https://apps.apple.com/app/shurp/id6760924489';
@@ -148,7 +147,6 @@
             addEventListener('pageshow', function (event) { if (event.persisted) showFallback(); });
             var navigation = performance.getEntriesByType('navigation')[0];
             if (navigation && navigation.type === 'back_forward') { showFallback(); return; }
-            window.ShurpAnalytics?.track('app_redirect', {platform: isIOS ? 'ios' : (isAndroid ? 'android' : 'other')});
             timer = setTimeout(function () {
                 // Replace the handoff entry: Back must return to the previous page,
                 // rather than replaying this automatic store redirect.

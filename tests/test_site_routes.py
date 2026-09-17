@@ -16,10 +16,8 @@ class SiteRoutesTests(unittest.TestCase):
                     self.assertIn('text/html', response.headers['content-type'])
             self.assertEqual(client.get('/get').status_code, 200)
             self.assertEqual(client.get('/en/privacy.html').status_code, 200)
-            self.assertEqual(client.get('/assets/js/analytics.js').status_code, 200)
             self.assertEqual(client.get('/xx/privacy').status_code, 404)
             self.assertEqual(client.get('/en/nonexistent').status_code, 404)
-            self.assertEqual(client.get('/api/analytics/report').status_code, 404)
 
     def test_only_configured_proxy_can_supply_visitor_address(self):
         async def resolve(peer, trusted):
