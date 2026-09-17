@@ -1,0 +1,14 @@
+# APPROVED 2026-09-17 — complete release 8847eac: publish planner CSS and shared nav JS
+#
+# Commit 8847eac shipped the new .nav-bar header markup in lv/transport.html,
+# en/transport.html, lv/tickets.html and en/tickets.html and updated the two
+# assets that style and drive it, but only the HTML reached the server. The
+# live copies of both assets still match 8847eac^, so the planner header
+# renders unstyled and the mobile menu toggle does nothing on the planner,
+# ticket and news pages.
+#
+# This step publishes exactly the two assets as they are committed in
+# 8847eac. Do NOT run scripts/sync-planner-ui.sh first: the files in public/
+# are already the approved release content and must be uploaded byte for byte.
+assets/css/transport.css
+assets/js/site-nav.js
