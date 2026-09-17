@@ -13,3 +13,4 @@ __pycache__/
 repomix-output.*
 .env.*
 !.env.example
+backups/

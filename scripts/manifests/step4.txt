@@ -1,0 +1,13 @@
+# NOT YET APPROVED
+lv/index.html
+en/index.html
+lv/tutorial.html
+en/tutorial.html
+get.html
+lv/privacy.html
+en/privacy.html
+lv/transport.html
+en/transport.html
+lv/tickets.html
+en/tickets.html
+sitemap.xml
