@@ -1,4 +1,3 @@
-# NOT YET APPROVED
 assets/css/transport.css
 assets/js/site-nav.js
 assets/js/transport-inputs.js
