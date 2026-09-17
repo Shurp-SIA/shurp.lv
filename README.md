@@ -4,7 +4,7 @@
 [![Status](https://img.shields.io/badge/Status-Lobby_Live-FA7E61)]()
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey)]()
 
-> **GitHub repo description:** Shurp — Braucam kopā! Latvijas bezmaksas kopbraukšanas lietotne. Alternatīva tādiem transporta veidiem kā autobuss un vilciens. | Shurp is a digital carpooling platform for Riga and Latvia.
+> **GitHub repo description:** Shurp — Braucam kopā! Latvijas bezmaksas kopbraukšanas lietotne + transporta plānotājs (autobusu saraksts, vilcienu saraksts, maršruti). Alternatīva, kad autobuss vai vilciens neder. | Shurp is a digital carpooling platform for Riga and Latvia, with a public-transport journey planner.
 
 **[Shurp](https://www.shurp.lv)** ir digitāla kopbraukšanas (*carpooling*) platforma, kurā mēs braucam kopā. Alternatīva tādiem transporta veidiem kā autobuss un vilciens. Shurp savieno autovadītājus un pasažierus Rīgā, Latvijā un Baltijā. Mūsu mērķis ir padarīt mobilitāti lētāku, zaļāku un draudzīgāku, dalot ceļu un izmaksas bez slēptām komisijas maksām.
 
@@ -36,16 +36,30 @@ Shurp ir radīts aizņemtiem cilvēkiem. Mēs zinām, ka šoferim, kurš katru d
 
 🧮 Tirgus cenu algoritms: Lai nebūtu jālauza galva par cipariem un Latvijas likumdevēju regulējumiem, mūsu algoritms automātiski aprēķina brauciena maksimālo pieļaujamo cenu. 
 
+## 🚌 Transporta plānotājs (Traffic / journey planning)
+Shurp mājaslapā ir **sabiedriskā transporta un kopbraukšanas maršrutu plānotājs** — vienā vietā salīdzini autobusu, vilcienu, tramvaju, trolejbusu un Shurp kopbraucienus Latvijā:
+
+- **LV:** [shurp.lv/lv/transport](https://www.shurp.lv/lv/transport)
+- **EN:** [shurp.lv/en/transport](https://www.shurp.lv/en/transport)
+
+Meklē pēc sākumpunkta, galamērķa, datuma un laika; filtrē pēc veida (visi / kopbraukšana / vilciens / autobuss / tramvajs / trolejbuss). Populārie maršruti: Rīga → Jelgava, Liepāja, Daugavpils, Valmiera, Ventspils, Sigulda.
+
 ## 📈 SEO & Topics
-Mūsu digitālā klātbūtne ir optimizēta Latvijas tirgum, īpaši meklējumiem par **autobusu** un **vilcienu** kā alternatīvu kopbraukšanai:
-`šurp`, `kopbraukšana`, `autobuss`, `vilciens`, `autobuss alternatīva`, `vilciens alternatīva`, `carpooling latvia`, `dali ceļu`, `braucam kopā`.
+Mūsu digitālā klātbūtne ir optimizēta Latvijas tirgum — gan meklējumiem pēc **sabiedriskā transporta sarakstiem un maršrutiem**, gan pēc **kopbraukšanas kā alternatīvas**, kad autobuss vai vilciens neder:
 
-**Meta description (LV):** Shurp — Latvijas bezmaksas kopbraukšanas (carpooling) lietotne. Alternatīva tādiem transporta veidiem kā autobuss un vilciens. Dali ceļu un degvielu bez komisijas Rīgā, Pierīgā un visā Latvijā.
+**Primārie meklējumi (LV):** `autobusu saraksts`, `vilcienu saraksts`, `maršruti`, `autobusu maršruti`, `vilcienu maršruti`, `sabiedriskais transports`, `kustības saraksts`, `Rīga Jelgava autobuss`, `Rīga Liepāja vilciens`.
 
-**Ieteicamie GitHub topics:** `šurp`, `kopbrauksana`, `autobuss`, `vilciens`, `autobuss-alternativa`, `vilciens-alternativa`, `transports`, `latvija`, `riga`, `carpooling`, `ridesharing`
+**Zīmola meklējumi:** `šurp`, `surp`, `Shurp`, `Šurp` — lai Google saista šīs rakstības ar [shurp.lv](https://www.shurp.lv).
+
+**Alternatīvas / kopbraukšana:** `šurp`, `surp`, `kopbraukšana`, `autobuss alternatīva`, `vilciens alternatīva`, `autobuss`, `vilciens`, `carpooling latvia`, `dali ceļu`, `braucam kopā`, `lēti braucieni Latvija`.
+
+**Meta description (LV):** Shurp (šurp / surp) — Latvijas bezmaksas kopbraukšanas (carpooling) lietotne un transporta plānotājs. Autobusu saraksts, vilcienu saraksts un maršruti vienā vietā; salīdzini sabiedrisko transportu ar kopbraucieniem. Alternatīva, kad autobuss vai vilciens neder. Dali ceļu un degvielu bez komisijas Rīgā, Pierīgā un visā Latvijā.
+
+**Ieteicamie GitHub topics:** `šurp`, `surp`, `shurp`, `kopbrauksana`, `autobusu-saraksts`, `vilcienu-saraksts`, `marsruti`, `autobuss`, `vilciens`, `autobuss-alternativa`, `vilciens-alternativa`, `transports`, `latvija`, `riga`, `carpooling`, `ridesharing`
 
 ## 🔗 Saites un Juridiskā info
 - **Mājaslapa:** [shurp.lv](https://www.shurp.lv)
+- **Transporta plānotājs:** [shurp.lv/lv/transport](https://www.shurp.lv/lv/transport)
 - **Privātuma politika:** [shurp.lv/privacy](https://www.shurp.lv/privacy)
 - **Noteikumi:** [shurp.lv/terms](https://www.shurp.lv/terms)
 - **Uzņēmums:** Shurp SIA (Reģ. Nr: 40203709369)
@@ -96,12 +110,27 @@ Shurp is created for busy people. We know that a driver who commutes to work eve
 
 🧮 Market Price Algorithm: To avoid worrying about numbers or Latvian legislative regulations, our algorithm automatically calculates the maximum allowable price for the ride.
 
+🚌 Transport planner (traffic / journey planning)
+The Shurp website includes a **public-transport and carpool journey planner** — compare bus, train, tram, trolleybus, and Shurp carpools across Latvia in one place:
+
+- LV: shurp.lv/lv/transport
+- EN: shurp.lv/en/transport
+
+Search by origin, destination, date, and time; filter by mode. Popular routes include Riga → Jelgava, Liepāja, Daugavpils, Valmiera, Ventspils, Sigulda.
+
 📈 SEO & Topics
-Our digital presence is optimized for the Latvian market, especially searches for **bus** and **train** alternatives to carpooling:
-šurp, carpooling, carpooling latvia, bus alternative, train alternative, autobuss, vilciens, share the road, ride sharing latvia.
+Our digital presence targets Latvian search demand for **timetables and routes**, plus **carpooling as an alternative** when bus or train does not fit:
+
+Primary (LV): autobusu saraksts, vilcienu saraksts, maršruti, autobusu maršruti, vilcienu maršruti, sabiedriskais transports, kustības saraksts.
+
+Brand searches: šurp, surp, Shurp — so Google associates these spellings with shurp.lv.
+
+Alternatives / carpooling: šurp, surp, carpooling latvia, bus alternative, train alternative, autobuss, vilciens, share the road, ride sharing latvia, cheap rides Latvia.
 
 🔗 Links and Legal Info
 Website: shurp.lv
+
+Transport planner: shurp.lv/lv/transport
 
 Privacy Policy: shurp.lv/privacy
 
