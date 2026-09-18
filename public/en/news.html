@@ -66,12 +66,24 @@
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://shurp.lv/en/news#empty-seat-transport-network",
+          "name": "Can an empty car seat become a new transport network in Latvia?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://shurp.lv/en/news#lapsas-village-festival",
+          "name": "New mobility solution meets people at the Lapsas village festival"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "url": "https://shurp.lv/en/news#what-is-carpooling",
           "name": "What is carpooling?"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 4,
           "url": "https://shurp.lv/en/news#shurp-launches-in-latvia",
           "name": "Shurp — Latvia’s free carpooling app is here"
         }
@@ -87,7 +99,10 @@
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #E6F1F7;
@@ -104,46 +119,182 @@
             }
         }
 
-        .shurp-blue-text { color: #125E8A; }
-        .shurp-coral-bg { background-color: #FA7E61; }
-        .shurp-coral-bg:hover { background-color: #e8705a; }
-        .shurp-blue-bg { background-color: #125E8A; }
+        .shurp-blue-text {
+            color: #125E8A;
+        }
+
+        .shurp-coral-bg {
+            background-color: #FA7E61;
+        }
+
+        .shurp-coral-bg:hover {
+            background-color: #e8705a;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+
         .cta-pop {
             box-shadow: 0 6px 16px rgba(18, 94, 138, 0.22);
             transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
+
         .nav-bar {
-            background-color: rgba(18, 94, 138, 0.95);
+            background-color: #125E8A;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .homepage-links { gap: clamp(12px, 2vw, 32px); }
-        .mobile-menu-toggle, .mobile-download { display: none; }
-        .mobile-menu-toggle .menu-close-icon { display: none; }
-        .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
-        .nav-bar.mobile-menu-open .menu-close-icon { display: block; }
+        .homepage-links {
+            gap: clamp(12px, 2vw, 32px);
+        }
+
+        .homepage-links>a[aria-current="page"] {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .mobile-menu-toggle,
+        .mobile-download {
+            display: none;
+        }
+
+        .mobile-menu-toggle .menu-close-icon {
+            display: none;
+        }
+
+        .nav-bar.mobile-menu-open .menu-open-icon {
+            display: none;
+        }
+
+        .nav-bar.mobile-menu-open .menu-close-icon {
+            display: block;
+        }
 
         @media (max-width: 767px) {
-            .homepage-brand { flex-shrink: 0; }
-            .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
-            .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
-            .homepage-actions { gap: 16px; flex-shrink: 0; }
-            .homepage-actions > .shurp-coral-bg { display: none; }
-            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
-            .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-            .mobile-menu-toggle:focus-visible { outline: 3px solid #FA7E61; outline-offset: 3px; }
-            .nav-bar > .homepage-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 4px; padding: 16px 24px 24px; max-height: calc(100vh - 92px); max-height: calc(100dvh - 92px); overflow-y: auto; background: #FFF9F5; color: #125E8A; border-bottom: 1px solid #dce6e9; box-shadow: 0 14px 24px #16344224; }
-            .nav-bar.mobile-menu-open > .homepage-links { display: flex; }
-            .homepage-links > a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; color: #125E8A; }
-            .homepage-links > a:hover, .homepage-links > a:focus-visible, .homepage-links > a[aria-current="page"] { background: #E6F1F7; color: #125E8A; }
-            .homepage-links a:focus-visible { outline: 3px solid #125E8A; outline-offset: 2px; }
-            .mobile-download { display: block; margin-top: 12px; padding-top: 16px; border-top: 1px solid #dce6e9; }
-            .mobile-download a { display: flex; align-items: center; justify-content: center; min-height: 44px; color: #1F2933; }
+            .homepage-brand {
+                flex-shrink: 0;
+            }
+
+            .homepage-brand a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+            }
+
+            .homepage-brand img {
+                width: 66px;
+                min-width: 66px;
+                height: auto;
+            }
+
+            .homepage-actions {
+                gap: 16px;
+                flex-shrink: 0;
+            }
+
+            .homepage-actions>.shurp-coral-bg {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                padding: 9px;
+                border: 1px solid #ffffff66;
+                border-radius: 10px;
+                background: transparent;
+                color: white;
+                cursor: pointer;
+            }
+
+            .mobile-menu-toggle svg {
+                width: 24px;
+                height: 24px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-linecap: round;
+            }
+
+            .mobile-menu-toggle:focus-visible {
+                outline: 3px solid #FA7E61;
+                outline-offset: 3px;
+            }
+
+            .nav-bar>.homepage-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 4px;
+                padding: 16px 24px 24px;
+                max-height: calc(100vh - 92px);
+                max-height: calc(100dvh - 92px);
+                overflow-y: auto;
+                background: #FFF9F5;
+                color: #125E8A;
+                border-bottom: 1px solid #dce6e9;
+                box-shadow: 0 14px 24px #16344224;
+            }
+
+            .nav-bar.mobile-menu-open>.homepage-links {
+                display: flex;
+            }
+
+            .homepage-links>a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                color: #125E8A;
+            }
+
+            .homepage-links>a:hover,
+            .homepage-links>a:focus-visible,
+            .homepage-links>a[aria-current="page"] {
+                background: #E6F1F7;
+                color: #125E8A;
+            }
+
+            .homepage-links a:focus-visible {
+                outline: 3px solid #125E8A;
+                outline-offset: 2px;
+            }
+
+            .mobile-download {
+                display: block;
+                margin-top: 12px;
+                padding-top: 16px;
+                border-top: 1px solid #dce6e9;
+            }
+
+            .mobile-download a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                color: #1F2933;
+            }
         }
 
         @media (min-width: 768px) and (max-width: 1279px) {
-            .nav-bar { flex-wrap: wrap; row-gap: 16px; }
-            .nav-bar > :nth-child(2) { order: 3; flex-basis: 100%; justify-content: space-between; }
+            .nav-bar {
+                flex-wrap: wrap;
+                row-gap: 16px;
+            }
+
+            .nav-bar> :nth-child(2) {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: space-between;
+            }
         }
 
         .project-panel {
@@ -394,6 +545,8 @@
             display: block;
             width: 100%;
             height: auto;
+            aspect-ratio: 1;
+            object-fit: cover;
         }
 
         .news-item h3 {
@@ -419,15 +572,15 @@
         }
 
         /* Newest (first) post: full body always. Older posts: collapsed until Read more. */
-        .news-timeline > .news-item:not(:first-child) .news-body {
+        .news-timeline>.news-item:not(:first-child) .news-body {
             display: none;
         }
 
-        .news-timeline > .news-item:not(:first-child).is-expanded .news-body {
+        .news-timeline>.news-item:not(:first-child).is-expanded .news-body {
             display: block;
         }
 
-        .news-timeline > .news-item:first-child .news-toggle {
+        .news-timeline>.news-item:first-child .news-toggle {
             display: none;
         }
 
@@ -540,18 +693,20 @@
 </head>
 
 <body>
-    <nav aria-label="Main navigation" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+    <nav aria-label="Main navigation"
+        class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
         <div class="homepage-brand flex items-center">
             <a href="/en/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
         </div>
         <div id="homepage-nav-links" class="homepage-links hidden md:flex text-sm font-medium text-white/70">
             <a href="/en/#how-it-works" class="hover:text-white transition">How It Works</a>
             <a href="/en/tutorial" class="hover:text-white transition">What is carpooling</a>
-            <a aria-current="page" href="/en/news" class="text-white transition">News</a>
+            <a aria-current="page" href="/en/news" class="text-white font-bold transition">News</a>
             <a href="/en/tutorial#faq-safety" class="hover:text-white transition">Safety</a>
             <a href="/en/#legal" class="hover:text-white transition">Legal Info</a>
             <a href="/en/transport" class="hover:text-white transition">Public transport</a>
-            <div class="mobile-download"><a href="/en/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
+            <div class="mobile-download"><a href="/en/#download"
+                    class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
             <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
@@ -561,9 +716,15 @@
             </div>
             <a href="/en/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Download</a>
-            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button" aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu">
-                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button"
+                aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Open menu"
+                data-open-label="Open menu" data-close-label="Close menu">
+                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
             </button>
         </div>
     </nav>
@@ -582,7 +743,8 @@
             <section class="project-panel" aria-labelledby="project-heading">
                 <div>
                     <p class="project-label">The project</p>
-                    <h2 id="project-heading" class="project-title">Shurp is carpooling for Latvia — and built for the Baltics.</h2>
+                    <h2 id="project-heading" class="project-title">Shurp is carpooling for Latvia — and built for the
+                        Baltics.</h2>
                     <p class="project-copy">
                         Shurp is a free carpooling app. People going the same way share the road and the travel cost.
                         No commission on rides.
@@ -617,34 +779,282 @@
                       - Items below → lead only + Read more (full HTML stays in page for SEO)
                       - Types: Press / Product / Company / Media
                     -->
-                    <article class="news-item" id="what-is-carpooling" itemscope itemtype="https://schema.org/NewsArticle">
+                    <article class="news-item" id="empty-seat-transport-network" itemscope
+                        itemtype="https://schema.org/NewsArticle">
                         <div class="news-top">
                             <div class="news-top-copy">
                                 <div class="news-meta">
-                                    <span class="news-type">Article</span>
-                                    <time class="news-date" datetime="2026-08-26" itemprop="datePublished">26 August 2026</time>
+                                    <span class="news-type news-type--press">Press release</span>
+                                    <time class="news-date" datetime="2026-09-18" itemprop="datePublished">18 September
+                                        2026</time>
                                 </div>
-                                <h3 itemprop="headline">What is carpooling?</h3>
+                                <h3 itemprop="headline">Can an empty car seat become a new transport network in Latvia?
+                                </h3>
                                 <p class="news-lead" itemprop="description">
-                                    Carpooling is simple — people heading the same way travel together and share the cost of the trip.
+                                    A new mobility solution for carpooling, built in Latvia, that can connect people
+                                    even where public transport runs rarely.
                                 </p>
                             </div>
                             <figure class="news-thumb">
-                                <img src="../assets/kas-ir-kopbrauksana.jpg"
-                                    alt="What is carpooling? — Shurp"
-                                    width="360" height="360" loading="lazy" decoding="async"
+                                <img src="../assets/apple-touch-icon.png" alt="Shurp app icon" width="180" height="180"
+                                    loading="lazy" decoding="async" itemprop="image">
+                            </figure>
+                        </div>
+                        <div class="news-body" itemprop="articleBody">
+                            <p>
+                                <strong>Riga, 18 September 2026.</strong>
+                                Every day, thousands of cars travel between Latvia’s cities and municipalities with
+                                empty
+                                seats. At the same time, for many people getting to work, school, the doctor or home
+                                still
+                                depends on a rare bus service, help from relatives or an expensive individual trip.
+                                Shurp,
+                                a carpooling solution built in Latvia, aims to connect these two realities by making
+                                trips
+                                that are already happening available to fellow travellers.
+                            </p>
+                            <p>
+                                This is not another taxi or car-rental service. Shurp brings simple, convenient
+                                carpooling
+                                to Latvia — a person publishes a trip they have already planned for their own needs, and
+                                others can find a seat in the car and help cover a share of that trip’s costs. Using the
+                                platform and publishing rides is free, and the app is available to everyone on iOS and
+                                Android.
+                            </p>
+                            <p><strong>Mobility where stops are far and services are few</strong></p>
+                            <p>
+                                In large cities there are usually more ways to get around. In the regions the picture is
+                                often different: services may be rare, stop running in the evening or fail to connect
+                                places when people need them. Creating new bus routes takes significant resources — yet
+                                Latvia’s roads already have empty seats in cars.
+                            </p>
+                            <p>
+                                The carpooling model lets us see that unused capacity as a decentralised mobility
+                                network.
+                                It cannot replace public transport on every route, but it can complement it — especially
+                                between smaller settlements, outside the usual timetable, and on routes where regular
+                                transport is unavailable or limited.
+                            </p>
+                            <p>
+                                “In Latvia, cars already go everywhere — including where buses do not run. Often there
+                                is
+                                one empty seat, or several. Our idea is to turn those seats into a real option for
+                                someone
+                                else to get where they need to go. Not by building new infrastructure, but by using more
+                                wisely what we already have,” says Shurp founder Rūdolfs Bricis.
+                            </p>
+                            <p><strong>Carpooling is not carsharing</strong></p>
+                            <p>
+                                The terms “carpooling” and “carsharing” are often mixed up, but they describe two
+                                different
+                                forms of mobility. In carsharing, a user rents a car belonging to a platform or operator
+                                for a set time and drives it themselves. In carpooling, the car owner is already taking
+                                their planned route and offers empty seats to people who want to travel in the same
+                                direction.
+                            </p>
+                            <p>
+                                It also differs from a taxi: the driver does not create a trip on a passenger’s order
+                                and
+                                does not drive to make a profit. Trip participants share the road costs. That way the
+                                passenger gains another way to get around, while the driver can reduce the expenses of a
+                                trip they were already planning.
+                            </p>
+                            <p><strong>Not earning from the trip — sharing the costs</strong></p>
+                            <p>
+                                A clear line between non-commercial carpooling and passenger transport for profit is
+                                central to the Shurp model. Shurp is designed for sharing the costs of already planned
+                                trips between private individuals. The platform is not intended for commercial passenger
+                                transport or for regularly making a profit.
+                            </p>
+                            <p>
+                                To keep that simple, the Shurp platform automatically calculates a suggested price,
+                                while
+                                each user undertakes — and remains individually responsible for — following the
+                                non-commercial principle.
+                            </p>
+                            <p>In guidance from Latvia’s State Revenue Service (VID):</p>
+                            <p>
+                                “If the trip is taken for personal needs and money received from fellow travellers is
+                                intended to cover trip expenses rather than to make a profit, the situation differs in
+                                substance from commercial passenger transport.”
+                            </p>
+                            <p>
+                                The platform was developed in consultation with the Road Transport Administration and
+                                the
+                                State Revenue Service. Users’ individual tax obligations depend on the actual
+                                circumstances of each case.
+                            </p>
+                            <p><strong>From informal chats to a platform available across Latvia</strong></p>
+                            <p>
+                                Carpooling is not entirely new in Latvia. People have looked for fellow travellers for
+                                years among friends, in social-media groups and in various chat threads. What is new is
+                                being able to do it in one place — search rides by route and time, view user profiles
+                                and
+                                reviews, message before the trip and use identity verification.
+                            </p>
+                            <p>
+                                Shurp’s ambition is to turn carpooling from an occasional workaround into a clear
+                                mobility choice across Latvia. The more drivers publish routes they already plan to
+                                take,
+                                the greater the chance passengers find a connection — including in places and at times
+                                where other options are scarce.
+                            </p>
+                            <p>
+                                “This is not only a story about an app. It is a way to move more efficiently while
+                                helping
+                                others — and at the same time reducing the number of cars on the road and cutting CO₂
+                                emissions. In other words — fewer traffic jams, more fresh air,” emphasises Rūdolfs
+                                Bricis.
+                            </p>
+                            <p><strong>Safety as a precondition for a new habit</strong></p>
+                            <p>
+                                For people to be ready to ride together outside their own circle of acquaintances,
+                                safety
+                                matters. That is why, before a ride is confirmed, both passengers and drivers can view a
+                                user’s profile, photo and reviews. There is also a reporting feature and identity or
+                                document verification. Verification is provided by a specialised GDPR-compliant service
+                                provider; the documents themselves are not publicly visible to Shurp or to other Shurp
+                                users. Before the trip, participants can message in chat, call or use WhatsApp.
+                            </p>
+                            <p><strong>A solution built in Latvia for Latvia’s roads</strong></p>
+                            <p>
+                                Shurp is a local startup building for Latvia’s scale, distances and travel habits. Its
+                                aim
+                                is not to replace buses, trains or other mobility services, but to add another layer to
+                                Latvia’s transport system — flexible, shaped by people themselves and available beyond
+                                the
+                                borders of traditional routes.
+                            </p>
+                            <p>
+                                Using the app and adding rides is free. The Shurp app is available on the
+                                <a href="https://apps.apple.com/app/shurp/id6760924489"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">App Store</a>
+                                and
+                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">Google Play</a>.
+                            </p>
+                            <p>
+                                More information:
+                                <a href="https://shurp.lv"
+                                    class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
+                            </p>
+                            <div class="news-about">
+                                <h4>About Shurp</h4>
+                                <p>
+                                    Shurp is an information society platform built in Latvia for non-commercial sharing
+                                    of ride costs. It helps drivers and passengers find each other and share trips that
+                                    are already planned. Shurp is not a taxi, a car rental service or commercial
+                                    passenger transport.
+                                </p>
+                            </div>
+                            <p>
+                                <strong>Media contact:</strong> Rūdolfs Bricis, Shurp founder —
+                                <span class="press-email"></span>
+                            </p>
+                        </div>
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more"
+                            data-less="Show less">
+                            <span class="news-toggle-label">Read more</span>
+                            <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <meta itemprop="author" content="Shurp SIA">
+                        <meta itemprop="inLanguage" content="en">
+                    </article>
+
+                    <article class="news-item" id="lapsas-village-festival" itemscope itemtype="https://schema.org/NewsArticle">
+                        <div class="news-top">
+                            <div class="news-top-copy">
+                                <div class="news-meta">
+                                    <span class="news-type">Community</span>
+                                    <time class="news-date" datetime="2026-08-17" itemprop="datePublished">17 August 2026</time>
+                                </div>
+                                <h3 itemprop="headline">New mobility solution meets people at the Lapsas village festival</h3>
+                                <p class="news-lead" itemprop="description">
+                                    The Lapsas village festival is about people, being together and the neighbourhood — and about how we get to Riga and back every day.
+                                </p>
+                            </div>
+                            <figure class="news-thumb">
+                                <img src="../assets/shurp-lapsas.jpg"
+                                    alt="Shurp founder Rūdolfs Bricis speaking with people at the Lapsas village festival"
+                                    width="152" height="202" loading="lazy" decoding="async"
                                     itemprop="image">
                             </figure>
                         </div>
                         <div class="news-body" itemprop="articleBody">
                             <p>
-                                <strong>Riga, Latvia — 26 August 2026.</strong> Someone is already driving to Riga,
+                                The Lapsas village festival is about people, being together and the neighbourhood. A
+                                celebration where you gather for shared activities — and simply to talk and meet one
+                                another.
+                            </p>
+                            <p>
+                                It was a pleasure that Mārupe Municipality Council Chair Aivars Osītis and councillor
+                                Ilze Bērziņa were also at the event. I had the chance to talk with residents about how we
+                                get to Riga and back every day — by car, bus, carsharing, train or otherwise.
+                            </p>
+                            <p>
+                                It turns out that for many people from Pieriga and elsewhere in Latvia it is expensive,
+                                inconvenient and often impossible to reach their destination without one or even two
+                                private cars. At the same time, drivers travel alone or with several empty seats.
+                            </p>
+                            <p>
+                                With Shurp we want to change that — so people can ride together and share the costs. Not
+                                only in Riga, but across Latvia — wherever there are people and cars.
+                            </p>
+                            <p>
+                                Thank you to Fly Mingo Studio and Lauma Simona Vēvere for a brilliantly organised event,
+                                and to everyone from Lapsas village who stopped by for a chat!
+                            </p>
+                            <p>
+                                And you — how do you most often get to Riga or travel around Latvia?
+                            </p>
+                        </div>
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more" data-less="Show less">
+                            <span class="news-toggle-label">Read more</span>
+                            <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <meta itemprop="author" content="Shurp SIA">
+                        <meta itemprop="inLanguage" content="en">
+                    </article>
+
+                    <article class="news-item" id="what-is-carpooling" itemscope
+                        itemtype="https://schema.org/NewsArticle">
+                        <div class="news-top">
+                            <div class="news-top-copy">
+                                <div class="news-meta">
+                                    <span class="news-type">Article</span>
+                                    <time class="news-date" datetime="2026-06-26" itemprop="datePublished">26 June 2026</time>
+                                </div>
+                                <h3 itemprop="headline">What is carpooling?</h3>
+                                <p class="news-lead" itemprop="description">
+                                    Carpooling is simple — people heading the same way travel together and share the
+                                    cost of the trip.
+                                </p>
+                            </div>
+                            <figure class="news-thumb">
+                                <img src="../assets/kas-ir-kopbrauksana.jpg" alt="What is carpooling? — Shurp"
+                                    width="360" height="360" loading="lazy" decoding="async" itemprop="image">
+                            </figure>
+                        </div>
+                        <div class="news-body" itemprop="articleBody">
+                            <p>
+                                <strong>Riga, Latvia — 26 June 2026.</strong> Someone is already driving to Riga,
                                 Liepāja, Valmiera or Jelgava. Others need to get in the same direction. Some cars have
                                 empty seats; some people do not have a car of their own. Why not ride together and share
                                 the cost?
                             </p>
                             <p>
-                                The idea of carpooling is not new around the world, but in Latvia it is still little known
+                                The idea of carpooling is not new around the world, but in Latvia it is still little
+                                known
                                 and mostly informal — among friends, in Facebook groups or scattered chat threads. Shurp
                                 makes that process simpler and open to everyone by bringing it into one free app.
                             </p>
@@ -664,7 +1074,8 @@
                             </p>
                             <p><strong>Carpooling already happens — often chaotically</strong></p>
                             <p>
-                                Carpooling is not new in Latvia. People have been finding each other for years in Facebook
+                                Carpooling is not new in Latvia. People have been finding each other for years in
+                                Facebook
                                 groups, WhatsApp chats and friend circles.
                             </p>
                             <p>
@@ -672,8 +1083,10 @@
                                 “Maybe someone is going to Liepāja with one free seat?”
                             </p>
                             <p>
-                                Questions like these are nothing unusual here. The problem is that the information sits in
-                                different groups and threads, and finding the right ride is not always easy. Shurp’s idea
+                                Questions like these are nothing unusual here. The problem is that the information sits
+                                in
+                                different groups and threads, and finding the right ride is not always easy. Shurp’s
+                                idea
                                 is to make that simpler — find or offer a ride in one place.
                             </p>
                             <p><strong>Why ride alone when you can ride together?</strong></p>
@@ -684,7 +1097,8 @@
                             </p>
                             <p>
                                 It might be a student going home for the weekend. Someone who commutes to another city
-                                every day. A family without a car on a particular day. Or simply someone who does not want
+                                every day. A family without a car on a particular day. Or simply someone who does not
+                                want
                                 to pay for an expensive taxi. If someone is already going your way, there is no need to
                                 create another trip.
                             </p>
@@ -695,13 +1109,16 @@
                                 makes using the car more affordable, while the passenger gets another way to get around.
                             </p>
                             <p>
-                                Shurp is built exactly for this kind of non-commercial carpooling — share the ride, share
+                                Shurp is built exactly for this kind of non-commercial carpooling — share the ride,
+                                share
                                 the tank.
                             </p>
                             <p><strong>And the benefit is not only for your wallet</strong></p>
                             <p>
-                                When several people ride in one car, you do not need several cars. That means fewer empty
-                                seats, fewer cars on the road and lighter traffic. Fuel use and trip-related emissions are
+                                When several people ride in one car, you do not need several cars. That means fewer
+                                empty
+                                seats, fewer cars on the road and lighter traffic. Fuel use and trip-related emissions
+                                are
                                 also spread across more people.
                             </p>
                             <p>
@@ -725,12 +1142,14 @@
                                 touch and agree the trip. All of it — in one free app.
                             </p>
                             <p>
-                                Carpooling is simple: people are going the same way, so they ride together. Why ride alone
+                                Carpooling is simple: people are going the same way, so they ride together. Why ride
+                                alone
                                 when you can ride together — and cheaper?
                             </p>
                             <p>
                                 <strong>Shurp — Ride with the pack.</strong>
-                                More: <a href="https://shurp.lv" class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
+                                More: <a href="https://shurp.lv"
+                                    class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
                             </p>
                             <div class="news-about">
                                 <h4>About Shurp</h4>
@@ -742,7 +1161,8 @@
                                 </p>
                             </div>
                         </div>
-                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more" data-less="Show less">
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more"
+                            data-less="Show less">
                             <span class="news-toggle-label">Read more</span>
                             <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -754,23 +1174,25 @@
                         <meta itemprop="inLanguage" content="en">
                     </article>
 
-                    <article class="news-item" id="shurp-launches-in-latvia" itemscope itemtype="https://schema.org/NewsArticle">
+                    <article class="news-item" id="shurp-launches-in-latvia" itemscope
+                        itemtype="https://schema.org/NewsArticle">
                         <div class="news-top">
                             <div class="news-top-copy">
                                 <div class="news-meta">
                                     <span class="news-type news-type--press">Press release</span>
-                                    <time class="news-date" datetime="2026-06-19" itemprop="datePublished">19 June 2026</time>
+                                    <time class="news-date" datetime="2026-06-19" itemprop="datePublished">19 June
+                                        2026</time>
                                 </div>
                                 <h3 itemprop="headline">Shurp — Latvia’s free carpooling app is here</h3>
                                 <p class="news-lead" itemprop="description">
-                                    A new app built in Latvia that helps people ride together. Shurp lets you find or offer rides across Latvia in one place — simply share the road, share the tank.
+                                    A new app built in Latvia that helps people ride together. Shurp lets you find or
+                                    offer rides across Latvia in one place — simply share the road, share the tank.
                                 </p>
                             </div>
                             <figure class="news-thumb">
                                 <img src="../assets/shurp-launch-promo.png"
                                     alt="Shurp app — carpooling in Latvia, available on App Store and Google Play"
-                                    width="360" height="360" loading="lazy" decoding="async"
-                                    itemprop="image">
+                                    width="360" height="360" loading="lazy" decoding="async" itemprop="image">
                             </figure>
                         </div>
                         <div class="news-body" itemprop="articleBody">
@@ -780,7 +1202,8 @@
                                 <strong>Shurp — a free carpooling app built in Latvia</strong>.
                             </p>
                             <p>
-                                The idea is simple: if you are already going somewhere, why not take along someone heading
+                                The idea is simple: if you are already going somewhere, why not take along someone
+                                heading
                                 the same way? And if you do not have a car, you can find a ride with others.
                             </p>
                             <p>
@@ -790,10 +1213,14 @@
                             </p>
                             <p><strong>Why ride together?</strong></p>
                             <ul>
-                                <li><strong>Save money</strong> — share the cost of the trip instead of driving alone or paying taxi rates.</li>
-                                <li><strong>Use empty seats</strong> — if you are going anyway, take others along and split the road costs.</li>
-                                <li><strong>Meet people</strong> — a shared journey can also be a good way to meet someone new.</li>
-                                <li><strong>Fewer empty seats, fewer cars</strong> — more people in one car means fewer unnecessary trips.</li>
+                                <li><strong>Save money</strong> — share the cost of the trip instead of driving alone or
+                                    paying taxi rates.</li>
+                                <li><strong>Use empty seats</strong> — if you are going anyway, take others along and
+                                    split the road costs.</li>
+                                <li><strong>Meet people</strong> — a shared journey can also be a good way to meet
+                                    someone new.</li>
+                                <li><strong>Fewer empty seats, fewer cars</strong> — more people in one car means fewer
+                                    unnecessary trips.</li>
                             </ul>
                             <p><strong>The whole trip in one place</strong></p>
                             <p>
@@ -806,7 +1233,8 @@
                                 <strong>Shurp takes no commission on cost-sharing between users.</strong>
                             </p>
                             <p>
-                                The app is brand new, and its value comes from the people who use it. So we invite you to
+                                The app is brand new, and its value comes from the people who use it. So we invite you
+                                to
                                 join, publish your routes, and invite friends, colleagues, neighbours and others you
                                 already tend to travel with in the same direction.
                             </p>
@@ -815,10 +1243,15 @@
                             </p>
                             <p>
                                 Available on the
-                                <a href="https://apps.apple.com/app/shurp/id6760924489" class="shurp-blue-text font-semibold hover:underline" target="_blank" rel="noopener noreferrer">App Store</a>
+                                <a href="https://apps.apple.com/app/shurp/id6760924489"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">App Store</a>
                                 and
-                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app" class="shurp-blue-text font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Google Play</a>,
-                                and at <a href="https://shurp.lv/get" class="shurp-blue-text font-semibold hover:underline">shurp.lv/get</a>.
+                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">Google Play</a>,
+                                and at <a href="https://shurp.lv/get"
+                                    class="shurp-blue-text font-semibold hover:underline">shurp.lv/get</a>.
                             </p>
                             <p>
                                 Media contact: <span class="press-email"></span>
@@ -833,7 +1266,8 @@
                                 </p>
                             </div>
                         </div>
-                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more" data-less="Show less">
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Read more"
+                            data-less="Show less">
                             <span class="news-toggle-label">Read more</span>
                             <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd"

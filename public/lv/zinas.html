@@ -66,12 +66,24 @@
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://shurp.lv/lv/zinas#tuksa-vieta-transporta-tikls",
+          "name": "Vai tukša vieta automašīnā var kļūt par jaunu transporta tīklu Latvijā?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://shurp.lv/lv/zinas#lapsu-ciemata-svetki",
+          "name": "Jaunais mobilitātes risinājums uzrunā cilvēkus Lapsu ciemata svētkos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "url": "https://shurp.lv/lv/zinas#kas-ir-kopbrauksana",
           "name": "Kas ir kopbraukšana?"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 4,
           "url": "https://shurp.lv/lv/zinas#shurp-starts-latvija",
           "name": "Shurp — Latvijas bezmaksas kopbraukšanas lietotne ir klāt"
         }
@@ -87,7 +99,10 @@
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #E6F1F7;
@@ -104,46 +119,182 @@
             }
         }
 
-        .shurp-blue-text { color: #125E8A; }
-        .shurp-coral-bg { background-color: #FA7E61; }
-        .shurp-coral-bg:hover { background-color: #e8705a; }
-        .shurp-blue-bg { background-color: #125E8A; }
+        .shurp-blue-text {
+            color: #125E8A;
+        }
+
+        .shurp-coral-bg {
+            background-color: #FA7E61;
+        }
+
+        .shurp-coral-bg:hover {
+            background-color: #e8705a;
+        }
+
+        .shurp-blue-bg {
+            background-color: #125E8A;
+        }
+
         .cta-pop {
             box-shadow: 0 6px 16px rgba(18, 94, 138, 0.22);
             transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
+
         .nav-bar {
-            background-color: rgba(18, 94, 138, 0.95);
+            background-color: #125E8A;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .homepage-links { gap: clamp(12px, 2vw, 32px); }
-        .mobile-menu-toggle, .mobile-download { display: none; }
-        .mobile-menu-toggle .menu-close-icon { display: none; }
-        .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
-        .nav-bar.mobile-menu-open .menu-close-icon { display: block; }
+        .homepage-links {
+            gap: clamp(12px, 2vw, 32px);
+        }
+
+        .homepage-links>a[aria-current="page"] {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .mobile-menu-toggle,
+        .mobile-download {
+            display: none;
+        }
+
+        .mobile-menu-toggle .menu-close-icon {
+            display: none;
+        }
+
+        .nav-bar.mobile-menu-open .menu-open-icon {
+            display: none;
+        }
+
+        .nav-bar.mobile-menu-open .menu-close-icon {
+            display: block;
+        }
 
         @media (max-width: 767px) {
-            .homepage-brand { flex-shrink: 0; }
-            .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
-            .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
-            .homepage-actions { gap: 16px; flex-shrink: 0; }
-            .homepage-actions > .shurp-coral-bg { display: none; }
-            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
-            .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-            .mobile-menu-toggle:focus-visible { outline: 3px solid #FA7E61; outline-offset: 3px; }
-            .nav-bar > .homepage-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 4px; padding: 16px 24px 24px; max-height: calc(100vh - 92px); max-height: calc(100dvh - 92px); overflow-y: auto; background: #FFF9F5; color: #125E8A; border-bottom: 1px solid #dce6e9; box-shadow: 0 14px 24px #16344224; }
-            .nav-bar.mobile-menu-open > .homepage-links { display: flex; }
-            .homepage-links > a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; color: #125E8A; }
-            .homepage-links > a:hover, .homepage-links > a:focus-visible, .homepage-links > a[aria-current="page"] { background: #E6F1F7; color: #125E8A; }
-            .homepage-links a:focus-visible { outline: 3px solid #125E8A; outline-offset: 2px; }
-            .mobile-download { display: block; margin-top: 12px; padding-top: 16px; border-top: 1px solid #dce6e9; }
-            .mobile-download a { display: flex; align-items: center; justify-content: center; min-height: 44px; color: #1F2933; }
+            .homepage-brand {
+                flex-shrink: 0;
+            }
+
+            .homepage-brand a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+            }
+
+            .homepage-brand img {
+                width: 66px;
+                min-width: 66px;
+                height: auto;
+            }
+
+            .homepage-actions {
+                gap: 16px;
+                flex-shrink: 0;
+            }
+
+            .homepage-actions>.shurp-coral-bg {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                padding: 9px;
+                border: 1px solid #ffffff66;
+                border-radius: 10px;
+                background: transparent;
+                color: white;
+                cursor: pointer;
+            }
+
+            .mobile-menu-toggle svg {
+                width: 24px;
+                height: 24px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-linecap: round;
+            }
+
+            .mobile-menu-toggle:focus-visible {
+                outline: 3px solid #FA7E61;
+                outline-offset: 3px;
+            }
+
+            .nav-bar>.homepage-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 4px;
+                padding: 16px 24px 24px;
+                max-height: calc(100vh - 92px);
+                max-height: calc(100dvh - 92px);
+                overflow-y: auto;
+                background: #FFF9F5;
+                color: #125E8A;
+                border-bottom: 1px solid #dce6e9;
+                box-shadow: 0 14px 24px #16344224;
+            }
+
+            .nav-bar.mobile-menu-open>.homepage-links {
+                display: flex;
+            }
+
+            .homepage-links>a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                color: #125E8A;
+            }
+
+            .homepage-links>a:hover,
+            .homepage-links>a:focus-visible,
+            .homepage-links>a[aria-current="page"] {
+                background: #E6F1F7;
+                color: #125E8A;
+            }
+
+            .homepage-links a:focus-visible {
+                outline: 3px solid #125E8A;
+                outline-offset: 2px;
+            }
+
+            .mobile-download {
+                display: block;
+                margin-top: 12px;
+                padding-top: 16px;
+                border-top: 1px solid #dce6e9;
+            }
+
+            .mobile-download a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                color: #1F2933;
+            }
         }
 
         @media (min-width: 768px) and (max-width: 1279px) {
-            .nav-bar { flex-wrap: wrap; row-gap: 16px; }
-            .nav-bar > :nth-child(2) { order: 3; flex-basis: 100%; justify-content: space-between; }
+            .nav-bar {
+                flex-wrap: wrap;
+                row-gap: 16px;
+            }
+
+            .nav-bar> :nth-child(2) {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: space-between;
+            }
         }
 
         .project-panel {
@@ -394,6 +545,8 @@
             display: block;
             width: 100%;
             height: auto;
+            aspect-ratio: 1;
+            object-fit: cover;
         }
 
         .news-item h3 {
@@ -419,15 +572,15 @@
         }
 
         /* Newest (first) post: full body always. Older posts: collapsed until Read more. */
-        .news-timeline > .news-item:not(:first-child) .news-body {
+        .news-timeline>.news-item:not(:first-child) .news-body {
             display: none;
         }
 
-        .news-timeline > .news-item:not(:first-child).is-expanded .news-body {
+        .news-timeline>.news-item:not(:first-child).is-expanded .news-body {
             display: block;
         }
 
-        .news-timeline > .news-item:first-child .news-toggle {
+        .news-timeline>.news-item:first-child .news-toggle {
             display: none;
         }
 
@@ -540,18 +693,20 @@
 </head>
 
 <body>
-    <nav aria-label="Galvenā navigācija" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+    <nav aria-label="Galvenā navigācija"
+        class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
         <div class="homepage-brand flex items-center">
             <a href="/lv/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
         </div>
         <div id="homepage-nav-links" class="homepage-links hidden md:flex text-sm font-medium text-white/70">
             <a href="/lv/#how-it-works" class="hover:text-white transition">Kā tas strādā</a>
             <a href="/lv/tutorial" class="hover:text-white transition">Par kopbraukšanu un Shurp</a>
-            <a aria-current="page" href="/lv/zinas" class="text-white transition">Ziņas</a>
+            <a aria-current="page" href="/lv/zinas" class="text-white font-bold transition">Ziņas</a>
             <a href="/lv/tutorial#faq-safety" class="hover:text-white transition">Drošība</a>
             <a href="/lv/#legal" class="hover:text-white transition">Juridiskā info</a>
             <a href="/lv/transport" class="hover:text-white transition">Sabiedriskais transports</a>
-            <div class="mobile-download"><a href="/lv/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
+            <div class="mobile-download"><a href="/lv/#download"
+                    class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
             <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
@@ -561,9 +716,15 @@
             </div>
             <a href="/lv/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>
-            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button" aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Atvērt izvēlni" data-open-label="Atvērt izvēlni" data-close-label="Aizvērt izvēlni">
-                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button"
+                aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Atvērt izvēlni"
+                data-open-label="Atvērt izvēlni" data-close-label="Aizvērt izvēlni">
+                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
             </button>
         </div>
     </nav>
@@ -582,7 +743,8 @@
             <section class="project-panel" aria-labelledby="project-heading">
                 <div>
                     <p class="project-label">Par projektu</p>
-                    <h2 id="project-heading" class="project-title">Shurp ir kopbraukšana Latvijai — un būvēta Baltijai.</h2>
+                    <h2 id="project-heading" class="project-title">Shurp ir kopbraukšana Latvijai — un būvēta Baltijai.
+                    </h2>
                     <p class="project-copy">
                         Shurp ir bezmaksas kopbraukšanas lietotne. Cilvēki, kas brauc vienā virzienā, dala ceļu un
                         ceļanaudu. Bez komisijas par braucieniem.
@@ -595,7 +757,8 @@
                 <aside class="founder-card" aria-label="Dibinātāja vārdi">
                     <p class="founder-quote">
                         “Kopbraukšanai jābūt pieejamai ikvienam, tāpēc es izveidoju Shurp, lai kaimiņi, kolēģi un
-                        cilvēki, kuriem ir pa ceļam, varētu <span>braukt ar savējiem</span>. Vienkārši un bez komisijas.”
+                        cilvēki, kuriem ir pa ceļam, varētu <span>braukt ar savējiem</span>. Vienkārši un bez
+                        komisijas.”
                     </p>
                     <div class="founder-meta">
                         <p class="founder-name">Rūdolfs</p>
@@ -617,36 +780,282 @@
                       - Zemāk → tikai ievads + Lasīt vairāk (pilnais HTML paliek lapā SEO dēļ)
                       - Tipi: Prese / Produkts / Uzņēmums / Mediji
                     -->
-                    <article class="news-item" id="kas-ir-kopbrauksana" itemscope itemtype="https://schema.org/NewsArticle">
+                    <article class="news-item" id="tuksa-vieta-transporta-tikls" itemscope
+                        itemtype="https://schema.org/NewsArticle">
                         <div class="news-top">
                             <div class="news-top-copy">
                                 <div class="news-meta">
-                                    <span class="news-type">Raksts</span>
-                                    <time class="news-date" datetime="2026-08-26" itemprop="datePublished">2026. gada 26. augusts</time>
+                                    <span class="news-type news-type--press">Preses relīze</span>
+                                    <time class="news-date" datetime="2026-09-18" itemprop="datePublished">2026. gada
+                                        18. septembris</time>
                                 </div>
-                                <h3 itemprop="headline">Kas ir kopbraukšana?</h3>
+                                <h3 itemprop="headline">Vai tukša vieta automašīnā var kļūt par jaunu transporta tīklu
+                                    Latvijā?</h3>
                                 <p class="news-lead" itemprop="description">
-                                    Kopbraukšana ir vienkārša — cilvēki, kuri dodas vienā virzienā, brauc kopā un dala brauciena izmaksas.
+                                    Latvijā radīts jauns mobilitātes risinājums kopbraukšanai, kas var savienot cilvēkus
+                                    arī tur, kur sabiedriskais transports kursē reti.
                                 </p>
                             </div>
                             <figure class="news-thumb">
-                                <img src="../assets/kas-ir-kopbrauksana.jpg"
-                                    alt="Kas ir kopbraukšana? — Shurp"
-                                    width="360" height="360" loading="lazy" decoding="async"
-                                    itemprop="image">
+                                <img src="../assets/apple-touch-icon.png" alt="Shurp lietotnes ikona" width="180"
+                                    height="180" loading="lazy" decoding="async" itemprop="image">
                             </figure>
                         </div>
                         <div class="news-body" itemprop="articleBody">
                             <p>
-                                <strong>Rīga, Latvija — 2026. gada 26. augusts.</strong> Kāds tāpat brauc uz Rīgu, Liepāju,
+                                <strong>Rīgā, 2026. gada 18. septembrī.</strong>
+                                Katru dienu starp Latvijas pilsētām un novadiem pārvietojas tūkstošiem automašīnu ar
+                                brīvām sēdvietām. Vienlaikus daudziem cilvēkiem nokļūšana darbā, skolā, pie ārsta vai
+                                mājās joprojām ir atkarīga no reta autobusa reisa, tuvinieku palīdzības vai dārga
+                                individuāla brauciena. Latvijā radītais kopbraukšanas risinājums Shurp vēlas šīs abas
+                                realitātes savienot, padarot jau notiekošus braucienus pieejamus līdzbraucējiem.
+                            </p>
+                            <p>
+                                Runa nav par vēl vienu taksometra vai automašīnu nomas pakalpojumu. Shurp ievieš Latvijā
+                                vienkāršu un ērtu kopbraukšanu — cilvēks publicē braucienu, kuru jau ir plānojis savām
+                                vajadzībām, savukārt citi var atrast vietu automašīnā un piedalīties konkrētā brauciena
+                                izmaksu segšanā. Platformas lietošana un braucienu publicēšana ir bez maksas, un
+                                lietotne
+                                ir pieejama ikvienam iOS un Android ierīcēs.
+                            </p>
+                            <p><strong>Mobilitāte tur, kur pieturas ir tālu un reisu ir maz</strong></p>
+                            <p>
+                                Lielajās pilsētās pārvietošanās iespēju parasti ir vairāk. Reģionos aina bieži ir
+                                citāda:
+                                reisi var būt reti, vakarā vairs nekursēt vai nesavienot vietas laikā, kad cilvēkam tas
+                                nepieciešams. Jaunu autobusu maršrutu izveide prasa ievērojamus resursus, taču uz
+                                Latvijas
+                                ceļiem jau ir brīvas vietas automašīnās.
+                            </p>
+                            <p>
+                                Kopbraukšanas modelis ļauj uz šo neizmantoto kapacitāti paskatīties kā uz decentralizētu
+                                mobilitātes tīklu. Tas nevar aizstāt sabiedrisko transportu visos maršrutos, tomēr var
+                                to
+                                papildināt — īpaši savienojumos starp mazākām apdzīvotām vietām, reisos ārpus ierastā
+                                kustības grafika un maršrutos, kuros regulārs transports nav pieejams vai ir ierobežots.
+                            </p>
+                            <p>
+                                “Latvijā mašīnas jau brauc visur, arī tur, kur autobusi nekursē. Bieži mašīnās ir viena
+                                vai vairākas tukšas vietas. Mūsu ideja ir pārvērst šīs vietas reālā iespējā citam
+                                cilvēkam nokļūt vajadzīgajā virzienā. Nebūvējot jaunu infrastruktūru, bet gudrāk
+                                izmantojot to, kas mums jau ir,” stāsta Shurp dibinātājs Rūdolfs Bricis.
+                            </p>
+                            <p><strong>Kopbraukšana nav auto koplietošana</strong></p>
+                            <p>
+                                Jēdzieni “kopbraukšana” un “auto koplietošana” nereti tiek sajaukti, taču tie apzīmē
+                                divus atšķirīgus mobilitātes veidus. Auto koplietošanā lietotājs uz noteiktu laiku nomā
+                                platformai vai operatoram piederošu automašīnu un pats to vada. Kopbraukšanā
+                                automašīnas īpašnieks jau dodas savā iepriekš plānotajā maršrutā un piedāvā brīvās
+                                vietas
+                                cilvēkiem, kuri vēlas braukt tajā pašā virzienā.
+                            </p>
+                            <p>
+                                Atšķirība ir arī no taksometra pakalpojuma: vadītājs neveido braucienu pēc pasažiera
+                                pasūtījuma un nebrauc ar mērķi gūt peļņu. Brauciena dalībnieki savstarpēji sadala ceļa
+                                izmaksas. Tādējādi pasažieris iegūst papildu pārvietošanās iespēju, bet vadītājs var
+                                samazināt sava jau plānotā brauciena izdevumus.
+                            </p>
+                            <p><strong>Nevis pelnīt ar braucienu, bet dalīt izmaksas</strong></p>
+                            <p>
+                                Shurp modelī būtiska ir skaidra robeža starp nekomerciālu kopbraukšanu un pasažieru
+                                pārvadājumiem peļņas gūšanai. Shurp ir paredzēts jau plānotu braucienu izmaksu dalīšanai
+                                starp privātpersonām. Platforma nav paredzēta komerciālu pasažieru pārvadājumu
+                                sniegšanai vai regulārai peļņas gūšanai.
+                            </p>
+                            <p>
+                                Lai to vienkāršotu, Shurp platforma automātiski aprēķina ieteicamo cenu, tikmēr katrs
+                                lietotājs apņemas un ir individuāli atbildīgs par nekomerciālā principa ievērošanu.
+                            </p>
+                            <p>VID sniegtajā skaidrojumā norādīts:</p>
+                            <p>
+                                “Ja brauciens tiek veikts personīgām vajadzībām un no līdzbraucējiem saņemtā nauda ir
+                                paredzēta brauciena izdevumu segšanai, nevis peļņas gūšanai, situācija pēc būtības
+                                atšķiras no komerciāliem pasažieru pārvadājumiem.”
+                            </p>
+                            <p>
+                                Platforma izstrādāta, konsultējoties ar Autotransporta direkciju un Valsts ieņēmumu
+                                dienestu. Lietotāju individuālie nodokļu pienākumi ir atkarīgi no katras konkrētās
+                                situācijas faktiskajiem apstākļiem.
+                            </p>
+                            <p><strong>No neformāliem čatiem līdz visai Latvijai pieejamai platformai</strong></p>
+                            <p>
+                                Kopbraukšana Latvijā nav pilnīgi jauna parādība. Cilvēki jau gadiem meklē līdzbraucējus
+                                draugu lokā, sociālo tīklu grupās un dažādās čatu sarakstēs. Jaunums ir iespēja to darīt
+                                vienuviet — meklēt braucienus pēc maršruta un laika, apskatīt lietotāju profilus un
+                                atsauksmes, sazināties pirms brauciena un izmantot identitātes verifikāciju.
+                            </p>
+                            <p>
+                                Shurp ambīcija ir padarīt kopbraukšanu no neregulāra risinājuma par saprotamu
+                                mobilitātes izvēli visā Latvijā. Jo vairāk vadītāju publicē savus jau plānotos
+                                maršrutus,
+                                jo lielāka iespēja pasažieriem atrast savienojumu arī vietās un laikos, kur citu
+                                variantu
+                                ir maz.
+                            </p>
+                            <p>
+                                “Šis nav stāsts tikai par lietotni. Tas ir veids, kā varam pārvietoties efektīvāk,
+                                palīdzot citiem, turklāt vienlaicīgi samazināt automašīnu skaitu uz ceļiem un mazināt
+                                CO₂ emisijas. Citiem vārdiem sakot — mazāk korķu, vairāk svaiga gaisa,” uzsver Rūdolfs
+                                Bricis.
+                            </p>
+                            <p><strong>Drošība kā priekšnoteikums jaunam paradumam</strong></p>
+                            <p>
+                                Lai cilvēki būtu gatavi braukt kopā arī ārpus sava paziņu loka, ir svarīga drošība.
+                                Tieši
+                                tāpēc platformā pirms brauciena apstiprināšanas gan pasažieri, gan autovadītāji var
+                                apskatīt lietotāju profilu, attēlu un atsauksmes. Pieejama arī ziņošanas funkcija un
+                                identitātes jeb dokumentu verifikācija. Verifikāciju nodrošina specializēts GDPR
+                                prasībām atbilstošs pakalpojumu sniedzējs; paši dokumenti nedz Shurp, nedz citiem Shurp
+                                lietotājiem nav publiski redzami. Pirms brauciena dalībnieki var sazināties čatā, zvanot
+                                vai ar WhatsApp starpniecību.
+                            </p>
+                            <p><strong>Latvijā radīts risinājums Latvijas ceļiem</strong></p>
+                            <p>
+                                Shurp ir vietējais jaunuzņēmums, kas risinājumu veido Latvijas mērogam, attālumiem un
+                                pārvietošanās paradumiem. Tā mērķis nav aizstāt autobusus, vilcienus vai citus
+                                mobilitātes pakalpojumus, bet pievienot vēl vienu slāni Latvijas transporta sistēmai —
+                                elastīgu, cilvēku pašu veidotu un pieejamu arī ārpus tradicionālo maršrutu robežām.
+                            </p>
+                            <p>
+                                Lietotnes izmantošana un braucienu pievienošana ir bez maksas. Lietotne Shurp ir
+                                pieejama
+                                <a href="https://apps.apple.com/app/shurp/id6760924489"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">App Store</a>
+                                un
+                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">Google Play</a>.
+                            </p>
+                            <p>
+                                Vairāk informācijas:
+                                <a href="https://shurp.lv"
+                                    class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
+                            </p>
+                            <div class="news-about">
+                                <h4>Par Shurp</h4>
+                                <p>
+                                    Shurp ir Latvijā radīta informācijas sabiedrības platforma nekomerciālai braucienu
+                                    izmaksu dalīšanai. Tā palīdz vadītājiem un pasažieriem atrast vienam otru un kopīgi
+                                    izmantot jau plānotus braucienus. Shurp nav taksometrs, auto noma vai komerciāls
+                                    pasažieru pārvadājums.
+                                </p>
+                            </div>
+                            <p>
+                                <strong>Mediju kontaktam:</strong> Rūdolfs Bricis, Shurp dibinātājs —
+                                <span class="press-email"></span>
+                            </p>
+                        </div>
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Lasīt vairāk"
+                            data-less="Rādīt mazāk">
+                            <span class="news-toggle-label">Lasīt vairāk</span>
+                            <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <meta itemprop="author" content="Shurp SIA">
+                        <meta itemprop="inLanguage" content="lv">
+                    </article>
+
+                    <article class="news-item" id="lapsu-ciemata-svetki" itemscope
+                        itemtype="https://schema.org/NewsArticle">
+                        <div class="news-top">
+                            <div class="news-top-copy">
+                                <div class="news-meta">
+                                    <span class="news-type">Kopiena</span>
+                                    <time class="news-date" datetime="2026-08-17" itemprop="datePublished">2026. gada
+                                        17. augusts</time>
+                                </div>
+                                <h3 itemprop="headline">Jaunais mobilitātes risinājums uzrunā cilvēkus Lapsu ciemata
+                                    svētkos</h3>
+                                <p class="news-lead" itemprop="description">
+                                    Lapsu ciemata svētki ir par cilvēkiem, kopā būšanu un savu apkaimi — un arī par to,
+                                    kā ikdienā tiekam līdz Rīgai un atpakaļ.
+                                </p>
+                            </div>
+                            <figure class="news-thumb">
+                                <img src="../assets/shurp-lapsas.jpg"
+                                    alt="Shurp dibinātājs Rūdolfs Bricis uzrunā cilvēkus Lapsu ciemata svētkos"
+                                    width="152" height="202" loading="lazy" decoding="async" itemprop="image">
+                            </figure>
+                        </div>
+                        <div class="news-body" itemprop="articleBody">
+                            <p>
+                                Lapsu ciemata svētki ir par cilvēkiem, kopā būšanu un savu apkaimi. Svētki, kur sanākt
+                                kopā uz kopīgām aktivitātēm un arī vienkārši parunāt un satikt vienam otru.
+                            </p>
+                            <p>
+                                Prieks, ka pasākumā bija arī Mārupes novada domes priekšsēdētājs Aivars Osītis un
+                                deputāte Ilze Bērziņa. Man bija iespēja parunāt ar iedzīvotājiem par to, kā mēs ikdienā
+                                tiekam līdz Rīgai un atpakaļ — ar auto, autobusu, koplietošanas auto, vilcienu vai
+                                citādi.
+                            </p>
+                            <p>
+                                Izrādās, ka daudziem no Pierīgas un citur Latvijā ir dārgi, neērti un bieži arī
+                                neiespējami nokļūt galamērķī bez viena vai pat diviem privātiem auto. Tajā pat laikā
+                                šoferi brauc vieni vai ar vairākām tukšām sēdvietām.
+                            </p>
+                            <p>
+                                Ar Shurp mēs gribam to mainīt — lai cilvēki varētu braukt kopā un dalīt izmaksas. Ne
+                                tikai Rīgā, bet arī visā Latvijā — jebkur, kur ir cilvēki un mašīnas.
+                            </p>
+                            <p>
+                                Paldies Fly Mingo Studio un Laumai Simonai Vēverei par lieliski organizēto pasākumu un
+                                visiem Lapsu ciemata iedzīvotājiem, kas piestāja aprunāties!
+                            </p>
+                            <p>
+                                Un tev — kā tu visbiežāk tiec līdz Rīgai vai brauc Latvijā?
+                            </p>
+                        </div>
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Lasīt vairāk"
+                            data-less="Rādīt mazāk">
+                            <span class="news-toggle-label">Lasīt vairāk</span>
+                            <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <meta itemprop="author" content="Shurp SIA">
+                        <meta itemprop="inLanguage" content="lv">
+                    </article>
+
+                    <article class="news-item" id="kas-ir-kopbrauksana" itemscope
+                        itemtype="https://schema.org/NewsArticle">
+                        <div class="news-top">
+                            <div class="news-top-copy">
+                                <div class="news-meta">
+                                    <span class="news-type">Raksts</span>
+                                    <time class="news-date" datetime="2026-06-26" itemprop="datePublished">2026. gada
+                                        26. jūnijs</time>
+                                </div>
+                                <h3 itemprop="headline">Kas ir kopbraukšana?</h3>
+                                <p class="news-lead" itemprop="description">
+                                    Kopbraukšana ir vienkārša — cilvēki, kuri dodas vienā virzienā, brauc kopā un dala
+                                    brauciena izmaksas.
+                                </p>
+                            </div>
+                            <figure class="news-thumb">
+                                <img src="../assets/kas-ir-kopbrauksana.jpg" alt="Kas ir kopbraukšana? — Shurp"
+                                    width="360" height="360" loading="lazy" decoding="async" itemprop="image">
+                            </figure>
+                        </div>
+                        <div class="news-body" itemprop="articleBody">
+                            <p>
+                                <strong>Rīga, Latvija — 2026. gada 26. jūnijs.</strong> Kāds tāpat brauc uz Rīgu,
+                                Liepāju,
                                 Valmieru vai Jelgavu ar mašīnu. Citiem vajag nokļūt tajā pašā virzienā. Vieniem
                                 automašīnās ir brīvas vietas, kamēr citiem nav sava auto. Kāpēc nebraukt kopā un nedalīt
                                 brauciena izmaksas?
                             </p>
                             <p>
-                                Kopbraukšanas ideja pasaulē nav jauna, taču Latvijā kopbraukšana joprojām ir mazpazīstama
+                                Kopbraukšanas ideja pasaulē nav jauna, taču Latvijā kopbraukšana joprojām ir
+                                mazpazīstama
                                 un notiek neformāli — draugu lokā, Facebook grupās vai dažādās čatu sarakstēs. Shurp šo
-                                procesu padara vienkāršāku un pieejamu ikvienam, pārceļot to uz vienu bezmaksas lietotni.
+                                procesu padara vienkāršāku un pieejamu ikvienam, pārceļot to uz vienu bezmaksas
+                                lietotni.
                             </p>
                             <p><strong>Nevis jauns brauciens, bet jau esoša brauciena izmantošana</strong></p>
                             <p>
@@ -654,12 +1063,15 @@
                                 plānots brauciens, kuru vadītājs tāpat veiktu arī bez pasažiera.
                             </p>
                             <p>
-                                Ja kāds piektdien brauc no Rīgas uz Liepāju un automašīnā ir trīs brīvas vietas, viņš var
-                                piedāvāt tās citiem. Savukārt cilvēks, kuram jātiek uz Liepāju, var atrast šo braucienu un
+                                Ja kāds piektdien brauc no Rīgas uz Liepāju un automašīnā ir trīs brīvas vietas, viņš
+                                var
+                                piedāvāt tās citiem. Savukārt cilvēks, kuram jātiek uz Liepāju, var atrast šo braucienu
+                                un
                                 pievienoties. Vadītājs un pasažieris brauc kopā, bet brauciena izmaksas tiek dalītas.
                             </p>
                             <p>
-                                Tātad ieguvēji ir abi — vadītājs var samazināt savas brauciena izmaksas, bet pasažierim ir
+                                Tātad ieguvēji ir abi — vadītājs var samazināt savas brauciena izmaksas, bet pasažierim
+                                ir
                                 iespēja nokļūt vajadzīgajā vietā bez sava auto.
                             </p>
                             <p><strong>Kopbraukšana jau notiek — tikai bieži haotiski</strong></p>
@@ -672,7 +1084,8 @@
                                 “Varbūt kāds brauc uz Liepāju un ir viena brīva vieta?”
                             </p>
                             <p>
-                                Šādi jautājumi Latvijā nav nekas neparasts. Problēma ir tā, ka informācija atrodas dažādās
+                                Šādi jautājumi Latvijā nav nekas neparasts. Problēma ir tā, ka informācija atrodas
+                                dažādās
                                 grupās un sarakstēs, un atrast īsto braucienu ne vienmēr ir vienkārši. Shurp ideja ir šo
                                 procesu padarīt vienkāršāku — atrast vai piedāvāt braucienu vienuviet.
                             </p>
@@ -683,9 +1096,12 @@
                                 savieno šīs abas situācijas.
                             </p>
                             <p>
-                                Tas var būt students, kurš nedēļas nogalē brauc mājās. Cilvēks, kurš katru dienu dodas uz
-                                darbu citā pilsētā. Ģimene, kurai konkrētajā dienā nav pieejama automašīna. Vai vienkārši
-                                cilvēks, kurš nevēlas maksāt par dārgu taksometra braucienu. Ja kāds jau brauc vajadzīgajā
+                                Tas var būt students, kurš nedēļas nogalē brauc mājās. Cilvēks, kurš katru dienu dodas
+                                uz
+                                darbu citā pilsētā. Ģimene, kurai konkrētajā dienā nav pieejama automašīna. Vai
+                                vienkārši
+                                cilvēks, kurš nevēlas maksāt par dārgu taksometra braucienu. Ja kāds jau brauc
+                                vajadzīgajā
                                 virzienā, nav nepieciešams radīt vēl vienu braucienu.
                             </p>
                             <p><strong>Mazākas izmaksas abām pusēm</strong></p>
@@ -711,7 +1127,8 @@
                             </p>
                             <p><strong>Kopbraukšana nav tikai ārkārtas variants</strong></p>
                             <p>
-                                Shurp mērķis ir panākt, lai kopbraukšana kļūtu par normālu ikdienas pārvietošanās izvēli.
+                                Shurp mērķis ir panākt, lai kopbraukšana kļūtu par normālu ikdienas pārvietošanās
+                                izvēli.
                                 Ne tikai tad, kad autobuss ir atcelts. Ne tikai tad, kad sabiedriskā transporta grafiks
                                 neder. Un ne tikai tad, kad pēkšņi nav pieejama automašīna.
                             </p>
@@ -721,7 +1138,8 @@
                             </p>
                             <p><strong>Shurp to padara vienkāršāku</strong></p>
                             <p>
-                                Shurp ļauj gan meklēt braucienu, gan piedāvāt brīvu vietu savā automašīnā. Šodien vari būt
+                                Shurp ļauj gan meklēt braucienu, gan piedāvāt brīvu vietu savā automašīnā. Šodien vari
+                                būt
                                 pasažieris, rīt — vadītājs. Lietotne palīdz atrast cilvēkus, kuri brauc tajā pašā
                                 virzienā, sazināties un vienoties par braucienu. Un tas viss — vienā bezmaksas lietotnē.
                             </p>
@@ -731,7 +1149,8 @@
                             </p>
                             <p>
                                 <strong>Shurp — Brauc ar savējiem.</strong>
-                                Vairāk: <a href="https://shurp.lv" class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
+                                Vairāk: <a href="https://shurp.lv"
+                                    class="shurp-blue-text font-semibold hover:underline">shurp.lv</a>
                             </p>
                             <div class="news-about">
                                 <h4>Par Shurp</h4>
@@ -743,7 +1162,8 @@
                                 </p>
                             </div>
                         </div>
-                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Lasīt vairāk" data-less="Rādīt mazāk">
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Lasīt vairāk"
+                            data-less="Rādīt mazāk">
                             <span class="news-toggle-label">Lasīt vairāk</span>
                             <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd"
@@ -755,23 +1175,26 @@
                         <meta itemprop="inLanguage" content="lv">
                     </article>
 
-                    <article class="news-item" id="shurp-starts-latvija" itemscope itemtype="https://schema.org/NewsArticle">
+                    <article class="news-item" id="shurp-starts-latvija" itemscope
+                        itemtype="https://schema.org/NewsArticle">
                         <div class="news-top">
                             <div class="news-top-copy">
                                 <div class="news-meta">
                                     <span class="news-type news-type--press">Preses relīze</span>
-                                    <time class="news-date" datetime="2026-06-19" itemprop="datePublished">2026. gada 19. jūnijs</time>
+                                    <time class="news-date" datetime="2026-06-19" itemprop="datePublished">2026. gada
+                                        19. jūnijs</time>
                                 </div>
                                 <h3 itemprop="headline">Shurp — Latvijas bezmaksas kopbraukšanas lietotne ir klāt</h3>
                                 <p class="news-lead" itemprop="description">
-                                    Latvijā radīta jauna lietotne, kas palīdz cilvēkiem braukt kopā. Shurp ļauj vienuviet atrast vai piedāvāt braucienus pa Latviju — vienkārši dali ceļu, dali bāku.
+                                    Latvijā radīta jauna lietotne, kas palīdz cilvēkiem braukt kopā. Shurp ļauj
+                                    vienuviet atrast vai piedāvāt braucienus pa Latviju — vienkārši dali ceļu, dali
+                                    bāku.
                                 </p>
                             </div>
                             <figure class="news-thumb">
                                 <img src="../assets/shurp-launch-promo.png"
                                     alt="Shurp lietotne — kopbraukšana Latvijā, pieejama App Store un Google Play"
-                                    width="360" height="360" loading="lazy" decoding="async"
-                                    itemprop="image">
+                                    width="360" height="360" loading="lazy" decoding="async" itemprop="image">
                             </figure>
                         </div>
                         <div class="news-body" itemprop="articleBody">
@@ -791,10 +1214,14 @@
                             </p>
                             <p><strong>Kāpēc braukt kopā?</strong></p>
                             <ul>
-                                <li><strong>Ietaupi naudu</strong> — dalies ar brauciena izmaksām, nevis brauc viens pats vai maksā taksometra cenu.</li>
-                                <li><strong>Izmanto brīvās vietas auto</strong> — ja tāpat brauc, vari paņemt līdzi citus cilvēkus un sadalīt ceļa izmaksas.</li>
-                                <li><strong>Iepazīsti cilvēkus</strong> — kopīgs ceļš var būt arī labs veids, kā satikt jaunus cilvēkus.</li>
-                                <li><strong>Mazāk tukšu vietu, mazāk auto</strong> — vairāk cilvēku vienā mašīnā nozīmē mazāk nevajadzīgu braucienu.</li>
+                                <li><strong>Ietaupi naudu</strong> — dalies ar brauciena izmaksām, nevis brauc viens
+                                    pats vai maksā taksometra cenu.</li>
+                                <li><strong>Izmanto brīvās vietas auto</strong> — ja tāpat brauc, vari paņemt līdzi
+                                    citus cilvēkus un sadalīt ceļa izmaksas.</li>
+                                <li><strong>Iepazīsti cilvēkus</strong> — kopīgs ceļš var būt arī labs veids, kā satikt
+                                    jaunus cilvēkus.</li>
+                                <li><strong>Mazāk tukšu vietu, mazāk auto</strong> — vairāk cilvēku vienā mašīnā nozīmē
+                                    mazāk nevajadzīgu braucienu.</li>
                             </ul>
                             <p><strong>Viss brauciens vienuviet</strong></p>
                             <p>
@@ -804,7 +1231,8 @@
                                 izvēles dokumentu pārbaudi.
                             </p>
                             <p>
-                                <strong>Shurp neņem komisiju par lietotāju savstarpējo brauciena izmaksu dalīšanu.</strong>
+                                <strong>Shurp neņem komisiju par lietotāju savstarpējo brauciena izmaksu
+                                    dalīšanu.</strong>
                             </p>
                             <p>
                                 Lietotne ir pavisam jauna, un tās vērtību veido cilvēki, kas to izmanto. Tāpēc aicinām
@@ -816,10 +1244,15 @@
                             </p>
                             <p>
                                 Pieejama
-                                <a href="https://apps.apple.com/app/shurp/id6760924489" class="shurp-blue-text font-semibold hover:underline" target="_blank" rel="noopener noreferrer">App Store</a>
+                                <a href="https://apps.apple.com/app/shurp/id6760924489"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">App Store</a>
                                 un
-                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app" class="shurp-blue-text font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Google Play</a>,
-                                kā arī <a href="https://shurp.lv/get" class="shurp-blue-text font-semibold hover:underline">shurp.lv/get</a>.
+                                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app"
+                                    class="shurp-blue-text font-semibold hover:underline" target="_blank"
+                                    rel="noopener noreferrer">Google Play</a>,
+                                kā arī <a href="https://shurp.lv/get"
+                                    class="shurp-blue-text font-semibold hover:underline">shurp.lv/get</a>.
                             </p>
                             <p>
                                 Mediju kontakti: <span class="press-email"></span>
@@ -834,7 +1267,8 @@
                                 </p>
                             </div>
                         </div>
-                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Lasīt vairāk" data-less="Rādīt mazāk">
+                        <button type="button" class="news-toggle" aria-expanded="false" data-more="Lasīt vairāk"
+                            data-less="Rādīt mazāk">
                             <span class="news-toggle-label">Lasīt vairāk</span>
                             <svg class="news-toggle-chevron" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd"

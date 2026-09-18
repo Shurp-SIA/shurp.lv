@@ -1,13 +1,25 @@
 @import "tailwindcss";
 
+/* Keep fixed nav from shifting when a page does/doesn't need a scrollbar */
+@layer base {
+    html {
+        scrollbar-gutter: stable;
+    }
+}
+
 @layer components {
     .nav-bar {
-        @apply fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#125E8A]/95 border-b border-white/10 backdrop-blur-md;
+        /* Solid blue, no backdrop-filter: Safari samples this for window chrome tint */
+        @apply fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#125E8A] border-b border-white/10;
+    }
+
+    .homepage-links > a[aria-current="page"] {
+        @apply font-bold text-white;
     }
 
     .legal-card {
-        /* Changed mx-auto to block to ensure centering works with Tailwind v4 layout engine */
-        @apply block max-w-[800px] mt-[120px] mb-[60px] mx-auto p-6 md:p-10 rounded-[2.5rem] bg-[#FFF9F5] border border-[#E2E8F0] shadow-xl;
+        /* Match news / homepage content width (max-w-7xl) */
+        @apply block max-w-7xl mt-[120px] mb-[60px] mx-auto p-6 md:p-10 rounded-[2.5rem] bg-[#FFF9F5] border border-[#E2E8F0] shadow-xl;
     }
 
     .legal-section {

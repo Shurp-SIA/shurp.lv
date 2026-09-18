@@ -180,11 +180,12 @@
         }
 
         .nav-bar {
-            background-color: rgba(18, 94, 138, 0.95);
+            background-color: #125E8A;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .homepage-links { gap: clamp(12px, 2vw, 32px); }
+        .homepage-links > a[aria-current="page"] { font-weight: 700; color: #fff; }
         .mobile-menu-toggle, .mobile-download { display: none; }
         .mobile-menu-toggle .menu-close-icon { display: none; }
         .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
@@ -784,7 +785,7 @@
         </div>
     </section>
 
-    <section class="soft-blue-bg pt-16 pb-32 px-6">
+    <section class="soft-blue-bg pt-16 pb-48 md:pb-56 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
             <div class="md:w-1/2 text-left">
                 <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">

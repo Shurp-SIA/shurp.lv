@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#125E8A">
     <title>Shurp | Lietošanas noteikumi</title>
 
     <link href="../assets/css/style.css" rel="stylesheet">
@@ -11,6 +12,7 @@
 
     <style>
         .homepage-links { gap: clamp(12px, 2vw, 32px); }
+        .homepage-links > a[aria-current="page"] { font-weight: 700; color: #fff; }
         .mobile-menu-toggle, .mobile-download { display: none; }
         .mobile-menu-toggle .menu-close-icon { display: none; }
         .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
@@ -51,7 +53,7 @@
     </style>
 </head>
 
-<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-4">
+<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-6">
 
     <nav aria-label="Galvenā navigācija" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
         <div class="homepage-brand flex items-center">
@@ -62,7 +64,7 @@
             <a href="/lv/tutorial" class="hover:text-white transition">Par kopbraukšanu un Shurp</a>
             <a href="/lv/zinas" class="hover:text-white transition">Ziņas</a>
             <a href="/lv/tutorial#faq-safety" class="hover:text-white transition">Drošība</a>
-            <a href="/lv/#legal" class="hover:text-white transition">Juridiskā info</a>
+            <a aria-current="page" href="/lv/#legal" class="text-white transition">Juridiskā info</a>
             <a href="/lv/transport" class="hover:text-white transition">Sabiedriskais transports</a>
             <div class="mobile-download"><a href="/lv/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>

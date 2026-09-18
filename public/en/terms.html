@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#125E8A">
     <title>Shurp | Terms of Use</title>
 
     <link href="../assets/css/style.css" rel="stylesheet">
@@ -11,6 +12,7 @@
 
     <style>
         .homepage-links { gap: clamp(12px, 2vw, 32px); }
+        .homepage-links > a[aria-current="page"] { font-weight: 700; color: #fff; }
         .mobile-menu-toggle, .mobile-download { display: none; }
         .mobile-menu-toggle .menu-close-icon { display: none; }
         .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
@@ -51,7 +53,7 @@
     </style>
 </head>
 
-<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-4">
+<body class="bg-[#E6F1F7] text-[#1F2933] font-['Inter'] px-6">
 
     <nav aria-label="Main navigation" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
         <div class="homepage-brand flex items-center">
@@ -62,7 +64,7 @@
             <a href="/en/tutorial" class="hover:text-white transition">What is carpooling</a>
             <a href="/en/news" class="hover:text-white transition">News</a>
             <a href="/en/tutorial#faq-safety" class="hover:text-white transition">Safety</a>
-            <a href="/en/#legal" class="hover:text-white transition">Legal Info</a>
+            <a aria-current="page" href="/en/#legal" class="text-white transition">Legal Info</a>
             <a href="/en/transport" class="hover:text-white transition">Public transport</a>
             <div class="mobile-download"><a href="/en/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
         </div>

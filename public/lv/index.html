@@ -180,38 +180,166 @@
         }
 
         .nav-bar {
-            background-color: rgba(18, 94, 138, 0.95);
+            background-color: #125E8A;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .homepage-links { gap: clamp(12px, 2vw, 32px); }
-        .mobile-menu-toggle, .mobile-download { display: none; }
-        .mobile-menu-toggle .menu-close-icon { display: none; }
-        .nav-bar.mobile-menu-open .menu-open-icon { display: none; }
-        .nav-bar.mobile-menu-open .menu-close-icon { display: block; }
+        .homepage-links {
+            gap: clamp(12px, 2vw, 32px);
+        }
+
+        .homepage-links>a[aria-current="page"] {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .mobile-menu-toggle,
+        .mobile-download {
+            display: none;
+        }
+
+        .mobile-menu-toggle .menu-close-icon {
+            display: none;
+        }
+
+        .nav-bar.mobile-menu-open .menu-open-icon {
+            display: none;
+        }
+
+        .nav-bar.mobile-menu-open .menu-close-icon {
+            display: block;
+        }
 
         @media (max-width: 767px) {
-            .homepage-brand { flex-shrink: 0; }
-            .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
-            .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
-            .homepage-actions { gap: 16px; flex-shrink: 0; }
-            .homepage-actions > div > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
-            .homepage-actions > .scroll-to-badges { display: none; }
-            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
-            .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-            .mobile-menu-toggle:focus-visible { outline: 3px solid #FA7E61; outline-offset: 3px; }
-            .nav-bar > .homepage-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 4px; padding: 16px 24px 24px; max-height: calc(100vh - 92px); max-height: calc(100dvh - 92px); overflow-y: auto; background: #FFF9F5; color: #125E8A; border-bottom: 1px solid #dce6e9; box-shadow: 0 14px 24px #16344224; }
-            .nav-bar.mobile-menu-open > .homepage-links { display: flex; }
-            .homepage-links > a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; }
-            .homepage-links > a:hover, .homepage-links > a:focus-visible { background: #E6F1F7; color: #125E8A; }
-            .homepage-links a:focus-visible { outline: 3px solid #125E8A; outline-offset: 2px; }
-            .mobile-download { display: block; margin-top: 12px; padding-top: 16px; border-top: 1px solid #dce6e9; }
-            .mobile-download a { display: flex; align-items: center; justify-content: center; min-height: 44px; color: #1F2933; }
+            .homepage-brand {
+                flex-shrink: 0;
+            }
+
+            .homepage-brand a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+            }
+
+            .homepage-brand img {
+                width: 66px;
+                min-width: 66px;
+                height: auto;
+            }
+
+            .homepage-actions {
+                gap: 16px;
+                flex-shrink: 0;
+            }
+
+            .homepage-actions>div>a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .homepage-actions>.scroll-to-badges {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                padding: 9px;
+                border: 1px solid #ffffff66;
+                border-radius: 10px;
+                background: transparent;
+                color: white;
+                cursor: pointer;
+            }
+
+            .mobile-menu-toggle svg {
+                width: 24px;
+                height: 24px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-linecap: round;
+            }
+
+            .mobile-menu-toggle:focus-visible {
+                outline: 3px solid #FA7E61;
+                outline-offset: 3px;
+            }
+
+            .nav-bar>.homepage-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 4px;
+                padding: 16px 24px 24px;
+                max-height: calc(100vh - 92px);
+                max-height: calc(100dvh - 92px);
+                overflow-y: auto;
+                background: #FFF9F5;
+                color: #125E8A;
+                border-bottom: 1px solid #dce6e9;
+                box-shadow: 0 14px 24px #16344224;
+            }
+
+            .nav-bar.mobile-menu-open>.homepage-links {
+                display: flex;
+            }
+
+            .homepage-links>a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+                padding: 8px 12px;
+                border-radius: 8px;
+            }
+
+            .homepage-links>a:hover,
+            .homepage-links>a:focus-visible {
+                background: #E6F1F7;
+                color: #125E8A;
+            }
+
+            .homepage-links a:focus-visible {
+                outline: 3px solid #125E8A;
+                outline-offset: 2px;
+            }
+
+            .mobile-download {
+                display: block;
+                margin-top: 12px;
+                padding-top: 16px;
+                border-top: 1px solid #dce6e9;
+            }
+
+            .mobile-download a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                color: #1F2933;
+            }
         }
 
         @media (min-width: 768px) and (max-width: 1279px) {
-            .nav-bar { flex-wrap: wrap; row-gap: 16px; }
-            .nav-bar > :nth-child(2) { order: 3; flex-basis: 100%; justify-content: space-between; }
+            .nav-bar {
+                flex-wrap: wrap;
+                row-gap: 16px;
+            }
+
+            .nav-bar> :nth-child(2) {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: space-between;
+            }
         }
 
         .glass {
@@ -544,8 +672,15 @@
         }
 
         @keyframes review-bob {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         .review-bubble {
@@ -620,6 +755,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             .reviews-track,
             .review-item {
                 animation: none;
@@ -636,7 +772,8 @@
 
 <body class="overflow-x-hidden">
 
-    <nav aria-label="Galvenā navigācija" class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
+    <nav aria-label="Galvenā navigācija"
+        class="nav-bar fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6">
         <div class="homepage-brand flex items-center">
             <a href="/lv/"><img src="../assets/logo.png" alt="Shurp" class="h-8 md:h-10 w-auto cursor-pointer"></a>
         </div>
@@ -647,7 +784,8 @@
             <a href="tutorial#faq-safety" class="hover:text-white transition">Drošība</a>
             <a href="#legal" class="hover:text-white transition">Juridiskā info</a>
             <a href="/lv/transport" class="hover:text-white transition">Sabiedriskais transports</a>
-            <div class="mobile-download"><a href="#download" class="scroll-to-badges shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
+            <div class="mobile-download"><a href="#download"
+                    class="scroll-to-badges shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
             <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
@@ -657,9 +795,15 @@
             </div>
             <a href="#download"
                 class="scroll-to-badges shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>
-            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button" aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Atvērt izvēlni" data-open-label="Atvērt izvēlni" data-close-label="Aizvērt izvēlni">
-                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button"
+                aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Atvērt izvēlni"
+                data-open-label="Atvērt izvēlni" data-close-label="Aizvērt izvēlni">
+                <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
             </button>
         </div>
     </nav>
@@ -768,21 +912,67 @@
         <div class="reviews-scroller" id="reviews-scroller" tabindex="0"
             aria-label="Ritināmās atsauksmes — pieskaries, lai apturētu">
             <div class="reviews-track">
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Labs variants, kad pašam auto noplīsis un ar autobusu par garlaicīgu. Trāpījās normāls pipars un pa ceļam.</p></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ērti ielikt/atrast braucienus, laba ideja!</p></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Aizbraucu vienreiz ar Shurpu, viss strādā — ļoti labi, ka šādi projekti tiek ieviesti arī Latvijā.</p></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ļoti ērta un viegli lietojama bezmaksas aplikācija, kā arī ātrs tehniskais atbalsts.</p></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ētri un viegli atrast gan ceļabiedrus, gan šoferus.</p><cite class="review-name">Anna</cite></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Viss darbojas! Plānotie braucieni ir redzami un pieejami.</p></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Respekts par aplikāciju un idejas novešanu līdz reālam rezultātam.</p><cite class="review-name">Martins</cite></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Ļoti laba un galvenais, ka viegli saprotama app. Laba ideja.</p><cite class="review-name">Uģis</cite></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Perfekti. Viss strādā.</p><cite class="review-name">Oskars</cite></div></blockquote>
-                <blockquote class="review-item"><div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span><p class="review-text">Awesome concept, works great!</p></div></blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Labs variants, kad pašam auto noplīsis un ar autobusu par garlaicīgu.
+                            Trāpījās normāls pipars un pa ceļam.</p>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Ērti ielikt/atrast braucienus, laba ideja!</p>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Aizbraucu vienreiz ar Shurpu, viss strādā — ļoti labi, ka šādi projekti
+                            tiek ieviesti arī Latvijā.</p>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Ļoti ērta un viegli lietojama bezmaksas aplikācija, kā arī ātrs
+                            tehniskais atbalsts.</p>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Ētri un viegli atrast gan ceļabiedrus, gan šoferus.</p><cite
+                            class="review-name">Anna</cite>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Viss darbojas! Plānotie braucieni ir redzami un pieejami.</p>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Respekts par aplikāciju un idejas novešanu līdz reālam rezultātam.</p>
+                        <cite class="review-name">Martins</cite>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Ļoti laba un galvenais, ka viegli saprotama app. Laba ideja.</p><cite
+                            class="review-name">Uģis</cite>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Perfekti. Viss strādā.</p><cite class="review-name">Oskars</cite>
+                    </div>
+                </blockquote>
+                <blockquote class="review-item">
+                    <div class="review-bubble"><span class="review-stars" aria-hidden="true">★★★★★</span>
+                        <p class="review-text">Awesome concept, works great!</p>
+                    </div>
+                </blockquote>
             </div>
         </div>
     </section>
 
-    <section class="soft-blue-bg pt-16 pb-32 px-6">
+    <section class="soft-blue-bg pt-16 pb-48 md:pb-56 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
             <div class="md:w-1/2 text-left">
                 <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
@@ -832,7 +1022,8 @@
                 <div class="text-left md:text-right">
                     <h4 class="text-lg font-bold mb-6 text-white">Par platformu</h4>
                     <p class="leading-relaxed text-white/70 max-w-xl md:ml-auto">
-                        Shurp (šurp / surp) ir digitāla kopbraukšanas (carpooling) lietotne Latvijā, kas savieno autovadītājus un
+                        Shurp (šurp / surp) ir digitāla kopbraukšanas (carpooling) lietotne Latvijā, kas savieno
+                        autovadītājus un
                         pasažierus dalītiem braucieniem bez komisijas maksas.
                         Ērta mobilitātes alternatīva taksometram un carsharing pakalpojumiem Rīgā, Latvijas pilsētās un
                         reģionos — visur, kur cilvēkiem ir auto un telefons.
@@ -865,7 +1056,7 @@
             toggle.addEventListener('click', () => {
                 const open = toggle.getAttribute('aria-expanded') !== 'true';
                 setOpen(open);
-                if (open) nav.querySelector('.homepage-links > a').focus({preventScroll: true});
+                if (open) nav.querySelector('.homepage-links > a').focus({ preventScroll: true });
             });
             nav.addEventListener('click', event => {
                 const link = event.target.closest('a');
@@ -874,7 +1065,7 @@
                 setOpen(false);
                 if (wasOpen && link.getAttribute('href').startsWith('#')) {
                     const destination = document.getElementById(link.hash.slice(1));
-                    if (destination) { destination.setAttribute('tabindex', '-1'); destination.focus({preventScroll: true}); }
+                    if (destination) { destination.setAttribute('tabindex', '-1'); destination.focus({ preventScroll: true }); }
                 }
             });
             document.addEventListener('click', event => {
@@ -1049,7 +1240,7 @@
                 axisLocked = null;
                 scroller.classList.remove('is-dragging');
                 if (pointerId !== null) {
-                    try { scroller.releasePointerCapture(pointerId); } catch (e) {}
+                    try { scroller.releasePointerCapture(pointerId); } catch (e) { }
                     pointerId = null;
                 }
                 if (Math.abs(velocity) > 0.4) {
