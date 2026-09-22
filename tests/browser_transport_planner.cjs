@@ -1,20 +1,20 @@
 // End-to-end check of the on-site transport planner.
 //
-//   BASE_URL=https://www.shurp.lv node tests/browser_transport_planner.cjs
+//   BASE_URL=https://shurp.lv node tests/browser_transport_planner.cjs
 //
 // It needs a deployment that serves the .htaccess rewrite (/api/transport/*
 // -> /api/transport.php) and that has the client key installed outside the
 // webroot, so it cannot pass against a plain local static file server.
 //
 //   BASE_URL        origin to test           (default http://127.0.0.1:18098)
-//   WEBSITE_BASE    expected data-website-base (default https://www.shurp.lv)
+//   WEBSITE_BASE    expected data-website-base (default https://shurp.lv)
 //   EXPECT_NOINDEX  "1" while the pages are unlinked, "0" once published
 //                                            (default "1")
 const assert = require('node:assert/strict');
 const {chromium} = require('playwright');
 
 const base = process.env.BASE_URL || 'http://127.0.0.1:18098';
-const websiteBase = process.env.WEBSITE_BASE || 'https://www.shurp.lv';
+const websiteBase = process.env.WEBSITE_BASE || 'https://shurp.lv';
 const expectNoindex = (process.env.EXPECT_NOINDEX ?? '1') === '1';
 const origin = new URL(base).origin;
 const places = {from: {type: 'Rīga', expect: 'Rīga'}, to: {type: 'Jelgava', expect: 'Jelgava'}};

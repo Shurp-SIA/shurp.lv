@@ -8,7 +8,7 @@
 // end of the chosen day, so an afternoon search for tomorrow lost every
 // morning carpool ride and the Shurp block disappeared.
 //
-//   BASE_URL     origin to test                 (default https://www.shurp.lv)
+//   BASE_URL     origin to test                 (default https://shurp.lv)
 //   FUTURE_DATE  date to search, dd.mm.yyyy     (default tomorrow in Riga)
 //   LOCAL_ONLY   "1" to skip the API assertions (a static local server cannot
 //                reach /api/transport/*)        (default "0")
@@ -19,7 +19,7 @@
 const assert = require('node:assert/strict');
 const {chromium} = require('playwright');
 
-const base = process.env.BASE_URL || 'https://www.shurp.lv';
+const base = process.env.BASE_URL || 'https://shurp.lv';
 const localOnly = (process.env.LOCAL_ONLY ?? '0') === '1';
 
 const pad = value => String(value).padStart(2, '0');

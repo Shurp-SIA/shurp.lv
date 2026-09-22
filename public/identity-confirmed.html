@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Identity Confirmed | Shurp</title>
     <!-- Use your Inter font as per your index.html -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@
         </p>
 
         <!-- The Smart Button -->
-        <a id="return-to-shurp" href="io.supabase.shurp://login-callback/"
+        <a id="return-to-shurp" href="lv.shurp.app://login-callback/"
             class="shurp-blue-bg block w-full py-4 rounded-full font-bold text-white hover:opacity-90 transition mb-4">
             Atgriezties Shurp / Return to Shurp
         </a>
@@ -50,7 +51,7 @@
     </div>
 
     <script>
-        var APP_CALLBACK_URL = "io.supabase.shurp://login-callback/";
+        var APP_CALLBACK_URL = "lv.shurp.app://login-callback/";
         var appCallbackUrl = APP_CALLBACK_URL + window.location.search + window.location.hash;
 
         document.getElementById("return-to-shurp").href = appCallbackUrl;

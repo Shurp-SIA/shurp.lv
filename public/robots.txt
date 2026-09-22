@@ -13,4 +13,4 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
-Sitemap: https://www.shurp.lv/sitemap.xml
+Sitemap: https://shurp.lv/sitemap.xml

@@ -16,3 +16,4 @@ repomix-output.*
 backups/
 
 temp/
+.DS_Store
