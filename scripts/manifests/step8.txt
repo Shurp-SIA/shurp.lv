@@ -1,0 +1,25 @@
+# APPROVED 2026-09-22 — Step 8 (2026-09-22): apex canonical host, de-index auxiliary
+# pages, sitemap/legal SEO fixes, tutorial 404 cleanup. After upload, delete
+# server-side: assets/favicon-16x16.png, assets/favicon-48x48.png,
+# assets/icons/icon_options.svg.
+.htaccess
+api/.htaccess
+robots.txt
+sitemap.xml
+get.html
+identity-confirmed.html
+auth/callback/index.html
+en/index.html
+en/news.html
+en/privacy.html
+en/terms.html
+en/tickets.html
+en/transport.html
+en/tutorial.html
+lv/index.html
+lv/privacy.html
+lv/terms.html
+lv/tickets.html
+lv/transport.html
+lv/tutorial.html
+lv/zinas.html
