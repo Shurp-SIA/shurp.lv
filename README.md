@@ -145,6 +145,17 @@ Company: Shurp SIA (Reg. No: 40203709369)
 * **Disclaimer:** Shurp is not affiliated with Bolt, CityBee, or Facebook. It is an independent carpooling platform offering an alternative way for individuals to travel together and share commuting costs.
 ---
 
+## Transport planner
+
+This repository owns the whole planner client: the LV/EN `transport` and
+`tickets` pages under `public/`, `public/assets/css/transport.css` and
+`public/assets/js/transport.js`, `tickets.js`, `transport-inputs.js`.
+
+The `shurp-transport` repository is the API only
+(`https://shurp.proofit.lv/transport/api/transport/...`), reached through the
+same-origin proxy `public/api/transport.php`. Nothing is synchronised between
+the two repositories — the planner pages are edited here and only here.
+
 ## Local preview
 
 ```bash
