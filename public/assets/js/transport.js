@@ -13,9 +13,9 @@
     showDetails: "Show details", hideDetails: "Hide details", fare: "Check fare with the ticket seller", fareUnknown: "Fare unavailable", fareLoading: "Checking fare…", ticketPrice: "Adult ticket including commission", tickets: "Fare and tickets", ticketExact: "Continue to BezRindas", ticketSearch: "Find tickets on BezRindas", ticketUnavailable: "Tickets unavailable", checked: "Checked", separate: "Each ride may need a separate ticket. Confirm your route and fare on the seller’s website.", updated: "Updated", justNow: "just now", scheduled: "Scheduled times; delays are not included.", invalid: "Check the journey date and time."
   });
   Object.assign(t, lv ? {
-    placeVillage: "Ciems", placeParish: "Pagasts", placeMunicipality: "Novads", walkTo: "Iešana līdz pieturai", walkFrom: "Iešana no pieturas", busy: "Serviss ir noslogots — mēģinām vēlreiz…", busyFailed: "Serviss pašlaik ir noslogots. Lūdzu, mēģiniet vēlreiz pēc brīža.", searchedUntil: "Rādīti reisi ar atiešanu līdz"
+    placeVillage: "Ciems", placeParish: "Pagasts", placeMunicipality: "Novads", walkTo: "Iešana līdz pieturai", walkFrom: "Iešana no pieturas", busy: "Pakalpojums ir noslogots — mēģinām vēlreiz…", busyFailed: "Pakalpojums pašlaik ir noslogots. Mēģini vēlreiz pēc brīža.", searchedUntil: "Rādīti maršruti ar atiešanu līdz plkst."
   } : {
-    placeVillage: "Village", placeParish: "Parish", placeMunicipality: "Municipality", walkTo: "Walk to the stop", walkFrom: "Walk from the stop", busy: "The service is busy — trying again…", busyFailed: "The service is busy right now. Please try again in a moment.", searchedUntil: "Showing departures until"
+    placeVillage: "Village", placeParish: "Parish", placeMunicipality: "Municipality", walkTo: "Walk to the stop", walkFrom: "Walk from the stop", busy: "The service is busy — trying again…", busyFailed: "The service is busy right now. Please try again in a moment.", searchedUntil: "Showing journeys departing until"
   });
   Object.assign(t, lv ? {
     baseFare: "Pamata cena", baseFareUnknown: "Pamata cena nav pieejama", sellerFareUnknown: "Tirgotāja cena nav pieejama", baseFareNote: "Standarta pieaugušā biļete vienā virzienā. Pakalpojumu piemaksas un tirgotāja komisija nav iekļautas; atlaides var mainīt gala cenu."
@@ -54,12 +54,12 @@
       }
     }
     const count = Number(place.stop_count);
-    if (place.kind === "stop_group" && Number.isInteger(count) && count >= 2) return `${t.placeStop} · ${count} ${lv ? (count % 10 === 1 && count % 100 !== 11 ? "perons" : "peroni") : (count === 1 ? "platform" : "platforms")}`;
+    if (place.kind === "stop_group" && Number.isInteger(count) && count >= 2) return `${t.placeStop} · ${count} ${lv ? (count % 10 === 1 && count % 100 !== 11 ? "pieturvieta" : "pieturvietas") : (count === 1 ? "stop" : "stops")}`;
     return t.placeStop;
   }
   function placeSecondary(place) {
     const kind = placeKind(place), area = place.area_label || place.municipality_name;
-    if (!area) return kind;
+    if (!area || String(area).trim() === String(place.name).trim()) return kind;
     const words = value => String(value).toLocaleLowerCase(lv ? "lv" : "en").match(/[\p{L}\p{N}]+/gu) || [];
     const areaWords = words(area);
     return [area, ...kind.split(" · ").filter(part => !words(part).every(word => areaWords.includes(word)))].join(" · ");
@@ -70,7 +70,7 @@
     list.setAttribute("role", "listbox"); list.setAttribute("aria-label", lv ? "Vietas" : "Places");
     const close = () => { list.hidden = true; active = -1; input.setAttribute("aria-expanded", "false"); input.removeAttribute("aria-activedescendant"); };
     const select = index => { const place = items[index]; if (!place) return; selected[key] = place; input.value = place.name; close(); };
-    const render = () => { list.innerHTML = items.map((place,index) => `<li role="presentation"><button id="${key}-option-${index}" role="option" tabindex="-1" type="button" data-index="${index}" aria-selected="${index === active}"><b>${esc(place.name)}</b><small>${esc(placeSecondary(place))}</small>${Array.isArray(place.modes) && place.modes.length ? `<span class="mode-list">${[...new Set(place.modes)].map(modeTag).join("")}</span>` : ""}</button></li>`).join(""); list.hidden = !items.length; input.setAttribute("aria-expanded", String(!!items.length)); if (active >= 0) input.setAttribute("aria-activedescendant", `${key}-option-${active}`); else input.removeAttribute("aria-activedescendant"); };
+    const render = () => { list.innerHTML = items.map((place,index) => `<li role="presentation"><button id="${key}-option-${index}" role="option" tabindex="-1" type="button" data-index="${index}" aria-selected="${index === active}"><b>${esc(place.name)}</b><small>${esc(placeSecondary(place))}</small>${Array.isArray(place.modes) && place.modes.length ? `<span class="mode-list">${[...new Set(place.modes)].map(modeTag).join("")}</span>` : ""}</button></li>`).join(""); list.hidden = !items.length; input.setAttribute("aria-expanded", String(!!items.length)); if (active >= 0) { input.setAttribute("aria-activedescendant", `${key}-option-${active}`); list.querySelector(`[data-index="${active}"]`).scrollIntoView({block:"nearest", behavior:"instant"}); } else input.removeAttribute("aria-activedescendant"); };
     input.oninput = () => { clearShortcut(); selected[key] = null; clearTimeout(timer); controller?.abort(); const thisVersion = ++version;
       if (input.value.trim().length < 2) { items = []; close(); return; }
       timer = setTimeout(async () => { controller = new AbortController(); try { const data = await api(`places?q=${encodeURIComponent(input.value.trim())}&limit=8&role=${key === "from" ? "origin" : "destination"}`, controller.signal); if (thisVersion !== version) return; items = Array.isArray(data.places) ? data.places : []; active = -1; render(); } catch (error) { if (error.name !== "AbortError" && thisVersion === version) close(); } }, 250);
@@ -101,9 +101,10 @@
   function stopRows(leg) { const stops = Array.isArray(leg.stops) && leg.stops.length ? leg.stops : [leg.from_stop && {name:leg.from_stop.name || leg.from_stop,departure:leg.departure},leg.to_stop && {name:leg.to_stop.name || leg.to_stop,arrival:leg.arrival}].filter(Boolean); return `<ol>${stops.map(s => `<li><time>${esc(clock(s.departure || s.arrival))}</time><span>${esc(s.name || "—")}</span></li>`).join("")}</ol>`; }
   const modeLabels = lv ? {bus:"Autobuss", train:"Vilciens", tram:"Tramvajs", trolleybus:"Trolejbuss", other:"Cits", carpool:t.carpool} : {bus:"Bus", train:"Train", tram:"Tram", trolleybus:"Trolleybus", other:"Other", carpool:t.carpool};
   function modeTag(mode) {
+    if (!Object.hasOwn(modeLabels, mode)) return "";
     const rail = mode === "train" || mode === "tram";
     const drawing = rail ? '<rect x="5" y="3" width="14" height="15" rx="4"/><path d="M5 10h14M9 3v7M8 18l-2 3m10-3 2 3"/><path d="M8 14h1m6 0h1"/>' : '<rect x="4" y="5" width="16" height="14" rx="3"/><path d="M4 12h16M12 5v7M7 19v2m10-2v2M7 16h1m8 0h1"/>';
-    const label = modeLabels[mode] || t.transit;
+    const label = modeLabels[mode];
     return `<span class="mode-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${drawing}</svg>${label}</span>`;
   }
   function journeyModes(legs) {
@@ -136,14 +137,14 @@
     return `<span class="ticket-item" data-ticket-key="${esc(ticketKey)}" data-ticket-generic="${esc(provider.generic)}"${query ? ` data-ticket-query="${esc(query)}"` : ""}>${baseFare(leg)}<${tag} class="ticket-link" data-placement="result" ${attributes}><span data-ticket-label><span data-ticket-action>${t.tickets}</span> <span data-ticket-identity>${number} · ${esc(clock(leg.departure))} ${esc(from)} → ${esc(to)}</span></span> <span data-ticket-icon aria-hidden="true">${query ? "⌄" : "→"}</span></${tag}><span class="ticket-price" data-ticket-price>${t.fare}</span><small data-ticket-checked></small></span>`;
   }
   function rideLeg(leg, number, ticketKey) { const route = leg.route_short_name || leg.route_name || leg.mode || "—", ticket = ticketLink(leg,ticketKey,number) || `<span class="ticket-price">${t.fareUnknown}</span>`; return `<section class="leg"><div class="leg-head"><span class="leg-count">${number}</span><strong>${esc(route)}</strong>${modeTag(leg.mode)}<span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div>${stopRows(leg)}${ticket}</section>`; }
-  function walkLeg(leg, label = t.walk) { const from = leg.from_stop?.name || leg.from_stop || "—", to = leg.to_stop?.name || leg.to_stop || "—"; return `<section class="walk"><strong>${label}</strong>${label !== t.walk ? ` · ${t.walk}` : ""} · ${esc(distance(leg.distance_m))} · ${esc(duration(leg.duration_minutes))}<br><span>${esc(from)} → ${esc(to)}</span></section>`; }
+  function walkLeg(leg, label = t.walk) { const from = leg.from_stop?.name || leg.from_stop || "—", to = leg.to_stop?.name || leg.to_stop || "—"; return `<section class="walk"><strong>${label}</strong> · ${label !== t.walk ? (lv ? "aptuveni " : "about ") : ""}${esc(distance(leg.distance_m))} · ${esc(duration(leg.duration_minutes))}<br><span>${esc(from)} → ${esc(to)}</span></section>`; }
   function transfer(leg) { const wait = Number(leg.transfer_wait_minutes); return Number.isFinite(wait) && wait > 0 ? `<p class="transfer">${t.wait}: ${esc(duration(wait))}</p>` : ""; }
   function transit(journey, journeyIndex) {
     const legs = Array.isArray(journey.legs) && journey.legs.length ? journey.legs : [{...journey,kind:"ride"}], from = journey.from_stop?.name || journey.from_stop || legs[0].from_stop?.name || selected.from?.name || "—", to = journey.to_stop?.name || journey.to_stop || legs.at(-1).to_stop?.name || selected.to?.name || "—";
     const firstRide = legs.findIndex(leg => leg.kind !== "walk"), lastRide = legs.findLastIndex(leg => leg.kind !== "walk");
     let number = 0; const rideTickets = []; const details = legs.map((leg,index) => {
       if (leg.kind === "walk") return walkLeg(leg, firstRide >= 0 && index < firstRide ? t.walkTo : index > lastRide && lastRide >= 0 ? t.walkFrom : t.walk);
-      const initialWait = index === firstRide && index > 0 ? (Date.parse(leg.departure) - Date.parse(legs[index - 1].arrival)) / 60000 : 0;
+      const initialWait = index === firstRide && index > 0 ? Math.round((Date.parse(leg.departure) - Date.parse(legs[index - 1].arrival)) / 60000) : 0;
       const before = index === firstRide ? (initialWait >= 1 ? transfer({transfer_wait_minutes:initialWait}) : "") : transfer(leg);
       number += 1; const ticketKey = `${journeyIndex}-${number}`; rideTickets.push({leg,ticketKey}); return `${before}${rideLeg(leg,number,ticketKey)}`;
     }).join("");
@@ -279,15 +280,17 @@
   let searchController, searchVersion = 0;
   $("#planner").onsubmit = async event => {
     event.preventDefault();
+    searchController?.abort(); const version = ++searchVersion;
+    $("#result-list").setAttribute("aria-busy", "false");
     if (!selected.from || !selected.to) { $("#summary").textContent = t.pick; return; }
     if (selected.from.id === selected.to.id) { $("#summary").textContent = t.same; return; }
     const entry = window.ShurpPlannerInputs.read();
     if (!entry || !$("#planner").checkValidity()) { $("#summary").textContent = t.invalid; return; }
-    searchController?.abort(); clearTicketRequests(); searchController = new AbortController(); const version = ++searchVersion;
+    clearTicketRequests(); searchController = new AbortController();
     const signal = searchController.signal;
     const mode = modes.find(el => el.checked).value;
     const q = new URLSearchParams({from:selected.from.id, to:selected.to.id, date:entry.date, time:entry.time, mode, max_transfers:"2"});
-    $("#summary").textContent = t.loading; $("#summary").setAttribute("aria-busy", "true"); $("#result-list").innerHTML = ""; $("#result-list").setAttribute("aria-busy", "true");
+    $("#summary").textContent = t.loading; $("#result-list").innerHTML = ""; $("#result-list").setAttribute("aria-busy", "true");
     // Move out of the inputs (and dismiss mobile keyboards) before revealing
     // feedback. Responses only update this region; they never move focus again.
     $("#results").classList.add("search-started");
@@ -333,6 +336,6 @@
     } catch (error) {
       if (version !== searchVersion || error.name === "AbortError") return;
       $("#summary").textContent = isBusy(error) ? t.busyFailed : t.failed;
-    } finally { if (version === searchVersion) { $("#result-list").setAttribute("aria-busy", "false"); $("#summary").setAttribute("aria-busy", "false"); } }
+    } finally { if (version === searchVersion) $("#result-list").setAttribute("aria-busy", "false"); }
   };
 })();
