@@ -550,8 +550,9 @@ if ($upstream['body'] === '' || json_last_error() !== JSON_ERROR_NONE) {
     fail(503, GENERIC_UNAVAILABLE);
 }
 
-if ($upstream['status'] === 429 && $upstream['retry_after'] !== ''
-    && preg_match('/^[A-Za-z0-9 ,:+-]{1,64}$/', $upstream['retry_after']) === 1) {
+if (in_array($upstream['status'], [429, 503], true)
+    && preg_match('/^[0-9]+$/D', $upstream['retry_after']) === 1
+    && (int) $upstream['retry_after'] >= 1 && (int) $upstream['retry_after'] <= 3600) {
     header('Retry-After: ' . $upstream['retry_after']);
 }
 
