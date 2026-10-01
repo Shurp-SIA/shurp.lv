@@ -1,0 +1,15 @@
+# APPROVED 2026-10-01 — Step 10 (2026-10-01): planner UI for the shurp-transport
+# v0004 API (commits 2cbcee5, 9bbfb8b, c64f845). The proxy forwards Retry-After
+# on busy 429/503; the planner sends role=origin|destination on place lookups,
+# shows area/kind labels and mode chips in suggestions, retries once on a busy
+# 503, labels walk legs by position and notes "searched until HH:MM". The four
+# pages only gain ?v=20261001 on transport.css / transport-inputs.js /
+# transport.js because Cloudflare caches assets for 4 h. Upload order matters:
+# proxy, then the assets, then the pages that reference them.
+api/transport.php
+assets/css/transport.css
+assets/js/transport.js
+lv/transport.html
+en/transport.html
+lv/tickets.html
+en/tickets.html
