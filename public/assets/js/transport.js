@@ -13,6 +13,11 @@
     showDetails: "Show details", hideDetails: "Hide details", fare: "Check fare with the ticket seller", fareUnknown: "Fare unavailable", fareLoading: "Checking fare…", ticketPrice: "Adult ticket including commission", tickets: "Fare and tickets", ticketExact: "Continue to BezRindas", ticketSearch: "Find tickets on BezRindas", ticketUnavailable: "Tickets unavailable", checked: "Checked", separate: "Each ride may need a separate ticket. Confirm your route and fare on the seller’s website.", updated: "Updated", justNow: "just now", scheduled: "Scheduled times; delays are not included.", invalid: "Check the journey date and time."
   });
   Object.assign(t, lv ? {
+    placeVillage: "Ciems", placeParish: "Pagasts", placeMunicipality: "Novads", walkTo: "Iešana līdz pieturai", walkFrom: "Iešana no pieturas", busy: "Serviss ir noslogots — mēģinām vēlreiz…", busyFailed: "Serviss pašlaik ir noslogots. Lūdzu, mēģiniet vēlreiz pēc brīža.", searchedUntil: "Rādīti reisi ar atiešanu līdz"
+  } : {
+    placeVillage: "Village", placeParish: "Parish", placeMunicipality: "Municipality", walkTo: "Walk to the stop", walkFrom: "Walk from the stop", busy: "The service is busy — trying again…", busyFailed: "The service is busy right now. Please try again in a moment.", searchedUntil: "Showing departures until"
+  });
+  Object.assign(t, lv ? {
     baseFare: "Pamata cena", baseFareUnknown: "Pamata cena nav pieejama", sellerFareUnknown: "Tirgotāja cena nav pieejama", baseFareNote: "Standarta pieaugušā biļete vienā virzienā. Pakalpojumu piemaksas un tirgotāja komisija nav iekļautas; atlaides var mainīt gala cenu."
   } : {
     baseFare: "Base fare", baseFareUnknown: "Base fare unavailable", sellerFareUnknown: "Seller fare unavailable", baseFareNote: "Standard adult one-way fare. Service supplements and seller fees are excluded; discounts may change the final price."
@@ -27,18 +32,48 @@
   const clearShortcut = () => document.querySelectorAll(".route-shortcut").forEach(el => el.setAttribute("aria-pressed", "false"));
   modes.forEach(el => el.onchange = () => { rememberMode(el.value); clearShortcut(); });
 
-  async function api(path, signal) { const r = await fetch(`${basePath}/api/transport/${path}`, {headers:{Accept:"application/json"}, signal}); if (!r.ok) throw Error("transport"); return r.json(); }
-  function placeKind(place) { return place.kind === "city" ? t.placeCity : place.kind === "locality" ? t.placeLocality : t.placeStop; }
+  async function api(path, signal) {
+    const r = await fetch(`${basePath}/api/transport/${path}`, {headers:{Accept:"application/json"}, signal});
+    if (!r.ok) {
+      const error = Error("transport"), raw = r.headers.get("Retry-After"), seconds = Number(raw);
+      error.status = r.status;
+      error.retryAfter = /^[0-9]+$/.test(raw || "") && Number.isInteger(seconds) && seconds >= 1 && seconds <= 3600 ? seconds : null;
+      throw error;
+    }
+    return r.json();
+  }
+  function placeKind(place) {
+    if (place.kind === "city") return t.placeCity;
+    if (place.kind === "locality") {
+      switch (place.locality_type) {
+        case "city": return t.placeCity;
+        case "village": return t.placeVillage;
+        case "parish": return t.placeParish;
+        case "municipality": return t.placeMunicipality;
+        default: return t.placeLocality;
+      }
+    }
+    const count = Number(place.stop_count);
+    if (place.kind === "stop_group" && Number.isInteger(count) && count >= 2) return `${t.placeStop} · ${count} ${lv ? (count % 10 === 1 && count % 100 !== 11 ? "perons" : "peroni") : (count === 1 ? "platform" : "platforms")}`;
+    return t.placeStop;
+  }
+  function placeSecondary(place) {
+    const kind = placeKind(place), area = place.area_label || place.municipality_name;
+    if (!area) return kind;
+    const words = value => String(value).toLocaleLowerCase(lv ? "lv" : "en").match(/[\p{L}\p{N}]+/gu) || [];
+    const areaWords = words(area);
+    return [area, ...kind.split(" · ").filter(part => !words(part).every(word => areaWords.includes(word)))].join(" · ");
+  }
   function autocomplete(key) {
     const input = $(`#${key}`), list = $(`#${key}-list`); let timer, controller, items = [], active = -1, version = 0;
     input.setAttribute("role", "combobox"); input.setAttribute("aria-autocomplete", "list"); input.setAttribute("aria-controls", list.id); input.setAttribute("aria-expanded", "false");
     list.setAttribute("role", "listbox"); list.setAttribute("aria-label", lv ? "Vietas" : "Places");
     const close = () => { list.hidden = true; active = -1; input.setAttribute("aria-expanded", "false"); input.removeAttribute("aria-activedescendant"); };
     const select = index => { const place = items[index]; if (!place) return; selected[key] = place; input.value = place.name; close(); };
-    const render = () => { list.innerHTML = items.map((place,index) => `<li role="presentation"><button id="${key}-option-${index}" role="option" tabindex="-1" type="button" data-index="${index}" aria-selected="${index === active}"><b>${esc(place.name)}</b><small>${esc(place.municipality_name || placeKind(place))}</small></button></li>`).join(""); list.hidden = !items.length; input.setAttribute("aria-expanded", String(!!items.length)); if (active >= 0) input.setAttribute("aria-activedescendant", `${key}-option-${active}`); else input.removeAttribute("aria-activedescendant"); };
+    const render = () => { list.innerHTML = items.map((place,index) => `<li role="presentation"><button id="${key}-option-${index}" role="option" tabindex="-1" type="button" data-index="${index}" aria-selected="${index === active}"><b>${esc(place.name)}</b><small>${esc(placeSecondary(place))}</small>${Array.isArray(place.modes) && place.modes.length ? `<span class="mode-list">${[...new Set(place.modes)].map(modeTag).join("")}</span>` : ""}</button></li>`).join(""); list.hidden = !items.length; input.setAttribute("aria-expanded", String(!!items.length)); if (active >= 0) input.setAttribute("aria-activedescendant", `${key}-option-${active}`); else input.removeAttribute("aria-activedescendant"); };
     input.oninput = () => { clearShortcut(); selected[key] = null; clearTimeout(timer); controller?.abort(); const thisVersion = ++version;
       if (input.value.trim().length < 2) { items = []; close(); return; }
-      timer = setTimeout(async () => { controller = new AbortController(); try { const data = await api(`places?q=${encodeURIComponent(input.value.trim())}&limit=8`, controller.signal); if (thisVersion !== version) return; items = Array.isArray(data.places) ? data.places : []; active = -1; render(); } catch (error) { if (error.name !== "AbortError" && thisVersion === version) close(); } }, 250);
+      timer = setTimeout(async () => { controller = new AbortController(); try { const data = await api(`places?q=${encodeURIComponent(input.value.trim())}&limit=8&role=${key === "from" ? "origin" : "destination"}`, controller.signal); if (thisVersion !== version) return; items = Array.isArray(data.places) ? data.places : []; active = -1; render(); } catch (error) { if (error.name !== "AbortError" && thisVersion === version) close(); } }, 250);
     };
     input.onkeydown = event => { if (event.key === "Escape") { close(); return; } if (list.hidden || !items.length) return; if (event.key === "ArrowDown" || event.key === "ArrowUp") { event.preventDefault(); active = (active + (event.key === "ArrowDown" ? 1 : -1) + items.length) % items.length; render(); } else if (event.key === "Enter" && active >= 0) { event.preventDefault(); select(active); } };
     list.onmousedown = event => event.preventDefault();
@@ -64,7 +99,7 @@
   function duration(value) { const m = Number(value); if (!Number.isFinite(m)) return ""; const h = Math.floor(m / 60); return h ? `${h} h${m % 60 ? ` ${m % 60} min` : ""}` : `${m} min`; }
   function distance(value) { const metres = Number(value); return !Number.isFinite(metres) ? "" : metres < 1000 ? `${Math.round(metres / 10) * 10} m` : `${(metres / 1000).toLocaleString(lv?"lv-LV":"en-GB",{maximumFractionDigits:1})} km`; }
   function stopRows(leg) { const stops = Array.isArray(leg.stops) && leg.stops.length ? leg.stops : [leg.from_stop && {name:leg.from_stop.name || leg.from_stop,departure:leg.departure},leg.to_stop && {name:leg.to_stop.name || leg.to_stop,arrival:leg.arrival}].filter(Boolean); return `<ol>${stops.map(s => `<li><time>${esc(clock(s.departure || s.arrival))}</time><span>${esc(s.name || "—")}</span></li>`).join("")}</ol>`; }
-  const modeLabels = lv ? {bus:"Autobuss", train:"Vilciens", tram:"Tramvajs", trolleybus:"Trolejbuss"} : {bus:"Bus", train:"Train", tram:"Tram", trolleybus:"Trolleybus"};
+  const modeLabels = lv ? {bus:"Autobuss", train:"Vilciens", tram:"Tramvajs", trolleybus:"Trolejbuss", other:"Cits", carpool:t.carpool} : {bus:"Bus", train:"Train", tram:"Tram", trolleybus:"Trolleybus", other:"Other", carpool:t.carpool};
   function modeTag(mode) {
     const rail = mode === "train" || mode === "tram";
     const drawing = rail ? '<rect x="5" y="3" width="14" height="15" rx="4"/><path d="M5 10h14M9 3v7M8 18l-2 3m10-3 2 3"/><path d="M8 14h1m6 0h1"/>' : '<rect x="4" y="5" width="16" height="14" rx="3"/><path d="M4 12h16M12 5v7M7 19v2m10-2v2M7 16h1m8 0h1"/>';
@@ -101,11 +136,17 @@
     return `<span class="ticket-item" data-ticket-key="${esc(ticketKey)}" data-ticket-generic="${esc(provider.generic)}"${query ? ` data-ticket-query="${esc(query)}"` : ""}>${baseFare(leg)}<${tag} class="ticket-link" data-placement="result" ${attributes}><span data-ticket-label><span data-ticket-action>${t.tickets}</span> <span data-ticket-identity>${number} · ${esc(clock(leg.departure))} ${esc(from)} → ${esc(to)}</span></span> <span data-ticket-icon aria-hidden="true">${query ? "⌄" : "→"}</span></${tag}><span class="ticket-price" data-ticket-price>${t.fare}</span><small data-ticket-checked></small></span>`;
   }
   function rideLeg(leg, number, ticketKey) { const route = leg.route_short_name || leg.route_name || leg.mode || "—", ticket = ticketLink(leg,ticketKey,number) || `<span class="ticket-price">${t.fareUnknown}</span>`; return `<section class="leg"><div class="leg-head"><span class="leg-count">${number}</span><strong>${esc(route)}</strong>${modeTag(leg.mode)}<span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div>${stopRows(leg)}${ticket}</section>`; }
-  function walkLeg(leg) { const from = leg.from_stop?.name || leg.from_stop || "—", to = leg.to_stop?.name || leg.to_stop || "—"; return `<section class="walk"><strong>${t.walk}</strong> · ${esc(distance(leg.distance_m))} · ${esc(duration(leg.duration_minutes))}<br><span>${esc(from)} → ${esc(to)}</span></section>`; }
+  function walkLeg(leg, label = t.walk) { const from = leg.from_stop?.name || leg.from_stop || "—", to = leg.to_stop?.name || leg.to_stop || "—"; return `<section class="walk"><strong>${label}</strong>${label !== t.walk ? ` · ${t.walk}` : ""} · ${esc(distance(leg.distance_m))} · ${esc(duration(leg.duration_minutes))}<br><span>${esc(from)} → ${esc(to)}</span></section>`; }
   function transfer(leg) { const wait = Number(leg.transfer_wait_minutes); return Number.isFinite(wait) && wait > 0 ? `<p class="transfer">${t.wait}: ${esc(duration(wait))}</p>` : ""; }
   function transit(journey, journeyIndex) {
-    const legs = Array.isArray(journey.legs) && journey.legs.length ? journey.legs : [{...journey,kind:"ride"}], from = journey.from_stop?.name || journey.from_stop || selected.from?.name || "—", to = journey.to_stop?.name || journey.to_stop || selected.to?.name || "—";
-    let number = 0; const rideTickets = []; const details = legs.map((leg,index) => { const before = index && leg.kind !== "walk" ? transfer(leg) : ""; if (leg.kind === "walk") return walkLeg(leg); number += 1; const ticketKey = `${journeyIndex}-${number}`; rideTickets.push({leg,ticketKey}); return `${before}${rideLeg(leg,number,ticketKey)}`; }).join("");
+    const legs = Array.isArray(journey.legs) && journey.legs.length ? journey.legs : [{...journey,kind:"ride"}], from = journey.from_stop?.name || journey.from_stop || legs[0].from_stop?.name || selected.from?.name || "—", to = journey.to_stop?.name || journey.to_stop || legs.at(-1).to_stop?.name || selected.to?.name || "—";
+    const firstRide = legs.findIndex(leg => leg.kind !== "walk"), lastRide = legs.findLastIndex(leg => leg.kind !== "walk");
+    let number = 0; const rideTickets = []; const details = legs.map((leg,index) => {
+      if (leg.kind === "walk") return walkLeg(leg, firstRide >= 0 && index < firstRide ? t.walkTo : index > lastRide && lastRide >= 0 ? t.walkFrom : t.walk);
+      const initialWait = index === firstRide && index > 0 ? (Date.parse(leg.departure) - Date.parse(legs[index - 1].arrival)) / 60000 : 0;
+      const before = index === firstRide ? (initialWait >= 1 ? transfer({transfer_wait_minutes:initialWait}) : "") : transfer(leg);
+      number += 1; const ticketKey = `${journeyIndex}-${number}`; rideTickets.push({leg,ticketKey}); return `${before}${rideLeg(leg,number,ticketKey)}`;
+    }).join("");
     const transfers = Number.isFinite(Number(journey.transfer_count)) ? Number(journey.transfer_count) : Math.max(0, number - 1), summary = transfers ? `${transfers} ${t.transfers}` : t.direct;
     const ticketBar = `<div class="ticket-bar"><div class="ticket-links">${rideTickets.map(({leg,ticketKey}, index) => ticketLink(leg,ticketKey,index + 1) || `<span class="ticket-item"><span class="ticket-price">${t.fareUnknown}</span></span>`).join("")}</div><p class="base-fare-note">${t.baseFareNote}</p></div>`;
     return `<article class="card"><button type="button" class="transit-main" aria-expanded="false" aria-controls="journey-details-${journeyIndex}">${journeyModes(legs)}<div class="line"><span class="time"><strong>${esc(clock(journey.departure))}</strong><small>${esc(from)}</small></span><i class="track" aria-hidden="true"></i><span class="time end"><strong>${esc(clock(journey.arrival))}</strong><small>${esc(to)}</small></span><span class="meta"><span class="ride-duration">${esc(duration(journey.duration_minutes))}</span> · ${esc(summary)}</span></div><span class="details-toggle"><span data-details-label>${t.showDetails}</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></button><div class="details" id="journey-details-${journeyIndex}" hidden>${details}<p class="ticket-note">${t.scheduled}${number > 1 ? ` ${t.separate}` : ""}</p><button type="button" class="details-close" aria-controls="journey-details-${journeyIndex}">${t.hideDetails} <span aria-hidden="true">⌃</span></button></div>${ticketBar}</article>`;
@@ -226,6 +267,15 @@
   }
   const group = (title, content) => `<section class="group"><h3>${title}</h3>${content}</section>`;
   const notice = status => status === "unavailable" ? t.unavailable : status === "pending" || status === "disabled" ? t.pending : status === "stale" ? t.stale : "";
+  const isBusy = error => error.status === 503 && error.retryAfter > 0;
+  function retryDelay(seconds, signal) {
+    return new Promise((resolve, reject) => {
+      const cancel = () => { clearTimeout(timer); signal.removeEventListener("abort", cancel); reject(new DOMException("Aborted", "AbortError")); };
+      const timer = setTimeout(() => { signal.removeEventListener("abort", cancel); resolve(); }, Math.min(seconds, 10) * 1000);
+      signal.addEventListener("abort", cancel, {once:true});
+      if (signal.aborted) cancel();
+    });
+  }
   let searchController, searchVersion = 0;
   $("#planner").onsubmit = async event => {
     event.preventDefault();
@@ -234,9 +284,10 @@
     const entry = window.ShurpPlannerInputs.read();
     if (!entry || !$("#planner").checkValidity()) { $("#summary").textContent = t.invalid; return; }
     searchController?.abort(); clearTicketRequests(); searchController = new AbortController(); const version = ++searchVersion;
+    const signal = searchController.signal;
     const mode = modes.find(el => el.checked).value;
     const q = new URLSearchParams({from:selected.from.id, to:selected.to.id, date:entry.date, time:entry.time, mode, max_transfers:"2"});
-    $("#summary").textContent = t.loading; $("#result-list").innerHTML = ""; $("#result-list").setAttribute("aria-busy", "true");
+    $("#summary").textContent = t.loading; $("#summary").setAttribute("aria-busy", "true"); $("#result-list").innerHTML = ""; $("#result-list").setAttribute("aria-busy", "true");
     // Move out of the inputs (and dismiss mobile keyboards) before revealing
     // feedback. Responses only update this region; they never move focus again.
     $("#results").classList.add("search-started");
@@ -244,7 +295,15 @@
     resultsHeading.focus({preventScroll:true});
     resultsHeading.scrollIntoView({block:"start", behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth"});
     try {
-      const data = await api(`journeys?${q}`, searchController.signal);
+      let data;
+      try { data = await api(`journeys?${q}`, signal); }
+      catch (error) {
+        if (version !== searchVersion || !isBusy(error)) throw error;
+        $("#summary").textContent = t.busy;
+        await retryDelay(error.retryAfter, signal);
+        if (version !== searchVersion) return;
+        data = await api(`journeys?${q}`, signal);
+      }
       if (version !== searchVersion) return;
       const journeys = (Array.isArray(data.journeys) ? data.journeys : []).filter(item => item && typeof item === "object").sort((a, b) => { const delta = Date.parse(a.departure) - Date.parse(b.departure); return Number.isFinite(delta) ? delta : String(a.departure || "").localeCompare(String(b.departure || "")); });
       const carpools = (Array.isArray(data.carpool_offers) ? data.carpool_offers : []).filter(item => item && typeof item === "object");
@@ -254,7 +313,9 @@
       $("#summary").textContent = counts.join(" · ") || t.none;
       const carpoolGroup = carpoolOn && (carpools.length || mode === "carpool" || info) ? group(t.carpool, `${info ? `<p class="status">${esc(info)}</p>` : ""}${carpools.length ? carpools.map(carpool).join("") : `<p class="empty">${t.none}</p>`}`) : "";
       const transitGroup = transitOn && (journeys.length || !carpools.length) ? group(t.transit, journeys.length ? journeys.map(transit).join("") : `<p class="empty">${t.none}</p>`) : "";
-      $("#result-list").innerHTML = `${carpoolGroup}${transitGroup}`;
+      const until = data.search_limits?.exhaustive === false && String(data.search_limits.searched_until || "").match(/^\d{4}-\d\d-\d\dT([0-2]\d:[0-5]\d)/);
+      const limitNote = until ? `<p class="status search-limit-note">${t.searchedUntil} ${esc(until[1])}.</p>` : "";
+      $("#result-list").innerHTML = `${limitNote}${carpoolGroup}${transitGroup}`;
       document.querySelectorAll(".transit-main").forEach(button => {
         const details = button.nextElementSibling;
         button.onclick = () => {
@@ -271,7 +332,7 @@
       });
     } catch (error) {
       if (version !== searchVersion || error.name === "AbortError") return;
-      $("#summary").textContent = t.failed;
-    } finally { if (version === searchVersion) $("#result-list").setAttribute("aria-busy", "false"); }
+      $("#summary").textContent = isBusy(error) ? t.busyFailed : t.failed;
+    } finally { if (version === searchVersion) { $("#result-list").setAttribute("aria-busy", "false"); $("#summary").setAttribute("aria-busy", "false"); } }
   };
 })();
