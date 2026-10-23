@@ -22,6 +22,11 @@
   } : {
     baseFare: "Base fare", baseFareUnknown: "Base fare unavailable", sellerFareUnknown: "Seller fare unavailable", baseFareNote: "Standard adult one-way fare. Service supplements and seller fees are excluded; discounts may change the final price."
   });
+  Object.assign(t, lv ? {
+    combined: "Kopbraukšana + sabiedriskais transports", shurpCarpool: "Shurp kopbraukšana", connectionWarning: "Savienojums nav garantēts – vietu apstipriniet Shurp lietotnē"
+  } : {
+    combined: "Carpool + public transport", shurpCarpool: "Shurp carpool", connectionWarning: "Connection not guaranteed – confirm your seat in the Shurp app"
+  });
   const $ = s => document.querySelector(s);
   const esc = v => String(v ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
   const selected = { from:null, to:null };
@@ -139,10 +144,19 @@
   function rideLeg(leg, number, ticketKey) { const route = leg.route_short_name || leg.route_name || leg.mode || "—", ticket = ticketLink(leg,ticketKey,number) || `<span class="ticket-price">${t.fareUnknown}</span>`; return `<section class="leg"><div class="leg-head"><span class="leg-count">${number}</span><strong>${esc(route)}</strong>${modeTag(leg.mode)}<span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div>${stopRows(leg)}${ticket}</section>`; }
   function walkLeg(leg, label = t.walk) { const from = leg.from_stop?.name || leg.from_stop || "—", to = leg.to_stop?.name || leg.to_stop || "—"; return `<section class="walk"><strong>${label}</strong> · ${label !== t.walk ? (lv ? "aptuveni " : "about ") : ""}${esc(distance(leg.distance_m))} · ${esc(duration(leg.duration_minutes))}<br><span>${esc(from)} → ${esc(to)}</span></section>`; }
   function transfer(leg) { const wait = Number(leg.transfer_wait_minutes); return Number.isFinite(wait) && wait > 0 ? `<p class="transfer">${t.wait}: ${esc(duration(wait))}</p>` : ""; }
-  function transit(journey, journeyIndex) {
-    const legs = Array.isArray(journey.legs) && journey.legs.length ? journey.legs : [{...journey,kind:"ride"}], from = journey.from_stop?.name || journey.from_stop || legs[0].from_stop?.name || selected.from?.name || "—", to = journey.to_stop?.name || journey.to_stop || legs.at(-1).to_stop?.name || selected.to?.name || "—";
-    const firstRide = legs.findIndex(leg => leg.kind !== "walk"), lastRide = legs.findLastIndex(leg => leg.kind !== "walk");
+  function transit(journey, journeyIndex, combined = false) {
+    const legs = Array.isArray(journey.legs) && journey.legs.length ? journey.legs : [{...journey,kind:"ride"}], from = journey.from_stop?.name || journey.from_stop || (combined && legs[0].from_name) || legs[0].from_stop?.name || selected.from?.name || "—", to = journey.to_stop?.name || journey.to_stop || (combined && legs.at(-1).to_name) || legs.at(-1).to_stop?.name || selected.to?.name || "—";
+    const firstRide = legs.findIndex(leg => combined ? leg.kind === "ride" : leg.kind !== "walk"), lastRide = legs.findLastIndex(leg => combined ? leg.kind === "ride" : leg.kind !== "walk");
     let number = 0; const rideTickets = []; const details = legs.map((leg,index) => {
+      if (combined && leg.kind === "carpool") {
+        const offer = journey.carpool || {}, seats = Number(offer.seats_available) || 0;
+        return `<section class="leg carpool"><div class="leg-head"><strong class="badge">${t.shurpCarpool}</strong><span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div><p>${esc(leg.from_name)} → ${esc(leg.to_name)}</p><div class="offer-meta"><span>${esc(seats === 1 ? t.seat1 : `${seats} ${t.seat}`)}</span><strong>${esc(price(offer))}</strong></div></section>`;
+      }
+      if (combined && leg.kind === "carpool_transfer") {
+        const from = journey.type === "carpool_last";
+        return `<section class="walk">~${esc(leg.walk_minutes)} min ${lv ? (from ? "gājiens no pieturas" : "gājiens līdz pieturai") : (from ? "walk from" : "walk to")} ${esc(leg.stop_name)}</section>`;
+      }
+      if (combined && !["ride", "walk"].includes(leg.kind)) return "";
       if (leg.kind === "walk") return walkLeg(leg, firstRide >= 0 && index < firstRide ? t.walkTo : index > lastRide && lastRide >= 0 ? t.walkFrom : t.walk);
       const initialWait = index === firstRide && index > 0 ? Math.round((Date.parse(leg.departure) - Date.parse(legs[index - 1].arrival)) / 60000) : 0;
       const before = index === firstRide ? (initialWait >= 1 ? transfer({transfer_wait_minutes:initialWait}) : "") : transfer(leg);
@@ -150,7 +164,8 @@
     }).join("");
     const transfers = Number.isFinite(Number(journey.transfer_count)) ? Number(journey.transfer_count) : Math.max(0, number - 1), summary = transfers ? `${transfers} ${t.transfers}` : t.direct;
     const ticketBar = `<div class="ticket-bar"><div class="ticket-links">${rideTickets.map(({leg,ticketKey}, index) => ticketLink(leg,ticketKey,index + 1) || `<span class="ticket-item"><span class="ticket-price">${t.fareUnknown}</span></span>`).join("")}</div><p class="base-fare-note">${t.baseFareNote}</p></div>`;
-    return `<article class="card"><button type="button" class="transit-main" aria-expanded="false" aria-controls="journey-details-${journeyIndex}">${journeyModes(legs)}<div class="line"><span class="time"><strong>${esc(clock(journey.departure))}</strong><small>${esc(from)}</small></span><i class="track" aria-hidden="true"></i><span class="time end"><strong>${esc(clock(journey.arrival))}</strong><small>${esc(to)}</small></span><span class="meta"><span class="ride-duration">${esc(duration(journey.duration_minutes))}</span> · ${esc(summary)}</span></div><span class="details-toggle"><span data-details-label>${t.showDetails}</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></button><div class="details" id="journey-details-${journeyIndex}" hidden>${details}<p class="ticket-note">${t.scheduled}${number > 1 ? ` ${t.separate}` : ""}</p><button type="button" class="details-close" aria-controls="journey-details-${journeyIndex}">${t.hideDetails} <span aria-hidden="true">⌃</span></button></div>${ticketBar}</article>`;
+    const combinedFooter = combined ? `<p class="notice" role="note">${t.connectionWarning}</p><div class="carpool-main"><a class="carpool-cta" data-placement="result" href="${esc(document.body.dataset.websiteBase + "/get")}">${t.reserve}</a></div>` : "";
+    return `<article class="card${combined ? " combined" : ""}"><button type="button" class="transit-main" aria-expanded="false" aria-controls="journey-details-${journeyIndex}">${journeyModes(combined ? legs.filter(leg => leg.kind === "ride") : legs)}<div class="line"><span class="time"><strong>${esc(clock(journey.departure))}</strong><small>${esc(from)}</small></span><i class="track" aria-hidden="true"></i><span class="time end"><strong>${esc(clock(journey.arrival))}</strong><small>${esc(to)}</small></span><span class="meta"><span class="ride-duration">${esc(duration(journey.duration_minutes))}</span> · ${esc(summary)}</span></div><span class="details-toggle"><span data-details-label>${t.showDetails}</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></button><div class="details" id="journey-details-${journeyIndex}" hidden>${details}<p class="ticket-note">${t.scheduled}${number > 1 ? ` ${t.separate}` : ""}</p><button type="button" class="details-close" aria-controls="journey-details-${journeyIndex}">${t.hideDetails} <span aria-hidden="true">⌃</span></button></div>${ticketBar}${combinedFooter}</article>`;
   }
 
   function sellerUrl(raw) {
@@ -310,15 +325,17 @@
       if (version !== searchVersion) return;
       const journeys = (Array.isArray(data.journeys) ? data.journeys : []).filter(item => item && typeof item === "object").sort((a, b) => { const delta = Date.parse(a.departure) - Date.parse(b.departure); return Number.isFinite(delta) ? delta : String(a.departure || "").localeCompare(String(b.departure || "")); });
       const carpools = (Array.isArray(data.carpool_offers) ? data.carpool_offers : []).filter(item => item && typeof item === "object");
+      const combined = (Array.isArray(data.combined_journeys) ? data.combined_journeys : []).filter(item => item && typeof item === "object").slice(0, 3);
       const transitOn = mode !== "carpool", carpoolOn = mode === "all" || mode === "carpool", info = notice(data.provider_status?.shurp?.status), counts = [];
       if (carpoolOn && carpools.length) counts.push(`${carpools.length} ${lv ? "kopbraucieni" : "carpools"}`);
       if (transitOn && journeys.length) counts.push(`${journeys.length} ${lv ? "reisi" : "journeys"}`);
       $("#summary").textContent = counts.join(" · ") || t.none;
       const carpoolGroup = carpoolOn && (carpools.length || mode === "carpool" || info) ? group(t.carpool, `${info ? `<p class="status">${esc(info)}</p>` : ""}${carpools.length ? carpools.map(carpool).join("") : `<p class="empty">${t.none}</p>`}`) : "";
-      const transitGroup = transitOn && (journeys.length || !carpools.length) ? group(t.transit, journeys.length ? journeys.map(transit).join("") : `<p class="empty">${t.none}</p>`) : "";
+      const transitGroup = transitOn && (journeys.length || !carpools.length) ? group(t.transit, journeys.length ? journeys.map((journey, index) => transit(journey, index)).join("") : `<p class="empty">${t.none}</p>`) : "";
+      const combinedGroup = combined.length ? group(t.combined, combined.map((journey, index) => transit(journey, `combined-${index}`, true)).join("")) : "";
       const until = data.search_limits?.exhaustive === false && String(data.search_limits.searched_until || "").match(/^\d{4}-\d\d-\d\dT([0-2]\d:[0-5]\d)/);
       const limitNote = until ? `<p class="status search-limit-note">${t.searchedUntil} ${esc(until[1])}.</p>` : "";
-      $("#result-list").innerHTML = `${limitNote}${carpoolGroup}${transitGroup}`;
+      $("#result-list").innerHTML = `${limitNote}${carpoolGroup}${combinedGroup}${transitGroup}`;
       document.querySelectorAll(".transit-main").forEach(button => {
         const details = button.nextElementSibling;
         button.onclick = () => {
