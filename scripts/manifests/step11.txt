@@ -1,0 +1,15 @@
+# APPROVED 2026-10-24 — Step 11 (2026-10-23/24 overnight): carpool + public transport
+# combinations in the planner (commits 7ae23a4, 5478469) for the shurp-transport v0007 API
+# (combined_journeys, provider_status.shurp.combined). The owner approved the overnight
+# deploy on 2026-10-23 ~21:00 Riga (18:00 UTC) once gates and reviews are green; the
+# owner's mockup approval suffices (no screenshot round). The four pages only change
+# ?v=20261001 -> ?v=20261023 on transport.css (all four) and transport.js (the two
+# planner pages) because Cloudflare caches assets for 4 h; transport-inputs.js is
+# unchanged. No proxy change. Upload order matters: the assets, then the pages that
+# reference them.
+assets/css/transport.css
+assets/js/transport.js
+lv/transport.html
+en/transport.html
+lv/tickets.html
+en/tickets.html
