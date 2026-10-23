@@ -57,8 +57,13 @@ const fixture = {
       });
       assert.equal((await page.goto(`${base}/${lang}/transport`)).status(), 200);
       await page.waitForFunction(() => Boolean(window.ShurpPlannerInputs));
-      const search = async () => {
-        await page.locator('.route-shortcut').first().click();
+      const search = async mode => {
+        const result = page.waitForResponse(item => item.url().includes('/api/transport/journeys?'));
+        if (mode) {
+          await page.locator(`input[name="mode"][value="${mode}"]`).check({force: true});
+          await page.locator('button.search').click();
+        } else await page.locator('.route-shortcut').first().click();
+        await result;
         await page.waitForFunction(() => document.querySelector('#result-list').getAttribute('aria-busy') === 'false' && document.querySelector('#result-list .group'));
       };
       const overflow = async () => assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${lang}/${width}: horizontal overflow`);
@@ -74,6 +79,21 @@ const fixture = {
         const card = cards.nth(i);
         assert.equal(await card.locator('[role="note"]').innerText(), warning);
         assert.ok(await card.locator('[role="note"]').isVisible());
+        const caution = card.locator('.connection-warning[role="note"]');
+        assert.equal(await caution.count(), 1);
+        const bounds = await card.boundingBox(), inset = await caution.boundingBox();
+        assert.ok(inset.x >= bounds.x + 18 && inset.x + inset.width <= bounds.x + bounds.width - 18, 'warning must be inset by the card padding');
+        assert.ok(inset.y > bounds.y && inset.y + inset.height < bounds.y + bounds.height);
+        assert.deepEqual(await caution.evaluate(el => {
+          const style = getComputedStyle(el);
+          return {align: style.textAlign, borders: [style.borderTopStyle, style.borderRightStyle, style.borderBottomStyle, style.borderLeftStyle]};
+        }), {align: 'left', borders: ['none', 'none', 'none', 'solid']});
+        assert.equal(await card.locator('.transit-main').getAttribute('aria-expanded'), 'false');
+        const shurpBadge = page.locator('#result-list .group').first().locator('.carpool-main > .badge');
+        assert.equal(await card.locator('.transit-main .mode-list .badge').getAttribute('class'), await shurpBadge.getAttribute('class'));
+        const badge = await shurpBadge.innerText(), train = lang === 'lv' ? 'Vilciens' : 'Train';
+        assert.deepEqual(await card.locator('.transit-main .mode-list > span').allTextContents(), i ? [train, badge] : [badge, train]);
+        await overflow();
         assert.equal(await card.locator('.carpool-cta').innerText(), reserve);
         assert.equal(await card.locator('.carpool-cta').getAttribute('href'), await existingLink.getAttribute('href'));
         assert.equal(await card.locator('.carpool-cta').getAttribute('data-placement'), 'result');
@@ -117,6 +137,42 @@ const fixture = {
       assert.equal(await third.locator('.details > section').count(), 3);
       assert.ok(!(await third.innerText()).includes('MUST NOT RENDER'));
       assert.equal(await page.locator('.combined [role="note"]').count(), 3);
+      await overflow();
+      // Compare combined-only counts with the established PT-only wording.
+      response = {...structuredClone(fixture), carpool_offers: [], combined_journeys: [], journeys: [fixture.journeys[0], fixture.journeys[0]]};
+      await search();
+      const twoJourneys = await page.locator('#summary').innerText();
+      assert.equal(twoJourneys, lang === 'lv' ? '2 reisi' : '2 journeys');
+      response = {...structuredClone(fixture), journeys: [], combined_journeys: []};
+      await search();
+      assert.equal(await page.locator('#result-list .empty').count(), 0);
+      response = {...structuredClone(fixture), journeys: [], carpool_offers: []};
+      await search();
+      assert.equal(await page.locator('#summary').innerText(), twoJourneys);
+      assert.equal(await page.locator('#result-list .group').count(), 1);
+      assert.equal(await page.locator('#result-list .group > h3').textContent(), heading);
+      assert.equal(await page.locator('#result-list .empty').count(), 0);
+      assert.equal(await page.locator('.combined').count(), 2);
+      await overflow();
+      response = structuredClone(fixture);
+      for (const mode of ['carpool', 'bus', 'train', 'tram', 'trolleybus']) {
+        await search(mode);
+        assert.equal(await page.locator('.combined').count(), 0, `${mode}: combined group must be hidden`);
+        assert.equal(await page.locator('#summary').innerText(), mode === 'carpool' ? (lang === 'lv' ? '1 kopbraucieni' : '1 carpools') : (lang === 'lv' ? '1 reisi' : '1 journeys'));
+        await overflow();
+      }
+      await search('all');
+      assert.equal(await page.locator('.combined').count(), 2);
+      assert.equal(await page.locator('#summary').innerText(), lang === 'lv' ? '1 kopbraucieni · 3 reisi' : '1 carpools · 3 journeys');
+      await overflow();
+      // Both ticket pages share the updated CSS. Exercise their mocked lookup.
+      const ticketCalls = calls.filter(resource => resource === 'tickets').length;
+      assert.equal((await page.goto(`${base}/${lang}/tickets?trip_id=vivi:train&from_stop_id=vivi:riga&to_stop_id=vivi:saulkrasti&service_date=2026-10-26`)).status(), 200);
+      await page.locator('#ticket-action').waitFor({state: 'visible'});
+      assert.equal(await page.locator('#ticket-status').innerText(), lang === 'lv' ? 'Precīzu reisu nevarējām apstiprināt. Meklē maršrutu BezRindas vietnē.' : 'We could not confirm the exact departure. Search the route on BezRindas.');
+      assert.equal(calls.filter(resource => resource === 'tickets').length, ticketCalls + 1);
+      assert.equal(await page.locator('link[href*="transport.css"]').getAttribute('href'), '../assets/css/transport.css?v=20261023');
+      assert.equal(await page.locator('.connection-warning').count(), 0);
       await overflow();
       assert.deepEqual(errors, [], `${lang}/${width}: page errors`);
       await page.close();

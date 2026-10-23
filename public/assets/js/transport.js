@@ -112,9 +112,9 @@
     const label = modeLabels[mode];
     return `<span class="mode-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${drawing}</svg>${label}</span>`;
   }
-  function journeyModes(legs) {
-    const modes = [...new Set(legs.filter(leg => leg.kind !== "walk").map(leg => leg.mode))];
-    return `<span class="mode-list">${(modes.length ? modes : [null]).map(modeTag).join("")}</span>`;
+  function journeyModes(legs, combined = false) {
+    const modes = [...new Set(legs.filter(leg => combined ? ["ride", "carpool"].includes(leg.kind) : leg.kind !== "walk").map(leg => combined && leg.kind === "carpool" ? "carpool" : leg.mode))];
+    return `<span class="mode-list">${(modes.length ? modes : [null]).map(mode => combined && mode === "carpool" ? '<span class="badge">Shurp</span>' : modeTag(mode)).join("")}</span>`;
   }
   function ticketProvider(leg) {
     if (leg.source_id === "vivi" && leg.mode === "train") return {name: "BezRindas", generic: "https://www.bezrindas.lv/lv/vilcienu-biletes"};
@@ -164,8 +164,8 @@
     }).join("");
     const transfers = Number.isFinite(Number(journey.transfer_count)) ? Number(journey.transfer_count) : Math.max(0, number - 1), summary = transfers ? `${transfers} ${t.transfers}` : t.direct;
     const ticketBar = `<div class="ticket-bar"><div class="ticket-links">${rideTickets.map(({leg,ticketKey}, index) => ticketLink(leg,ticketKey,index + 1) || `<span class="ticket-item"><span class="ticket-price">${t.fareUnknown}</span></span>`).join("")}</div><p class="base-fare-note">${t.baseFareNote}</p></div>`;
-    const combinedFooter = combined ? `<p class="notice" role="note">${t.connectionWarning}</p><div class="carpool-main"><a class="carpool-cta" data-placement="result" href="${esc(document.body.dataset.websiteBase + "/get")}">${t.reserve}</a></div>` : "";
-    return `<article class="card${combined ? " combined" : ""}"><button type="button" class="transit-main" aria-expanded="false" aria-controls="journey-details-${journeyIndex}">${journeyModes(combined ? legs.filter(leg => leg.kind === "ride") : legs)}<div class="line"><span class="time"><strong>${esc(clock(journey.departure))}</strong><small>${esc(from)}</small></span><i class="track" aria-hidden="true"></i><span class="time end"><strong>${esc(clock(journey.arrival))}</strong><small>${esc(to)}</small></span><span class="meta"><span class="ride-duration">${esc(duration(journey.duration_minutes))}</span> · ${esc(summary)}</span></div><span class="details-toggle"><span data-details-label>${t.showDetails}</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></button><div class="details" id="journey-details-${journeyIndex}" hidden>${details}<p class="ticket-note">${t.scheduled}${number > 1 ? ` ${t.separate}` : ""}</p><button type="button" class="details-close" aria-controls="journey-details-${journeyIndex}">${t.hideDetails} <span aria-hidden="true">⌃</span></button></div>${ticketBar}${combinedFooter}</article>`;
+    const combinedFooter = combined ? `<p class="connection-warning" role="note">${t.connectionWarning}</p><div class="carpool-main"><a class="carpool-cta" data-placement="result" href="${esc(document.body.dataset.websiteBase + "/get")}">${t.reserve}</a></div>` : "";
+    return `<article class="card${combined ? " combined" : ""}"><button type="button" class="transit-main" aria-expanded="false" aria-controls="journey-details-${journeyIndex}">${journeyModes(legs, combined)}<div class="line"><span class="time"><strong>${esc(clock(journey.departure))}</strong><small>${esc(from)}</small></span><i class="track" aria-hidden="true"></i><span class="time end"><strong>${esc(clock(journey.arrival))}</strong><small>${esc(to)}</small></span><span class="meta"><span class="ride-duration">${esc(duration(journey.duration_minutes))}</span> · ${esc(summary)}</span></div><span class="details-toggle"><span data-details-label>${t.showDetails}</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></button><div class="details" id="journey-details-${journeyIndex}" hidden>${details}<p class="ticket-note">${t.scheduled}${number > 1 ? ` ${t.separate}` : ""}</p><button type="button" class="details-close" aria-controls="journey-details-${journeyIndex}">${t.hideDetails} <span aria-hidden="true">⌃</span></button></div>${ticketBar}${combinedFooter}</article>`;
   }
 
   function sellerUrl(raw) {
@@ -325,13 +325,13 @@
       if (version !== searchVersion) return;
       const journeys = (Array.isArray(data.journeys) ? data.journeys : []).filter(item => item && typeof item === "object").sort((a, b) => { const delta = Date.parse(a.departure) - Date.parse(b.departure); return Number.isFinite(delta) ? delta : String(a.departure || "").localeCompare(String(b.departure || "")); });
       const carpools = (Array.isArray(data.carpool_offers) ? data.carpool_offers : []).filter(item => item && typeof item === "object");
-      const combined = (Array.isArray(data.combined_journeys) ? data.combined_journeys : []).filter(item => item && typeof item === "object").slice(0, 3);
+      const combined = (mode === "all" && Array.isArray(data.combined_journeys) ? data.combined_journeys : []).filter(item => item && typeof item === "object").slice(0, 3);
       const transitOn = mode !== "carpool", carpoolOn = mode === "all" || mode === "carpool", info = notice(data.provider_status?.shurp?.status), counts = [];
       if (carpoolOn && carpools.length) counts.push(`${carpools.length} ${lv ? "kopbraucieni" : "carpools"}`);
-      if (transitOn && journeys.length) counts.push(`${journeys.length} ${lv ? "reisi" : "journeys"}`);
+      if (transitOn && (journeys.length || combined.length)) counts.push(`${journeys.length + combined.length} ${lv ? "reisi" : "journeys"}`);
       $("#summary").textContent = counts.join(" · ") || t.none;
       const carpoolGroup = carpoolOn && (carpools.length || mode === "carpool" || info) ? group(t.carpool, `${info ? `<p class="status">${esc(info)}</p>` : ""}${carpools.length ? carpools.map(carpool).join("") : `<p class="empty">${t.none}</p>`}`) : "";
-      const transitGroup = transitOn && (journeys.length || !carpools.length) ? group(t.transit, journeys.length ? journeys.map((journey, index) => transit(journey, index)).join("") : `<p class="empty">${t.none}</p>`) : "";
+      const transitGroup = transitOn && (journeys.length || (!carpools.length && !combined.length)) ? group(t.transit, journeys.length ? journeys.map((journey, index) => transit(journey, index)).join("") : `<p class="empty">${t.none}</p>`) : "";
       const combinedGroup = combined.length ? group(t.combined, combined.map((journey, index) => transit(journey, `combined-${index}`, true)).join("")) : "";
       const until = data.search_limits?.exhaustive === false && String(data.search_limits.searched_until || "").match(/^\d{4}-\d\d-\d\dT([0-2]\d:[0-5]\d)/);
       const limitNote = until ? `<p class="status search-limit-note">${t.searchedUntil} ${esc(until[1])}.</p>` : "";
