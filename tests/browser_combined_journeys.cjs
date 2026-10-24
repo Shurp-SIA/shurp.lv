@@ -105,6 +105,7 @@ const fixture = {
         assert.ok(await shurpRow.isVisible(), 'Shurp action must be visible while collapsed');
         assert.deepEqual(await card.locator('.ticket-links > .ticket-item').evaluateAll(els => els.map(el => el.classList.contains('carpool-ticket-row'))), i ? [false, true] : [true, false]);
         assert.equal(await shurpRow.locator(':scope > span').innerText(), i ? 'Shurp · 11:00 Saulkrasti → Lapsas' : 'Shurp · 09:00 Lapsas → Rīga');
+        assert.notEqual(await shurpRow.locator(':scope > span').evaluate(el => getComputedStyle(el).color), await card.locator('.ticket-bar .ticket-link').first().evaluate(el => getComputedStyle(el).color), 'Shurp row text must differ from the PT link colour');
         const shurpAction = shurpRow.locator('a.carpool-cta--leg');
         assert.equal(await shurpAction.innerText(), reserve);
         assert.equal(await shurpAction.getAttribute('href'), await existingLink.getAttribute('href'));

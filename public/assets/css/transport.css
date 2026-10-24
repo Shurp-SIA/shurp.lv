@@ -275,7 +275,7 @@ h1 { max-width: 750px; margin: 0; font-size: clamp(36px, 5vw, 62px); line-height
 .carpool-cta { display: flex; justify-content: center; align-items: center; min-height: 48px; padding: 12px 20px; border-radius: 100px; background: var(--blue); color: var(--warm); font-size: 14px; font-weight: 700; text-align: center; text-decoration: none; }
 .carpool-cta--leg { display: inline-flex; width: fit-content; max-width: 100%; min-height: 44px; padding: 8px 16px; font-size: 12px; }
 .leg .carpool-cta--leg { margin-top: 8px; }
-.carpool-ticket-row { flex-basis: 100%; min-width: 0; color: var(--blue); font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
+.carpool-ticket-row { flex-basis: 100%; min-width: 0; color: var(--ink); font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
 .carpool-cta:hover { background: #0e4c70; }
 .offer-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; flex: 1 1 280px; color: var(--muted); font-size: 12px; }
 .offer-meta strong { color: var(--ink); font-size: 16px; }
