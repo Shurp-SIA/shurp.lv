@@ -1,0 +1,14 @@
+# APPROVED 2026-10-24 — Step 12 (2026-10-24): each leg of a combined carpool + public
+# transport journey gets its own action (commits 482c1ab, 4ce8a97). The whole-trip
+# "Reserve a seat" button under combined cards is replaced by a Shurp row in the ticket
+# bar and a button on the carpool leg. Website only; no API or proxy change. The owner
+# approved publishing on 2026-10-24 ~10:20 Riga (07:20 UTC). The four pages only change
+# ?v=20261023 -> ?v=20261024 on transport.css (all four) and transport.js (the two
+# planner pages) because Cloudflare caches assets for 4 h; transport-inputs.js is
+# unchanged. Upload order matters: the assets, then the pages that reference them.
+assets/css/transport.css
+assets/js/transport.js
+lv/transport.html
+en/transport.html
+lv/tickets.html
+en/tickets.html
