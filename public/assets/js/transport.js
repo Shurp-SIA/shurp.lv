@@ -144,13 +144,14 @@
   function rideLeg(leg, number, ticketKey) { const route = leg.route_short_name || leg.route_name || leg.mode || "—", ticket = ticketLink(leg,ticketKey,number) || `<span class="ticket-price">${t.fareUnknown}</span>`; return `<section class="leg"><div class="leg-head"><span class="leg-count">${number}</span><strong>${esc(route)}</strong>${modeTag(leg.mode)}<span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div>${stopRows(leg)}${ticket}</section>`; }
   function walkLeg(leg, label = t.walk) { const from = leg.from_stop?.name || leg.from_stop || "—", to = leg.to_stop?.name || leg.to_stop || "—"; return `<section class="walk"><strong>${label}</strong> · ${label !== t.walk ? (lv ? "aptuveni " : "about ") : ""}${esc(distance(leg.distance_m))} · ${esc(duration(leg.duration_minutes))}<br><span>${esc(from)} → ${esc(to)}</span></section>`; }
   function transfer(leg) { const wait = Number(leg.transfer_wait_minutes); return Number.isFinite(wait) && wait > 0 ? `<p class="transfer">${t.wait}: ${esc(duration(wait))}</p>` : ""; }
+  function carpoolLegAction() { return `<a class="carpool-cta carpool-cta--leg" data-placement="combined-leg" href="${esc(document.body.dataset.websiteBase + "/get")}">${t.reserve}</a>`; }
   function transit(journey, journeyIndex, combined = false) {
     const legs = Array.isArray(journey.legs) && journey.legs.length ? journey.legs : [{...journey,kind:"ride"}], from = journey.from_stop?.name || journey.from_stop || (combined && legs[0].from_name) || legs[0].from_stop?.name || selected.from?.name || "—", to = journey.to_stop?.name || journey.to_stop || (combined && legs.at(-1).to_name) || legs.at(-1).to_stop?.name || selected.to?.name || "—";
     const firstRide = legs.findIndex(leg => combined ? leg.kind === "ride" : leg.kind !== "walk"), lastRide = legs.findLastIndex(leg => combined ? leg.kind === "ride" : leg.kind !== "walk");
     let number = 0; const rideTickets = []; const details = legs.map((leg,index) => {
       if (combined && leg.kind === "carpool") {
         const offer = journey.carpool || {}, seats = Number(offer.seats_available) || 0;
-        return `<section class="leg carpool"><div class="leg-head"><strong class="badge">${t.shurpCarpool}</strong><span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div><p>${esc(leg.from_name)} → ${esc(leg.to_name)}</p><div class="offer-meta"><span>${esc(seats === 1 ? t.seat1 : `${seats} ${t.seat}`)}</span><strong>${esc(price(offer))}</strong></div></section>`;
+        return `<section class="leg carpool"><div class="leg-head"><strong class="badge">${t.shurpCarpool}</strong><span class="journey-summary">${esc(clock(leg.departure))}–${esc(clock(leg.arrival))}</span></div><p>${esc(leg.from_name)} → ${esc(leg.to_name)}</p><div class="offer-meta"><span>${esc(seats === 1 ? t.seat1 : `${seats} ${t.seat}`)}</span><strong>${esc(price(offer))}</strong></div>${carpoolLegAction()}</section>`;
       }
       if (combined && leg.kind === "carpool_transfer") {
         const from = journey.type === "carpool_last";
@@ -163,8 +164,14 @@
       number += 1; const ticketKey = `${journeyIndex}-${number}`; rideTickets.push({leg,ticketKey}); return `${before}${rideLeg(leg,number,ticketKey)}`;
     }).join("");
     const transfers = Number.isFinite(Number(journey.transfer_count)) ? Number(journey.transfer_count) : Math.max(0, number - 1), summary = transfers ? `${transfers} ${t.transfers}` : t.direct;
-    const ticketBar = `<div class="ticket-bar"><div class="ticket-links">${rideTickets.map(({leg,ticketKey}, index) => ticketLink(leg,ticketKey,index + 1) || `<span class="ticket-item"><span class="ticket-price">${t.fareUnknown}</span></span>`).join("")}</div><p class="base-fare-note">${t.baseFareNote}</p></div>`;
-    const combinedFooter = combined ? `<p class="connection-warning" role="note">${t.connectionWarning}</p><div class="carpool-main"><a class="carpool-cta" data-placement="result" href="${esc(document.body.dataset.websiteBase + "/get")}">${t.reserve}</a></div>` : "";
+    const ticketRows = rideTickets.map(({leg,ticketKey}, index) => ticketLink(leg,ticketKey,index + 1) || `<span class="ticket-item"><span class="ticket-price">${t.fareUnknown}</span></span>`);
+    if (combined) {
+      const carpoolIndex = legs.findIndex(leg => leg.kind === "carpool"), leg = legs[carpoolIndex] || {}, offer = journey.carpool || {};
+      const position = carpoolIndex >= 0 ? legs.slice(0, carpoolIndex).filter(leg => leg.kind === "ride").length : journey.type === "carpool_last" ? ticketRows.length : 0;
+      ticketRows.splice(position, 0, `<span class="ticket-item carpool-ticket-row"><span>Shurp · ${esc(clock(leg.departure || offer.departure))} ${esc(leg.from_name || offer.origin?.name || "—")} → ${esc(leg.to_name || offer.destination?.name || "—")}</span>${carpoolLegAction()}</span>`);
+    }
+    const ticketBar = `<div class="ticket-bar"><div class="ticket-links">${ticketRows.join("")}</div><p class="base-fare-note">${t.baseFareNote}</p></div>`;
+    const combinedFooter = combined ? `<p class="connection-warning" role="note">${t.connectionWarning}</p>` : "";
     return `<article class="card${combined ? " combined" : ""}"><button type="button" class="transit-main" aria-expanded="false" aria-controls="journey-details-${journeyIndex}">${journeyModes(legs, combined)}<div class="line"><span class="time"><strong>${esc(clock(journey.departure))}</strong><small>${esc(from)}</small></span><i class="track" aria-hidden="true"></i><span class="time end"><strong>${esc(clock(journey.arrival))}</strong><small>${esc(to)}</small></span><span class="meta"><span class="ride-duration">${esc(duration(journey.duration_minutes))}</span> · ${esc(summary)}</span></div><span class="details-toggle"><span data-details-label>${t.showDetails}</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"/></svg></span></button><div class="details" id="journey-details-${journeyIndex}" hidden>${details}<p class="ticket-note">${t.scheduled}${number > 1 ? ` ${t.separate}` : ""}</p><button type="button" class="details-close" aria-controls="journey-details-${journeyIndex}">${t.hideDetails} <span aria-hidden="true">⌃</span></button></div>${ticketBar}${combinedFooter}</article>`;
   }
 

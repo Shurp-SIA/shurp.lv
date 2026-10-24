@@ -75,6 +75,10 @@ const fixture = {
       const warning = lang === 'lv' ? 'Savienojums nav garantēts – vietu apstipriniet Shurp lietotnē' : 'Connection not guaranteed – confirm your seat in the Shurp app';
       const reserve = lang === 'lv' ? 'Rezervēt vietu' : 'Reserve a seat';
       const existingLink = page.locator('#result-list .group').first().locator('.carpool-cta');
+      assert.equal(await existingLink.count(), 1);
+      assert.ok(await existingLink.isVisible());
+      assert.equal(await existingLink.getAttribute('href'), 'https://shurp.lv/get');
+      assert.equal(await page.locator('#result-list .group').last().locator('.carpool-cta').count(), 0);
       for (let i = 0; i < 2; i++) {
         const card = cards.nth(i);
         assert.equal(await card.locator('[role="note"]').innerText(), warning);
@@ -94,16 +98,34 @@ const fixture = {
         const badge = await shurpBadge.innerText(), train = lang === 'lv' ? 'Vilciens' : 'Train';
         assert.deepEqual(await card.locator('.transit-main .mode-list > span').allTextContents(), i ? [train, badge] : [badge, train]);
         await overflow();
-        assert.equal(await card.locator('.carpool-cta').innerText(), reserve);
-        assert.equal(await card.locator('.carpool-cta').getAttribute('href'), await existingLink.getAttribute('href'));
-        assert.equal(await card.locator('.carpool-cta').getAttribute('data-placement'), 'result');
-        assert.equal(await card.locator('.carpool-cta').evaluate(el => el.href), 'https://shurp.lv/get');
+        assert.equal(await card.locator('.carpool-cta').count(), 2);
+        assert.equal(await card.locator('.carpool-cta:not(.ticket-bar .carpool-ticket-row .carpool-cta):not(.leg.carpool .carpool-cta)').count(), 0);
+        const shurpRow = card.locator('.ticket-bar .carpool-ticket-row');
+        assert.equal(await shurpRow.count(), 1);
+        assert.ok(await shurpRow.isVisible(), 'Shurp action must be visible while collapsed');
+        assert.deepEqual(await card.locator('.ticket-links > .ticket-item').evaluateAll(els => els.map(el => el.classList.contains('carpool-ticket-row'))), i ? [false, true] : [true, false]);
+        assert.equal(await shurpRow.locator(':scope > span').innerText(), i ? 'Shurp · 11:00 Saulkrasti → Lapsas' : 'Shurp · 09:00 Lapsas → Rīga');
+        const shurpAction = shurpRow.locator('a.carpool-cta--leg');
+        assert.equal(await shurpAction.innerText(), reserve);
+        assert.equal(await shurpAction.getAttribute('href'), await existingLink.getAttribute('href'));
+        assert.equal(await shurpAction.getAttribute('data-placement'), 'combined-leg');
+        const actionBounds = await shurpAction.boundingBox(), rowBounds = await shurpRow.boundingBox();
+        assert.ok(actionBounds.height >= 44);
+        assert.ok(actionBounds.width < rowBounds.width, 'leg action must be a compact pill');
+        assert.deepEqual(await card.locator('.ticket-bar [data-ticket-identity]').allTextContents(), ['1 · 09:45 Rīga → Saulkrasti']);
         assert.deepEqual(await card.locator('.line .time strong').allTextContents(), i ? ['09:45', '11:29'] : ['09:00', '10:46']);
         assert.match(await card.locator('.meta').innerText(), new RegExp(`${i ? '1 h 44 min' : '1 h 46 min'} · 1 ${lang === 'lv' ? 'pārsēšanās' : 'transfers'}`));
         await card.locator('.transit-main').click();
         const rows = card.locator('.details > section');
         assert.deepEqual(await rows.evaluateAll(els => els.map(el => el.className)), i ? ['leg', 'walk', 'walk', 'leg carpool'] : ['leg carpool', 'walk', 'leg']);
         const carpool = card.locator('.leg.carpool');
+        const legAction = carpool.locator('a.carpool-cta--leg');
+        assert.ok(await legAction.isVisible());
+        assert.equal(await legAction.innerText(), reserve);
+        assert.equal(await legAction.getAttribute('href'), await existingLink.getAttribute('href'));
+        assert.equal(await carpool.locator(':scope > :last-child').getAttribute('class'), 'carpool-cta carpool-cta--leg');
+        assert.deepEqual(await card.locator('.leg-count').allTextContents(), ['1']);
+        assert.ok(await shurpRow.isVisible());
         assert.equal(await carpool.locator('strong.badge').innerText(), lang === 'lv' ? 'Shurp kopbraukšana' : 'Shurp carpool');
         assert.equal(await carpool.locator('p').innerText(), i ? 'Saulkrasti → Lapsas' : 'Lapsas → Rīga');
         assert.equal(await carpool.locator('.journey-summary').innerText(), i ? '11:00–11:29' : '09:00–09:29');
@@ -138,6 +160,28 @@ const fixture = {
       assert.ok(!(await third.innerText()).includes('MUST NOT RENDER'));
       assert.equal(await page.locator('.combined [role="note"]').count(), 3);
       await overflow();
+      // Leg order wins over the type, PT numbers stay 1..n, and older data
+      // without a carpool leg still gets one action using the offer metadata.
+      response = structuredClone(fixture);
+      response.combined_journeys = [
+        {...last, type: 'carpool_first', legs: [ride, {...ride, id: 'second-ride'}, transfer, {...carpoolLeg, departure: at('11:00'), from_name: '', to_name: ''}]},
+        {...first, type: 'carpool_last'},
+        {...last, legs: [ride]},
+      ];
+      await search();
+      const edgeCards = page.locator('.combined');
+      for (let i = 0; i < 3; i++) {
+        const card = edgeCards.nth(i), shurpRow = card.locator('.carpool-ticket-row');
+        assert.equal(await shurpRow.count(), 1);
+        assert.ok(await shurpRow.isVisible());
+        assert.deepEqual(await card.locator('.ticket-links > .ticket-item').evaluateAll(els => els.map(el => el.classList.contains('carpool-ticket-row'))), i === 0 ? [false, false, true] : i === 1 ? [true, false] : [false, true]);
+        assert.equal(await shurpRow.locator(':scope > span').innerText(), i === 1 ? 'Shurp · 09:00 Lapsas → Rīga' : 'Shurp · 11:00 Saulkrasti → Lapsas');
+        const numbers = i === 0 ? ['1', '2'] : ['1'];
+        assert.deepEqual(await card.locator('.ticket-bar [data-ticket-identity]').allTextContents(), numbers.map(n => `${n} · 09:45 Rīga → Saulkrasti`));
+        await card.locator('.transit-main').click();
+        assert.deepEqual(await card.locator('.leg-count').allTextContents(), numbers);
+        await overflow();
+      }
       // Compare combined-only counts with the established PT-only wording.
       response = {...structuredClone(fixture), carpool_offers: [], combined_journeys: [], journeys: [fixture.journeys[0], fixture.journeys[0]]};
       await search();
@@ -171,7 +215,7 @@ const fixture = {
       await page.locator('#ticket-action').waitFor({state: 'visible'});
       assert.equal(await page.locator('#ticket-status').innerText(), lang === 'lv' ? 'Precīzu reisu nevarējām apstiprināt. Meklē maršrutu BezRindas vietnē.' : 'We could not confirm the exact departure. Search the route on BezRindas.');
       assert.equal(calls.filter(resource => resource === 'tickets').length, ticketCalls + 1);
-      assert.equal(await page.locator('link[href*="transport.css"]').getAttribute('href'), '../assets/css/transport.css?v=20261023');
+      assert.equal(await page.locator('link[href*="transport.css"]').getAttribute('href'), '../assets/css/transport.css?v=20261024');
       assert.equal(await page.locator('.connection-warning').count(), 0);
       await overflow();
       assert.deepEqual(errors, [], `${lang}/${width}: page errors`);
