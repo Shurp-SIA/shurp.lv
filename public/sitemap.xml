@@ -30,6 +30,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/transport"/>
   </url>
   <url>
+    <loc>https://shurp.lv/en/companies</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/uznemumiem"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/companies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/uznemumiem"/>
+  </url>
+  <url>
     <loc>https://shurp.lv/en/news</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -83,6 +92,15 @@
     <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/transport"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/transport"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/transport"/>
+  </url>
+  <url>
+    <loc>https://shurp.lv/lv/uznemumiem</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://shurp.lv/lv/uznemumiem"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shurp.lv/en/companies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shurp.lv/lv/uznemumiem"/>
   </url>
   <url>
     <loc>https://shurp.lv/lv/zinas</loc>

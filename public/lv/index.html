@@ -210,7 +210,19 @@
             display: block;
         }
 
+        .mode-short {
+            display: none;
+        }
+
         @media (max-width: 767px) {
+            .mode-full {
+                display: none;
+            }
+
+            .mode-short {
+                display: inline;
+            }
+
             .homepage-brand {
                 flex-shrink: 0;
             }
@@ -228,11 +240,19 @@
             }
 
             .homepage-actions {
-                gap: 16px;
+                gap: 12px;
                 flex-shrink: 0;
             }
 
-            .homepage-actions>div>a {
+            .homepage-actions .mode-switch,
+            .homepage-actions > [aria-label="Valoda"] {
+                font-size: 0.65rem;
+                letter-spacing: 0.08em;
+                gap: 0.35rem;
+            }
+
+            .homepage-actions>div>a,
+            .homepage-actions .mode-switch>a {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
@@ -788,10 +808,15 @@
                     class="scroll-to-badges shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
+            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
+                <a href="/lv/uznemumiem" class="hover:text-white transition"><span class="mode-full">Uzņēmumiem</span><span class="mode-short">Biznesam</span></a>
+                <span class="text-white/20" aria-hidden="true">|</span>
+                <span class="text-white underline underline-offset-4" aria-current="page"><span class="mode-full">Privātpersonām</span><span class="mode-short">Privātp.</span></span>
+            </nav>
+            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
                 <a href="../en/" class="hover:text-white transition">EN</a>
-                <span class="text-white/20">|</span>
-                <span class="text-white">LV</span>
+                <span class="text-white/20" aria-hidden="true">|</span>
+                <span class="text-white underline underline-offset-4">LV</span>
             </div>
             <a href="#download"
                 class="scroll-to-badges shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>

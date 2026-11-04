@@ -1,0 +1,31 @@
+# APPROVED 2026-11-04 — Step 13 (2026-11-04): business / companies pages (EN + LV),
+# site-wide Private|Business audience switch, SEO meta + JSON-LD for workplace
+# mobility/commute reporting, form success overlay, LV mobile short labels, larger
+# mobile phone mock. Website only. Cloudflare caches assets for 4 h — upload assets
+# first, then pages that reference the new ?v= cache busters.
+assets/b2b/b2b1_en.png
+assets/b2b/b2b1_lv.png
+assets/b2b/b2b2_en.png
+assets/b2b/b2b2_lv.png
+assets/b2b/earth.jpg
+assets/b2b/moon-print.jpg
+assets/css/companies.css
+assets/css/transport.css
+assets/js/companies.js
+en/companies.html
+lv/uznemumiem.html
+en/index.html
+lv/index.html
+en/transport.html
+lv/transport.html
+en/tickets.html
+lv/tickets.html
+en/tutorial.html
+lv/tutorial.html
+en/news.html
+lv/zinas.html
+en/privacy.html
+lv/privacy.html
+en/terms.html
+lv/terms.html
+sitemap.xml

@@ -195,8 +195,11 @@
             .homepage-brand { flex-shrink: 0; }
             .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
             .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
-            .homepage-actions { gap: 16px; flex-shrink: 0; }
-            .homepage-actions > div > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+            .homepage-actions { gap: 12px; flex-shrink: 0; }
+            .homepage-actions .mode-switch,
+            .homepage-actions > [aria-label="Language"] { font-size: 0.65rem; letter-spacing: 0.08em; gap: 0.35rem; }
+            .homepage-actions > div > a,
+            .homepage-actions .mode-switch > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
             .homepage-actions > .scroll-to-badges { display: none; }
             .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
             .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
@@ -652,9 +655,14 @@
             <div class="mobile-download"><a href="#download" class="scroll-to-badges shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <div class="flex items-center gap-3 text-xs font-bold tracking-widest text-white/60">
-                <span class="text-white">EN</span>
-                <span class="text-white/20">|</span>
+            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
+                <a href="/en/companies" class="hover:text-white transition">Business</a>
+                <span class="text-white/20" aria-hidden="true">|</span>
+                <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+            </nav>
+            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
+                <span class="text-white underline underline-offset-4">EN</span>
+                <span class="text-white/20" aria-hidden="true">|</span>
                 <a href="/lv/" class="hover:text-white transition">LV</a>
             </div>
             <a href="#download"
