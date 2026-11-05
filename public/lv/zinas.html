@@ -97,6 +97,7 @@
     <meta name="theme-color" content="#125E8A">
 
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/site-nav.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         html {
@@ -721,15 +722,35 @@
                     class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
-                <a href="/lv/uznemumiem" class="hover:text-white transition"><span class="mode-full">Uzņēmumiem</span><span class="mode-short">Biznesam</span></a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4" aria-current="page"><span class="mode-full">Privātpersonām</span><span class="mode-short">Privātp.</span></span>
+            <nav class="mode-switch nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/lv/uznemumiem" class="hover:text-white transition">Uzņēmumiem</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4" aria-current="page">Privātpersonām</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Auditorija">
+                    Privātpersonām
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/lv/uznemumiem" role="menuitem">Uzņēmumiem</a>
+                    <span role="menuitem" aria-current="page">Privātpersonām</span>
+                </div>
             </nav>
-            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
-                <a href="/en/news" class="hover:text-white transition">EN</a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4">LV</span>
+            <div class="nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/en/news" class="hover:text-white transition">EN</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4">LV</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Valoda">
+                    LV
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/en/news" role="menuitem" lang="en" hreflang="en">EN</a>
+                    <span role="menuitem" aria-current="page">LV</span>
+                </div>
             </div>
             <a href="/lv/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>

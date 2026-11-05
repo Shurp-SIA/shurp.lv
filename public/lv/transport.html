@@ -37,7 +37,7 @@
 }
 </script>
 <link rel="icon" href="../assets/favicon.svg">
-<link rel="stylesheet" href="../assets/css/transport.css?v=20261104c">
+<link rel="stylesheet" href="../assets/css/transport.css?v=20261104c"><link rel="stylesheet" href="../assets/css/site-nav.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
 </head>
@@ -58,15 +58,29 @@
 <div class="mobile-download"><a class="nav-download" href="https://shurp.lv/lv/#download">Lejupielādēt</a></div>
 </div>
 <div class="homepage-actions">
-<nav class="mode-switch" aria-label="Auditorija">
-<a href="/lv/uznemumiem"><span class="mode-full">Uzņēmumiem</span><span class="mode-short">Biznesam</span></a>
+<nav class="mode-switch nav-choice" aria-label="Auditorija">
+<div class="nav-choice-row">
+<a href="/lv/uznemumiem">Uzņēmumiem</a>
 <span class="sep" aria-hidden="true">|</span>
-<span class="current" aria-current="page"><span class="mode-full">Privātpersonām</span><span class="mode-short">Privātp.</span></span>
+<span class="current" aria-current="page">Privātpersonām</span>
+</div>
+<button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Auditorija">Privātpersonām <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+<a href="/lv/uznemumiem" role="menuitem">Uzņēmumiem</a>
+<span role="menuitem" aria-current="page">Privātpersonām</span>
+</div>
 </nav>
-<div class="lang-switch">
+<div class="lang-switch nav-choice">
+<div class="nav-choice-row">
 <a href="/en/transport" lang="en" hreflang="en">EN</a>
 <span class="lang-sep" aria-hidden="true">|</span>
 <span class="lang-current">LV</span>
+</div>
+<button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Valoda">LV <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+<a href="/en/transport" role="menuitem" lang="en" hreflang="en">EN</a>
+<span role="menuitem" aria-current="page">LV</span>
+</div>
 </div>
 <a class="nav-download" href="https://shurp.lv/lv/#download">Lejupielādēt</a>
 <button id="homepage-menu-toggle" class="mobile-menu-toggle" type="button" aria-controls="homepage-nav-links" aria-expanded="false" aria-label="Atvērt izvēlni" data-open-label="Atvērt izvēlni" data-close-label="Aizvērt izvēlni">

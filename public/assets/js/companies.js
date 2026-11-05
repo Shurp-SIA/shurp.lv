@@ -34,6 +34,15 @@
     return 1 - Math.pow(1 - t, 2.4);
   }
 
+  /* Mild overshoot — rise, pass the mark, settle. */
+  function easeOutBack(t) {
+    if (t <= 0) return 0;
+    if (t >= 1) return 1;
+    var c1 = 1.45;
+    var c3 = c1 + 1;
+    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+  }
+
   function setCaption(el, amount) {
     if (!el) return;
     el.style.opacity = String(amount);
@@ -61,7 +70,8 @@
     */
     if (storyCopy) {
       if (isCompact) {
-        var copyOut = easeOut(map(p, 0.22, 0.34));
+        /* Hold the title longer on mobile, then yield to the phone mock. */
+        var copyOut = easeOut(map(p, 0.34, 0.46));
         storyCopy.style.opacity = String(1 - copyOut);
         storyCopy.style.transform =
           "translateY(" + (-14 * copyOut).toFixed(2) + "px)";
@@ -76,33 +86,40 @@
     /* Moon → earth, with longer holds between beats */
     var moonScale = 1.08 + map(p, 0, 0.36) * 0.08;
     moon.style.transform = "scale(" + moonScale.toFixed(3) + ")";
-    moon.style.opacity = String(1 - map(p, 0.26, 0.44) * 0.85);
+    moon.style.opacity = String(
+      1 - map(p, isCompact ? 0.34 : 0.26, isCompact ? 0.5 : 0.44) * 0.85
+    );
 
-    var earthIn = easeOut(map(p, 0.28, 0.44));
+    var earthIn = easeOut(
+      map(p, isCompact ? 0.36 : 0.28, isCompact ? 0.5 : 0.44)
+    );
     earth.style.opacity = String(earthIn);
     earth.style.transform =
       "translate(-50%, -50%) scale(" + (0.9 + earthIn * 0.1).toFixed(3) + ")";
 
-    var phoneIn = easeOut(map(p, isCompact ? 0.34 : 0.32, isCompact ? 0.48 : 0.48));
+    /* Rise from below + scale settle with a light overshoot */
+    var phoneRaw = map(p, isCompact ? 0.44 : 0.32, isCompact ? 0.58 : 0.48);
+    var phoneIn = easeOutBack(phoneRaw);
     if (phoneDuo) {
-      phoneDuo.style.opacity = String(phoneIn);
       var yBase = isCompact ? -30 : -46;
-      var yEnter = (1 - phoneIn) * (isCompact ? 14 : 12);
+      var yTravel = isCompact ? 56 : 48;
+      var y = yBase + (1 - phoneIn) * yTravel;
+      var scale = 0.88 + phoneIn * 0.12;
+      phoneDuo.style.opacity = String(Math.min(phoneIn, 1));
       phoneDuo.style.transform =
-        "translate(-50%, " +
-        (yBase + yEnter).toFixed(2) +
-        "%) scale(" +
-        (0.96 + phoneIn * 0.04).toFixed(3) +
-        ")";
+        "translate(-50%, " + y.toFixed(2) + "%) scale(" + scale.toFixed(3) + ")";
     }
 
-    /* Simply work(s) — longer hold — then flip mock + insight together */
-    var worksIn = easeOut(map(p, 0.5, 0.58));
-    var tap = easeOut(map(p, 0.72, 0.82));
+    /* Hold “works” on mock 1, then hard-cut to mock 2 + insight */
+    var worksIn = easeOut(
+      map(p, isCompact ? 0.6 : 0.5, isCompact ? 0.68 : 0.58)
+    );
+    var tapRaw = map(p, 0.76, 0.795);
+    var tap = tapRaw <= 0 ? 0 : tapRaw >= 1 ? 1 : tapRaw < 0.5 ? 0 : 1;
     setCaption(captionWorks, worksIn * (1 - tap));
 
-    phoneOn.style.opacity = String(tap);
-    phoneOff.style.opacity = String(1 - tap * 0.92);
+    if (phoneOn) phoneOn.style.opacity = String(tap);
+    if (phoneOff) phoneOff.style.opacity = String(1 - tap);
     setCaption(captionInsight, tap);
 
     if (hint) {
@@ -319,17 +336,20 @@
   }
 
   function buildMessage(data) {
-    return [
-      "Workplace request (" + data.plan + ")",
+    var lines = [
+      data.contact + " from " + data.company + " requested the " + data.plan + " plan.",
+      "",
       "Company: " + data.company,
       "Contact: " + data.contact,
-      "Email: " + data.email,
+      "Work email: " + data.email,
       "Phone: " + (data.phone || "—"),
       "Headcount: " + (data.headcount || "—"),
       "Address: " + (data.address || "—"),
-      "",
-      data.note || "",
-    ].join("\n");
+    ];
+    if (data.note) {
+      lines.push("", "Note:", data.note);
+    }
+    return lines.join("\n");
   }
 
   form.addEventListener("submit", function (event) {

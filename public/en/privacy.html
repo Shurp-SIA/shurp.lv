@@ -12,6 +12,7 @@
     <link rel="alternate" href="https://shurp.lv/lv/privacy" hreflang="x-default" />
 
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/site-nav.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -73,15 +74,35 @@
             <div class="mobile-download"><a href="/en/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
-                <a href="/en/companies" class="hover:text-white transition">Business</a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+            <nav class="mode-switch nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/en/companies" class="hover:text-white transition">Business</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Audience">
+                    Private
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/en/companies" role="menuitem">Business</a>
+                    <span role="menuitem" aria-current="page">Private</span>
+                </div>
             </nav>
-            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
-                <span class="text-white underline underline-offset-4">EN</span>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <a href="/lv/privacy" class="hover:text-white transition">LV</a>
+            <div class="nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <span class="text-white underline underline-offset-4">EN</span>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <a href="/lv/privacy" class="hover:text-white transition">LV</a>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Language">
+                    EN
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <span role="menuitem" aria-current="page">EN</span>
+                    <a href="/lv/privacy" role="menuitem" lang="lv" hreflang="lv">LV</a>
+                </div>
             </div>
             <a href="/en/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Download</a>
@@ -94,7 +115,7 @@
 
     <div class="legal-card">
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privacy Policy: Shurp</h1>
-        <p class="text-sm opacity-40 mb-10 italic">Last updated: May 2026</p>
+        <p class="text-sm opacity-40 mb-10 italic">Last updated: November 2026</p>
 
         <section class="legal-section">
             <div class="highlight-box">
@@ -158,6 +179,13 @@
                 <li><strong>Browser local storage:</strong> The transport section may store your selected transport mode
                     preference in your browser so the section opens more conveniently next time. This preference is not
                     used for advertising profiling.</li>
+                <li><strong>Workplace / company linking (optional):</strong> If you scan a company QR code or use an
+                    equivalent company link issued by an organisation using Shurp's workplace tools, we record that your
+                    account is linked to that organisation and display the connection status in Settings. Linking alone
+                    does not disclose your ride details to the organisation. Separately, when adding a ride, you may
+                    choose to mark it as a work-related ride. Only rides you mark as work-related are included in
+                    workplace reporting. For those rides, we process the work-related status and the limited ride
+                    information described in Section 9.</li>
             </ul>
         </section>
 
@@ -219,14 +247,23 @@
                     metrics to improve matching, app performance, and user experience. Operating the website and journey
                     planner, securing requests, limiting abuse, and improving the service.</li>
                 <li><strong>Consent:</strong> When you grant access to device features (for example, camera or
-                    location).
-                </li>
+                    location).</li>
                 <li><strong>Legal obligation:</strong> Ride data (route, price, date) is stored for 5 years in
                     accordance
                     with Latvian tax and transport law requirements. Data is linked to an anonymous user identifier —
                     not
                     your name or contact information. When you delete your account, this identifier is also permanently
                     removed.</li>
+                <li><strong>User authorisations and choices:</strong> We request permission to access device features
+                    where necessary, for example, the camera or location services. You may also choose to link your
+                    Shurp account to an organisation using its company QR code or equivalent link. This connection does
+                    not, by itself, authorise the disclosure of ride details. Separately, when you mark an individual
+                    ride as work-related, you explicitly authorise the disclosure of the limited information relating to
+                    that specific ride to the linked organisation for workplace mobility reporting, as described in
+                    Section 9. The applicable legal basis for this processing is determined in accordance with the
+                    actual processing arrangement and applicable data protection law. Ordinary carpooling without
+                    workplace linking or without marking a ride as work-related does not involve this workplace data
+                    disclosure.</li>
             </ul>
             <p>Technical logs of journey planner requests are retained only as long as needed for service operation,
                 security, and troubleshooting.</p>
@@ -249,11 +286,71 @@
                 <li><strong>Product usage analytics events:</strong> stored for a limited time (up to 90 days). After
                     that, or when the account is deleted, we delete account-linked events; aggregated,
                     non-personally-identifying statistics (for example, search/request counts) may be retained.</li>
+                <li><strong>Company link:</strong> We retain the organisation-link information until you disconnect your
+                    account in Settings or delete your Shurp account, subject to any applicable legal retention
+                    requirements.</li>
+                <li><strong>Work-related ride information and workplace metrics:</strong> We retain this information for
+                    as long as necessary to provide the workplace reporting service and for the applicable reporting
+                    period, after which it is deleted, anonymised or retained only as part of the normal ride records,
+                    where appropriate and permitted by law.</li>
+                <li><strong>After disconnection:</strong> Disconnecting your account prevents new workplace disclosures
+                    through that connection. It does not automatically delete information already disclosed to the
+                    organisation or records independently retained by that organisation. Such information is subject to
+                    the organisation's own data retention and deletion policies.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>9. Data Sharing and Security</h2>
+            <h2>9. Workplace mobility and organisation data sharing</h2>
+            <p>Linking your Shurp account to an organisation and marking individual rides as work-related are optional.
+                Neither is required to use Shurp's ordinary cost-sharing carpooling functionality. You remain in control
+                of which rides, if any, are included in workplace mobility reporting.</p>
+            <p><strong>Step 1 — Linking your account to an organisation.</strong> You may scan a company QR code or use
+                an equivalent company link provided by an organisation that uses Shurp's workplace tools. Your account
+                will then be associated with that organisation, and the connection status will be visible in Settings.
+                You may disconnect at any time. Linking alone does not disclose individual ride details.</p>
+            <p><strong>Step 2 — Marking an individual ride as work-related.</strong> When adding a ride, you may
+                separately choose to mark it as work-related. This is an additional and specific authorisation to
+                disclose the limited information relating to that particular ride to the linked organisation for
+                workplace mobility and commuting reports.</p>
+            <p>Rides that are not marked as work-related are excluded from this workplace reporting.</p>
+            <p><strong>Information that may be shared.</strong> For rides marked as work-related, the organisation may
+                receive the following information, to the extent available and relevant to the reporting
+                functionality:</p>
+            <ul class="compact-list">
+                <li>Route information entered for the ride;</li>
+                <li>Ride distance;</li>
+                <li>Date and time of the ride;</li>
+                <li>Number of seats occupied;</li>
+                <li>Cost-sharing amount;</li>
+                <li>Estimated CO₂ emissions savings and financial savings.</li>
+            </ul>
+            <p>These figures are estimates and do not necessarily represent independently verified measurements.</p>
+            <p><strong>Information not shared through workplace reporting:</strong></p>
+            <ul class="compact-list">
+                <li>Your telephone number;</li>
+                <li>Private chat messages or conversations;</li>
+                <li>Your precise live location;</li>
+                <li>Additional personal information not required for the workplace reporting purpose.</li>
+            </ul>
+            <p>The route information included in a report may nevertheless allow an organisation to infer certain
+                journey details. The exact information made available depends on the reporting functionality and its
+                configuration.</p>
+            <p><strong>Data protection responsibilities.</strong> SIA Shurp determines how the Shurp Platform collects
+                and discloses information through its workplace functionality and is responsible for its own processing
+                activities. The organisation receiving the information is responsible for determining and complying with
+                its data protection obligations in relation to its subsequent use of that information. The precise roles
+                of Shurp and the organisation depend on the actual processing arrangements.</p>
+            <p><strong>Your choices and withdrawal.</strong> You can choose not to link your account to an organisation,
+                leave individual rides unmarked, stop marking future rides as work-related, or disconnect your
+                organisation link in Settings.</p>
+            <p>You can continue using Shurp's ordinary carpooling functionality without workplace linking. Disconnecting
+                or changing your preferences prevents future disclosures through the workplace functionality but does
+                not automatically erase information already lawfully disclosed to the organisation.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>10. Data Sharing and Security</h2>
             <p>We do not sell data to third parties and never pass your personal data to advertisers.</p>
             <ul class="compact-list">
                 <li><strong>Advertising:</strong> Shurp does not currently show ads in the app. If advertising is
@@ -285,13 +382,17 @@
                     fare, or ticket information may come from third-party or public data sources. If you click a link to
                     a ticket seller's website, for example BezRindas, you leave the Shurp environment, and further data
                     processing is carried out by that provider under its privacy policy.</li>
+                <li><strong>Linked organisation (workplace reporting):</strong> Limited information about a ride may be
+                    disclosed to an organisation only where your Shurp account is linked to that organisation and you
+                    have separately marked the specific ride as work-related. This disclosure is separate from ordinary
+                    User-to-User carpooling and from aggregated statistics shared with partners. See Section 9.</li>
             </ul>
             <p>All technical partners operate under Data Processing Agreements (DPA) and GDPR.</p>
             <p>All data is encrypted both in transit (TLS) and at rest.</p>
         </section>
 
         <section class="legal-section">
-            <h2>10. Your Rights (GDPR)</h2>
+            <h2>11. Your Rights (GDPR)</h2>
             <p>Under GDPR, you have the following rights:</p>
             <ul class="compact-list">
                 <li><strong>Access:</strong> request at any time what data we hold about you.</li>
@@ -301,7 +402,10 @@
                 <li><strong>Data portability:</strong> request a copy of your data for download or transfer to another
                     service.</li>
                 <li><strong>Objection:</strong> object to processing based on legitimate interests.</li>
-                <li><strong>Withdrawal of consent:</strong> withdraw previously given consent at any time.</li>
+                <li><strong>Withdrawal of consent:</strong> withdraw previously given consent at any time. This includes
+                    workplace-related choices and authorisations. You may disconnect your organisation link in Settings
+                    and stop marking future rides as work-related. These actions prevent future disclosures through the
+                    workplace functionality but do not automatically reverse disclosures already made.</li>
             </ul>
             <p>Send requests to <span id="safe-email-p10"></span>. We will respond within 30 days.</p>
             <p>If you believe your data is being processed unlawfully, you have the right to lodge a complaint with the

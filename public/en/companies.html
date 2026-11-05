@@ -24,7 +24,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/companies.css?v=20261104c">
+<link rel="stylesheet" href="../assets/css/companies.css?v=20261105b">
+<link rel="stylesheet" href="../assets/css/site-nav.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,14 +40,14 @@
   "offers": [
     {
       "@type": "Offer",
-      "name": "Core",
+      "name": "Team",
       "price": "50",
       "priceCurrency": "EUR",
       "description": "Workplace carpooling with monthly commute impact reporting for up to 25 linked employees."
     },
     {
       "@type": "Offer",
-      "name": "Impact",
+      "name": "Pro",
       "price": "100",
       "priceCurrency": "EUR",
       "description": "Live employer dashboard, workplace mobility analytics and Scope 3 Category 7 reporting support for up to 100 linked employees."
@@ -78,15 +79,35 @@
 <header class="companies-nav">
   <a class="brand" href="/en/"><img src="../assets/logo.png" alt="Shurp"></a>
   <div class="nav-end">
-    <nav class="mode-switch" aria-label="Audience">
-      <span class="current" aria-current="page">Business</span>
-      <span class="sep" aria-hidden="true">|</span>
-      <a href="/en/">Private</a>
+    <nav class="mode-switch nav-choice" aria-label="Audience">
+      <div class="nav-choice-row">
+        <span class="current" aria-current="page">Business</span>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="/en/">Private</a>
+      </div>
+      <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Audience">
+        Business
+        <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+        <span role="menuitem" aria-current="page">Business</span>
+        <a href="/en/" role="menuitem">Private</a>
+      </div>
     </nav>
-    <div class="lang" aria-label="Language">
-      <span class="current">EN</span>
-      <span class="sep" aria-hidden="true">|</span>
-      <a href="/lv/uznemumiem" lang="lv" hreflang="lv">LV</a>
+    <div class="lang nav-choice" aria-label="Language">
+      <div class="nav-choice-row">
+        <span class="current">EN</span>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="/lv/uznemumiem" lang="lv" hreflang="lv">LV</a>
+      </div>
+      <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Language">
+        EN
+        <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+        <span role="menuitem" aria-current="page">EN</span>
+        <a href="/lv/uznemumiem" role="menuitem" lang="lv" hreflang="lv">LV</a>
+      </div>
     </div>
   </div>
 </header>
@@ -154,8 +175,8 @@
       </div>
 
       <div class="plans" role="radiogroup" aria-label="Choose a plan">
-        <article class="plan" role="radio" aria-checked="false" tabindex="0" data-plan="Core">
-          <h3 class="name">Core</h3>
+        <article class="plan" role="radio" aria-checked="false" tabindex="0" data-plan="Team">
+          <h3 class="name">Team</h3>
           <p class="price">€50 <span>/ month</span></p>
           <p class="blurb">Everything you need to introduce workplace carpooling and measure its impact</p>
           <ul>
@@ -172,11 +193,11 @@
           </ul>
           <span class="plan-cta">Select</span>
         </article>
-        <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Impact">
-          <h3 class="name">Impact</h3>
+        <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Pro">
+          <h3 class="name">Pro</h3>
           <p class="price">€100 <span>/ month</span></p>
           <p class="blurb">For organisations ready to actively manage and grow employee carpooling</p>
-          <p class="includes">Everything in Core, plus:</p>
+          <p class="includes">Everything in Team, plus:</p>
           <ul>
             <li>Up to 100 linked employees</li>
             <li>Live employer dashboard</li>
@@ -249,8 +270,8 @@
           <label for="plan">Plan</label>
           <select id="plan" name="plan" required>
             <option value="" disabled selected>Choose</option>
-            <option value="Core">Core — €50 / month</option>
-            <option value="Impact">Impact — €100 / month</option>
+            <option value="Team">Team — €50 / month</option>
+            <option value="Pro">Pro — €100 / month</option>
             <option value="Custom">Custom — contact sales</option>
           </select>
         </div>
@@ -281,6 +302,7 @@
   <a href="/en/">Back to home</a>
 </footer>
 
-<script src="../assets/js/companies.js?v=20261104b" defer></script>
+<script src="../assets/js/site-nav.js" defer></script>
+<script src="../assets/js/companies.js?v=20261105c" defer></script>
 </body>
 </html>

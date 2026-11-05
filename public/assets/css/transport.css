@@ -88,24 +88,9 @@ button, a { touch-action: manipulation; }
 .homepage-actions .mode-switch a:hover,
 .homepage-actions .lang-switch a:hover { color: #fff; }
 
-.mode-short {
-  display: none;
-}
-
 @media (max-width: 767px) {
-  .mode-full {
-    display: none;
-  }
-
-  .mode-short {
-    display: inline;
-  }
-
-  .homepage-actions .mode-switch,
-  .homepage-actions .lang-switch {
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    gap: 0.35rem;
+  .homepage-actions {
+    gap: 0.65rem;
   }
 }
 .nav-download {

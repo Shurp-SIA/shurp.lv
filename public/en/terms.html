@@ -12,6 +12,7 @@
     <link rel="alternate" href="https://shurp.lv/lv/terms" hreflang="x-default" />
 
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/site-nav.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -73,15 +74,35 @@
             <div class="mobile-download"><a href="/en/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
-                <a href="/en/companies" class="hover:text-white transition">Business</a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+            <nav class="mode-switch nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/en/companies" class="hover:text-white transition">Business</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Audience">
+                    Private
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/en/companies" role="menuitem">Business</a>
+                    <span role="menuitem" aria-current="page">Private</span>
+                </div>
             </nav>
-            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
-                <span class="text-white underline underline-offset-4">EN</span>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <a href="/lv/terms" class="hover:text-white transition">LV</a>
+            <div class="nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <span class="text-white underline underline-offset-4">EN</span>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <a href="/lv/terms" class="hover:text-white transition">LV</a>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Language">
+                    EN
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <span role="menuitem" aria-current="page">EN</span>
+                    <a href="/lv/terms" role="menuitem" lang="lv" hreflang="lv">LV</a>
+                </div>
             </div>
             <a href="/en/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Download</a>
@@ -94,7 +115,7 @@
 
     <div class="legal-card">
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Terms of Use</h1>
-        <p class="text-sm opacity-40 mb-10 italic">Last updated: April 2026</p>
+        <p class="text-sm opacity-40 mb-10 italic">Last updated: November 2026</p>
 
         <section class="legal-section">
             <div class="highlight-box">
@@ -123,9 +144,13 @@
                     intermediary connecting natural persons (Drivers and Passengers) for non-commercial
                     ride-sharing.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.2.</span> <span
-                    class="legal-clause-body"><strong>Service price and funding:</strong> Access to all Platform
-                    features is free of charge. Shurp does not charge a commission on users' mutual payments for
-                    trips.</span></p>
+                    class="legal-clause-body"><strong>Service price and funding:</strong> Shurp's consumer carpooling
+                    features are provided free of charge to individual Users. Shurp does not charge a commission on
+                    cost-sharing arrangements between Drivers and Passengers. Separately, organisations may pay Shurp
+                    for workplace mobility, administration and reporting tools. Fees paid by organisations relate to the
+                    provision of these software services and are not transport fares or payments for individual rides.
+                    The existence of paid organisational services does not change the non-commercial, cost-sharing
+                    nature of rides arranged through the Platform.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.3.</span> <span
                     class="legal-clause-body"><strong>Platform support payment:</strong> Users may make a voluntary
                     payment to support the maintenance and development of the Platform (hereinafter – the "Support
@@ -230,6 +255,19 @@
                     ticket seller, for example BezRindas, ticket purchase and payment take place outside the Shurp
                     environment. Such a purchase is subject to the relevant seller's terms, prices, refund rules, and
                     privacy policy. Shurp is not a party to that ticket purchase.</span></p>
+            <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.12.</span> <span
+                    class="legal-clause-body"><strong>Workplace and organisation linking.</strong> Users may voluntarily
+                    link their Shurp accounts to an organisation, for example by scanning a company QR code or using an
+                    equivalent company link. Linking an account and marking individual rides as work-related are optional
+                    and are not required to use the Platform's ordinary carpooling functionality. Users may choose
+                    separately for each ride whether to mark it as work-related. Only rides marked as work-related may
+                    be included in workplace mobility reporting, in accordance with the Privacy Policy. Marking a ride
+                    as work-related does not change the non-commercial cost-sharing nature of the ride, make Shurp or
+                    the organisation a transport carrier, or automatically restrict the ride to employees of that
+                    organisation. Rides remain available to other Users under the Platform's ordinary functionality
+                    unless the relevant feature explicitly provides otherwise. Users may disconnect their organisation
+                    link in Settings and may choose not to mark individual rides as work-related. Further information
+                    about the data shared with organisations is provided in the Privacy Policy.</span></p>
         </section>
 
         <section class="legal-section">
@@ -602,6 +640,13 @@
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">8.6.</span> <span
                     class="legal-clause-body">Information on processing of website journey planner requests, IP
                     addresses, browser storage, and third-party link data is described in the Privacy Policy.</span></p>
+            <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">8.7.</span> <span
+                    class="legal-clause-body"><strong>Workplace data sharing.</strong> Limited information about
+                    individual rides is disclosed to an organisation only where the User has linked their Shurp account
+                    to that organisation and separately marked the specific ride as work-related. Ordinary use of the
+                    Platform without workplace linking and without marking rides as work-related does not include this
+                    disclosure. The information shared and the applicable conditions are described in the Privacy
+                    Policy.</span></p>
         </section>
 
         <section class="legal-section">

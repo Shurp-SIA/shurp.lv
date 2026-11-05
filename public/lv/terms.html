@@ -12,6 +12,7 @@
     <link rel="alternate" href="https://shurp.lv/lv/terms" hreflang="x-default" />
 
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/site-nav.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -76,15 +77,35 @@
             <div class="mobile-download"><a href="/lv/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
-                <a href="/lv/uznemumiem" class="hover:text-white transition"><span class="mode-full">Uzņēmumiem</span><span class="mode-short">Biznesam</span></a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4" aria-current="page"><span class="mode-full">Privātpersonām</span><span class="mode-short">Privātp.</span></span>
+            <nav class="mode-switch nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/lv/uznemumiem" class="hover:text-white transition">Uzņēmumiem</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4" aria-current="page">Privātpersonām</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Auditorija">
+                    Privātpersonām
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/lv/uznemumiem" role="menuitem">Uzņēmumiem</a>
+                    <span role="menuitem" aria-current="page">Privātpersonām</span>
+                </div>
             </nav>
-            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
-                <a href="/en/terms" class="hover:text-white transition">EN</a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4">LV</span>
+            <div class="nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/en/terms" class="hover:text-white transition">EN</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4">LV</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Valoda">
+                    LV
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/en/terms" role="menuitem" lang="en" hreflang="en">EN</a>
+                    <span role="menuitem" aria-current="page">LV</span>
+                </div>
             </div>
             <a href="/lv/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>
@@ -97,7 +118,7 @@
 
     <div class="legal-card">
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Lietošanas noteikumi</h1>
-        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada Aprīlī</p>
+        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunoti: 2026. gada novembrī</p>
 
         <section class="legal-section">
             <div class="highlight-box">
@@ -121,7 +142,7 @@
             <h2>1. Vispārīgie noteikumi un Platformas juridiskais statuss</h2>
 
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.1.</span> <span class="legal-clause-body"><strong>Shurp pakalpojums:</strong> SIA Shurp (turpmāk – Shurp) nodrošina informācijas sabiedrības pakalpojumu — mobilo lietotni "Shurp", tīmekļvietni shurp.lv un ar tiem saistītus informatīvus rīkus (turpmāk – Platforma). Platforma darbojas kā tehnoloģisks starpnieks, kas savieno privātpersonas (Šoferus un Pasažierus) nekomerciāliem kopbraucieniem.</span></p>
-            <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.2.</span> <span class="legal-clause-body"><strong>Pakalpojuma cena un finansēšana:</strong> Piekļuve visām Platformas funkcijām ir bez maksas. Shurp neiekasē komisijas maksu no lietotāju savstarpējiem norēķiniem par braucieniem.</span></p>
+            <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.2.</span> <span class="legal-clause-body"><strong>Pakalpojuma cena un finansēšana:</strong> Shurp kopbraukšanas funkcionalitāte individuālajiem Lietotājiem tiek nodrošināta bez maksas. Shurp neiekasē komisijas maksu par izmaksu dalīšanas norēķiniem starp Vadītājiem un Pasažieriem. Atsevišķi organizācijas var maksāt Shurp par darbavietas mobilitātes, administrēšanas un pārskatu sagatavošanas rīkiem. Organizāciju maksājumi attiecas uz šo programmatūras pakalpojumu nodrošināšanu un nav uzskatāmi par transporta maksu vai samaksu par atsevišķiem braucieniem. Maksas pakalpojumu sniegšana organizācijām nemaina platformā organizēto braucienu nekomerciālo raksturu un to pamatā esošo izmaksu dalīšanas principu.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.3.</span> <span class="legal-clause-body"><strong>Platformas atbalsta maksājums:</strong> Lietotājiem ir iespēja veikt brīvprātīgu maksājumu Platformas uzturēšanai un attīstībai (turpmāk – "Atbalsta maksājums"). Atbalsta maksājums tiek veikts, izmantojot lietotņu veikalu (Apple App Store vai Google Play Store) iestrādātos maksājumu rīkus.</span></p>
             <p class="legal-clause legal-clause--depth-2"><span class="legal-clause-num">1.3.1.</span> <span class="legal-clause-body"><strong>Simbolisks ieguvums:</strong> Veicot Atbalsta maksājumu, Lietotāja profilam mobilajā lietotnē tiek pievienota vizuāla atpazīstamības zīme, kas simbolizē lietotāja atbalstu Shurp Platformai.</span></p>
             <p class="legal-clause legal-clause--depth-2"><span class="legal-clause-num">1.3.2.</span> <span class="legal-clause-body"><strong>Ekskluzivitātes trūkums:</strong> Šī ikona ir vienīgais tiešais Atbalsta maksājuma rezultāts. Tas nedod Lietotājam nekādas funkcionālas priekšrocības, neietekmē braucienu meklēšanas algoritmus, nepiešķir prioritāti un neietekmē tiesības lietot Platformas pamatfunkcijas.</span></p>
@@ -143,6 +164,7 @@
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.9.</span> <span class="legal-clause-body"><strong>Platformas loma un Tehniskā infrastruktūra:</strong> Shurp loma ir ierobežota līdz informācijas sabiedrības pakalpojuma nodrošināšanai, kas ietver tehnisko infrastruktūru saziņai, lietotāju profilu pārvaldībai un informatīvam izmaksu sadales aprēķinam. Shurp neiesaistās Lietotāju savstarpējos norēķinos, negarantē braucienu norisi un neuzņemas atbildību par Lietotāju savstarpējo vienošanos izpildi.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.10.</span> <span class="legal-clause-body"><strong>Sabiedriskā transporta un maršrutu informācija:</strong> Shurp tīmekļvietnes transporta sadaļa ir informatīvs maršrutu salīdzināšanas rīks. Shurp nav sabiedriskā transporta pakalpojumu sniedzējs, pārvadātājs, autoosta, biļešu pārdevējs vai sabiedriskā transporta kustības sarakstu/tarifu apstiprinātājs. Kustības saraksti, cenas, biļešu pieejamība un maršrutu informācija tiek rādīta "kā pieejama". Tā var būt nepilnīga, novecojusi vai neietvert kavējumus, atcelšanu un operatīvas izmaiņas. Pirms brauciena lietotājam pašam jāpārbauda informācija pie pārvadātāja vai biļešu tirgotāja.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.11.</span> <span class="legal-clause-body"><strong>Biļešu tirgotāju saites:</strong> Ja Platformā tiek rādīta saite uz biļešu tirgotāju, piemēram, BezRindas, biļetes iegāde un apmaksa notiek ārpus Shurp vides. Šādam pirkumam piemērojami attiecīgā tirgotāja noteikumi, cenas, atmaksas kārtība un privātuma politika. Shurp nav šī biļešu pirkuma puse.</span></p>
+            <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">1.12.</span> <span class="legal-clause-body"><strong>Sasaistīšana ar darbavietu vai organizāciju.</strong> Lietotāji var brīvprātīgi sasaistīt savus Shurp kontus ar organizāciju, piemēram, noskenējot uzņēmuma QR kodu vai izmantojot līdzvērtīgu uzņēmuma saiti. Konta sasaistīšana un atsevišķu braucienu atzīmēšana kā ar darbu saistītiem ir neobligāta un nav nepieciešama, lai izmantotu platformas parasto kopbraukšanas funkcionalitāti. Lietotāji var atsevišķi izvēlēties, vai katru konkrēto braucienu atzīmēt kā ar darbu saistītu. Darbavietas mobilitātes pārskatos var tikt iekļauti tikai tie braucieni, kas ir atzīmēti kā ar darbu saistīti, saskaņā ar Privātuma politiku. Brauciena atzīmēšana kā ar darbu saistīta nemaina brauciena nekomerciālo raksturu un izmaksu dalīšanas principu, nepadara Shurp vai attiecīgo organizāciju par pārvadātāju un automātiski neierobežo brauciena pieejamību tikai attiecīgās organizācijas darbiniekiem. Braucieni paliek pieejami arī citiem Lietotājiem saskaņā ar platformas parasto funkcionalitāti, ja vien attiecīgā funkcija nepārprotami neparedz citādi. Lietotāji var pārtraukt sava konta sasaisti ar organizāciju lietotnes iestatījumos un izvēlēties neatzīmēt atsevišķus braucienus kā ar darbu saistītus. Papildu informācija par organizācijām nododamajiem datiem ir sniegta Privātuma politikā.</span></p>
         </section>
 
         <section class="legal-section">
@@ -295,6 +317,7 @@
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">8.4.</span> <span class="legal-clause-body">Shurp vadošā uzraudzības iestāde ir Latvijas Datu valsts inspekcija (<a href="https://www.dvi.gov.lv" class="text-[#125E8A] hover:underline font-semibold" target="_blank" rel="noopener noreferrer">www.dvi.gov.lv</a>). Lietotājiem citās ES/EEZ dalībvalstīs ir tiesības iesniegt sūdzību arī savas dzīvesvietas valsts datu aizsardzības iestādē. ES datu aizsardzības iestāžu saraksts ir pieejams Eiropas Datu aizsardzības kolēģijas tīmekļa vietnē: <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" class="text-[#125E8A] hover:underline font-semibold break-all" target="_blank" rel="noopener noreferrer">edpb.europa.eu/about-edpb/about-edpb/members_en</a>.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">8.5.</span> <span class="legal-clause-body"><strong>Produkta lietošanas analītika.</strong> Platforma var apstrādāt tehniskos un lietošanas datus apkopotas statistikas un servisa uzlabošanas nolūkos, kā detalizēti aprakstīts Privātuma politikā.</span></p>
             <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">8.6.</span> <span class="legal-clause-body">Informācija par tīmekļvietnes transporta plānotāja pieprasījumu, IP adreses, pārlūka glabātuves un trešo pušu saišu datu apstrādi ir aprakstīta Privātuma politikā.</span></p>
+            <p class="legal-clause legal-clause--depth-1"><span class="legal-clause-num">8.7.</span> <span class="legal-clause-body"><strong>Datu nodošana darbavietas mobilitātes pārskatiem.</strong> Ierobežota informācija par atsevišķiem braucieniem tiek nodota organizācijai tikai tad, ja Lietotājs ir sasaistījis savu Shurp kontu ar attiecīgo organizāciju un atsevišķi atzīmējis konkrēto braucienu kā ar darbu saistītu. Parastā platformas izmantošana bez sasaistes ar darbavietu un bez braucienu atzīmēšanas kā ar darbu saistītiem neietver šādu informācijas nodošanu. Nododamās informācijas apjoms un piemērojamie nosacījumi ir aprakstīti Privātuma politikā.</span></p>
         </section>
 
         <section class="legal-section">

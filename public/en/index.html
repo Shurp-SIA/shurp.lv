@@ -148,6 +148,7 @@
     <meta name="theme-color" content="#125E8A">
 
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/site-nav.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         html {
@@ -195,13 +196,9 @@
             .homepage-brand { flex-shrink: 0; }
             .homepage-brand a { display: flex; align-items: center; min-height: 44px; }
             .homepage-brand img { width: 66px; min-width: 66px; height: auto; }
-            .homepage-actions { gap: 12px; flex-shrink: 0; }
-            .homepage-actions .mode-switch,
-            .homepage-actions > [aria-label="Language"] { font-size: 0.65rem; letter-spacing: 0.08em; gap: 0.35rem; }
-            .homepage-actions > div > a,
-            .homepage-actions .mode-switch > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+            .homepage-actions { gap: 10px; flex-shrink: 0; }
             .homepage-actions > .scroll-to-badges { display: none; }
-            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
+            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; padding: 9px; border: 1px solid #ffffff66; border-radius: 10px; background: transparent; color: white; cursor: pointer; }
             .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
             .mobile-menu-toggle:focus-visible { outline: 3px solid #FA7E61; outline-offset: 3px; }
             .nav-bar > .homepage-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 4px; padding: 16px 24px 24px; max-height: calc(100vh - 92px); max-height: calc(100dvh - 92px); overflow-y: auto; background: #FFF9F5; color: #125E8A; border-bottom: 1px solid #dce6e9; box-shadow: 0 14px 24px #16344224; }
@@ -655,15 +652,35 @@
             <div class="mobile-download"><a href="#download" class="scroll-to-badges shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Download</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
-                <a href="/en/companies" class="hover:text-white transition">Business</a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+            <nav class="mode-switch nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Audience">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/en/companies" class="hover:text-white transition">Business</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4" aria-current="page">Private</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Audience">
+                    Private
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/en/companies" role="menuitem">Business</a>
+                    <span role="menuitem" aria-current="page">Private</span>
+                </div>
             </nav>
-            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
-                <span class="text-white underline underline-offset-4">EN</span>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <a href="/lv/" class="hover:text-white transition">LV</a>
+            <div class="nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Language">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <span class="text-white underline underline-offset-4">EN</span>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <a href="/lv/" class="hover:text-white transition">LV</a>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Language">
+                    EN
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <span role="menuitem" aria-current="page">EN</span>
+                    <a href="/lv/" role="menuitem" lang="lv" hreflang="lv">LV</a>
+                </div>
             </div>
             <a href="#download"
                 class="scroll-to-badges shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Download</a>
@@ -860,45 +877,8 @@
         </div>
     </footer>
 
+    <script src="../assets/js/site-nav.js" defer></script>
     <script>
-        (() => {
-            const nav = document.querySelector('.nav-bar');
-            const toggle = document.getElementById('homepage-menu-toggle');
-            if (!nav || !toggle) return;
-            const setOpen = (open, restoreFocus = false) => {
-                nav.classList.toggle('mobile-menu-open', open);
-                toggle.setAttribute('aria-expanded', String(open));
-                toggle.setAttribute('aria-label', open ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
-                if (restoreFocus) toggle.focus();
-            };
-            toggle.addEventListener('click', () => {
-                const open = toggle.getAttribute('aria-expanded') !== 'true';
-                setOpen(open);
-                if (open) nav.querySelector('.homepage-links > a').focus({preventScroll: true});
-            });
-            nav.addEventListener('click', event => {
-                const link = event.target.closest('a');
-                if (!link) return;
-                const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
-                setOpen(false);
-                if (wasOpen && link.getAttribute('href').startsWith('#')) {
-                    const destination = document.getElementById(link.hash.slice(1));
-                    if (destination) { destination.setAttribute('tabindex', '-1'); destination.focus({preventScroll: true}); }
-                }
-            });
-            document.addEventListener('click', event => {
-                if (!nav.contains(event.target)) setOpen(false);
-            });
-            document.addEventListener('keydown', event => {
-                if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-                    event.preventDefault(); setOpen(false, true);
-                }
-            });
-            window.matchMedia('(min-width: 768px)').addEventListener('change', event => {
-                if (event.matches) setOpen(false);
-            });
-        })();
-
         document.getElementById('safe-email').textContent = 'info' + '@' + 'shurp.lv';
 
         document.querySelectorAll('.scroll-to-badges').forEach((link) => {

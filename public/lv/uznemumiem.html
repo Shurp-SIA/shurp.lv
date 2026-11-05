@@ -24,7 +24,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/companies.css?v=20261104c">
+<link rel="stylesheet" href="../assets/css/companies.css?v=20261105b">
+<link rel="stylesheet" href="../assets/css/site-nav.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,14 +40,14 @@
   "offers": [
     {
       "@type": "Offer",
-      "name": "Core",
+      "name": "Team",
       "price": "50",
       "priceCurrency": "EUR",
       "description": "Kopbraukšana darbavietā ar ikmēneša mobilitātes ietekmes pārskatu līdz 25 piesaistītiem darbiniekiem."
     },
     {
       "@type": "Offer",
-      "name": "Impact",
+      "name": "Pro",
       "price": "100",
       "priceCurrency": "EUR",
       "description": "Uzņēmuma datu panelis, darbinieku mobilitātes analīze un 3. tvēruma 7. kategorijas pārskatu atbalsts līdz 100 piesaistītiem darbiniekiem."
@@ -78,15 +79,35 @@
 <header class="companies-nav">
   <a class="brand" href="/lv/"><img src="../assets/logo.png" alt="Shurp"></a>
   <div class="nav-end">
-    <nav class="mode-switch" aria-label="Auditorija">
-      <span class="current" aria-current="page"><span class="mode-full">Uzņēmumiem</span><span class="mode-short">Biznesam</span></span>
-      <span class="sep" aria-hidden="true">|</span>
-      <a href="/lv/"><span class="mode-full">Privātpersonām</span><span class="mode-short">Privātp.</span></a>
+    <nav class="mode-switch nav-choice" aria-label="Auditorija">
+      <div class="nav-choice-row">
+        <span class="current" aria-current="page">Uzņēmumiem</span>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="/lv/">Privātpersonām</a>
+      </div>
+      <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Auditorija">
+        Biznesam
+        <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+        <span role="menuitem" aria-current="page">Uzņēmumiem</span>
+        <a href="/lv/" role="menuitem">Privātpersonām</a>
+      </div>
     </nav>
-    <div class="lang" aria-label="Valoda">
-      <a href="/en/companies" lang="en" hreflang="en">EN</a>
-      <span class="sep" aria-hidden="true">|</span>
-      <span class="current">LV</span>
+    <div class="lang nav-choice" aria-label="Valoda">
+      <div class="nav-choice-row">
+        <a href="/en/companies" lang="en" hreflang="en">EN</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <span class="current">LV</span>
+      </div>
+      <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Valoda">
+        LV
+        <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+        <a href="/en/companies" role="menuitem" lang="en" hreflang="en">EN</a>
+        <span role="menuitem" aria-current="page">LV</span>
+      </div>
     </div>
   </div>
 </header>
@@ -150,8 +171,8 @@
       </div>
 
       <div class="plans" role="radiogroup" aria-label="Izvēlieties plānu">
-        <article class="plan" role="radio" aria-checked="false" tabindex="0" data-plan="Core">
-          <h3 class="name">Core</h3>
+        <article class="plan" role="radio" aria-checked="false" tabindex="0" data-plan="Team">
+          <h3 class="name">Team</h3>
           <p class="price">€50 <span>/ mēnesī</span></p>
           <p class="blurb">Viss nepieciešamais, lai ieviestu kopbraukšanu darbavietā un novērtētu tās ietekmi</p>
           <ul>
@@ -168,11 +189,11 @@
           </ul>
           <span class="plan-cta">Izvēlēties</span>
         </article>
-        <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Impact">
-          <h3 class="name">Impact</h3>
+        <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Pro">
+          <h3 class="name">Pro</h3>
           <p class="price">€100 <span>/ mēnesī</span></p>
           <p class="blurb">Uzņēmumiem, kas vēlas aktīvi attīstīt un pārvaldīt darbinieku kopbraukšanu</p>
-          <p class="includes">Viss, kas iekļauts Core plānā, kā arī:</p>
+          <p class="includes">Viss, kas iekļauts Team plānā, kā arī:</p>
           <ul>
             <li>Līdz 100 piesaistītiem darbiniekiem</li>
             <li>Uzņēmuma datu panelis ar aktuālo informāciju</li>
@@ -245,8 +266,8 @@
           <label for="plan">Plāns</label>
           <select id="plan" name="plan" required>
             <option value="" disabled selected>Izvēlieties</option>
-            <option value="Core">Core — €50 / mēnesī</option>
-            <option value="Impact">Impact — €100 / mēnesī</option>
+            <option value="Team">Team — €50 / mēnesī</option>
+            <option value="Pro">Pro — €100 / mēnesī</option>
             <option value="Custom">Custom — sazināties</option>
           </select>
         </div>
@@ -277,6 +298,7 @@
   <a href="/lv/">Uz sākumlapu</a>
 </footer>
 
-<script src="../assets/js/companies.js?v=20261104b" defer></script>
+<script src="../assets/js/site-nav.js" defer></script>
+<script src="../assets/js/companies.js?v=20261105c" defer></script>
 </body>
 </html>

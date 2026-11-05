@@ -12,6 +12,7 @@
     <link rel="alternate" href="https://shurp.lv/lv/privacy" hreflang="x-default" />
 
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/site-nav.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -76,15 +77,35 @@
             <div class="mobile-download"><a href="/lv/#download" class="shurp-coral-bg rounded-full px-7 py-2.5 font-bold">Lejupielādēt</a></div>
         </div>
         <div class="homepage-actions flex items-center gap-6">
-            <nav class="mode-switch flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
-                <a href="/lv/uznemumiem" class="hover:text-white transition"><span class="mode-full">Uzņēmumiem</span><span class="mode-short">Biznesam</span></a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4" aria-current="page"><span class="mode-full">Privātpersonām</span><span class="mode-short">Privātp.</span></span>
+            <nav class="mode-switch nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Auditorija">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/lv/uznemumiem" class="hover:text-white transition">Uzņēmumiem</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4" aria-current="page">Privātpersonām</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-mode-menu" aria-label="Auditorija">
+                    Privātpersonām
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-mode-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/lv/uznemumiem" role="menuitem">Uzņēmumiem</a>
+                    <span role="menuitem" aria-current="page">Privātpersonām</span>
+                </div>
             </nav>
-            <div class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
-                <a href="/en/privacy" class="hover:text-white transition">EN</a>
-                <span class="text-white/20" aria-hidden="true">|</span>
-                <span class="text-white underline underline-offset-4">LV</span>
+            <div class="nav-choice flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/60" aria-label="Valoda">
+                <div class="nav-choice-row flex items-center gap-2">
+                    <a href="/en/privacy" class="hover:text-white transition">EN</a>
+                    <span class="text-white/20" aria-hidden="true">|</span>
+                    <span class="text-white underline underline-offset-4">LV</span>
+                </div>
+                <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Valoda">
+                    LV
+                    <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                    <a href="/en/privacy" role="menuitem" lang="en" hreflang="en">EN</a>
+                    <span role="menuitem" aria-current="page">LV</span>
+                </div>
             </div>
             <a href="/lv/#download"
                 class="shurp-coral-bg cta-pop px-7 py-2.5 rounded-full font-bold text-sm text-white hover:scale-105 transition active:scale-95">Lejupielādēt</a>
@@ -97,7 +118,7 @@
 
     <div class="legal-card">
         <h1 class="text-4xl md:text-5xl font-bold tracking-tighter mb-2">Privātuma politika: Shurp</h1>
-        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada maijā</p>
+        <p class="text-sm opacity-40 mb-10 italic">Pēdējoreiz atjaunots: 2026. gada novembrī</p>
 
         <section class="legal-section">
             <div class="highlight-box">
@@ -161,6 +182,15 @@
                 <li><strong>Pārlūka lokālā glabātuve:</strong> Transporta sadaļa var saglabāt Tava izvēlētā transporta
                     veida preferenci Tavā pārlūkā, lai nākamreiz sadaļa atvērtos ērtāk. Šī preference netiek izmantota
                     reklāmas profilēšanai.</li>
+                <li><strong>Saite ar uzņēmumu vai darbavietu (neobligāta):</strong> Ja noskenējat uzņēmuma QR kodu vai
+                    izmantojat līdzvērtīgu uzņēmuma saiti, ko izsniedz organizācija, kura izmanto Shurp darbavietu
+                    mobilitātes rīkus, mēs reģistrējam, ka jūsu konts ir sasaistīts ar attiecīgo organizāciju, un
+                    attēlojam savienojuma statusu lietotnes iestatījumos. Konta sasaistīšana pati par sevi nenodod
+                    organizācijai informāciju par jūsu braucieniem. Atsevišķi, pievienojot braucienu, varat izvēlēties
+                    atzīmēt to kā ar darbu saistītu braucienu. Darba vietas mobilitātes pārskatos tiek iekļauti tikai
+                    tie braucieni, kurus esat atzīmējis kā ar darbu saistītus. Attiecībā uz šādiem braucieniem mēs
+                    apstrādājam atzīmi par brauciena saistību ar darbu un ierobežotu ar braucienu saistītu informāciju,
+                    kas aprakstīta 9. sadaļā.</li>
             </ul>
         </section>
 
@@ -229,6 +259,16 @@
                     lietotāja identifikatoru — ne vārdu vai kontaktinformāciju. Dzēšot kontu, arī šis identifikators
                     tiek
                     neatgriezeniski noņemts.</li>
+                <li><strong>Lietotāja atļaujas un izvēles:</strong> Nepieciešamības gadījumā mēs lūdzam atļauju piekļūt
+                    ierīces funkcijām, piemēram, kamerai vai atrašanās vietas pakalpojumiem. Jūs varat arī izvēlēties
+                    sasaistīt savu Shurp kontu ar organizāciju, izmantojot tās uzņēmuma QR kodu vai līdzvērtīgu saiti.
+                    Šāda konta sasaistīšana pati par sevi nenozīmē atļauju izpaust informāciju par braucieniem.
+                    Atsevišķi, atzīmējot konkrētu braucienu kā ar darbu saistītu, jūs nepārprotami atļaujat nodot
+                    saistītajai organizācijai ierobežotu informāciju par šo konkrēto braucienu darba vietas mobilitātes
+                    pārskatu sagatavošanai, kā aprakstīts 9. sadaļā. Šīs datu apstrādes piemērojamais tiesiskais pamats
+                    tiek noteikts atbilstoši faktiskajam datu apstrādes modelim un piemērojamiem datu aizsardzības
+                    tiesību aktiem. Izmantojot parasto kopbraukšanas funkcionalitāti bez konta sasaistes ar darbavietu
+                    vai neatzīmējot braucienu kā ar darbu saistītu, šāda darba vietas datu nodošana nenotiek.</li>
             </ul>
             <p>Transporta plānotāja pieprasījumu tehniskie žurnāli tiek glabāti tikai tik ilgi, cik nepieciešams
                 pakalpojuma darbības, drošības un kļūdu novēršanas nolūkiem.</p>
@@ -252,11 +292,73 @@
                 <li><strong>Produkta lietošanas analītikas notikumi:</strong> glabājam ierobežotu laiku (līdz 90
                     dienām). Pēc tam vai konta dzēšanas brīdī dzēšam ar kontu saistītos notikumus; apkopota, personu
                     neidentificējoša statistika (piemēram, meklējumu/pieprasījumu skaits) var tikt saglabāta.</li>
+                <li><strong>Saite ar uzņēmumu:</strong> Informāciju par konta sasaisti ar organizāciju glabājam līdz
+                    brīdim, kad pārtraucat šo sasaisti lietotnes iestatījumos vai dzēšat savu Shurp kontu, ievērojot
+                    piemērojamās tiesību aktos noteiktās datu glabāšanas prasības.</li>
+                <li><strong>Ar darbu saistīto braucienu informācija un mobilitātes rādītāji:</strong> Šo informāciju
+                    glabājam tik ilgi, cik nepieciešams darbavietas pārskatu pakalpojuma nodrošināšanai un attiecīgajam
+                    pārskata periodam. Pēc tam tā tiek dzēsta, anonimizēta vai, ja tas ir atbilstoši un tiesiski
+                    pieļaujami, saglabāta tikai kā daļa no parastajiem braucienu ierakstiem.</li>
+                <li><strong>Pēc konta sasaistes pārtraukšanas:</strong> Konta sasaistes pārtraukšana novērš jaunu datu
+                    nodošanu organizācijai, izmantojot attiecīgo sasaisti. Tā automātiski neizdzēš informāciju, kas
+                    organizācijai jau ir nodota, vai ierakstus, kurus organizācija glabā neatkarīgi. Uz šādu
+                    informāciju attiecas pašas organizācijas datu glabāšanas un dzēšanas noteikumi.</li>
             </ul>
         </section>
 
         <section class="legal-section">
-            <h2>9. Datu nodošana un drošība</h2>
+            <h2>9. Darbavietas mobilitāte un datu nodošana organizācijām</h2>
+            <p>Shurp konta sasaistīšana ar organizāciju un atsevišķu braucienu atzīmēšana kā ar darbu saistītiem
+                braucieniem ir neobligāta. Neviena no šīm darbībām nav nepieciešama, lai izmantotu Shurp parasto
+                izmaksu dalīšanas kopbraukšanas funkcionalitāti. Jūs saglabājat kontroli pār to, kuri braucieni, ja tādi
+                ir, tiek iekļauti darbavietas mobilitātes pārskatos.</p>
+            <p><strong>1. solis — konta sasaistīšana ar organizāciju.</strong> Varat noskenēt uzņēmuma QR kodu vai
+                izmantot līdzvērtīgu uzņēmuma saiti, ko nodrošina organizācija, kura izmanto Shurp darbavietu mobilitātes
+                rīkus. Pēc tam jūsu konts tiek sasaistīts ar attiecīgo organizāciju, un savienojuma statuss ir redzams
+                lietotnes iestatījumos. Jūs varat pārtraukt šo sasaisti jebkurā laikā. Konta sasaistīšana pati par sevi
+                neatklāj organizācijai informāciju par atsevišķiem braucieniem.</p>
+            <p><strong>2. solis — konkrēta brauciena atzīmēšana kā ar darbu saistīta brauciena.</strong> Pievienojot
+                braucienu, varat atsevišķi izvēlēties atzīmēt to kā ar darbu saistītu. Šī ir papildu un konkrēta atļauja
+                nodot sasaistītajai organizācijai ierobežotu informāciju par attiecīgo braucienu darbavietas mobilitātes
+                un ikdienas pārvietošanās pārskatu sagatavošanai.</p>
+            <p>Braucieni, kas nav atzīmēti kā ar darbu saistīti, šajos darbavietas pārskatos netiek iekļauti.</p>
+            <p><strong>Informācija, ko var nodot organizācijai.</strong> Attiecībā uz braucieniem, kas atzīmēti kā ar
+                darbu saistīti, organizācija var saņemt šādu informāciju, ciktāl tā ir pieejama un nepieciešama pārskatu
+                funkcionalitātei:</p>
+            <ul class="compact-list">
+                <li>Braucienam norādītais maršruts;</li>
+                <li>Brauciena attālums;</li>
+                <li>Brauciena datums un laiks;</li>
+                <li>Aizņemto sēdvietu skaits;</li>
+                <li>Izmaksu dalīšanas summa;</li>
+                <li>Aprēķinātais CO₂ emisiju samazinājums un finansiālais ietaupījums.</li>
+            </ul>
+            <p>Šie rādītāji ir aptuveni aprēķini un ne vienmēr atspoguļo neatkarīgi pārbaudītus mērījumus.</p>
+            <p><strong>Informācija, kas netiek nodota darbavietas pārskatu ietvaros:</strong></p>
+            <ul class="compact-list">
+                <li>Jūsu tālruņa numurs;</li>
+                <li>Privātās tērzēšanas ziņas un sarakste;</li>
+                <li>Jūsu precīza atrašanās vieta reāllaikā;</li>
+                <li>Cita personas informācija, kas nav nepieciešama darbavietas pārskatu sagatavošanai.</li>
+            </ul>
+            <p>Tomēr pārskatā iekļautā maršruta informācija var ļaut organizācijai izdarīt secinājumus par atsevišķām
+                brauciena detaļām. Organizācijai pieejamā precīzā informācija ir atkarīga no pārskatu funkcionalitātes
+                un tās konfigurācijas.</p>
+            <p><strong>Atbildība par personas datu aizsardzību.</strong> SIA Shurp nosaka, kā Shurp platforma savas
+                darbavietas funkcionalitātes ietvaros apkopo un nodod informāciju, un ir atbildīga par savām veiktajām
+                datu apstrādes darbībām. Organizācija, kas saņem šo informāciju, ir atbildīga par savu datu aizsardzības
+                pienākumu noteikšanu un izpildi attiecībā uz turpmāku saņemtās informācijas izmantošanu. Shurp un
+                organizācijas precīzās lomas ir atkarīgas no faktiskā datu apstrādes modeļa.</p>
+            <p><strong>Jūsu izvēles un atļaujas atsaukšana.</strong> Jūs varat izvēlēties nesasaistīt savu kontu ar
+                organizāciju, neatzīmēt atsevišķus braucienus kā ar darbu saistītus, pārtraukt turpmāko braucienu
+                atzīmēšanu vai pārtraukt konta sasaisti ar organizāciju lietotnes iestatījumos.</p>
+            <p>Jūs varat turpināt izmantot Shurp parasto kopbraukšanas funkcionalitāti bez sasaistes ar darbavietu.
+                Sasaistes pārtraukšana vai izvēles maiņa novērš turpmāku informācijas nodošanu, izmantojot darbavietas
+                funkcionalitāti, taču automātiski neizdzēš informāciju, kas organizācijai jau ir likumīgi nodota.</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>10. Datu nodošana un drošība</h2>
             <p>Mēs nepārdodam datus trešajām pusēm un nekad nenododam Tavus personas datus reklāmdevējiem.</p>
             <ul class="compact-list">
                 <li><strong>Reklāmas:</strong> Šobrīd Shurp lietotnē reklāmas netiek rādītas. Ja nākotnē tiks ieviesta
@@ -291,13 +393,18 @@
                     vai publiskiem datu avotiem. Noklikšķinot uz saites uz biļešu tirgotāja vietni, piemēram, BezRindas,
                     Tu pamet Shurp vidi, un turpmāko datu apstrādi veic attiecīgais pakalpojuma sniedzējs saskaņā ar tā
                     privātuma politiku.</li>
+                <li><strong>Sasaistītā organizācija (darbavietas pārskati):</strong> Ierobežota informācija par braucienu
+                    var tikt nodota organizācijai tikai tad, ja jūsu Shurp konts ir sasaistīts ar attiecīgo organizāciju
+                    un jūs atsevišķi esat atzīmējis konkrēto braucienu kā ar darbu saistītu. Šāda informācijas nodošana
+                    ir nodalīta no parastās kopbraukšanas starp Lietotājiem un no apkopotas statistikas, kas tiek nodota
+                    partneriem. Skatīt 9. sadaļu.</li>
             </ul>
             <p>Visi tehniskie partneri darbojas saskaņā ar Datu apstrādes līgumiem (DPA) un GDPR.</p>
             <p>Visi dati tiek šifrēti gan pārsūtot (TLS), gan uzglabājot.</p>
         </section>
 
         <section class="legal-section">
-            <h2>10. Tavas tiesības (GDPR)</h2>
+            <h2>11. Tavas tiesības (GDPR)</h2>
             <p>Saskaņā ar GDPR Tev ir šādas tiesības:</p>
             <ul class="compact-list">
                 <li><strong>Piekļuve:</strong> jebkurā brīdī pieprasīt, kādus datus mēs par Tevi glabājam.</li>
@@ -307,7 +414,11 @@
                 <li><strong>Datu pārnesamība:</strong> pieprasīt savu datu kopiju lejupielādei vai nodošanai citam
                     pakalpojumam.</li>
                 <li><strong>Iebildums:</strong> iebilst pret datu apstrādi, kas balstīta uz leģitīmajām interesēm.</li>
-                <li><strong>Piekrišanas atsaukšana:</strong> jebkurā brīdī atsaukt iepriekš sniegto piekrišanu.</li>
+                <li><strong>Piekrišanas atsaukšana:</strong> jebkurā brīdī atsaukt iepriekš sniegto piekrišanu.
+                    Attiecībā uz darbavietas funkcionalitāti Tu vari jebkurā brīdī pārtraukt sava konta sasaisti ar
+                    organizāciju lietotnes iestatījumos un izvēlēties turpmāk neatzīmēt braucienus kā ar darbu saistītus.
+                    Tas novērš turpmāku informācijas nodošanu organizācijai, izmantojot šo funkcionalitāti, taču
+                    automātiski neizdzēš informāciju, kas organizācijai jau ir nodota.</li>
             </ul>
             <p>Pieprasījumus sūti uz <span id="safe-email-p10"></span>. Mēs atbildēsim 30 dienu laikā.</p>
             <p>Ja uzskat, ka Tavi dati tiek apstrādāti pretlikumīgi, Tev ir tiesības iesniegt sūdzību Datu valsts
