@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
+# Association files and company QR links must never redirect.
+RewriteRule ^\.well-known(?:/|$) - [L]
+RewriteRule ^c/.*$ /company-join.html [END]
+
 # 0a. Canonical host: www -> apex (Cloudflare also proxies apex; no scheme redirect here, see notes)
 RewriteCond %{HTTP_HOST} ^www\.shurp\.lv$ [NC]
 RewriteRule ^ https://shurp.lv%{REQUEST_URI} [R=301,L,NE]

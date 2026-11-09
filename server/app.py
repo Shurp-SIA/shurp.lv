@@ -23,4 +23,15 @@ async def localized_page(locale: str, request: Request):
 async def download_redirect():
     return FileResponse(PUBLIC / "get.html", headers=HEADERS)
 
+@app.get("/c/{company_path:path}")
+async def company_join(company_path: str):
+    return FileResponse(PUBLIC / "company-join.html", headers=HEADERS)
+
+@app.get("/.well-known/apple-app-site-association")
+@app.get("/.well-known/assetlinks.json")
+async def app_association(request: Request):
+    filename = request.url.path.rsplit("/", 1)[-1]
+    return FileResponse(PUBLIC / ".well-known" / filename,
+                        media_type="application/json", headers=HEADERS)
+
 app.mount("/", StaticFiles(directory=PUBLIC, html=True), name="public")

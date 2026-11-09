@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#125E8A">
+    <title>Pievienojies sava uzņēmuma Shurp kopbraucienu programmai</title>
+    <link rel="stylesheet" href="/assets/css/site-nav.css">
+    <style>
+        /* The /get handoff's blue background, system font and centred layout. */
+        * { box-sizing: border-box; }
+        body { margin: 0; min-height: 100vh; background: #125E8A; color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            display: flex; flex-direction: column; }
+        a { color: inherit; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 24px; }
+        header img { display: block; height: 32px; width: auto; }
+        .nav-choice { font-size: 12px; font-weight: 700; letter-spacing: .06em; }
+        .nav-choice-row { display: flex; align-items: center; gap: 8px; }
+        .wrap { flex: 1; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; padding: 40px 24px; }
+        .copy { max-width: 640px; }
+        h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 0 0 24px; }
+        .message { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.85); margin: 0 0 28px; }
+        .store-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        .store-badges img { display: block; height: 48px; width: auto; }
+        .company-code { margin: 28px 0 0; font-size: 14px; color: rgba(255,255,255,.85); }
+        footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px;
+            padding: 24px; border-top: 1px solid rgba(255,255,255,.1); font-size: 12px; color: rgba(255,255,255,.7); }
+        footer div { display: flex; flex-wrap: wrap; gap: 24px; }
+        [hidden] { display: none !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/lv/" data-home><img src="/assets/logo.png" alt="Shurp"></a>
+        <nav class="nav-choice" aria-label="Valoda" id="language">
+            <div class="nav-choice-row">
+                <a href="?lang=en" lang="en" hreflang="en" data-language="en">EN</a>
+                <span aria-hidden="true">|</span>
+                <a href="?lang=lv" lang="lv" hreflang="lv" data-language="lv" aria-current="page">LV</a>
+            </div>
+            <button type="button" class="nav-choice-trigger" data-nav-trigger aria-expanded="false" aria-controls="nav-lang-menu" aria-label="Valoda"><span id="current-language">LV</span>
+                <svg class="nav-choice-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="nav-lang-menu" class="nav-choice-menu" role="menu" hidden data-nav-menu>
+                <a href="?lang=en" role="menuitem" lang="en" hreflang="en" data-language="en">EN</a>
+                <a href="?lang=lv" role="menuitem" lang="lv" hreflang="lv" data-language="lv" aria-current="page">LV</a>
+            </div>
+        </nav>
+    </header>
+    <main class="wrap">
+        <div class="copy">
+            <h1 id="join-title">Pievienojies sava uzņēmuma Shurp kopbraucienu programmai</h1>
+            <p class="message" id="join-message">Instalē vai atjaunini Shurp lietotni. Pēc tam atver šo saiti vēlreiz vai noskenē QR kodu vēlreiz — lietotne tevi pievienos tavam uzņēmumam.</p>
+            <div class="store-badges">
+                <a href="https://apps.apple.com/app/shurp/id6760924489"><img id="ios-badge" src="/assets/Download_on_the_App_Store_Badge_LV_RGB_blk_100317.svg" alt="Lejupielādēt App Store"></a>
+                <a href="https://play.google.com/store/apps/details?id=lv.shurp.app"><img id="android-badge" src="/assets/GetItOnGooglePlay_Badge_Web_color_Latvian.svg" alt="Iegūt Google Play"></a>
+            </div>
+            <p class="company-code" id="company-code" hidden></p>
+        </div>
+    </main>
+    <footer>
+        <span id="copyright">© 2026 SHURP. Visas tiesības aizsargātas.</span>
+        <div><a id="privacy" href="/lv/privacy">Privātuma politika</a><a id="terms" href="/lv/terms">Lietošanas noteikumi</a></div>
+    </footer>
+    <script src="/assets/js/site-nav.js" defer></script>
+    <script src="/assets/js/company-join.js" defer></script>
+</body>
+</html>
