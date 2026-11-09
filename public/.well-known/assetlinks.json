@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "lv.shurp.app",
+      "sha256_cert_fingerprints": [
+        "FA:D9:72:13:98:85:12:27:97:3E:6E:7B:9F:F3:B8:A9:71:3E:69:29:1D:1A:75:E4:E6:4E:C5:AC:34:9B:D1:23"
+      ]
+    }
+  }
+]

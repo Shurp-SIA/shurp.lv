@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["432MR2X2ZM.lv.shurp.app"],
+        "components": [
+          { "/": "/c/*", "comment": "Company join link (QR poster): opens the Shurp app" }
+        ]
+      }
+    ]
+  }
+}

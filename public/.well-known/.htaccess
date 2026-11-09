@@ -1,0 +1,13 @@
+# App-link association files (iOS universal links, Android App Links).
+# Apple and Google fetch these over HTTPS and accept no redirect and no HTML:
+# serve both as application/json, never rewrite them, never cache them long.
+RewriteEngine Off
+<Files "apple-app-site-association">
+  ForceType application/json
+</Files>
+<Files "assetlinks.json">
+  ForceType application/json
+</Files>
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=3600"
+</IfModule>

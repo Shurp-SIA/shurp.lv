@@ -1,0 +1,11 @@
+# NOT YET APPROVED
+# Step 14: app-link association files for https://shurp.lv/c/<CODE> (company join
+# QR). Website only, three static files under /.well-known/. Remove the line above
+# only after the owner's go. Verify after upload (all three must be HTTP 200 JSON,
+# no redirect):
+#   curl -sI https://shurp.lv/.well-known/apple-app-site-association
+#   curl -sI https://shurp.lv/.well-known/assetlinks.json
+# The /c/<CODE> landing page itself is a separate website step (Rūdolfs).
+.well-known/.htaccess
+.well-known/apple-app-site-association
+.well-known/assetlinks.json
