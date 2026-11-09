@@ -1,0 +1,4 @@
+# Step 15 (2026-11-09): business plan prices exclude VAT (LV/EN).
+# Website only; owner approved publishing 2026-11-09.
+lv/uznemumiem.html
+en/companies.html
