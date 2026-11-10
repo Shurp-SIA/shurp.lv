@@ -1,0 +1,4 @@
+# Step 16 (2026-11-10): privacy policy section 9, workplace rides show start and
+# destination addresses (LV/EN). Website only; owner approved publishing 2026-11-10.
+lv/privacy.html
+en/privacy.html
