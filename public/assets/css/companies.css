@@ -231,7 +231,8 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   padding: calc(clamp(5.5rem, 12vh, 7rem) + 80px) clamp(1.25rem, 4vw, 3.5rem) 2rem calc(clamp(1.25rem, 4vw, 3.5rem) + 80px);
-  max-width: min(40rem, 50vw);
+  /* Keep the hero in the top-left corner — clear of the phone mock. */
+  max-width: min(32rem, 40vw);
   pointer-events: none;
   will-change: opacity, transform;
 }
@@ -243,7 +244,7 @@ a {
   font-size: clamp(2rem, 5.2vw, 4.5rem);
   line-height: 1.05;
   letter-spacing: -0.05em;
-  max-width: 14ch;
+  max-width: 11ch;
   color: var(--warm);
 }
 
@@ -268,11 +269,11 @@ a {
 .phone-duo {
   position: absolute;
   z-index: 4;
-  left: 52%;
+  left: 58%;
   top: 22%;
   display: flex;
   align-items: flex-end;
-  gap: clamp(1rem, 2.4vw, 2rem);
+  gap: clamp(1.2rem, 2.8vw, 2.4rem);
   opacity: 0;
   transform: translate(-50%, calc(-46% + 48px)) scale(0.88);
   pointer-events: none;
@@ -281,9 +282,9 @@ a {
 
 .phone-captions {
   position: relative;
-  width: min(22vw, 220px);
+  width: min(20vw, 200px);
   min-height: 3.25rem;
-  margin: 0 0 14%;
+  margin: 0 0 12%;
   pointer-events: none;
   text-align: right;
   flex-shrink: 0;
@@ -297,7 +298,7 @@ a {
   width: 100%;
   font-family: var(--font);
   font-weight: 600;
-  font-size: clamp(1.14rem, 1.86vw, 1.44rem);
+  font-size: clamp(1.37rem, 2.23vw, 1.73rem);
   line-height: 1.35;
   letter-spacing: -0.02em;
   color: var(--warm);
@@ -318,24 +319,28 @@ a {
   position: relative;
   aspect-ratio: 876 / 1791;
   /*
-    Steep lower fade: kill the ghostly rectangular mid-UI plate.
-    Only the phone bezel + Work related + Next stay sharp.
+    Soft ease into the moon. Time/Contribution/Route chrome stays at 0%;
+    toggle + Next stay fully opaque.
   */
   -webkit-mask-image: linear-gradient(180deg,
       transparent 0%,
-      transparent 68%,
-      rgba(0, 0, 0, 0.06) 72%,
-      rgba(0, 0, 0, 0.35) 75%,
-      rgba(0, 0, 0, 0.75) 77%,
-      #000 79%,
+      transparent 58%,
+      rgba(0, 0, 0, 0.08) 62%,
+      rgba(0, 0, 0, 0.22) 65%,
+      rgba(0, 0, 0, 0.42) 67%,
+      rgba(0, 0, 0, 0.68) 69%,
+      rgba(0, 0, 0, 0.9) 70.5%,
+      #000 72%,
       #000 100%);
   mask-image: linear-gradient(180deg,
       transparent 0%,
-      transparent 68%,
-      rgba(0, 0, 0, 0.06) 72%,
-      rgba(0, 0, 0, 0.35) 75%,
-      rgba(0, 0, 0, 0.75) 77%,
-      #000 79%,
+      transparent 58%,
+      rgba(0, 0, 0, 0.08) 62%,
+      rgba(0, 0, 0, 0.22) 65%,
+      rgba(0, 0, 0, 0.42) 67%,
+      rgba(0, 0, 0, 0.68) 69%,
+      rgba(0, 0, 0, 0.9) 70.5%,
+      #000 72%,
       #000 100%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
@@ -667,7 +672,7 @@ a {
 }
 
 .meter[data-tone="co2"] .meter-val,
-.meter:nth-child(4) .meter-val {
+.meter:nth-child(3) .meter-val {
   color: #7eb7d6;
 }
 
@@ -710,16 +715,16 @@ a {
   --reveal: clamp(0, calc(var(--op) / 0.18), 1);
 }
 
-.outcome-co2 {
+.outcome-parking {
   --reveal: clamp(0, calc((var(--op) - 0.08) / 0.2), 1);
 }
 
-.outcome-parking {
+.outcome-co2 {
   --reveal: clamp(0, calc((var(--op) - 0.16) / 0.2), 1);
 }
 
 .outcome h3 {
-  margin: 0.95rem 0 0.45rem;
+  margin: 0.95rem 0 0.35rem;
   font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -727,17 +732,11 @@ a {
   color: var(--warm);
 }
 
-.outcome>p,
-.outcome-desc,
-.outcome-desc-short {
+.outcome-line {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-.outcome-desc-short {
-  display: none;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .estimate-note {
@@ -828,7 +827,7 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
-  max-width: min(9.5rem, 100%);
+  max-width: min(7.5rem, 100%);
   min-width: 0;
 }
 
@@ -1040,14 +1039,8 @@ a {
     font-size: 0.78rem;
   }
 
-  .outcome>.outcome-desc {
-    display: none;
-  }
-
-  .outcome>.outcome-desc-short {
-    display: block;
-    font-size: 0.88rem;
-    line-height: 1.45;
+  .outcome-line {
+    font-size: 0.86rem;
   }
 
   .estimate-note {
@@ -1857,7 +1850,7 @@ a {
     right: auto;
     left: 0;
     text-align: center;
-    font-size: clamp(1.1rem, 4.2vw, 1.34rem);
+    font-size: clamp(1.32rem, 5.04vw, 1.61rem);
     color: var(--warm);
   }
 
@@ -1868,19 +1861,23 @@ a {
   .phone-stack {
     -webkit-mask-image: linear-gradient(180deg,
         transparent 0%,
-        transparent 64%,
-        rgba(0, 0, 0, 0.06) 70%,
-        rgba(0, 0, 0, 0.35) 74%,
-        rgba(0, 0, 0, 0.75) 76%,
-        #000 78%,
+        transparent 56%,
+        rgba(0, 0, 0, 0.08) 60%,
+        rgba(0, 0, 0, 0.22) 63%,
+        rgba(0, 0, 0, 0.42) 65%,
+        rgba(0, 0, 0, 0.68) 67%,
+        rgba(0, 0, 0, 0.9) 68.5%,
+        #000 70%,
         #000 100%);
     mask-image: linear-gradient(180deg,
         transparent 0%,
-        transparent 64%,
-        rgba(0, 0, 0, 0.06) 70%,
-        rgba(0, 0, 0, 0.35) 74%,
-        rgba(0, 0, 0, 0.75) 76%,
-        #000 78%,
+        transparent 56%,
+        rgba(0, 0, 0, 0.08) 60%,
+        rgba(0, 0, 0, 0.22) 63%,
+        rgba(0, 0, 0, 0.42) 65%,
+        rgba(0, 0, 0, 0.68) 67%,
+        rgba(0, 0, 0, 0.9) 68.5%,
+        #000 70%,
         #000 100%);
   }
 }
@@ -1900,7 +1897,7 @@ a {
   }
 
   .caption {
-    font-size: clamp(1.08rem, 4.08vw, 1.26rem);
+    font-size: clamp(1.3rem, 4.9vw, 1.51rem);
   }
 }
 
@@ -1911,16 +1908,18 @@ a {
   }
 
   .story-copy {
-    max-width: min(36rem, 46vw);
+    max-width: min(28rem, 38vw);
     padding-top: calc(clamp(4.5rem, 10vh, 6rem) + 48px);
   }
 
   .story-line {
     font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+    max-width: 11ch;
   }
 
   .phone-duo {
     top: 24%;
+    left: 58%;
   }
 
   .phone-wrap {

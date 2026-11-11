@@ -149,9 +149,9 @@
     var stageEl = document.getElementById("outcomes-stage");
     if (!storyEl || !stageEl) return;
 
-    var kmDay = parseFloat(storyEl.getAttribute("data-km-day") || "30");
-    var saveDay = parseFloat(storyEl.getAttribute("data-save-day") || "2.8");
-    var co2Day = parseFloat(storyEl.getAttribute("data-co2-day") || "7.2");
+    var kmDay = parseFloat(storyEl.getAttribute("data-km-day") || "43");
+    var saveDay = parseFloat(storyEl.getAttribute("data-save-day") || "7");
+    var co2Day = parseFloat(storyEl.getAttribute("data-co2-day") || "18.1");
     var spotsMax = parseInt(storyEl.getAttribute("data-spots") || "2", 10);
     var maxDays = parseInt(storyEl.getAttribute("data-max-days") || "22", 10);
     var lotCells = Array.prototype.slice.call(
@@ -161,7 +161,7 @@
     var meterEur = stageEl.querySelector('[data-meter="eur"]');
     var meterDays = stageEl.querySelector('[data-meter="days"]');
     var meterCo2 = stageEl.querySelector('[data-meter="co2"]');
-    var meterSpots = stageEl.querySelector('[data-meter="spots"]');
+    var meterSpots = stageEl.querySelectorAll('[data-meter="spots"], [data-meter="spots-label"]');
     var meterCo2Inline = stageEl.querySelector('[data-meter-inline="co2"]');
 
     function outcomesProgress() {
@@ -198,9 +198,11 @@
       if (meterDays) meterDays.textContent = String(days);
       if (meterCo2) meterCo2.textContent = String(Math.round(co2));
       if (meterCo2Inline) meterCo2Inline.textContent = String(Math.round(co2));
-      if (meterSpots) meterSpots.textContent = String(spots);
+      meterSpots.forEach(function (el) {
+        el.textContent = String(spots);
+      });
 
-      /* Clear two bays as the trio shares one car */
+      /* Clear two bays as three colleagues share one car */
       lotCells.forEach(function (cell, i) {
         var free = (i === 1 && spots >= 1) || (i === 2 && spots >= 2);
         cell.classList.toggle("is-free", free);

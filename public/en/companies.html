@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/companies.css?v=20261112f">
+  <link rel="stylesheet" href="../assets/css/companies.css?v=20261112g">
   <link rel="stylesheet" href="../assets/css/site-nav.css">
   <script type="application/ld+json">
 {
@@ -178,24 +178,25 @@
       </div>
     </section>
 
-    <section class="outcomes-story" id="outcomes" aria-label="What you gain" data-km-day="30" data-save-day="4.8"
-      data-co2-day="12.6" data-spots="2" data-max-days="20">
+    <section class="outcomes-story" id="outcomes" aria-label="What you gain" data-km-day="43" data-save-day="7"
+      data-co2-day="18.1" data-spots="2" data-max-days="20">
       <div class="outcomes-pin">
         <div class="outcomes-stage" id="outcomes-stage">
           <div class="band-inner outcomes-inner">
-            <p class="section-eyebrow">What changes</p>
-            <h2>Money. Emissions. Parking.</h2>
-            <p class="deck">Scroll to watch a corridor shift from solo to shared</p>
+            <p class="section-eyebrow">Impact</p>
+            <h2>One shared ride. Three wins.</h2>
+            <p class="deck">Driver. Workplace. Planet.</p>
 
             <p class="route-cap">
               <span class="route-dot" aria-hidden="true"></span>
-              Example route: Ķekava → Rīga Airport industrial zone · ~30 km one way
+              Jelgava → Rīga Airport · ~43 km · 3 colleagues in 1 car
             </p>
 
             <p class="visually-hidden">
-              Illustrative example for one-way shared trips on a ~30 km corridor.
-              Example cost split shown separately: about €6.80 alone versus €2.00 per person with three riders.
-              Counters accumulate one-way shared kilometres, estimated savings and CO₂ — not a full return commute day.
+              Illustrative one-way example: three colleagues share one car on a ~43 km corridor.
+              Each passenger contributes €3.50, so the driver receives €7.00 toward the ~€12.84
+              total cost of ownership. Counters accumulate driver savings, parking spaces freed and estimated
+              CO₂ avoided as shared days add up.
             </p>
 
             <div class="mode-pill" aria-hidden="true">
@@ -206,20 +207,20 @@
 
             <div class="live-meters" aria-hidden="true">
               <div class="meter">
-                <span class="meter-val" data-meter="km">0</span>
-                <span class="meter-unit">km shared one-way</span>
+                <span class="meter-val" data-meter="eur">€0</span>
+                <span class="meter-unit">driver receives</span>
               </div>
               <div class="meter">
-                <span class="meter-val" data-meter="eur">€0</span>
-                <span class="meter-unit">saved / person</span>
+                <span class="meter-val" data-meter="spots">0</span>
+                <span class="meter-unit">spaces freed / day</span>
+              </div>
+              <div class="meter" data-tone="co2">
+                <span class="meter-val" data-meter="co2">0</span>
+                <span class="meter-unit">kg CO₂ avoided</span>
               </div>
               <div class="meter">
                 <span class="meter-val" data-meter="days">0</span>
-                <span class="meter-unit">one-way shared trips</span>
-              </div>
-              <div class="meter">
-                <span class="meter-val" data-meter="co2">0</span>
-                <span class="meter-unit">kg CO₂ avoided</span>
+                <span class="meter-unit">days carpooling</span>
               </div>
             </div>
 
@@ -227,23 +228,31 @@
               <article class="outcome outcome-money">
                 <div class="schema schema-money" aria-hidden="true">
                   <div class="schema-row solo-side">
-                    <span class="fare solo">€6.80</span>
-                    <span class="schema-label">Solo · total running cost</span>
+                    <span class="fare solo">€12.84</span>
+                    <span class="schema-label">Solo · total cost of ownership</span>
                   </div>
                   <div class="schema-arrow"></div>
                   <div class="schema-row split shared-side">
-                    <span class="fare">€2.00</span>
-                    <span class="fare">€2.00</span>
-                    <span class="fare">€2.00</span>
-                    <span class="schema-label">3 riders</span>
+                    <span class="fare">€3.50</span>
+                    <span class="fare">€3.50</span>
+                    <span class="schema-label">2 passengers · €7.00 back</span>
                   </div>
                 </div>
-                <h3>Save money on each ride</h3>
-                <p class="outcome-desc">Illustrative split for a similar shared ride: about €6.80 alone, €2.00 per
-                  person with three riders. This also includes depreciation. Only trip cost-sharing — never a profit
-                  model. Savings accumulate with every shared trip.</p>
-                <p class="outcome-desc-short">Illustrative: ~€6.80 alone (incl. depreciation) → €2.00 each with three
-                  riders.</p>
+                <h3>Driver</h3>
+                <p class="outcome-line">€3.50 × 2 passengers = €7.00 back vs ~€12.84 total cost of ownership.</p>
+              </article>
+
+              <article class="outcome outcome-parking">
+                <div class="schema schema-parking" aria-hidden="true">
+                  <div class="lot-live" data-lot>
+                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
+                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
+                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
+                  </div>
+                  <p class="spots-freed"><span data-meter="spots-label">0</span> free parking spaces on site</p>
+                </div>
+                <h3>Workplace</h3>
+                <p class="outcome-line">3 colleagues in 1 car free 2 parking spaces.</p>
               </article>
 
               <article class="outcome outcome-co2">
@@ -265,33 +274,13 @@
                     <span class="schema-label">1 shared</span>
                   </div>
                 </div>
-                <h3>Cut commute emissions</h3>
-                <p class="outcome-desc">Three solo cars become one shared trip. Estimated CO₂ avoided accumulates with
-                  each one-way share — usable for sustainability reporting.</p>
-                <p class="outcome-desc-short">Three cars → one trip; estimated CO₂ drops with every share.</p>
-              </article>
-
-              <article class="outcome outcome-parking">
-                <div class="schema schema-parking" aria-hidden="true">
-                  <div class="lot-live" data-lot>
-                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                  </div>
-                  <p class="spots-freed"><span data-meter="spots">0</span> spaces freed on site</p>
-                </div>
-                <h3>More spaces available</h3>
-                <p class="outcome-desc">When three colleagues arrive in one car, two spots stay open. Watch occupancy
-                  ease as the shared habit sticks.</p>
-                <p class="outcome-desc-short">Three in one car frees two spaces on site.</p>
+                <h3>Planet</h3>
+                <p class="outcome-line">3 cars → 1 trip; estimated CO₂ drops each share.</p>
               </article>
             </div>
 
             <p class="estimate-note" id="estimate-notes">
-              Illustrative estimate; actual results depend on route, vehicle and occupancy.
-              Counters show one-way shared trips (not a return commute). Cost figures are examples, not a live
-              calculator output for this route.
-              Ask us about the estimate method used in employer reports.
+              Illustrative one-way example. Actual results depend on route, vehicle and occupancy.
             </p>
 
             <p class="scroll-hint outcomes-hint">Scroll<span></span></p>
@@ -304,7 +293,7 @@
       <div class="band-inner">
         <p class="section-eyebrow">For employers</p>
         <h2>Pressure points Shurp relieves</h2>
-        <p class="deck">Five workplace problems — one connected mobility habit</p>
+        <p class="deck">Four workplace problems — one connected mobility habit</p>
 
         <div class="pain-list">
           <article class="pain-item">
@@ -325,9 +314,9 @@
           <article class="pain-item">
             <div class="pain-schema schema-costs" aria-hidden="true">
               <div class="cost-split">
-                <span class="fare solo">€6.80</span>
+                <span class="fare solo">€12.84</span>
                 <span class="schema-arrow"></span>
-                <span class="fare">€2</span>
+                <span class="fare">€3.50</span>
               </div>
               <span class="pain-schema-cap">Felt weekly</span>
             </div>
@@ -365,21 +354,6 @@
               <h3>Climate &amp; CO₂ savings</h3>
               <p>Shared rides cut estimated commute emissions and solo kilometres. Put those CO₂ and distance savings
                 next to your ESG targets — including Scope 3 Category 7.</p>
-            </div>
-          </article>
-          <article class="pain-item pain-item-wide">
-            <div class="pain-schema schema-sheets" aria-hidden="true">
-              <div class="sheet-stack">
-                <span class="sheet"></span>
-                <span class="sheet check"></span>
-                <span class="sheet check"></span>
-              </div>
-              <span class="pain-schema-cap">Verified trips</span>
-            </div>
-            <div>
-              <h3>Company rides, trip logs &amp; allowances</h3>
-              <p>Manage work-related rides and frequent corridors in one place. Use real ride data for company-car trip
-                logs, mileage records and driving allowances — not spreadsheet estimates.</p>
             </div>
           </article>
         </div>
@@ -594,7 +568,7 @@
   </footer>
 
   <script src="../assets/js/site-nav.js" defer></script>
-  <script src="../assets/js/companies.js?v=20261112a" defer></script>
+  <script src="../assets/js/companies.js?v=20261112b" defer></script>
 </body>
 
 </html>
