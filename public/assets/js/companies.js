@@ -6,7 +6,6 @@
   var words = Array.prototype.slice.call(stage.querySelectorAll(".story-line .w"));
   var storyCopy = stage.querySelector(".story-copy");
   var moon = stage.querySelector(".layer-moon");
-  var earth = stage.querySelector(".layer-earth");
   var phoneDuo = stage.querySelector(".phone-duo");
   var phoneOff = stage.querySelector(".phone-off");
   var phoneOn = stage.querySelector(".phone-on");
@@ -83,19 +82,12 @@
       }
     }
 
-    /* Moon → earth, with longer holds between beats */
+    /* Moon holds as the scene; soft scale only (earth removed) */
     var moonScale = 1.08 + map(p, 0, 0.36) * 0.08;
     moon.style.transform = "scale(" + moonScale.toFixed(3) + ")";
     moon.style.opacity = String(
-      1 - map(p, isCompact ? 0.34 : 0.26, isCompact ? 0.5 : 0.44) * 0.85
+      1 - map(p, isCompact ? 0.34 : 0.26, isCompact ? 0.5 : 0.44) * 0.2
     );
-
-    var earthIn = easeOut(
-      map(p, isCompact ? 0.36 : 0.28, isCompact ? 0.5 : 0.44)
-    );
-    earth.style.opacity = String(earthIn);
-    earth.style.transform =
-      "translate(-50%, -50%) scale(" + (0.9 + earthIn * 0.1).toFixed(3) + ")";
 
     /* Rise from below + scale settle with a light overshoot */
     var phoneRaw = map(p, isCompact ? 0.44 : 0.32, isCompact ? 0.58 : 0.48);
@@ -150,6 +142,115 @@
     window.addEventListener("resize", onScroll);
     onScroll();
   }
+
+  /* —— Outcomes scrub (solo → shared meters) —— */
+  (function initOutcomes() {
+    var storyEl = document.getElementById("outcomes");
+    var stageEl = document.getElementById("outcomes-stage");
+    if (!storyEl || !stageEl) return;
+
+    var kmDay = parseFloat(storyEl.getAttribute("data-km-day") || "30");
+    var saveDay = parseFloat(storyEl.getAttribute("data-save-day") || "2.8");
+    var co2Day = parseFloat(storyEl.getAttribute("data-co2-day") || "7.2");
+    var spotsMax = parseInt(storyEl.getAttribute("data-spots") || "2", 10);
+    var maxDays = parseInt(storyEl.getAttribute("data-max-days") || "22", 10);
+    var lotCells = Array.prototype.slice.call(
+      stageEl.querySelectorAll("[data-lot] i")
+    );
+    var meterKm = stageEl.querySelector('[data-meter="km"]');
+    var meterEur = stageEl.querySelector('[data-meter="eur"]');
+    var meterDays = stageEl.querySelector('[data-meter="days"]');
+    var meterCo2 = stageEl.querySelector('[data-meter="co2"]');
+    var meterSpots = stageEl.querySelector('[data-meter="spots"]');
+    var meterCo2Inline = stageEl.querySelector('[data-meter-inline="co2"]');
+
+    function outcomesProgress() {
+      var rect = storyEl.getBoundingClientRect();
+      var total = storyEl.offsetHeight - window.innerHeight;
+      if (total <= 0) return 1;
+      return clamp(-rect.top / total, 0, 1);
+    }
+
+    function formatEur(n) {
+      var rounded = Math.round(n * 10) / 10;
+      var sep = document.documentElement.lang === "lv" ? "," : ".";
+      var body = rounded % 1 === 0
+        ? String(rounded.toFixed(0))
+        : String(rounded.toFixed(1)).replace(".", sep);
+      return "€" + body;
+    }
+
+    function applyOutcomes(p) {
+      var share = easeOut(map(p, 0.06, 0.28));
+      var grow = easeOut(map(p, 0.22, 0.94));
+      stageEl.style.setProperty("--op", String(p));
+      stageEl.style.setProperty("--share", String(share));
+      stageEl.style.setProperty("--grow", String(grow));
+
+      var days = Math.round(grow * maxDays);
+      var km = Math.round(days * kmDay);
+      var eur = days * saveDay;
+      var co2 = days * co2Day;
+      var spots = share > 0.55 ? spotsMax : share > 0.25 ? 1 : 0;
+
+      if (meterKm) meterKm.textContent = String(km);
+      if (meterEur) meterEur.textContent = formatEur(eur);
+      if (meterDays) meterDays.textContent = String(days);
+      if (meterCo2) meterCo2.textContent = String(Math.round(co2));
+      if (meterCo2Inline) meterCo2Inline.textContent = String(Math.round(co2));
+      if (meterSpots) meterSpots.textContent = String(spots);
+
+      /* Clear two bays as the trio shares one car */
+      lotCells.forEach(function (cell, i) {
+        var free = (i === 1 && spots >= 1) || (i === 2 && spots >= 2);
+        cell.classList.toggle("is-free", free);
+      });
+    }
+
+    var mobileMq = window.matchMedia("(max-width: 859px)");
+    var outcomesTicking = false;
+    var scrubBound = false;
+
+    function onOutcomesScroll() {
+      if (outcomesTicking) return;
+      outcomesTicking = true;
+      window.requestAnimationFrame(function () {
+        applyOutcomes(outcomesProgress());
+        outcomesTicking = false;
+      });
+    }
+
+    function bindScrub() {
+      if (scrubBound) return;
+      scrubBound = true;
+      window.addEventListener("scroll", onOutcomesScroll, { passive: true });
+      window.addEventListener("resize", onOutcomesScroll);
+    }
+
+    function unbindScrub() {
+      if (!scrubBound) return;
+      scrubBound = false;
+      window.removeEventListener("scroll", onOutcomesScroll);
+      window.removeEventListener("resize", onOutcomesScroll);
+    }
+
+    function syncOutcomesMode() {
+      if (reduce || mobileMq.matches) {
+        unbindScrub();
+        applyOutcomes(1);
+        return;
+      }
+      bindScrub();
+      onOutcomesScroll();
+    }
+
+    syncOutcomesMode();
+    if (typeof mobileMq.addEventListener === "function") {
+      mobileMq.addEventListener("change", syncOutcomesMode);
+    } else if (typeof mobileMq.addListener === "function") {
+      mobileMq.addListener(syncOutcomesMode);
+    }
+  })();
 
   /* —— Request form —— */
   var form = document.getElementById("b2b-form");
