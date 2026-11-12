@@ -20,6 +20,17 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Whole-page smooth scroll between (and through) scrub sections. */
+  var lenis = null;
+  if (!reduce && typeof window.Lenis === "function") {
+    lenis = new window.Lenis({
+      autoRaf: true,
+      anchors: true,
+      allowNestedScroll: true,
+      lerp: 0.1,
+    });
+  }
+
   function clamp(n, a, b) {
     return Math.max(a, Math.min(b, n));
   }
@@ -257,8 +268,8 @@
 
     function applyHow(progress) {
       pinEl.style.setProperty("--how", String(progress));
-      /* Metrics start rising once step 3 is mostly on screen */
-      applyAdmin(easeOut(map(progress, 0.48, 0.98)));
+      /* Numbers only after every section has finished revealing */
+      applyAdmin(easeOut(map(progress, 0.52, 0.98)));
     }
 
     function stickyTopPx() {
@@ -420,10 +431,14 @@
     window.clearTimeout(selectTimer);
     selectTimer = window.setTimeout(function () {
       if (requestSection) {
-        requestSection.scrollIntoView({
-          behavior: reduce ? "auto" : "smooth",
-          block: "start",
-        });
+        if (lenis && typeof lenis.scrollTo === "function") {
+          lenis.scrollTo(requestSection, { offset: 0 });
+        } else {
+          requestSection.scrollIntoView({
+            behavior: reduce ? "auto" : "smooth",
+            block: "start",
+          });
+        }
       }
       window.setTimeout(function () {
         var company = form.company;
