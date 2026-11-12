@@ -29,17 +29,9 @@
     return clamp((p - a) / (b - a), 0, 1);
   }
 
+  /* Decelerate into rest — soft landing, no overshoot. */
   function easeOut(t) {
     return 1 - Math.pow(1 - t, 2.4);
-  }
-
-  /* Mild overshoot — rise, pass the mark, settle. */
-  function easeOutBack(t) {
-    if (t <= 0) return 0;
-    if (t >= 1) return 1;
-    var c1 = 1.45;
-    var c3 = c1 + 1;
-    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
   }
 
   function setCaption(el, amount) {
@@ -89,9 +81,9 @@
       1 - map(p, isCompact ? 0.34 : 0.26, isCompact ? 0.5 : 0.44) * 0.2
     );
 
-    /* Rise from below + scale settle with a light overshoot */
+    /* Rise from below + scale settle — ease-out landing */
     var phoneRaw = map(p, isCompact ? 0.44 : 0.32, isCompact ? 0.58 : 0.48);
-    var phoneIn = easeOutBack(phoneRaw);
+    var phoneIn = easeOut(phoneRaw);
     if (phoneDuo) {
       var yBase = isCompact ? -30 : -46;
       var yTravel = isCompact ? 56 : 48;
@@ -157,12 +149,12 @@
     var lotCells = Array.prototype.slice.call(
       stageEl.querySelectorAll("[data-lot] i")
     );
-    var meterKm = stageEl.querySelector('[data-meter="km"]');
-    var meterEur = stageEl.querySelector('[data-meter="eur"]');
-    var meterDays = stageEl.querySelector('[data-meter="days"]');
-    var meterCo2 = stageEl.querySelector('[data-meter="co2"]');
+    var meterKm = stageEl.querySelectorAll('[data-meter="km"]');
+    var meterEur = stageEl.querySelectorAll('[data-meter="eur"]');
+    var meterDays = stageEl.querySelectorAll('[data-meter="days"]');
+    var meterCo2 = stageEl.querySelectorAll('[data-meter="co2"]');
     var meterSpots = stageEl.querySelectorAll('[data-meter="spots"], [data-meter="spots-label"]');
-    var meterCo2Inline = stageEl.querySelector('[data-meter-inline="co2"]');
+    var meterCo2Inline = stageEl.querySelectorAll('[data-meter-inline="co2"]');
 
     function outcomesProgress() {
       var rect = storyEl.getBoundingClientRect();
@@ -193,11 +185,21 @@
       var co2 = days * co2Day;
       var spots = share > 0.55 ? spotsMax : share > 0.25 ? 1 : 0;
 
-      if (meterKm) meterKm.textContent = String(km);
-      if (meterEur) meterEur.textContent = formatEur(eur);
-      if (meterDays) meterDays.textContent = String(days);
-      if (meterCo2) meterCo2.textContent = String(Math.round(co2));
-      if (meterCo2Inline) meterCo2Inline.textContent = String(Math.round(co2));
+      meterKm.forEach(function (el) {
+        el.textContent = String(km);
+      });
+      meterEur.forEach(function (el) {
+        el.textContent = formatEur(eur);
+      });
+      meterDays.forEach(function (el) {
+        el.textContent = String(days);
+      });
+      meterCo2.forEach(function (el) {
+        el.textContent = String(Math.round(co2));
+      });
+      meterCo2Inline.forEach(function (el) {
+        el.textContent = String(Math.round(co2));
+      });
       meterSpots.forEach(function (el) {
         el.textContent = String(spots);
       });
@@ -347,6 +349,15 @@
   }
 
   planCards.forEach(function (card) {
+    var more = card.querySelector(".plan-more");
+    if (more) {
+      more.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+      more.addEventListener("keydown", function (event) {
+        event.stopPropagation();
+      });
+    }
     card.addEventListener("click", function () {
       applyPlanChoice(card.getAttribute("data-plan"));
     });

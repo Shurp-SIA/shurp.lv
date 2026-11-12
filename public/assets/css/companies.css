@@ -524,7 +524,7 @@ a {
 /* —— Outcomes sticky scrub —— */
 .outcomes-story {
   position: relative;
-  height: 280vh;
+  height: 340vh;
   border-top: 1px solid rgba(255, 249, 245, 0.08);
   background: #0b0d10;
 }
@@ -534,9 +534,10 @@ a {
   top: 0;
   height: 100vh;
   height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background:
     radial-gradient(ellipse 55% 60% at 88% 10%, rgba(18, 94, 138, 0.16), transparent 55%),
     #0b0d10;
@@ -548,7 +549,7 @@ a {
   --op: 0;
   --share: 0;
   --grow: 0;
-  padding: clamp(4.5rem, 10vh, 6rem) clamp(1.25rem, 5vw, 4rem) clamp(2rem, 5vh, 3rem);
+  padding: clamp(4.25rem, 8vh, 5.5rem) clamp(1.25rem, 5vw, 4rem) clamp(1.5rem, 4vh, 2.5rem);
   box-sizing: border-box;
 }
 
@@ -658,8 +659,10 @@ a {
   border-radius: 12px;
   border: 1px solid rgba(255, 249, 245, 0.12);
   background: rgba(255, 249, 245, 0.03);
-  opacity: calc(0.35 + var(--grow) * 0.65);
-  transform: translateY(calc((1 - var(--grow)) * 10px));
+  /* Hit full opacity early — as soon as values start ticking */
+  --meter-in: clamp(0, calc(var(--grow) / 0.1), 1);
+  opacity: calc(0.35 + var(--meter-in) * 0.65);
+  transform: translateY(calc((1 - var(--meter-in)) * 10px));
 }
 
 .meter-val {
@@ -690,16 +693,12 @@ a {
 
 .outcomes {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 1.35rem;
+  margin-top: 1.35rem;
 }
 
-@media (min-width: 860px) {
-  .outcomes {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.15rem;
-    align-items: stretch;
-  }
+.outcomes-split {
+  grid-template-columns: 1fr;
 }
 
 .outcome {
@@ -711,20 +710,25 @@ a {
   transform: translateY(calc((1 - var(--reveal, 0)) * 16px));
 }
 
-.outcome-money {
-  --reveal: clamp(0, calc(var(--op) / 0.18), 1);
+.outcome-company {
+  --reveal: clamp(0, calc(var(--op) / 0.22), 1);
 }
 
-.outcome-parking {
-  --reveal: clamp(0, calc((var(--op) - 0.08) / 0.2), 1);
+.outcome-driver {
+  --reveal: clamp(0, calc((var(--op) - 0.28) / 0.28), 1);
 }
 
-.outcome-co2 {
-  --reveal: clamp(0, calc((var(--op) - 0.16) / 0.2), 1);
+.outcome-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7eb7d6;
 }
 
 .outcome h3 {
-  margin: 0.95rem 0 0.35rem;
+  margin: 0 0 0.35rem;
   font-size: 1.08rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -737,6 +741,92 @@ a {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.45;
+  max-width: 46rem;
+}
+
+.outcome-schemas {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 720px) {
+  .outcome-schemas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.live-meters-company,
+.live-meters-driver {
+  margin-top: 1rem;
+}
+
+.live-meters-driver {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 28rem;
+}
+
+.schema-money-only {
+  margin-top: 1rem;
+  min-height: 0;
+  max-width: 28rem;
+}
+
+.schema-money-only .shared-side {
+  opacity: calc(0.35 + var(--share) * 0.65);
+  transform: none;
+}
+
+.proof-strip {
+  margin-top: 1.15rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 249, 245, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 249, 245, 0.025);
+}
+
+.proof-strip-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 249, 245, 0.55);
+}
+
+.proof-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 860px) {
+  .proof-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.proof-val {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--warm);
+}
+
+.proof-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.proof-source {
+  margin: 0.75rem 0 0;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: rgba(255, 249, 245, 0.42);
 }
 
 .estimate-note {
@@ -1534,6 +1624,57 @@ a {
   line-height: 1.45;
 }
 
+.plan-more {
+  margin-top: 0.85rem;
+  margin-bottom: 0.35rem;
+  border-top: 1px solid rgba(255, 249, 245, 0.1);
+  padding-top: 0.65rem;
+  padding-bottom: 0.25rem;
+}
+
+.plan-more > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9ec9e0;
+  user-select: none;
+}
+
+.plan-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.plan-more > summary::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  flex: 0 0 auto;
+}
+
+.plan-more[open] > summary::after {
+  transform: rotate(225deg);
+  margin-top: 0.2rem;
+}
+
+.plan-more .plan-full {
+  margin-top: 0.55rem;
+}
+
+.plan-more .includes {
+  margin-top: 0.55rem;
+}
+
 .plan .name {
   font-family: var(--font);
   font-weight: 700;
@@ -1547,13 +1688,44 @@ a {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--warm);
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.25rem;
 }
 
 .plan .price span {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--muted);
+}
+
+.plan .price-lock {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7eb7d6;
+}
+
+.plan .price-teaser {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  color: rgba(255, 249, 245, 0.48);
+}
+
+.plan .price-teaser s {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: rgba(255, 249, 245, 0.55);
+}
+
+.plan .price-teaser span {
+  color: rgba(255, 249, 245, 0.48);
 }
 
 .plan .ask {
@@ -1580,8 +1752,8 @@ a {
 
 .plan-cta {
   display: block;
-  margin-top: 1.15rem;
-  padding-top: 0.85rem;
+  margin-top: 1.55rem;
+  padding-top: 1.05rem;
   border-top: 1px solid rgba(255, 249, 245, 0.12);
   font-size: 0.78rem;
   font-weight: 700;
@@ -1618,14 +1790,15 @@ a {
 }
 
 .note {
-  margin: 2rem 0 0;
-  max-width: 40rem;
-  color: rgba(255, 249, 245, 0.62);
-  font-size: 0.92rem;
+  margin: 1.5rem 0 0;
+  max-width: 42rem;
+  color: rgba(255, 249, 245, 0.48);
+  font-size: 0.78rem;
+  line-height: 1.45;
 }
 
 .note+.note {
-  margin-top: 0.55rem;
+  margin-top: 0.4rem;
 }
 
 .request {

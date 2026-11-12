@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/companies.css?v=20261112g">
+  <link rel="stylesheet" href="../assets/css/companies.css?v=20261112m">
   <link rel="stylesheet" href="../assets/css/site-nav.css">
   <script type="application/ld+json">
 {
@@ -47,20 +47,20 @@
       "name": "Team",
       "price": "50",
       "priceCurrency": "EUR",
-      "description": "Workplace carpooling with monthly commute impact reporting for up to 45 connected employees."
+      "description": "Early Team rate: workplace carpooling, ad-free for up to 45 connected employees, monthly impact report and launch support."
     },
     {
       "@type": "Offer",
       "name": "Pro",
       "price": "100",
       "priceCurrency": "EUR",
-      "description": "Live employer dashboard, workplace mobility analytics and Scope 3 Category 7 reporting support with no connected-employee limit."
+      "description": "Early Pro rate: live dashboard, Scope 3 Category 7 reporting, ad-free for up to 100 connected employees, then €1.40 per user per month."
     },
     {
       "@type": "Offer",
       "name": "Custom",
       "priceCurrency": "EUR",
-      "description": "Tailored workplace mobility solution with multi-site commute analysis, API integrations and advanced environmental impact tracking. Contact sales for pricing."
+      "description": "Tailored workplace mobility with multi-site communities, integrations and a dedicated launch partner. Contact sales for pricing."
     }
   ],
   "author": {
@@ -178,14 +178,15 @@
       </div>
     </section>
 
+    <!-- data-save-day = €3.50 × 2 passengers per one-way trip -->
     <section class="outcomes-story" id="outcomes" aria-label="What you gain" data-km-day="43" data-save-day="7"
       data-co2-day="18.1" data-spots="2" data-max-days="20">
       <div class="outcomes-pin">
         <div class="outcomes-stage" id="outcomes-stage">
           <div class="band-inner outcomes-inner">
             <p class="section-eyebrow">Impact</p>
-            <h2>One shared ride. Three wins.</h2>
-            <p class="deck">Driver. Workplace. Planet.</p>
+            <h2>Carpooling the company can measure</h2>
+            <p class="deck">Parking. CO₂. Employee savings.</p>
 
             <p class="route-cap">
               <span class="route-dot" aria-hidden="true"></span>
@@ -194,9 +195,9 @@
 
             <p class="visually-hidden">
               Illustrative one-way example: three colleagues share one car on a ~43 km corridor.
-              Each passenger contributes €3.50, so the driver receives €7.00 toward the ~€12.84
-              total cost of ownership. Counters accumulate driver savings, parking spaces freed and estimated
-              CO₂ avoided as shared days add up.
+              Each passenger contributes €3.50, so the driver receives €7.00 per trip.
+              Counters accumulate parking spaces freed, estimated CO₂ avoided and driver earnings
+              as shared trips add up.
             </p>
 
             <div class="mode-pill" aria-hidden="true">
@@ -205,77 +206,110 @@
               <span class="mode-shared">Shared</span>
             </div>
 
-            <div class="live-meters" aria-hidden="true">
-              <div class="meter">
-                <span class="meter-val" data-meter="eur">€0</span>
-                <span class="meter-unit">driver receives</span>
-              </div>
-              <div class="meter">
-                <span class="meter-val" data-meter="spots">0</span>
-                <span class="meter-unit">spaces freed / day</span>
-              </div>
-              <div class="meter" data-tone="co2">
-                <span class="meter-val" data-meter="co2">0</span>
-                <span class="meter-unit">kg CO₂ avoided</span>
-              </div>
-              <div class="meter">
-                <span class="meter-val" data-meter="days">0</span>
-                <span class="meter-unit">days carpooling</span>
-              </div>
-            </div>
+            <div class="outcomes outcomes-split">
+              <article class="outcome outcome-company">
+                <p class="outcome-kicker">For the company</p>
+                <h3>Parking and measurable impact</h3>
+                <p class="outcome-line">3 colleagues · 1 car · 2 free parking spaces per trip. CO₂ and kilometres grow
+                  with every shared ride.</p>
 
-            <div class="outcomes">
-              <article class="outcome outcome-money">
-                <div class="schema schema-money" aria-hidden="true">
-                  <div class="schema-row solo-side">
-                    <span class="fare solo">€12.84</span>
-                    <span class="schema-label">Solo · total cost of ownership</span>
+                <div class="live-meters live-meters-company" aria-hidden="true">
+                  <div class="meter">
+                    <span class="meter-val" data-meter="spots">0</span>
+                    <span class="meter-unit">spaces freed / day</span>
                   </div>
-                  <div class="schema-arrow"></div>
+                  <div class="meter" data-tone="co2">
+                    <span class="meter-val" data-meter="co2">0</span>
+                    <span class="meter-unit">kg CO₂ avoided</span>
+                  </div>
+                  <div class="meter">
+                    <span class="meter-val" data-meter="days">0</span>
+                    <span class="meter-unit">shared trips</span>
+                  </div>
+                  <div class="meter">
+                    <span class="meter-val" data-meter="km">0</span>
+                    <span class="meter-unit">km total</span>
+                  </div>
+                </div>
+
+                <div class="outcome-schemas">
+                  <div class="schema schema-parking" aria-hidden="true">
+                    <div class="lot-live" data-lot>
+                      <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
+                      <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
+                      <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
+                    </div>
+                    <p class="spots-freed"><span data-meter="spots-label">0</span> free parking spaces on site</p>
+                  </div>
+                  <div class="schema schema-co2" aria-hidden="true">
+                    <div class="bar-col solo-bars">
+                      <div class="bar-row">
+                        <span class="bar tall"></span>
+                        <span class="bar tall"></span>
+                        <span class="bar tall"></span>
+                      </div>
+                      <span class="schema-label">3 solo</span>
+                    </div>
+                    <div class="schema-arrow"></div>
+                    <div class="bar-col shared-bars">
+                      <div class="bar-row shared-row">
+                        <span class="bar short"></span>
+                        <span class="co2-chip"><span data-meter-inline="co2">0</span> kg</span>
+                      </div>
+                      <span class="schema-label">1 shared</span>
+                    </div>
+                  </div>
+                </div>
+
+                <aside class="proof-strip" aria-label="Industry examples">
+                  <p class="proof-strip-title">What carpooling can deliver (industry examples)</p>
+                  <div class="proof-stats">
+                    <div class="proof-stat">
+                      <span class="proof-val">~25%</span>
+                      <span class="proof-label">lower parking demand</span>
+                    </div>
+                    <div class="proof-stat">
+                      <span class="proof-val">~30%</span>
+                      <span class="proof-label">fewer cars on site</span>
+                    </div>
+                    <div class="proof-stat">
+                      <span class="proof-val">~28%</span>
+                      <span class="proof-label">drop in commute CO₂e</span>
+                    </div>
+                    <div class="proof-stat">
+                      <span class="proof-val">~139 kg</span>
+                      <span class="proof-label">CO₂e / employee / year per vehicle removed</span>
+                    </div>
+                  </div>
+                  <p class="proof-source">Sources: Ordnance Survey + Liftshare; Liftshare For Work / Mobilityways
+                    published outcomes. Not Shurp customer data.</p>
+                </aside>
+              </article>
+
+              <article class="outcome outcome-driver">
+                <p class="outcome-kicker">For the driver</p>
+                <h3>€3.50 from each passenger</h3>
+                <p class="outcome-line">Jelgava example: €3.50 × 2 passengers = €7.00 to the driver per trip. The total
+                  grows with every shared ride.</p>
+
+                <div class="live-meters live-meters-driver" aria-hidden="true">
+                  <div class="meter">
+                    <span class="meter-val" data-meter="eur">€0</span>
+                    <span class="meter-unit">driver receives</span>
+                  </div>
+                  <div class="meter">
+                    <span class="meter-val">€3.50</span>
+                    <span class="meter-unit">per passenger / trip</span>
+                  </div>
+                </div>
+
+                <div class="schema schema-money schema-money-only" aria-hidden="true">
                   <div class="schema-row split shared-side">
                     <span class="fare">€3.50</span>
                     <span class="fare">€3.50</span>
-                    <span class="schema-label">2 passengers · €7.00 back</span>
+                    <span class="schema-label">2 passengers · €7.00 / trip</span>
                   </div>
                 </div>
-                <h3>Driver</h3>
-                <p class="outcome-line">€3.50 × 2 passengers = €7.00 back vs ~€12.84 total cost of ownership.</p>
-              </article>
-
-              <article class="outcome outcome-parking">
-                <div class="schema schema-parking" aria-hidden="true">
-                  <div class="lot-live" data-lot>
-                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                    <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                  </div>
-                  <p class="spots-freed"><span data-meter="spots-label">0</span> free parking spaces on site</p>
-                </div>
-                <h3>Workplace</h3>
-                <p class="outcome-line">3 colleagues in 1 car free 2 parking spaces.</p>
-              </article>
-
-              <article class="outcome outcome-co2">
-                <div class="schema schema-co2" aria-hidden="true">
-                  <div class="bar-col solo-bars">
-                    <div class="bar-row">
-                      <span class="bar tall"></span>
-                      <span class="bar tall"></span>
-                      <span class="bar tall"></span>
-                    </div>
-                    <span class="schema-label">3 solo</span>
-                  </div>
-                  <div class="schema-arrow"></div>
-                  <div class="bar-col shared-bars">
-                    <div class="bar-row shared-row">
-                      <span class="bar short"></span>
-                      <span class="co2-chip"><span data-meter-inline="co2">0</span> kg</span>
-                    </div>
-                    <span class="schema-label">1 shared</span>
-                  </div>
-                </div>
-                <h3>Planet</h3>
-                <p class="outcome-line">3 cars → 1 trip; estimated CO₂ drops each share.</p>
               </article>
             </div>
 
@@ -430,70 +464,93 @@
           <article class="plan" role="radio" aria-checked="false" tabindex="0" data-plan="Team">
             <h3 class="name">Team</h3>
             <p class="price">€50 <span>/ month</span></p>
-            <p class="blurb">Everything you need to introduce workplace carpooling and measure its impact</p>
-            <ul>
+            <p class="price-lock">Early rate · locked for 12 months</p>
+            <p class="price-teaser"><span>Standard price</span> · <s>€99 / month or €990 / year</s></p>
+            <p class="blurb">Start workplace carpooling and see monthly impact</p>
+            <ul class="plan-highlights">
               <li>Up to 45 connected employees</li>
-              <li>Simple one-email QR code onboarding</li>
-              <li>One Company administration panel</li>
-              <li>Work-ride tagging</li>
-              <li>Automatic shift matching</li>
-              <li>Monthly commute impact report</li>
-              <li>Shared kilometres and estimated CO₂ savings</li>
-              <li>Estimated travel-cost savings</li>
-              <li>Monthly report export by email</li>
+              <li>Ad-free for every Team employee</li>
+              <li>QR / email invite and work-trip matching</li>
+              <li>Monthly impact report by email</li>
+              <li>Launch support: setup call + launch checklist</li>
               <li>Standard support</li>
             </ul>
+            <details class="plan-more">
+              <summary>More details</summary>
+              <ul class="plan-full">
+                <li>One company administrator account</li>
+                <li>Work-ride tagging</li>
+                <li>Automatic shift matching</li>
+                <li>Shared kilometres and estimated CO₂ savings</li>
+                <li>Estimated travel-cost savings</li>
+                <li>Ad-free replaces the individual €1.99 / user / month in-app ad-removal fee</li>
+              </ul>
+            </details>
             <span class="plan-cta">Select</span>
           </article>
           <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Pro">
             <h3 class="name">Pro</h3>
             <p class="price">€100 <span>/ month</span></p>
-            <p class="blurb">For organisations ready to actively manage and grow employee carpooling</p>
+            <p class="price-lock">Early rate · locked for 12 months</p>
+            <p class="price-teaser"><span>Standard price</span> · <s>€199 / month or €1,990 / year</s></p>
+            <p class="blurb">Run the programme and prove impact with live data</p>
             <p class="includes">Everything in Team, plus:</p>
-            <ul>
+            <ul class="plan-highlights">
               <li>No connected-employee limit</li>
-              <li>Live employer dashboard</li>
-              <li>Detailed commute and corridor analytics</li>
-              <li>Shift and participation breakdowns</li>
-              <li>Privacy-first verified-trip attestations</li>
-              <li>Multiple administrator accounts</li>
-              <li>Employee engagement and campaign tools</li>
-              <li>Parking and incentive programme tools</li>
-              <li>Historical performance comparisons</li>
-              <li>Advanced workplace mobility analytics and Scope 3, Category 7 reporting support, using real commuting
-                journeys, vehicle data, fuel types and shared-trip activity to calculate estimated emissions and
-                commuting impact</li>
+              <li>Ad-free for up to 100 connected employees; then €1.40 / user / month</li>
+              <li>Live dashboard with corridor and shift analytics</li>
+              <li>Scope 3 Category 7 reporting pack</li>
+              <li>Multiple admins + engagement and parking incentive tools</li>
+              <li>Launch support: onboarding workshop + engagement playbook</li>
               <li>Priority support</li>
             </ul>
+            <details class="plan-more">
+              <summary>More details</summary>
+              <ul class="plan-full">
+                <li>Detailed commute and corridor analytics</li>
+                <li>Shift and participation breakdowns</li>
+                <li>Privacy-first verified-trip attestations</li>
+                <li>Historical performance comparisons</li>
+                <li>Scope 3 Category 7 calculations from real journeys, vehicle data, fuel types and shared-trip
+                  activity</li>
+              </ul>
+            </details>
             <span class="plan-cta">Select</span>
           </article>
           <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Custom">
             <h3 class="name">Custom</h3>
             <p class="price ask">Contact sales</p>
-            <p class="blurb">A tailored mobility solution for larger organisations, municipalities, campuses and complex
-              operations</p>
-            <ul>
-              <li>Multiple companies, locations and departments</li>
-              <li>Cross-company commuting communities</li>
-              <li>Custom API and HR system integrations</li>
-              <li>Parking, ANPR and access-control integrations</li>
-              <li>Advanced route and corridor reporting</li>
-              <li>Shift-based mobility planning</li>
-              <li>Custom verification and reporting workflows</li>
-              <li>Tailored integrations for trip-log and allowance workflows</li>
-              <li>Eco-driving and vehicle efficiency insights</li>
-              <li>Incentives, rewards and mobility programme tools</li>
-              <li>Comprehensive workplace mobility intelligence with tailored Scope 3 reporting, multi-site commute
-                analysis, custom emissions methodologies, API integrations and advanced environmental impact tracking
-              </li>
-              <li>Dedicated implementation and ongoing support</li>
+            <p class="blurb">Campus, business park or multi-site — scoped to your footprint</p>
+            <ul class="plan-highlights">
+              <li>Multi-site and shared carpooling communities</li>
+              <li>API, HRIS and ANPR / access integrations</li>
+              <li>Tailored Scope 3 reporting and negotiated ad-free cover</li>
+              <li>Dedicated launch partner</li>
+              <li>Custom implementation and ongoing support</li>
             </ul>
-            <p class="plan-foot">Every Custom solution is scoped around your organisation, infrastructure and mobility
-              objectives.</p>
+            <details class="plan-more">
+              <summary>More details</summary>
+              <ul class="plan-full">
+                <li>Multiple companies and departments in one programme</li>
+                <li>Advanced route and corridor reporting</li>
+                <li>Shift-based mobility planning</li>
+                <li>Custom verification and reporting workflows</li>
+                <li>Tailored integrations for trip-log and allowance workflows</li>
+                <li>Eco-driving and vehicle efficiency insights</li>
+                <li>Incentives, rewards and mobility programme tools</li>
+                <li>Custom emissions methodologies and deeper environmental impact tracking</li>
+              </ul>
+              <p class="plan-foot">Every Custom solution is scoped around your organisation, infrastructure and mobility
+                objectives.</p>
+            </details>
             <span class="plan-cta">Select</span>
           </article>
         </div>
 
+        <p class="note">Early onboarding rates apply until <strong>12 May 2027</strong>. Sign by that date and the early
+          rate is locked for <strong>12 months</strong> from the start of your subscription.</p>
+        <p class="note">Ad-free replaces the individual €1.99 / user / month in-app ad-removal fee for covered seats. On
+          Pro, seats above 100 connected employees are €1.40 / user / month.</p>
         <p class="note">Limits apply to employees connected in Shurp, not total company headcount.</p>
         <p class="note">All amounts exclude Latvian VAT (+21%).</p>
         <p class="note">Subscription fees are calculated according to the selected plan, and the invoice is issued after
@@ -568,7 +625,7 @@
   </footer>
 
   <script src="../assets/js/site-nav.js" defer></script>
-  <script src="../assets/js/companies.js?v=20261112b" defer></script>
+  <script src="../assets/js/companies.js?v=20261112d" defer></script>
 </body>
 
 </html>
