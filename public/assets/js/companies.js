@@ -135,125 +135,209 @@
     onScroll();
   }
 
-  /* —— Outcomes scrub (solo → shared meters) —— */
-  (function initOutcomes() {
-    var storyEl = document.getElementById("outcomes");
-    var stageEl = document.getElementById("outcomes-stage");
-    if (!storyEl || !stageEl) return;
+  /* —— How-it-works pin: reveal 1→2→3, then grow admin metrics —— */
+  (function initAdminInsights() {
+    var scrubEl = document.getElementById("admin-scrub");
+    var pinEl = scrubEl && scrubEl.querySelector(".admin-scrub-pin");
+    var stageEl = document.getElementById("admin-scrub-stage");
+    if (!scrubEl || !pinEl || !stageEl) return;
 
-    var kmDay = parseFloat(storyEl.getAttribute("data-km-day") || "43");
-    var saveDay = parseFloat(storyEl.getAttribute("data-save-day") || "7");
-    var co2Day = parseFloat(storyEl.getAttribute("data-co2-day") || "18.1");
-    var spotsMax = parseInt(storyEl.getAttribute("data-spots") || "2", 10);
-    var maxDays = parseInt(storyEl.getAttribute("data-max-days") || "22", 10);
-    var lotCells = Array.prototype.slice.call(
-      stageEl.querySelectorAll("[data-lot] i")
-    );
-    var meterKm = stageEl.querySelectorAll('[data-meter="km"]');
-    var meterEur = stageEl.querySelectorAll('[data-meter="eur"]');
-    var meterDays = stageEl.querySelectorAll('[data-meter="days"]');
-    var meterCo2 = stageEl.querySelectorAll('[data-meter="co2"]');
-    var meterSpots = stageEl.querySelectorAll('[data-meter="spots"], [data-meter="spots-label"]');
-    var meterCo2Inline = stageEl.querySelectorAll('[data-meter-inline="co2"]');
-
-    function outcomesProgress() {
-      var rect = storyEl.getBoundingClientRect();
-      var total = storyEl.offsetHeight - window.innerHeight;
-      if (total <= 0) return 1;
-      return clamp(-rect.top / total, 0, 1);
-    }
-
-    function formatEur(n) {
-      var rounded = Math.round(n * 10) / 10;
-      var sep = document.documentElement.lang === "lv" ? "," : ".";
-      var body = rounded % 1 === 0
-        ? String(rounded.toFixed(0))
-        : String(rounded.toFixed(1)).replace(".", sep);
-      return "€" + body;
-    }
-
-    function applyOutcomes(p) {
-      var share = easeOut(map(p, 0.06, 0.28));
-      var grow = easeOut(map(p, 0.22, 0.94));
-      stageEl.style.setProperty("--op", String(p));
-      stageEl.style.setProperty("--share", String(share));
-      stageEl.style.setProperty("--grow", String(grow));
-
-      var days = Math.round(grow * maxDays);
-      var km = Math.round(days * kmDay);
-      var eur = days * saveDay;
-      var co2 = days * co2Day;
-      var spots = share > 0.55 ? spotsMax : share > 0.25 ? 1 : 0;
-
-      meterKm.forEach(function (el) {
-        el.textContent = String(km);
-      });
-      meterEur.forEach(function (el) {
-        el.textContent = formatEur(eur);
-      });
-      meterDays.forEach(function (el) {
-        el.textContent = String(days);
-      });
-      meterCo2.forEach(function (el) {
-        el.textContent = String(Math.round(co2));
-      });
-      meterCo2Inline.forEach(function (el) {
-        el.textContent = String(Math.round(co2));
-      });
-      meterSpots.forEach(function (el) {
-        el.textContent = String(spots);
-      });
-
-      /* Clear two bays as three colleagues share one car */
-      lotCells.forEach(function (cell, i) {
-        var free = (i === 1 && spots >= 1) || (i === 2 && spots >= 2);
-        cell.classList.toggle("is-free", free);
-      });
-    }
-
+    var empMin = parseInt(scrubEl.getAttribute("data-employees-min") || "2", 10);
+    var empMax = parseInt(scrubEl.getAttribute("data-employees-max") || "34", 10);
+    var seats = parseInt(scrubEl.getAttribute("data-seats") || "100", 10);
+    var tripsPerEmp = parseFloat(scrubEl.getAttribute("data-trips-per-emp") || "1");
+    var isLv = document.documentElement.lang === "lv";
     var mobileMq = window.matchMedia("(max-width: 859px)");
-    var outcomesTicking = false;
+
+    /* Share of trips/passengers across top routes (sums to 1). */
+    var routeShares = [0.28, 0.18, 0.16, 0.14, 0.14, 0.1];
+
+    var elEmployees = stageEl.querySelectorAll('[data-admin="employees"]');
+    var elSeats = stageEl.querySelectorAll('[data-admin="seats"]');
+    var elCo2 = stageEl.querySelectorAll('[data-admin="co2"]');
+    var elEur = stageEl.querySelectorAll('[data-admin="eur"]');
+    var elKm = stageEl.querySelectorAll('[data-admin="km"]');
+    var routeRows = Array.prototype.slice.call(
+      stageEl.querySelectorAll("[data-route-row]")
+    );
+
+    /* Plain per-trip constants from HTML (no pricing formulas in this repo). */
+    var routeKm = routeRows.map(function (row) {
+      return parseFloat(row.getAttribute("data-km") || "0") || 0;
+    });
+    var routeSaveEur = routeRows.map(function (row) {
+      return parseFloat(row.getAttribute("data-save-eur") || "0") || 0;
+    });
+    var routeCo2Kg = routeRows.map(function (row) {
+      return parseFloat(row.getAttribute("data-co2-kg") || "0") || 0;
+    });
+
+    elSeats.forEach(function (el) {
+      el.textContent = String(seats);
+    });
+
+    function formatInt(n) {
+      var s = String(Math.round(n));
+      if (isLv) return s.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      return s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    /* Largest-remainder split so integer parts always sum to total */
+    function distributeInt(total, shares, count) {
+      var n = Math.max(0, Math.round(total));
+      var raw = [];
+      var floors = [];
+      var i;
+      for (i = 0; i < count; i++) {
+        var share = shares[i] != null ? shares[i] : 0;
+        var value = n * share;
+        raw.push(value);
+        floors.push(Math.floor(value));
+      }
+      var used = 0;
+      for (i = 0; i < floors.length; i++) used += floors[i];
+      var rem = n - used;
+      var order = raw
+        .map(function (value, idx) {
+          return { i: idx, frac: value - floors[idx] };
+        })
+        .sort(function (a, b) {
+          return b.frac - a.frac;
+        });
+      for (i = 0; i < rem; i++) floors[order[i % order.length].i] += 1;
+      return floors;
+    }
+
+    function applyAdmin(grow) {
+      var employees = Math.round(empMin + grow * (empMax - empMin));
+      var trips = Math.max(1, Math.round(employees * tripsPerEmp));
+      var paxRides = trips * 2;
+      var count = routeRows.length || routeShares.length;
+      var tripParts = distributeInt(trips, routeShares, count);
+      var paxParts = distributeInt(paxRides, routeShares, count);
+
+      var km = 0;
+      var eur = 0;
+      var co2 = 0;
+      var i;
+      for (i = 0; i < count; i++) {
+        var pax = paxParts[i] || 0;
+        km += pax * (routeKm[i] || 0);
+        eur += pax * (routeSaveEur[i] || 0);
+        co2 += pax * (routeCo2Kg[i] || 0);
+      }
+
+      elEmployees.forEach(function (el) {
+        el.textContent = String(employees);
+      });
+      elCo2.forEach(function (el) {
+        el.textContent = formatInt(co2);
+      });
+      elEur.forEach(function (el) {
+        el.textContent = "€" + formatInt(eur);
+      });
+      elKm.forEach(function (el) {
+        el.textContent = formatInt(km);
+      });
+
+      routeRows.forEach(function (row, idx) {
+        var start = idx * 0.09;
+        var rowIn = easeOut(map(grow, start, Math.min(1, start + 0.28)));
+        row.style.setProperty("--route-in", String(rowIn));
+
+        var tripsEl = row.querySelector('[data-route="trips"]');
+        var paxEl = row.querySelector('[data-route="pax"]');
+        var co2El = row.querySelector('[data-route="co2"]');
+        var rowCo2 = (paxParts[idx] || 0) * (routeCo2Kg[idx] || 0);
+        if (tripsEl) tripsEl.textContent = String(tripParts[idx] || 0);
+        if (paxEl) paxEl.textContent = String(paxParts[idx] || 0);
+        if (co2El) co2El.textContent = formatInt(rowCo2) + " kg";
+      });
+    }
+
+    function applyHow(progress) {
+      pinEl.style.setProperty("--how", String(progress));
+      /* Metrics start rising once step 3 is mostly on screen */
+      applyAdmin(easeOut(map(progress, 0.48, 0.98)));
+    }
+
+    function stickyTopPx() {
+      var top = window.getComputedStyle(pinEl).top;
+      var n = parseFloat(top);
+      return isNaN(n) ? 0 : n;
+    }
+
+    function adminProgress() {
+      if (mobileMq.matches) return 1;
+      var rect = scrubEl.getBoundingClientRect();
+      var pinH = pinEl.offsetHeight;
+      var travel = scrubEl.offsetHeight - pinH;
+      if (travel <= 0) return 1;
+      var engaged = stickyTopPx() - rect.top;
+      return clamp(engaged / travel, 0, 1);
+    }
+
+    var adminTicking = false;
     var scrubBound = false;
 
-    function onOutcomesScroll() {
-      if (outcomesTicking) return;
-      outcomesTicking = true;
+    function onAdminScroll() {
+      if (adminTicking) return;
+      adminTicking = true;
       window.requestAnimationFrame(function () {
-        applyOutcomes(outcomesProgress());
-        outcomesTicking = false;
+        applyHow(adminProgress());
+        adminTicking = false;
       });
     }
 
     function bindScrub() {
       if (scrubBound) return;
       scrubBound = true;
-      window.addEventListener("scroll", onOutcomesScroll, { passive: true });
-      window.addEventListener("resize", onOutcomesScroll);
+      window.addEventListener("scroll", onAdminScroll, { passive: true });
+      window.addEventListener("resize", onAdminScroll);
     }
 
     function unbindScrub() {
       if (!scrubBound) return;
       scrubBound = false;
-      window.removeEventListener("scroll", onOutcomesScroll);
-      window.removeEventListener("resize", onOutcomesScroll);
+      window.removeEventListener("scroll", onAdminScroll);
+      window.removeEventListener("resize", onAdminScroll);
     }
 
-    function syncOutcomesMode() {
+    function syncAdminMode() {
       if (reduce || mobileMq.matches) {
         unbindScrub();
-        applyOutcomes(1);
+        applyHow(1);
         return;
       }
       bindScrub();
-      onOutcomesScroll();
+      onAdminScroll();
     }
 
-    syncOutcomesMode();
+    syncAdminMode();
     if (typeof mobileMq.addEventListener === "function") {
-      mobileMq.addEventListener("change", syncOutcomesMode);
+      mobileMq.addEventListener("change", syncAdminMode);
     } else if (typeof mobileMq.addListener === "function") {
-      mobileMq.addListener(syncOutcomesMode);
+      mobileMq.addListener(syncAdminMode);
     }
+  })();
+
+  /* —— Safe mailto: assembled in JS so scrapers do not see a raw address —— */
+  (function hydrateSafeEmails() {
+    var nodes = document.querySelectorAll("[data-safe-email]");
+    if (!nodes.length) return;
+    var domain = "shurp.lv";
+    Array.prototype.forEach.call(nodes, function (el) {
+      if (el.getAttribute("data-safe-ready") === "1") return;
+      var user = (el.getAttribute("data-safe-email") || "info").replace(/[^a-z0-9._+-]/gi, "");
+      if (!user) return;
+      var email = user + "@" + domain;
+      var link = document.createElement("a");
+      link.href = "mailto:" + email;
+      link.textContent = email;
+      link.className = "safe-email-link";
+      el.replaceChildren(link);
+      el.setAttribute("data-safe-ready", "1");
+    });
   })();
 
   /* —— Request form —— */
@@ -385,7 +469,7 @@
   if (planSelect) {
     planSelect.addEventListener("change", function () {
       var value = (planSelect.value || "").trim();
-      if (!value) {
+      if (!value || value === "Not sure") {
         markPlanCards("");
         setRequestPrompt("");
         return;
@@ -400,6 +484,113 @@
     statusEl.classList.remove("is-ok", "is-err");
     if (kind) statusEl.classList.add(kind);
   }
+
+  function clearFieldErrors() {
+    Array.prototype.forEach.call(form.querySelectorAll(".field.is-invalid"), function (field) {
+      field.classList.remove("is-invalid");
+    });
+    Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (el) {
+      el.removeAttribute("aria-invalid");
+    });
+  }
+
+  function markFieldInvalid(el) {
+    if (!el) return;
+    el.setAttribute("aria-invalid", "true");
+    var field = el.closest ? el.closest(".field") : null;
+    if (field) field.classList.add("is-invalid");
+  }
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(value);
+  }
+
+  function isValidPhone(value) {
+    var digits = value.replace(/\D/g, "");
+    if (digits.length < 8 || digits.length > 15) return false;
+    return /^[+]?[\d\s()./-]{8,22}$/.test(value);
+  }
+
+  function joinList(items, isLv) {
+    if (!items.length) return "";
+    if (items.length === 1) return items[0];
+    if (items.length === 2) {
+      return items[0] + (isLv ? " un " : " and ") + items[1];
+    }
+    var last = items[items.length - 1];
+    return (
+      items.slice(0, -1).join(", ") +
+      (isLv ? " un " : ", and ") +
+      last
+    );
+  }
+
+  function validateForm(data) {
+    clearFieldErrors();
+    var isLv = lang === "lv";
+    var missing = [];
+    var formatIssues = [];
+    var firstInvalid = null;
+
+    function fail(el, list, label) {
+      markFieldInvalid(el);
+      list.push(label);
+      if (!firstInvalid) firstInvalid = el;
+    }
+
+    if (!data.company) {
+      fail(form.company, missing, isLv ? "uzņēmumu" : "company");
+    }
+    if (!data.contact) {
+      fail(form.contact, missing, isLv ? "kontaktu" : "contact");
+    }
+    if (!data.email) {
+      fail(form.email, missing, isLv ? "e-pastu" : "email");
+    } else if (!isValidEmail(data.email)) {
+      fail(form.email, formatIssues, isLv ? "e-pasta adresi" : "email");
+    }
+    if (data.phone && !isValidPhone(data.phone)) {
+      fail(form.phone, formatIssues, isLv ? "tālruņa numuru" : "phone");
+    }
+    if (!data.plan) {
+      fail(form.plan, missing, isLv ? "plānu" : "plan");
+    }
+
+    if (!missing.length && !formatIssues.length) return true;
+
+    var parts = [];
+    if (missing.length) {
+      parts.push(
+        isLv
+          ? "Lūdzu aizpildi: " + joinList(missing, true) + "."
+          : "Please fill: " + joinList(missing, false) + "."
+      );
+    }
+    if (formatIssues.length) {
+      parts.push(
+        isLv
+          ? "Pārbaudi: " + joinList(formatIssues, true) + "."
+          : "Please check: " + joinList(formatIssues, false) + "."
+      );
+    }
+    setStatus(parts.join(" "), "is-err");
+    if (firstInvalid && typeof firstInvalid.focus === "function") {
+      firstInvalid.focus();
+    }
+    return false;
+  }
+
+  ["company", "contact", "email", "phone", "plan"].forEach(function (name) {
+    var el = form[name];
+    if (!el) return;
+    var eventName = el.tagName === "SELECT" ? "change" : "input";
+    el.addEventListener(eventName, function () {
+      var field = el.closest ? el.closest(".field") : null;
+      if (field) field.classList.remove("is-invalid");
+      el.removeAttribute("aria-invalid");
+      if (statusEl && statusEl.classList.contains("is-err")) setStatus("", null);
+    });
+  });
 
   function renderTurnstile() {
     if (!turnstileHost || turnstileWidgetId !== null || !window.turnstile) return;
@@ -450,14 +641,27 @@
   }
 
   function buildMessage(data) {
+    var planLine =
+      data.plan === "Not sure"
+        ? data.contact +
+          " from " +
+          data.company +
+          " requested a demo (plan not chosen yet)."
+        : data.contact +
+          " from " +
+          data.company +
+          " requested the " +
+          data.plan +
+          " plan.";
     var lines = [
-      data.contact + " from " + data.company + " requested the " + data.plan + " plan.",
+      planLine,
       "",
       "Company: " + data.company,
       "Contact: " + data.contact,
       "Work email: " + data.email,
       "Phone: " + (data.phone || "—"),
       "Headcount: " + (data.headcount || "—"),
+      "Plan: " + data.plan,
       "Address: " + (data.address || "—"),
     ];
     if (data.note) {
@@ -480,15 +684,7 @@
       note: (form.note.value || "").trim(),
     };
 
-    if (!data.company || !data.contact || !data.email || !data.plan) {
-      setStatus(
-        lang === "lv"
-          ? "Aizpildi uzņēmumu, kontaktu, e-pastu un plānu."
-          : "Please fill company, contact, email and plan.",
-        "is-err"
-      );
-      return;
-    }
+    if (!validateForm(data)) return;
 
     var original = submitBtn.textContent;
     submitBtn.disabled = true;

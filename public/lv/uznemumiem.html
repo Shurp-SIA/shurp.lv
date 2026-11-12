@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/companies.css?v=20261112m">
+  <link rel="stylesheet" href="../assets/css/companies.css?v=20261113g">
   <link rel="stylesheet" href="../assets/css/site-nav.css">
   <script type="application/ld+json">
 {
@@ -47,14 +47,14 @@
       "name": "Team",
       "price": "50",
       "priceCurrency": "EUR",
-      "description": "Agrīnā Team cena: kopbraukšana darbavietā, bez reklāmām līdz 45 pievienotiem darbiniekiem, ikmēneša ietekmes pārskats un ieviešanas atbalsts."
+      "description": "Ierobežots Team piedāvājums: kopbraukšana darbavietā, bez reklāmām līdz 45 pievienotiem darbiniekiem, ikmēneša ietekmes pārskats un ieviešanas atbalsts."
     },
     {
       "@type": "Offer",
       "name": "Pro",
       "price": "100",
       "priceCurrency": "EUR",
-      "description": "Agrīnā Pro cena: live datu panelis, 3. tvēruma 7. kategorijas pārskati, bez reklāmām līdz 100 pievienotiem darbiniekiem, pēc tam €1,40 / lietotājs / mēnesī."
+      "description": "Ierobežots Pro piedāvājums: aktuāls datu panelis, 3. tvēruma 7. kategorijas pārskati, bez reklāmām līdz 100 pievienotiem darbiniekiem, pēc tam €1,40 / lietotājs / mēnesī."
     },
     {
       "@type": "Offer",
@@ -84,7 +84,7 @@
   <header class="companies-nav">
     <a class="brand" href="/lv/"><img src="../assets/logo.png" alt="Shurp"></a>
     <div class="nav-end">
-      <a class="nav-cta" href="#request">Pieteikt demonstrāciju</a>
+      <a class="nav-cta" href="#request">Pieteikt bezmaksas demonstrāciju</a>
       <nav class="mode-switch nav-choice" aria-label="Auditorija">
         <div class="nav-choice-row">
           <span class="current" aria-current="page">Uzņēmumiem</span>
@@ -130,8 +130,8 @@
     <section class="story" id="story" aria-label="Ievads darba vietai">
       <div class="story-pin">
         <div class="story-stage" id="story-stage">
-        <div class="layer layer-moon" role="img" aria-label="Mēness virsma"></div>
-        <div class="vignette" aria-hidden="true"></div>
+          <div class="layer layer-moon" role="img" aria-label="Mēness virsma"></div>
+          <div class="vignette" aria-hidden="true"></div>
 
           <div class="story-copy">
             <h1 class="story-line">
@@ -147,7 +147,7 @@
           <div class="phone-duo" id="phone-duo">
             <div class="phone-captions" aria-live="polite">
               <p class="caption caption-works">Vienkārši strādā</p>
-              <p class="caption caption-insight">Viegli ikdienā. Pilnas jaudas risinājumi zem pārsega.</p>
+              <p class="caption caption-insight">Viegli ikdienā.<br>Jaudīgi rīki<br>zem pārsega</p>
             </div>
             <div class="phone-wrap" aria-hidden="true">
               <div class="phone-stack">
@@ -163,156 +163,145 @@
       </div>
     </section>
 
-    <section class="band band-product" id="product" aria-label="Kas ir Shurp">
-      <div class="band-inner">
-        <p class="section-eyebrow">Produkts</p>
-        <h2>Darbinieku kopbraukšana, kas ietaupa uzņēmumam</h2>
-        <p class="deck">Brīvākas stāvvietas. Zemākas transporta izmaksas. Skaidri dati.</p>
-        <p class="lead">Shurp palīdz uzņēmumam organizēt darbinieku kopbraukšanu — samazināt stāvvietu noslodzi, ietaupīt
-          transporta izmaksas un saņemt pārskatus par nobrauktajiem kilometriem, CO₂ samazinājumu un reālo ietaupījumu.</p>
+    <section class="band band-hero-follow" id="product" aria-label="Produkta skaidrojums">
+      <div class="band-inner hero-follow-inner">
+        <p class="story-support">Palīdziet darbiniekiem atrast kopīgus braucienus uz darbu un saņemiet skaidrus datus par
+          uzņēmuma mobilitāti</p>
+        <p class="story-tagline">Vienkārši darbiniekiem. Vērtīgi uzņēmumam. Cieņpilni pret privātumu</p>
+        <p class="plans-demo">
+          <a class="btn btn-demo" href="#request">Pieteikt bezmaksas demonstrāciju</a>
+        </p>
       </div>
     </section>
 
-    <!-- data-save-day = €3.50 × 2 passengers per one-way trip -->
-    <section class="outcomes-story" id="outcomes" aria-label="Ko jūs iegūstat" data-km-day="43" data-save-day="7"
-      data-co2-day="18.1" data-spots="2" data-max-days="20">
-      <div class="outcomes-pin">
-        <div class="outcomes-stage" id="outcomes-stage">
-          <div class="band-inner outcomes-inner">
-            <p class="section-eyebrow">Ietekme</p>
-            <h2>Kopbraukšana, ko uzņēmums var izmērīt</h2>
-            <p class="deck">Stāvvietas. CO₂. Darbinieku ietaupījums.</p>
+    <section class="band band-how" id="how" aria-label="Kā Shurp darbojas">
+      <div class="admin-scrub" id="admin-scrub" data-employees-min="2" data-employees-max="34"
+        data-seats="100" data-trips-per-emp="1">
+        <div class="admin-scrub-pin">
+          <div class="band-inner how-pin-inner">
+            <header class="how-head">
+              <p class="section-eyebrow">Kā tas darbojas</p>
+              <h2>Vienkārša ieviešana. Visi rīki vienuviet</h2>
+              <p class="deck">No darbinieku uzaicināšanas līdz kopbraucieniem un skaidriem rezultātiem</p>
+            </header>
 
-            <p class="route-cap">
-              <span class="route-dot" aria-hidden="true"></span>
-              Jelgava → Rīgas lidosta · ~43 km · 3 kolēģi 1 auto
-            </p>
-
-            <p class="visually-hidden">
-              Ilustratīvs viena virziena piemērs: trīs kolēģi brauc vienā auto ~43 km maršrutā.
-              Katrs pasažieris iemaksā €3,50, tāpēc vadītājs saņem €7,00 par braucienu.
-              Skaitītāji uzkrāj brīvās stāvvietas, aprēķināto CO₂ samazinājumu un vadītāja ienākumu,
-              kad kopbraucienu skaits pieaug.
-            </p>
-
-            <div class="mode-pill" aria-hidden="true">
-              <span class="mode-solo">Vienatnē</span>
-              <span class="mode-arrow"></span>
-              <span class="mode-shared">Kopā</span>
+            <div class="how-phase how-phase-setup">
+              <p class="how-phase-label how-reveal how-reveal-setup">Ieviešana</p>
+              <ol class="how-steps how-steps-setup">
+                <li class="how-reveal how-reveal-1">
+                  <span class="how-num">1</span>
+                  <div>
+                    <h3>Pievienojiet darbavietu Shurp</h3>
+                    <p>Uzaiciniet darbiniekus ar QR kodu vai e-pastā nosūtītu saiti. Darbinieki norāda savus darba laikus un
+                      ierastos maršrutus.</p>
+                  </div>
+                </li>
+                <li class="how-reveal how-reveal-2">
+                  <span class="how-num">2</span>
+                  <div>
+                    <h3>Darbinieki atrod līdzbraucējus un brauc kopā</h3>
+                    <p>Darbinieki atrod cilvēkus, kuri dodas tajā pašā virzienā un līdzīgā laikā. Brauciena izmaksas tiek
+                      sadalītas lietotnē.</p>
+                  </div>
+                </li>
+              </ol>
             </div>
 
-            <div class="outcomes outcomes-split">
-              <article class="outcome outcome-company">
-                <p class="outcome-kicker">Uzņēmumam</p>
-                <h3>Stāvvietas un izmērāma ietekme</h3>
-                <p class="outcome-line">3 kolēģi · 1 auto · 2 brīvas stāvvietas katrā braucienā. CO₂ un kilometri aug ar
-                  katru kopbraucienu.</p>
+            <div class="how-phase how-phase-admin">
+              <p class="how-phase-label how-reveal how-reveal-admin">Admin panelis</p>
+              <div class="how-schemes" id="admin-scrub-stage">
+                <article class="how-scheme how-scheme-routes how-reveal how-reveal-routes">
+                  <div class="routes-head">
+                    <p class="scheme-kicker">Top maršruti</p>
+                    <p class="routes-period">Šomēnes · abos virzienos kopā</p>
+                  </div>
+                  <div class="routes-table" aria-hidden="true">
+                    <div class="routes-cols">
+                      <span>Maršruts</span>
+                      <span>Braucieni</span>
+                      <span>Pasažieri</span>
+                      <span>CO₂ ietaup.</span>
+                    </div>
+                    <div class="route-row" data-route-row data-km="42" data-save-eur="10.82" data-co2-kg="8.8">
+                      <span class="route-name">Darbs ↔ Jelgava</span>
+                      <span class="route-num" data-route="trips">1</span>
+                      <span class="route-num" data-route="pax">1</span>
+                      <span class="route-num" data-route="co2">1 kg</span>
+                    </div>
+                    <div class="route-row" data-route-row data-km="13" data-save-eur="3.49" data-co2-kg="2.7">
+                      <span class="route-name">Darbs ↔ Mārupe</span>
+                      <span class="route-num" data-route="trips">1</span>
+                      <span class="route-num" data-route="pax">1</span>
+                      <span class="route-num" data-route="co2">1 kg</span>
+                    </div>
+                    <div class="route-row" data-route-row data-km="36" data-save-eur="9.07" data-co2-kg="7.6">
+                      <span class="route-name">Darbs ↔ Ogre</span>
+                      <span class="route-num" data-route="trips">1</span>
+                      <span class="route-num" data-route="pax">1</span>
+                      <span class="route-num" data-route="co2">1 kg</span>
+                    </div>
+                    <div class="route-row" data-route-row data-km="27" data-save-eur="7.16" data-co2-kg="5.7">
+                      <span class="route-name">Darbs ↔ Jūrmala</span>
+                      <span class="route-num" data-route="trips">1</span>
+                      <span class="route-num" data-route="pax">1</span>
+                      <span class="route-num" data-route="co2">1 kg</span>
+                    </div>
+                    <div class="route-row" data-route-row data-km="53" data-save-eur="14.75" data-co2-kg="11.1">
+                      <span class="route-name">Darbs ↔ Sigulda</span>
+                      <span class="route-num" data-route="trips">1</span>
+                      <span class="route-num" data-route="pax">1</span>
+                      <span class="route-num" data-route="co2">1 kg</span>
+                    </div>
+                    <div class="route-row" data-route-row data-km="20" data-save-eur="5.32" data-co2-kg="4.2">
+                      <span class="route-name">Darbs ↔ Salaspils</span>
+                      <span class="route-num" data-route="trips">1</span>
+                      <span class="route-num" data-route="pax">1</span>
+                      <span class="route-num" data-route="co2">1 kg</span>
+                    </div>
+                  </div>
+                </article>
 
-                <div class="live-meters live-meters-company" aria-hidden="true">
-                  <div class="meter">
-                    <span class="meter-val" data-meter="spots">0</span>
-                    <span class="meter-unit">brīvas stāvvietas / dienā</span>
-                  </div>
-                  <div class="meter" data-tone="co2">
-                    <span class="meter-val" data-meter="co2">0</span>
-                    <span class="meter-unit">kg CO₂ mazāk</span>
-                  </div>
-                  <div class="meter">
-                    <span class="meter-val" data-meter="days">0</span>
-                    <span class="meter-unit">kopbraucieni</span>
-                  </div>
-                  <div class="meter">
-                    <span class="meter-val" data-meter="km">0</span>
-                    <span class="meter-unit">km kopā</span>
-                  </div>
-                </div>
-
-                <div class="outcome-schemas">
-                  <div class="schema schema-parking" aria-hidden="true">
-                    <div class="lot-live" data-lot>
-                      <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                      <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                      <i class="car"></i><i class="car"></i><i class="car"></i><i class="car"></i>
-                    </div>
-                    <p class="spots-freed"><span data-meter="spots-label">0</span> brīvas stāvvietas darbavietā</p>
-                  </div>
-                  <div class="schema schema-co2" aria-hidden="true">
-                    <div class="bar-col solo-bars">
-                      <div class="bar-row">
-                        <span class="bar tall"></span>
-                        <span class="bar tall"></span>
-                        <span class="bar tall"></span>
-                      </div>
-                      <span class="schema-label">3 atsevišķi</span>
-                    </div>
-                    <div class="schema-arrow"></div>
-                    <div class="bar-col shared-bars">
-                      <div class="bar-row shared-row">
-                        <span class="bar short"></span>
-                        <span class="co2-chip"><span data-meter-inline="co2">0</span> kg</span>
-                      </div>
-                      <span class="schema-label">1 kopā</span>
+                <article class="how-scheme how-scheme-admin how-reveal how-reveal-3">
+                  <div class="admin-result-head">
+                    <span class="how-num">3</span>
+                    <div>
+                      <h3>Skatiet rezultātus</h3>
+                      <p>Skaidrs pārskats par kopīgajiem kilometriem, aprēķināto CO₂ un izmaksu ietaupījumu, līdzdalību un
+                        stāvvietām — un lejupielādējiet pārskatus.</p>
                     </div>
                   </div>
-                </div>
-
-                <aside class="proof-strip" aria-label="Nozares piemēri">
-                  <p class="proof-strip-title">Ko kopbraukšana var panākt (nozares piemēri)</p>
-                  <div class="proof-stats">
-                    <div class="proof-stat">
-                      <span class="proof-val">~25%</span>
-                      <span class="proof-label">mazāka stāvvietu noslodze</span>
+                  <p class="scheme-kicker">Admin pārskats · pēdējās 30 dienas</p>
+                  <div class="admin-metrics" aria-hidden="true">
+                    <div class="admin-metric tone-save">
+                      <span class="admin-metric-label">CO₂ ietaupīts</span>
+                      <span class="admin-metric-val"><span data-admin="co2">18</span> kg</span>
                     </div>
-                    <div class="proof-stat">
-                      <span class="proof-val">~30%</span>
-                      <span class="proof-label">mazāk auto objektā</span>
+                    <div class="admin-metric tone-save">
+                      <span class="admin-metric-label">Darbinieku ietaupījums</span>
+                      <span class="admin-metric-val" data-admin="eur">€7</span>
                     </div>
-                    <div class="proof-stat">
-                      <span class="proof-val">~28%</span>
-                      <span class="proof-label">mazākas braucienu CO₂e</span>
+                    <div class="admin-metric">
+                      <span class="admin-metric-label">Pasažieru km</span>
+                      <span class="admin-metric-val" data-admin="km">86</span>
                     </div>
-                    <div class="proof-stat">
-                      <span class="proof-val">~139 kg</span>
-                      <span class="proof-label">CO₂e / darb. / gadā uz noņemtu auto</span>
+                    <div class="admin-metric">
+                      <span class="admin-metric-label">Darbinieki</span>
+                      <span class="admin-metric-val"><span data-admin="employees">2</span> / <span
+                          data-admin="seats">100</span></span>
                     </div>
                   </div>
-                  <p class="proof-source">Avoti: Ordnance Survey + Liftshare; Liftshare For Work / Mobilityways
-                    publiskotie rezultāti. Nav Shurp klientu dati.</p>
-                </aside>
-              </article>
-
-              <article class="outcome outcome-driver">
-                <p class="outcome-kicker">Vadītājam</p>
-                <h3>€3,50 no katra pasažiera</h3>
-                <p class="outcome-line">Jelgavas piemērs: €3,50 × 2 pasažieri = €7,00 vadītājam par vienu braucienu.
-                  Summa aug ar braucienu skaitu.</p>
-
-                <div class="live-meters live-meters-driver" aria-hidden="true">
-                  <div class="meter">
-                    <span class="meter-val" data-meter="eur">€0</span>
-                    <span class="meter-unit">vadītājs saņem</span>
-                  </div>
-                  <div class="meter">
-                    <span class="meter-val">€3,50</span>
-                    <span class="meter-unit">par pasažieri / braucienu</span>
-                  </div>
-                </div>
-
-                <div class="schema schema-money schema-money-only" aria-hidden="true">
-                  <div class="schema-row split shared-side">
-                    <span class="fare">€3,50</span>
-                    <span class="fare">€3,50</span>
-                    <span class="schema-label">2 pasažieri · €7,00 / braucienā</span>
-                  </div>
-                </div>
-              </article>
+                </article>
+              </div>
+              <p class="how-illus-note how-reveal how-reveal-3">Attēlotie skaitļi ir ilustratīvi piemēri demonstrācijas
+                nolūkiem.</p>
             </div>
 
-            <p class="estimate-note" id="estimate-notes">
-              Ilustratīvs viena virziena piemērs. Faktiskais rezultāts atkarīgs no maršruta, auto un aizpildījuma.
-            </p>
-
-            <p class="scroll-hint outcomes-hint">Ritināt<span></span></p>
+            <aside class="network-note how-reveal how-reveal-network">
+              <p class="network-note-title">Ne tikai kolēģi</p>
+              <p>Darbinieki iegūst piekļuvi arī plašākajam Shurp lietotāju tīklam — kaimiņiem un citiem cilvēkiem, kuri
+                dodas tajā pašā virzienā. Tas nozīmē vairāk piemērotu braucienu un ilgtspējīgākus pārvietošanās paradumus
+                arī ārpus darbavietas.</p>
+            </aside>
           </div>
         </div>
       </div>
@@ -343,11 +332,11 @@
           <article class="pain-item">
             <div class="pain-schema schema-costs" aria-hidden="true">
               <div class="cost-split">
-                <span class="fare solo">€12,84</span>
+                <span class="fare solo">€15,02</span>
                 <span class="schema-arrow"></span>
-                <span class="fare">€3,50</span>
+                <span class="fare">€4,20</span>
               </div>
-              <span class="pain-schema-cap">Ieguvums ik nedēļu</span>
+              <span class="pain-schema-cap">Ieguvums katru nedēļu</span>
             </div>
             <div>
               <h3>Darbinieku ceļa izdevumi</h3>
@@ -382,7 +371,7 @@
             <div>
               <h3>Klimata mērķi un mazāk CO₂ emisiju</h3>
               <p>Kopbraucieni samazina vienatnē nobraukto kilometru skaitu un darbinieku pārvietošanās radītās emisijas.
-                Aprēķināto CO₂ samazinājumu un nobraukuma datus var izmantot ESG mērķu progresa novērtēšanai, tostarp 3.
+                Aprēķināto CO₂ samazinājumu un nobraukuma datus var izmantot ESG mērķu izpildes novērtēšanai, tostarp 3.
                 tvēruma 7. kategorijas pārskatos.</p>
             </div>
           </article>
@@ -390,88 +379,122 @@
       </div>
     </section>
 
-    <section class="band band-how" id="how" aria-label="Kā Shurp darbojas">
+    <section class="band band-trust" id="trust" aria-label="Privātums un uzticība">
       <div class="band-inner">
-        <p class="section-eyebrow">Kā tas darbojas</p>
-        <h2>Vienkārša ieviešana. Darbinieki var sākt dažu sekunžu laikā</h2>
-        <p class="deck">No darbinieku uzaicināšanas līdz kopbraucieniem un pārskatāmiem rezultātiem</p>
+        <p class="section-eyebrow">Privātums un uzticība</p>
+        <h2>Cieņpilni pret datiem. Skaidrs juridiskais modelis</h2>
+        <p class="deck">Darbinieka kontrole, nekomerciāla kopbraukšana un verificēta identitāte</p>
+        <p class="lead">Shurp ir veidots tā, lai darbinieki kontrolētu, ko kopīgo ar darba devēju, bet uzņēmums saņemtu
+          skaidrus mobilitātes datus bez uzraudzības sajūtas.</p>
 
-        <ol class="how-steps">
-          <li>
-            <span class="how-num">1</span>
-            <div>
-              <h3>Pievienojiet darbavietu Shurp</h3>
-              <p>Uzaiciniet darbiniekus ar QR kodu vai e-pastā nosūtītu saiti. Darbinieki norāda savus darba laikus un
-                ierastos maršrutus.</p>
+        <div class="trust-accordion">
+          <details class="trust-item">
+            <summary>
+              <span class="trust-item-title">Jūsu dati. Jūsu izvēle</span>
+              <span class="trust-item-teaser">Braucieni uzņēmumam nav redzami automātiski — darbinieks izvēlas, ko
+                kopīgot.</span>
+            </summary>
+            <div class="trust-item-body">
+              <p>Datu kopīgošana notiek tikai ar paša darbinieka piekrišanu. Konta sasaistīšana ar organizāciju pati par
+                sevi neatklāj braucienu detaļas.</p>
+              <ol class="privacy-steps compact">
+                <li>
+                  <span class="privacy-num">1</span>
+                  <div>
+                    <h3>Darbinieks piesaista uzņēmumu</h3>
+                    <p>Organizācija neredz braucienus, kamēr darbinieks tos atsevišķi neatzīmē.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="privacy-num">2</span>
+                  <div>
+                    <h3>Darbinieks izlemj, vai kopīgot braucienu</h3>
+                    <p>Pirms atzīmēšanas lietotne parāda, ko organizācija par šo braucienu redzēs.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="privacy-num">3</span>
+                  <div>
+                    <h3>Tikai izvēlētie braucieni nonāk pārskatos</h3>
+                    <p>Neatzīmētie braucieni un personiskā pārvietošanās uzņēmumam nav redzama.</p>
+                  </div>
+                </li>
+              </ol>
+              <ul class="trust-points">
+                <li>Organizācija nesaņem precīzu atrašanās vietu reāllaikā.</li>
+                <li>Darbinieks var pārtraukt turpmāko braucienu atzīmēšanu vai atsaistīt kontu.</li>
+                <li>Jau nodotie pārskati netiek automātiski dzēsti pēc sasaistes pārtraukšanas.</li>
+              </ul>
+              <p class="section-link"><a href="/lv/privacy">Lasīt privātuma politiku</a></p>
             </div>
-          </li>
-          <li>
-            <span class="how-num">2</span>
-            <div>
-              <h3>Atrodiet līdzbraucējus un brauciet kopā</h3>
-              <p>Lietotāji atrod cilvēkus, kuri dodas tajā pašā virzienā un līdzīgā laikā. Brauciena izmaksas tiek
-                sadalītas lietotnē.</p>
-            </div>
-          </li>
-          <li>
-            <span class="how-num">3</span>
-            <div>
-              <h3>Novērtējiet rezultātus</h3>
-              <p>Kopīgi nobrauktie kilometri, aprēķinātais CO₂ un izmaksu ietaupījums, kā arī stāvvietu noslodze tiek
-                apkopota praktiski izmantojamos pārskatos.</p>
-            </div>
-          </li>
-        </ol>
+          </details>
 
-        <aside class="network-note">
-          <p class="network-note-title">Ne tikai kolēģi</p>
-          <p>Darbinieki iegūst piekļuvi arī plašākajam Shurp lietotāju tīklam — kaimiņiem un citiem cilvēkiem, kuri
-            dodas tajā pašā virzienā. Tas nozīmē vairāk piemērotu braucienu un ilgtspējīgākus pārvietošanās paradumus
-            arī ārpus darbavietas.</p>
-        </aside>
-      </div>
-    </section>
+          <details class="trust-item">
+            <summary>
+              <span class="trust-item-title">Kopbraukšana, nevis komercpārvadājumi</span>
+              <span class="trust-item-teaser">Nekomerciāls modelis, kas balstīts uz likumdošanā noteikto kārtību.</span>
+            </summary>
+            <div class="trust-item-body">
+              <p>Shurp ir veidots kā nekomerciālas kopbraukšanas platforma — vadītāji dalās ar braucieniem, kurus jau
+                plāno veikt, bet līdzbraucēji sedz samērīgu daļu no ceļa izmaksām. Platforma balstās uz likumdošanā
+                noteikto kārtību un ievēro nekomerciālas kopbraukšanas principus.</p>
+              <ul class="trust-points">
+                <li>Vadītāji nedrīkst gūt peļņu no pasažieru pārvadāšanas.</li>
+                <li>Shurp nav taksometru uzņēmums un nav komerciāls pasažieru pārvadātājs.</li>
+                <li>Shurp neapstrādā braucienu maksājumus un neiekasē komisiju par izmaksu dalīšanu.</li>
+                <li>Norēķini notiek privāti starp brauciena dalībniekiem.</li>
+              </ul>
+              <p class="section-link"><a href="/lv/terms">Lasīt lietošanas noteikumus</a></p>
+            </div>
+          </details>
 
-    <section class="bridge" aria-label="Mūsu priekšrocība">
-      <div class="band-inner">
-        <div class="bridge-inner">
-          <p class="diff-eyebrow">Mūsu priekšrocība</p>
-          <p class="diff-title">Nozīme ir katram braucienam, ne tikai kopbraukšanai</p>
-          <p class="diff-body">Shurp palīdz uzņēmumiem saprast, kā darbinieki nokļūst darbā. No braucieniem vienatnē
-            līdz kopbraucieniem — faktiskie braucienu un transportlīdzekļu dati ļauj novērtēt darbinieku pārvietošanās
-            radītās emisijas, noteikt to samazināšanas iespējas un sagatavot datus ESG pārskatiem atbilstoši 3. tvēruma
-            7. kategorijai — apkopotā darbavietas līmenī, ievērojot privātumu.</p>
+          <details class="trust-item">
+            <summary>
+              <span class="trust-item-title">Drošība sākas ar īstu identitāti</span>
+              <span class="trust-item-teaser">Identitātes pārbaude ar neatkarīgu ES sniedzēju Didit.</span>
+            </summary>
+            <div class="trust-item-body">
+              <p>Shurp piedāvā identitātes un dokumentu pārbaudi, izmantojot neatkarīgu ES pakalpojumu sniedzēju Didit.
+                Lietotāja profilā redzams verifikācijas statuss, lai līdzbraucēji varētu pieņemt labāk informētu lēmumu.</p>
+              <ul class="trust-points">
+                <li>Vadītājiem — vadītāja apliecības pārbaude.</li>
+                <li>Pasažieriem — brīvprātīga personas dokumenta pārbaude.</li>
+                <li>Dokumentu skenēšana un biometriskā salīdzināšana notiek Didit vidē; Shurp glabā statusu un šifrētu
+                  identifikatoru.</li>
+              </ul>
+              <p class="section-link"><a href="/lv/privacy">Lasīt privātuma politiku</a></p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="band band-plans" id="plans">
+    <section class="band band-plans" id="plans" aria-label="Risinājumi uzņēmumiem">
       <div class="band-inner">
-        <div class="plans-intro">
-          <h2>Risinājumi uzņēmumiem</h2>
-          <p class="deck">Izvēlieties uzņēmumam piemērotu datu un pārvaldības apjomu</p>
-          <div class="lead">
-            <p>Viena platforma kopbraukšanai, darbinieku mobilitātes pārvaldībai un ilgtspējas rezultātu novērtēšanai.
-              Vienkārši ieviešama un pielāgojama uzņēmuma izaugsmei.</p>
-          </div>
-          <p class="plans-demo">
-            <a class="btn btn-demo" href="#request">Pieteikt demonstrāciju</a>
-          </p>
+        <p class="section-eyebrow">Plāni</p>
+        <h2>Risinājumi uzņēmumiem</h2>
+        <p class="deck">Izvēlieties kādu no risinājumiem vai jautājiet un palīdzēsim izvēlēties</p>
+        <div class="lead">
+          <p>Viena platforma kopbraukšanai, darbinieku mobilitātes pārvaldībai un ilgtspējas rezultātu novērtēšanai.
+            Vienkārši ieviešama un pielāgojama uzņēmuma izaugsmei.</p>
         </div>
+        <p class="plans-demo">
+          <a class="btn btn-demo" href="#request">Pieteikt bezmaksas demonstrāciju</a>
+        </p>
 
         <div class="plans" role="radiogroup" aria-label="Izvēlieties plānu">
           <article class="plan" role="radio" aria-checked="false" tabindex="0" data-plan="Team">
             <h3 class="name">Team</h3>
             <p class="price">€50 <span>/ mēnesī</span></p>
-            <p class="price-lock">Agrīnā cena · fiksēta 12 mēnešus</p>
+            <p class="price-lock">Ierobežots piedāvājums <span>(līdz 2027.&nbsp;g. 12.&nbsp;maijam)</span></p>
             <p class="price-teaser"><span>Standarta cena</span> · <s>€99 / mēnesī vai €990 / gadā</s></p>
-            <p class="blurb">Sākt kopbraukšanu darbavietā un redzēt ikmēneša ietekmi</p>
+            <p class="blurb">Sāciet kopbraukšanu darbavietā un redziet ikmēneša ietekmi</p>
             <ul class="plan-highlights">
               <li>Līdz 45 pievienotiem darbiniekiem</li>
               <li>Bez reklāmām visiem Team darbiniekiem</li>
               <li>QR / e-pasta uzaicinājums un darba braucienu piemeklēšana</li>
-              <li>Ikmēneša ietekmes pārskats e-pastā</li>
-              <li>Ieviešanas atbalsts: iestatīšanas zvans + ieviešanas kontrolsaraksts</li>
+              <li>Ikmēneša ietekmes pārskats</li>
+              <li>Ieviešanas atbalsts</li>
               <li>Standarta atbalsts</li>
             </ul>
             <details class="plan-more">
@@ -482,36 +505,38 @@
                 <li>Automātiska līdzbraucēju piemeklēšana pēc darba maiņām</li>
                 <li>Kopbraucienos nobrauktie kilometri un aprēķinātais CO₂ ietaupījums</li>
                 <li>Aprēķinātais transporta izmaksu ietaupījums</li>
-                <li>Bez reklāmām aizstāj individuālo €1,99 / lietotājs / mēnesī reklāmu noņemšanu lietotnē</li>
+                <li>Bez reklāmām aizstāj individuālo reklāmu noņemšanas maksu (€1,99 / lietotājs / mēnesī)</li>
               </ul>
             </details>
             <span class="plan-cta">Izvēlēties</span>
           </article>
-          <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Pro">
+          <article class="plan plan-recommended" role="radio" aria-checked="false" tabindex="-1" data-plan="Pro">
+            <p class="plan-badge">Ieteicamais</p>
             <h3 class="name">Pro</h3>
             <p class="price">€100 <span>/ mēnesī</span></p>
-            <p class="price-lock">Agrīnā cena · fiksēta 12 mēnešus</p>
+            <p class="price-lock">Ierobežots piedāvājums <span>(līdz 2027.&nbsp;g. 12.&nbsp;maijam)</span></p>
             <p class="price-teaser"><span>Standarta cena</span> · <s>€199 / mēnesī vai €1&nbsp;990 / gadā</s></p>
-            <p class="blurb">Vadīt programmu un pierādīt ietekmi ar live datiem</p>
-            <p class="includes">Viss, kas iekļauts Team plānā, kā arī:</p>
+            <p class="blurb">Vadiet programmu un pierādiet ietekmi ar aktuāliem datiem</p>
+            <p class="includes">Viss no Team plāna, kā arī:</p>
             <ul class="plan-highlights">
-              <li>Bez pievienoto darbinieku skaita limita</li>
-              <li>Bez reklāmām līdz 100 pievienotiem darbiniekiem; pēc tam €1,40 / lietotājs / mēnesī</li>
+              <li>Bez limita pievienoto darbinieku skaitam</li>
               <li>Aktuāls datu panelis un maršrutu / maiņu analīze</li>
               <li>3. tvēruma 7. kategorijas pārskatu komplekts</li>
-              <li>Vairāki administratori + iesaistes un stāvvietu motivācijas rīki</li>
-              <li>Ieviešanas atbalsts: ieviešanas darbnīca + iesaistes rokasgrāmata</li>
-              <li>Prioritārs atbalsts</li>
+              <li>Detalizēta darbinieku maršrutu un pārvietošanās virzienu analīze</li>
+              <li>Personalizēts ieviešanas atbalsts</li>
+              <li>Prioritārais atbalsts</li>
             </ul>
             <details class="plan-more">
               <summary>Vairāk detaļu</summary>
               <ul class="plan-full">
-                <li>Detalizēta darbinieku maršrutu un pārvietošanās virzienu analīze</li>
+                <li>Vairāki lietotāji un administratori</li>
                 <li>Pārskati par darba maiņām un darbinieku aktivitāti</li>
                 <li>Braucienu pārbaude un apliecinājumi, ievērojot datu privātumu</li>
                 <li>Vēsturisko rezultātu salīdzināšana</li>
                 <li>Paplašināta darbinieku mobilitātes analīze 3. tvēruma 7. kategorijas pārskatiem — aprēķini no
-                  faktiskajiem braucieniem, transportlīdzekļu datiem, degvielas veidiem un kopbraukšanas aktivitātes</li>
+                  faktiskajiem braucieniem, transportlīdzekļu datiem, degvielas veidiem un kopbraukšanas aktivitātes
+                </li>
+                <li>Bez reklāmām līdz 100 pievienotajiem darbiniekiem; virs tā — €1,40 / lietotājs / mēnesī</li>
               </ul>
             </details>
             <span class="plan-cta">Izvēlēties</span>
@@ -519,12 +544,13 @@
           <article class="plan" role="radio" aria-checked="false" tabindex="-1" data-plan="Custom">
             <h3 class="name">Custom</h3>
             <p class="price ask">Sazināties</p>
-            <p class="blurb">Kampuss, biznesa parks vai vairākas vietas — pielāgots mērogs</p>
+            <p class="blurb">Loģistikas centrs, biznesa parks vai vairākas vietas — pielāgots jūsu mērogam</p>
             <ul class="plan-highlights">
-              <li>Vairākas vietas un kopīgas kopbraukšanas kopienas</li>
+              <li>Vairākas vietas un kopīgas braucēju kopienas</li>
               <li>API, HRIS un ANPR / piekļuves integrācijas</li>
-              <li>Pielāgoti 3. tvēruma pārskati un bez reklāmām pēc vienošanās</li>
-              <li>Personīgs ieviešanas partneris</li>
+              <li>Pielāgoti 3. tvēruma pārskati</li>
+              <li>Prioritāru stāvvietu administrēšana un motivācijas rīki</li>
+              <li>Personisks ieviešanas partneris</li>
               <li>Individuāla ieviešana un pastāvīgs atbalsts</li>
             </ul>
             <details class="plan-more">
@@ -537,7 +563,8 @@
                 <li>Individuālas integrācijas maršruta uzskaites un kompensāciju procesiem</li>
                 <li>Ekobraukšanas un transportlīdzekļu efektivitātes analīze</li>
                 <li>Motivācijas programmas, atlīdzības un mobilitātes rīki</li>
-                <li>Individuāli pielāgotas emisiju aprēķinu metodes un padziļināta ietekmes uz vidi uzskaite</li>
+                <li>Pielāgotas emisiju aprēķinu metodes un padziļināta ietekmes uz vidi uzskaite</li>
+                <li>Bez reklāmām pēc vienošanās</li>
               </ul>
               <p class="plan-foot">Katrs Custom risinājums tiek pielāgots uzņēmuma vajadzībām, infrastruktūrai un
                 mobilitātes mērķiem.</p>
@@ -546,11 +573,12 @@
           </article>
         </div>
 
-        <p class="note">Agrīnās pievienošanās cena spēkā līdz <strong>2027.&nbsp;gada 12.&nbsp;maijam</strong>. Noslēdzot
-          līgumu līdz šim datumam, izvēlētā agrīnā cena tiek fiksēta <strong>12 mēnešus</strong> no abonementa sākuma.
+        <p class="note">Ierobežotais piedāvājums spēkā līdz <strong>2027.&nbsp;gada 12.&nbsp;maijam</strong>.
+          Noslēdzot
+          līgumu līdz šim datumam, izvēlētā cena tiek fiksēta <strong>12 mēnešus</strong> no abonementa sākuma.
         </p>
-        <p class="note">Bez reklāmām aizstāj individuālo €1,99 / lietotājs / mēnesī reklāmu noņemšanu lietotnē iekļauto
-          lietotāju skaitam. Pro plānā virs 100 pievienotajiem darbiniekiem — €1,40 / lietotājs / mēnesī.</p>
+        <p class="note">Bez reklāmām aizstāj individuālo reklāmu noņemšanas maksu (€1,99 / lietotājs / mēnesī)
+          iekļautajiem lietotājiem. Pro plānā virs 100 pievienotajiem darbiniekiem — €1,40 / lietotājs / mēnesī.</p>
         <p class="note">Limits attiecas uz Shurp pievienotajiem darbiniekiem, nevis uzņēmuma kopējo darbinieku skaitu.
         </p>
         <p class="note">Visas summas norādītas bez Latvijas PVN (+21%).</p>
@@ -563,10 +591,10 @@
     <section class="band request" id="request">
       <div class="band-inner">
         <p class="request-caption" id="request-caption" hidden></p>
-        <h2 id="request-title" data-default="Pieteikt Shurp uzņēmumam" data-ready="Aizpildiet pieteikumu">Pieteikt Shurp
-          uzņēmumam</h2>
-        <p class="lead" id="request-lead">Pastāstiet mums par savu uzņēmumu. Sazināsimies ar jums e-pastā, lai vienotos
-          par nākamajiem soļiem.</p>
+        <h2 id="request-title" data-default="Pieteikt bezmaksas demonstrāciju" data-ready="Aizpildiet pieteikumu">
+          Pieteikt bezmaksas demonstrāciju</h2>
+        <p class="lead" id="request-lead">Pastāstiet mums par savu uzņēmumu. Šis ir demonstrācijas pieteikums — nevis
+          apmaksāts abonements. Sazināsimies e-pastā.</p>
 
         <form class="form-grid" id="b2b-form" novalidate>
           <div class="field">
@@ -593,6 +621,7 @@
             <label for="plan">Plāns</label>
             <select id="plan" name="plan" required>
               <option value="" disabled selected>Izvēlieties</option>
+              <option value="Not sure">Neesmu pārliecināts</option>
               <option value="Team">Team — €50 / mēnesī</option>
               <option value="Pro">Pro — €100 / mēnesī</option>
               <option value="Custom">Custom — sazināties</option>
@@ -608,26 +637,33 @@
               placeholder="Darba maiņas, autostāvvietu noslodze, ESG pārskatu termiņi…"></textarea>
           </div>
           <div class="form-actions full">
-            <button class="btn" type="submit" id="b2b-submit">Nosūtīt pieteikumu</button>
+            <button class="btn" type="submit" id="b2b-submit">Pieteikt bezmaksas demonstrāciju</button>
             <p class="form-status" id="form-status" role="status"></p>
           </div>
           <div id="turnstile-slot" class="turnstile-slot full" aria-hidden="true"></div>
           <div class="form-sent" id="form-sent" hidden>
             <p class="form-sent-title">Pieteikums nosūtīts</p>
-            <p class="form-sent-sub">Atbildēsim uz e-pastu.</p>
+            <p class="form-sent-sub">Atbildēsim e-pastā.</p>
           </div>
         </form>
+        <p class="form-help">Problēmas ar formu? Rakstiet
+          <span data-safe-email="info"></span>.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-foot">
     <span>Shurp — Brauc kopā ar savējiem</span>
-    <a href="/lv/">Uz sākumlapu</a>
+    <nav class="foot-links" aria-label="Kājenes saites">
+      <a href="/lv/">Uz sākumlapu</a>
+      <a href="/lv/privacy">Privātums</a>
+      <a href="/lv/terms">Noteikumi</a>
+      <span data-safe-email="info"></span>
+    </nav>
   </footer>
 
   <script src="../assets/js/site-nav.js" defer></script>
-  <script src="../assets/js/companies.js?v=20261112d" defer></script>
+  <script src="../assets/js/companies.js?v=20261113p" defer></script>
 </body>
 
 </html>
